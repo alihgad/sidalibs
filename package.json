@@ -1,0 +1,51 @@
+{
+  "name": "sidalibs",
+  "version": "1.0.0",
+  "description": "Core shared models and utilities for SAD SIDA system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:dev": "tsc -p tsconfig.json --watch"
+  },
+  "keywords": [
+    "sida",
+    "nestjs",
+    "libs",
+    "models",
+    "utils",
+    "ali",
+    "mohamed"
+  ],
+  "author": "Ali Hassan && Mohamed Fekry",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.1",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/graphql": "^13.1.0",
+    "@nestjs/mongoose": "^11.0.3",
+    "amqplib": "^0.10.8",
+    "bcrypt": "^6.0.0",
+    "class-validator": "^0.14.2",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.0",
+    "stripe": "^18.1.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/crypto-js": "^4.2.2",
+    "@types/express": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.10",
+    "i": "^0.3.7",
+    "npm": "^11.4.2"
+  }
+}
