@@ -30,7 +30,7 @@ export class User {
     email?: string,
     password?: string,
     notifications?: string[],
-    loginDevicesSession?: Map<string, { LSID: string; userAgent: string; ipAddress: string; createdAt: Date; }>
+    loginDevicesSession?: Map<string, { LSID: string; userAgent: string; ipAddress: string; createdAt: Date; deviceType?: string; }>
   ) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -83,17 +83,21 @@ export class User {
     type: Map,
     of: {
       LSID: { type: String, required: true },
-      userAgent: { type: String },
+      browser: { type: String },
+      os: { type: String },
       ipAddress: { type: String },
       createdAt: { type: Date, default: Date.now },
+      deviceType: { type: String },
     },
     default: {},
   })
   loginDevicesSession?: Map<string, {
     LSID: string;
-    userAgent: string;
+    browser?: string;
+    os?: string;
     ipAddress: string;
     createdAt: Date;
+    deviceType?: string;
   }>;
   userName?: string;
 }
