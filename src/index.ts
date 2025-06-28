@@ -7,7 +7,7 @@ export * from './common/validators/IsPhoneWithCountryCode';
 
 // test
 export let test = ()=>{
-    console.log('test ali');
+    console.log('test ali hassan');
 }
 
 
