@@ -41,6 +41,7 @@ export * from './DB/models/TenantModels/tax-groups.model';
 export * from './DB/models/TenantModels/taxes.model';
 export * from './DB/models/TenantModels/temporaryEvents.model';
 export * from './DB/models/TenantModels/tenant.model';
+export * from './DB/models/TenantModels/payment.model';
 
 // ========== User Models ==========
 export * from './DB/models/userModels/customers.model';
