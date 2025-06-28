@@ -3,6 +3,7 @@ export * from './common/type';
 export * from './common/decorators/is-valid-date.decorator';
 export * from './common/scalars/object-id.scalar';
 export * from './common/validators/IsPhoneWithCountryCode';
+export declare let test: () => void;
 export * from './DB/connection.manager';
 export * from './DB/DataBase.repository';
 export * from './DB/models/inventoryModels/categories.model';

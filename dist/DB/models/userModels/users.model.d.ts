@@ -6,6 +6,7 @@ export declare class User {
         userAgent: string;
         ipAddress: string;
         createdAt: Date;
+        deviceType?: string;
     }>);
     firstName: string;
     lastName: string;
@@ -23,9 +24,11 @@ export declare class User {
     isPhoneVerified?: boolean;
     loginDevicesSession?: Map<string, {
         LSID: string;
-        userAgent: string;
+        browser?: string;
+        os?: string;
         ipAddress: string;
         createdAt: Date;
+        deviceType?: string;
     }>;
     userName?: string;
 }

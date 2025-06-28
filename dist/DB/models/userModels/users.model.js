@@ -123,9 +123,11 @@ __decorate([
         type: Map,
         of: {
             LSID: { type: String, required: true },
-            userAgent: { type: String },
+            browser: { type: String },
+            os: { type: String },
             ipAddress: { type: String },
             createdAt: { type: Date, default: Date.now },
+            deviceType: { type: String },
         },
         default: {},
     }),
