@@ -35,7 +35,7 @@ __exportStar(require("./common/scalars/object-id.scalar"), exports);
 __exportStar(require("./common/validators/IsPhoneWithCountryCode"), exports);
 // test
 let test = () => {
-    console.log('test ali hassan');
+    console.log('test ali hassan force');
 };
 exports.test = test;
 // DB
