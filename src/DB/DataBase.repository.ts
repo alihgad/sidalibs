@@ -19,8 +19,8 @@ export class DataBaseRepository<TDocument> {
     }
 
 
-    async findOld(query: FilterQuery<TDocument>): Promise<TDocument | null> {
-        return this.model.findOne(query);
+    async findOld(query: FilterQuery<TDocument>): Promise<TDocument[] | null> {
+        return this.model.find(query);
     }
 
     async insertMany(data: Partial<TDocument>[]): Promise<TDocument[]> {

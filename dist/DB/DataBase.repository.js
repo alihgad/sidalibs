@@ -10,7 +10,7 @@ class DataBaseRepository {
         return this.model.create(data);
     }
     async findOld(query) {
-        return this.model.findOne(query);
+        return this.model.find(query);
     }
     async insertMany(data) {
         const result = await this.model.insertMany(data);
