@@ -18,6 +18,11 @@ export class DataBaseRepository<TDocument> {
         return this.model.create(data);
     }
 
+
+    async findOld(query: FilterQuery<TDocument>): Promise<TDocument | null> {
+        return this.model.findOne(query);
+    }
+
     async insertMany(data: Partial<TDocument>[]): Promise<TDocument[]> {
         const result = await this.model.insertMany(data);
         return result as TDocument[];
