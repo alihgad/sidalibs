@@ -11,7 +11,7 @@ export declare class DataBaseRepository<TDocument> {
     private readonly model;
     constructor(model: Model<TDocument>);
     create(data: Partial<TDocument>): Promise<TDocument>;
-    findOld(query: FilterQuery<TDocument>): Promise<TDocument[] | null>;
+    findOld(query: FilterQuery<TDocument>): Promise<TDocument[] | []>;
     insertMany(data: Partial<TDocument>[]): Promise<TDocument[]>;
     findOne(query: FilterQuery<TDocument>, select?: string | Record<string, 0 | 1>, populate?: PopulateOptions[]): Promise<TDocument | null>;
     find({ filter, populate, page, sort, select, limit, }: FindOptions<TDocument>): Promise<TDocument[] | []>;

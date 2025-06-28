@@ -19,7 +19,7 @@ export class DataBaseRepository<TDocument> {
     }
 
 
-    async findOld(query: FilterQuery<TDocument>): Promise<TDocument[] | null> {
+    async findOld(query: FilterQuery<TDocument>): Promise<TDocument[] | []> {
         return this.model.find(query);
     }
 
