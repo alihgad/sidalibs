@@ -1,6 +1,6 @@
 {
   "name": "sidalibs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core shared models and utilities for SAD SIDA system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
