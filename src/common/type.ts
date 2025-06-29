@@ -1,5 +1,17 @@
 import { registerEnumType } from '@nestjs/graphql';
 import Stripe from 'stripe';
+
+export enum licencesEnum{
+    "cashier" = "cashier",
+    "KDS" = "KDS"
+}
+
+
+registerEnumType(licencesEnum, {
+    name: 'licencesEnum',
+    description: 'The type of licence',
+})
+
 export enum ProductsTypeEnum {
     POS = 'POS',
     KIOSK = 'KIOSK',

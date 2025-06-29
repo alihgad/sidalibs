@@ -1,7 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = void 0;
+exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
+var licencesEnum;
+(function (licencesEnum) {
+    licencesEnum["cashier"] = "cashier";
+    licencesEnum["KDS"] = "KDS";
+})(licencesEnum || (exports.licencesEnum = licencesEnum = {}));
+(0, graphql_1.registerEnumType)(licencesEnum, {
+    name: 'licencesEnum',
+    description: 'The type of licence',
+});
 var ProductsTypeEnum;
 (function (ProductsTypeEnum) {
     ProductsTypeEnum["POS"] = "POS";
