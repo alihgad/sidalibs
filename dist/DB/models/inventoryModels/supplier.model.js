@@ -5,6 +5,11 @@ const mongoose_1 = require("mongoose");
 const connection_manager_1 = require("../../connection.manager");
 const DataBase_repository_1 = require("../../DataBase.repository");
 exports.supplierSchema = new mongoose_1.Schema({
+    supplierCode: {
+        type: String,
+        required: true,
+        unique: true
+    },
     name: {
         type: String,
         required: true,

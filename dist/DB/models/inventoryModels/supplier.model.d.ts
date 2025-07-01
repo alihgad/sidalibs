@@ -1,6 +1,7 @@
 import { Schema, Model, Document } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export interface Supplier extends Document {
+    supplierCode: string;
     name: string;
     phone: string;
     email?: string;
