@@ -3,6 +3,7 @@ import { ConnectionManager } from '../../connection.manager';
 import { DataBaseRepository } from '../../DataBase.repository';
 
 export interface Supplier extends Document {
+  supplierCode: string;
   name: string;
   phone: string;
   email?: string;
@@ -18,6 +19,11 @@ export interface Supplier extends Document {
 }
 
 export const supplierSchema = new Schema<Supplier>({
+  supplierCode: {
+    type: String,
+    required: true,
+    unique: true
+  },
   name: {
     type: String,
     required: true,
