@@ -8,7 +8,7 @@ export * from './DB/connection.manager';
 export * from './DB/DataBase.repository';
 export * from './DB/models/inventoryModels/categories.model';
 export * from './DB/models/inventoryModels/materials.model';
-export * from './DB/models/inventoryModels/suppliers.model';
+export * from './DB/models/inventoryModels/supplier.model';
 export * from './DB/models/productModels/categories.model';
 export * from './DB/models/TenantModels/branch.model';
 export * from './DB/models/TenantModels/brand.model';

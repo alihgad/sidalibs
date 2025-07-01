@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = void 0;
+exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 var licencesEnum;
 (function (licencesEnum) {
@@ -207,4 +207,13 @@ var ReasonType;
 (0, graphql_1.registerEnumType)(ReasonType, {
     name: 'ReasonType',
     description: 'The type of reason',
+});
+var CostCalculationMethod;
+(function (CostCalculationMethod) {
+    CostCalculationMethod["FIXED"] = "FIXED";
+    CostCalculationMethod["OPERATION_BASED"] = "OPERATION_BASED";
+})(CostCalculationMethod || (exports.CostCalculationMethod = CostCalculationMethod = {}));
+(0, graphql_1.registerEnumType)(CostCalculationMethod, {
+    name: 'CostCalculationMethod',
+    description: 'Cost calculation method (fixed or operation based)',
 });

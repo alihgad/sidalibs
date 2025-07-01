@@ -1,15 +1,24 @@
-import { Model, Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
+import { CostCalculationMethod } from '../../../common/type';
+import { DataBaseRepository } from '../../DataBase.repository';
 export interface materials extends Document {
     name: string;
-    phone: string;
-    email?: string;
-    totalOrders: number;
-    lastOrder?: Date;
-    accountBalance: number;
-    isDeleted: boolean;
-    isBlacklisted: boolean;
-    creditAccount: boolean;
-    notes?: string;
+    secondaryName?: string;
+    code: string;
+    category: string;
+    storageUnit: string;
+    recipeUnit: string;
+    conversionFactor: number;
+    costCalculationMethod: CostCalculationMethod;
+    cost: number;
+    reorderLevel: number;
+    barcode?: string;
+    minLevel: number;
+    maxLevel: number;
+    suppliers?: Types.ObjectId[];
+    tags?: Types.ObjectId[];
+    ingredients?: Types.ObjectId[];
 }
-export declare const getMaterialsModel: (businessNumber: string) => Model<materials>;
+export type MaterialsDocument = materials & Document;
+export declare const getMaterialsModel: (businessNumber: string) => DataBaseRepository<MaterialsDocument>;
 //# sourceMappingURL=materials.model.d.ts.map
