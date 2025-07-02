@@ -79,7 +79,11 @@ const materialsSchema = new mongoose_1.Schema({
             type: mongoose_1.Schema.Types.ObjectId,
             ref: 'Material',
             required: false
-        }]
+        }],
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true
 });

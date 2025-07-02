@@ -18,6 +18,7 @@ export interface materials extends Document {
     suppliers?: Types.ObjectId[];
     tags?: Types.ObjectId[];
     ingredients?: Types.ObjectId[];
+    isDeleted: boolean;
 }
 export type MaterialsDocument = materials & Document;
 export declare const getMaterialsModel: (businessNumber: string) => DataBaseRepository<MaterialsDocument>;
