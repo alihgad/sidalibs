@@ -22,6 +22,7 @@ export interface materials extends Document {
   suppliers?: Types.ObjectId[];
   tags?: Types.ObjectId[];
   ingredients?: Types.ObjectId[];
+  isDeleted: boolean;
 }
 
 const materialsSchema = new Schema<materials>({
@@ -96,7 +97,11 @@ const materialsSchema = new Schema<materials>({
     type: Schema.Types.ObjectId,
     ref: 'Material',
     required: false
-  }]
+  }],
+  isDeleted: {
+    type: Boolean,
+    default: false
+  }
 }, {
   timestamps: true
 });
