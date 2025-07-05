@@ -66,7 +66,7 @@ export class Tenant {
   };
 
   @Prop({
-    type:{String},
+    type:String,
     default:"notConfirmed"
   })
   status?: string;
@@ -79,6 +79,8 @@ export class Tenant {
         enum: Object.values(PlanDuration),
         required: true,
       },
+      startDate: { type: Date },
+      endDate: { type: Date },
     },
     required: false,
   })

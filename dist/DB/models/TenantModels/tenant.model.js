@@ -85,7 +85,7 @@ __decorate([
 ], Tenant.prototype, "requestedItems", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
-        type: { String },
+        type: String,
         default: "notConfirmed"
     }),
     __metadata("design:type", String)
@@ -99,6 +99,8 @@ __decorate([
                 enum: Object.values(type_1.PlanDuration),
                 required: true,
             },
+            startDate: { type: Date },
+            endDate: { type: Date },
         },
         required: false,
     }),
