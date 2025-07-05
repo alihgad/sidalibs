@@ -222,3 +222,13 @@ registerEnumType(ReasonType, {
     name: 'ReasonType',
     description: 'The type of reason',
 });
+
+export enum CostCalculationMethod {
+    FIXED = 'FIXED',
+    OPERATION_BASED = 'OPERATION_BASED'
+}
+
+registerEnumType(CostCalculationMethod, {
+    name: 'CostCalculationMethod',
+    description: 'Cost calculation method (fixed or operation based)',
+});

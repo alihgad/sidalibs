@@ -114,4 +114,8 @@ export declare enum ReasonType {
     QUANTITY_MODIFICATION = "QUANTITY_MODIFICATION",
     CASH_REGISTER_OPERATIONS = "CASH_REGISTER_OPERATIONS"
 }
+export declare enum CostCalculationMethod {
+    FIXED = "FIXED",
+    OPERATION_BASED = "OPERATION_BASED"
+}
 //# sourceMappingURL=type.d.ts.map

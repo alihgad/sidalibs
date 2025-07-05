@@ -19,7 +19,7 @@ export * from './DB/DataBase.repository';
 // ========== Inventory Models ==========
 export * from './DB/models/inventoryModels/categories.model';
 export * from './DB/models/inventoryModels/materials.model';
-export * from './DB/models/inventoryModels/suppliers.model';
+export * from './DB/models/inventoryModels/supplier.model';
 
 // ========== Product Models ==========
 export * from './DB/models/productModels/categories.model';
