@@ -66,7 +66,7 @@ export class Tenant {
   };
 
   @Prop({
-    type:{String},
+    type:String,
     default:"notConfirmed"
   })
   status?: string;

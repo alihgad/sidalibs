@@ -85,7 +85,7 @@ __decorate([
 ], Tenant.prototype, "requestedItems", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
-        type: { String },
+        type: String,
         default: "notConfirmed"
     }),
     __metadata("design:type", String)
