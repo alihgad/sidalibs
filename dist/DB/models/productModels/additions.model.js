@@ -9,47 +9,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProductCategoriesModel = exports.additionsModel = exports.Product_CATEGORY_MODEL = exports.additionsSchema = exports.additions = void 0;
+exports.getAdditionsModel = exports.AdditionModel = exports.ADDITION_MODEL = exports.AdditionSchema = exports.Addition = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
-let additions = class additions {
+let Addition = class Addition {
 };
-exports.additions = additions;
+exports.Addition = Addition;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], additions.prototype, "name", void 0);
+], Addition.prototype, "name", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: String, required: false }),
     __metadata("design:type", String)
-], additions.prototype, "secondaryName", void 0);
+], Addition.prototype, "secondaryName", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: String, required: true, unique: true }),
     __metadata("design:type", String)
-], additions.prototype, "referenceNumber", void 0);
+], Addition.prototype, "referenceNumber", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
-], additions.prototype, "isDeleted", void 0);
-exports.additions = additions = __decorate([
+], Addition.prototype, "isDeleted", void 0);
+exports.Addition = Addition = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
     })
-], additions);
-exports.additionsSchema = mongoose_1.SchemaFactory.createForClass(additions);
-exports.Product_CATEGORY_MODEL = 'additions';
-exports.additionsModel = mongoose_1.MongooseModule.forFeature([
-    { name: additions.name, schema: exports.additionsSchema },
+], Addition);
+exports.AdditionSchema = mongoose_1.SchemaFactory.createForClass(Addition);
+exports.ADDITION_MODEL = 'Addition';
+exports.AdditionModel = mongoose_1.MongooseModule.forFeature([
+    { name: Addition.name, schema: exports.AdditionSchema },
 ]);
-const getProductCategoriesModel = (businessNumber) => {
+const getAdditionsModel = (businessNumber) => {
     if (!businessNumber) {
-        throw new Error("businessNumber is required in Product category model");
+        throw new Error("businessNumber is required in Addition model");
     }
     let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
-    const model = connection.models['additions'] || connection.model('additions', exports.additionsSchema);
+    const model = connection.models['Addition'] || connection.model('Addition', exports.AdditionSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };
-exports.getProductCategoriesModel = getProductCategoriesModel;
+exports.getAdditionsModel = getAdditionsModel;

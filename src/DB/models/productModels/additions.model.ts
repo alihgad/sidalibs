@@ -8,7 +8,7 @@ import { ConnectionManager } from '../../connection.manager';
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
 })
-export class additions {
+export class Addition {
     @Prop({ required: true })
     name!: string;
 
@@ -22,18 +22,18 @@ export class additions {
     isDeleted!: boolean;
 }
 
-export type additionsDocument = HydratedDocument<additions> & { _id: string };
-export const additionsSchema = SchemaFactory.createForClass(additions);
-export const Product_CATEGORY_MODEL = 'additions';
-export const additionsModel = MongooseModule.forFeature([
-    { name: additions.name, schema: additionsSchema },
+export type AdditionDocument = HydratedDocument<Addition> & { _id: string };
+export const AdditionSchema = SchemaFactory.createForClass(Addition);
+export const ADDITION_MODEL = 'Addition';
+export const AdditionModel = MongooseModule.forFeature([
+    { name: Addition.name, schema: AdditionSchema },
 ]);
 
-export const getProductCategoriesModel = (businessNumber: string): DataBaseRepository<additionsDocument> => {
+export const getAdditionsModel = (businessNumber: string): DataBaseRepository<AdditionDocument> => {
     if(!businessNumber){
-        throw new Error("businessNumber is required in Product category model")
+        throw new Error("businessNumber is required in Addition model")
     }
     let connection = ConnectionManager.getConnection(businessNumber);
-    const model = connection.models['additions'] || connection.model('additions', additionsSchema) as unknown as Model<additionsDocument>;
-    return new DataBaseRepository<additionsDocument>(model);
+    const model = connection.models['Addition'] || connection.model('Addition', AdditionSchema) as unknown as Model<AdditionDocument>;
+    return new DataBaseRepository<AdditionDocument>(model);
 } 

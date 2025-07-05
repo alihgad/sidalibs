@@ -1,24 +1,24 @@
 import { HydratedDocument, Model } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
-export declare class additions {
+export declare class Addition {
     name: string;
     secondaryName?: string;
     referenceNumber: string;
     isDeleted: boolean;
 }
-export type additionsDocument = HydratedDocument<additions> & {
+export type AdditionDocument = HydratedDocument<Addition> & {
     _id: string;
 };
-export declare const additionsSchema: import("mongoose").Schema<additions, Model<additions, any, any, any, import("mongoose").Document<unknown, any, additions, any> & additions & {
+export declare const AdditionSchema: import("mongoose").Schema<Addition, Model<Addition, any, any, any, import("mongoose").Document<unknown, any, Addition, any> & Addition & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, additions, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<additions>, {}> & import("mongoose").FlatRecord<additions> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Addition, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Addition>, {}> & import("mongoose").FlatRecord<Addition> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
 }>;
-export declare const Product_CATEGORY_MODEL = "additions";
-export declare const additionsModel: import("@nestjs/common").DynamicModule;
-export declare const getProductCategoriesModel: (businessNumber: string) => DataBaseRepository<additionsDocument>;
+export declare const ADDITION_MODEL = "Addition";
+export declare const AdditionModel: import("@nestjs/common").DynamicModule;
+export declare const getAdditionsModel: (businessNumber: string) => DataBaseRepository<AdditionDocument>;
 //# sourceMappingURL=additions.model.d.ts.map
