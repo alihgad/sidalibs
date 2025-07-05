@@ -21,6 +21,7 @@ const tags_model_1 = require("../TenantModels/tags.model");
 const materials_model_1 = require("../inventoryModels/materials.model");
 const branch_model_1 = require("../TenantModels/branch.model");
 const temporaryEvents_model_1 = require("../TenantModels/temporaryEvents.model");
+const groups_model_1 = require("./groups.model");
 // Custom Branch Price Schema
 let CustomBranchPrice = class CustomBranchPrice {
 };
@@ -233,6 +234,9 @@ const getProductModel = (businessNumber) => {
     }
     if (!connection.models['TemporaryEvent']) {
         connection.model('TemporaryEvent', temporaryEvents_model_1.TemporaryEventSchema);
+    }
+    if (!connection.models['ProductGroup']) {
+        connection.model('ProductGroup', groups_model_1.ProductGroupSchema);
     }
     const model = connection.models['Product'] || connection.model('Product', exports.ProductSchema);
     return new DataBase_repository_1.DataBaseRepository(model);

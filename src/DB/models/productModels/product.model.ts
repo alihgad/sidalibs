@@ -9,6 +9,7 @@ import { TagSchema } from '../TenantModels/tags.model';
 import { materialsSchema } from '../inventoryModels/materials.model';
 import { BranchSchema } from '../TenantModels/branch.model';
 import { TemporaryEventSchema } from '../TenantModels/temporaryEvents.model';
+import { ProductGroupSchema } from './groups.model';
 
 // Custom Branch Price Schema
 @Schema({ _id: false })
@@ -133,7 +134,7 @@ export class Product {
     priceTagApplies!: Types.ObjectId[]; // وسوم الأسعار (لم يتم إنشاؤها بعد)
 
     @Prop({ type: [{ type: Types.ObjectId, ref: 'ProductGroup' }], default: [] })
-    productGroups!: Types.ObjectId[]; // المجموعات (لم يتم إنشاؤها بعد)
+    productGroups!: Types.ObjectId[];  // المجموعات
 
     @Prop({ type: [{ type: Types.ObjectId, ref: 'TemporaryEvent' }], default: [] })
     temporaryEvents!: Types.ObjectId[]; // الفعاليات المؤقتة
@@ -180,7 +181,9 @@ export const getProductModel = (businessNumber: string): DataBaseRepository<Prod
     if (!connection.models['TemporaryEvent']) {
         connection.model('TemporaryEvent', TemporaryEventSchema);
     }
-    
+    if (!connection.models['ProductGroup']) {
+        connection.model('ProductGroup', ProductGroupSchema);
+    }
     const model = connection.models['Product'] || connection.model('Product', ProductSchema) as unknown as Model<ProductDocument>;
     return new DataBaseRepository<ProductDocument>(model);
 } 
