@@ -231,3 +231,34 @@ registerEnumType(CostCalculationMethod, {
     name: 'CostCalculationMethod',
     description: 'Cost calculation method (fixed or operation based)',
 });
+
+export enum PricingMethod {
+    FIXED = 'FIXED',
+    OPEN = 'OPEN'
+}
+
+registerEnumType(PricingMethod, {
+    name: 'PricingMethod',
+    description: 'Pricing method (fixed or open)',
+});
+
+export enum SaleMethod {
+    UNIT = 'UNIT',
+    WEIGHT = 'WEIGHT'
+}
+
+registerEnumType(SaleMethod, {
+    name: 'SaleMethod',
+    description: 'Sale method (unit or weight)',
+});
+
+export enum ServingUnit {
+    GRAM = 'GRAM',
+    ML = 'ML',
+    SERVING = 'SERVING'
+}
+
+registerEnumType(ServingUnit, {
+    name: 'ServingUnit',
+    description: 'Serving unit for nutritional values',
+});

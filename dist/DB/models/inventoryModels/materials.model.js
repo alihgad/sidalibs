@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMaterialsModel = void 0;
+exports.getMaterialsModel = exports.materialsSchema = void 0;
 const mongoose_1 = require("mongoose");
 const type_1 = require("../../../common/type");
 const connection_manager_1 = require("../../connection.manager");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const tags_model_1 = require("../TenantModels/tags.model");
 const supplier_model_1 = require("./supplier.model");
-const materialsSchema = new mongoose_1.Schema({
+exports.materialsSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: true,
@@ -100,7 +100,7 @@ const getMaterialsModel = (businessNumber) => {
     if (!connection.models['Supplier']) {
         connection.model('Supplier', supplier_model_1.supplierSchema);
     }
-    const model = connection.models['Material'] || connection.model('Material', materialsSchema);
+    const model = connection.models['Material'] || connection.model('Material', exports.materialsSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };
 exports.getMaterialsModel = getMaterialsModel;

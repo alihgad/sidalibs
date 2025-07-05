@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = void 0;
+exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 var licencesEnum;
 (function (licencesEnum) {
@@ -216,4 +216,32 @@ var CostCalculationMethod;
 (0, graphql_1.registerEnumType)(CostCalculationMethod, {
     name: 'CostCalculationMethod',
     description: 'Cost calculation method (fixed or operation based)',
+});
+var PricingMethod;
+(function (PricingMethod) {
+    PricingMethod["FIXED"] = "FIXED";
+    PricingMethod["OPEN"] = "OPEN";
+})(PricingMethod || (exports.PricingMethod = PricingMethod = {}));
+(0, graphql_1.registerEnumType)(PricingMethod, {
+    name: 'PricingMethod',
+    description: 'Pricing method (fixed or open)',
+});
+var SaleMethod;
+(function (SaleMethod) {
+    SaleMethod["UNIT"] = "UNIT";
+    SaleMethod["WEIGHT"] = "WEIGHT";
+})(SaleMethod || (exports.SaleMethod = SaleMethod = {}));
+(0, graphql_1.registerEnumType)(SaleMethod, {
+    name: 'SaleMethod',
+    description: 'Sale method (unit or weight)',
+});
+var ServingUnit;
+(function (ServingUnit) {
+    ServingUnit["GRAM"] = "GRAM";
+    ServingUnit["ML"] = "ML";
+    ServingUnit["SERVING"] = "SERVING";
+})(ServingUnit || (exports.ServingUnit = ServingUnit = {}));
+(0, graphql_1.registerEnumType)(ServingUnit, {
+    name: 'ServingUnit',
+    description: 'Serving unit for nutritional values',
 });
