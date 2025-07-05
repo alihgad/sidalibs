@@ -16,6 +16,9 @@ export class Device {
     @Prop({ required: true, trim: true })
     name!: string;
 
+    @Prop({ required: true, trim: true })
+    deviceType!: string;
+
     @Prop({ type: Types.ObjectId, ref: 'Branch' })
     branchId!: Types.ObjectId;
 
