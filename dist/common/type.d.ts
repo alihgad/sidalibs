@@ -1,7 +1,8 @@
 import Stripe from 'stripe';
 export declare enum licencesEnum {
     "cashier" = "cashier",
-    "KDS" = "KDS"
+    "KDS" = "KDS",
+    "addOnsCashier" = "addOnsCashier"
 }
 export declare enum ProductsTypeEnum {
     POS = "POS",

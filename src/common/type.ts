@@ -3,7 +3,8 @@ import Stripe from 'stripe';
 
 export enum licencesEnum{
     "cashier" = "cashier",
-    "KDS" = "KDS"
+    "KDS" = "KDS",
+    "addOnsCashier" = "addOnsCashier",
 }
 
 

@@ -61,5 +61,5 @@ const materialsSchema = new Schema<materials>({
 });
 
 export const getMaterialsModel = (businessNumber: string): Model<materials> => {
-  return model<materials>(`materials_${businessNumber}`, materialsSchema);
+  return model<materials>(`materials`, materialsSchema);
 }; 

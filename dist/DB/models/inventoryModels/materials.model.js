@@ -49,6 +49,6 @@ const materialsSchema = new mongoose_1.Schema({
     timestamps: true
 });
 const getMaterialsModel = (businessNumber) => {
-    return (0, mongoose_1.model)(`materials_${businessNumber}`, materialsSchema);
+    return (0, mongoose_1.model)(`materials`, materialsSchema);
 };
 exports.getMaterialsModel = getMaterialsModel;

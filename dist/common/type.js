@@ -6,6 +6,7 @@ var licencesEnum;
 (function (licencesEnum) {
     licencesEnum["cashier"] = "cashier";
     licencesEnum["KDS"] = "KDS";
+    licencesEnum["addOnsCashier"] = "addOnsCashier";
 })(licencesEnum || (exports.licencesEnum = licencesEnum = {}));
 (0, graphql_1.registerEnumType)(licencesEnum, {
     name: 'licencesEnum',
