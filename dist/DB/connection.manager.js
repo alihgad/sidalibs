@@ -19,42 +19,41 @@ const mongoose_1 = require("mongoose");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 let ConnectionManager = ConnectionManager_1 = class ConnectionManager {
-    constructor() {
-    }
+    constructor() { }
     static getConnection(businessNumber) {
         const mongoUri = process.env.MONGODB_URI;
         console.log(mongoUri);
         if (!mongoUri)
-            throw new Error('MONGODB_URI is not defined');
+            throw new Error("MONGODB_URI is not defined");
         // Check if connection exists in map
         if (ConnectionManager_1.connections.has(businessNumber)) {
             const existingConnection = ConnectionManager_1.connections.get(businessNumber);
             if (existingConnection.readyState === mongoose_1.ConnectionStates.connected) {
-                console.log('exsist Connection');
+                console.log("exsist Connection");
                 return existingConnection;
             }
             ConnectionManager_1.connections.delete(businessNumber);
         }
         // Create new connection if not exists
         let url;
-        if (mongoUri[mongoUri.length - 1] === '/') {
-            url = mongoUri.slice(0, mongoUri.length - 1);
+        if (mongoUri[mongoUri.length - 1] === "/") {
+            url = `${mongoUri}tenant_${businessNumber}`;
         }
         else {
-            url = mongoUri;
+            url = `${mongoUri}/tenant_${businessNumber}`;
         }
-        const connection = (0, mongoose_1.createConnection)(`${mongoUri}/tenant_${businessNumber}`, {
+        const connection = (0, mongoose_1.createConnection)(url, {
             serverSelectionTimeoutMS: 5000,
             socketTimeoutMS: 45000,
         });
-        connection.on('connected', () => {
+        connection.on("connected", () => {
             ConnectionManager_1.logger.log(`Connected to database for tenant: ${businessNumber}`);
         });
-        connection.on('error', (error) => {
+        connection.on("error", (error) => {
             ConnectionManager_1.logger.error(`Database connection error for tenant ${businessNumber}:`, error);
             ConnectionManager_1.connections.delete(businessNumber);
         });
-        connection.on('disconnected', () => {
+        connection.on("disconnected", () => {
             ConnectionManager_1.logger.warn(`Database disconnected for tenant: ${businessNumber}`);
             ConnectionManager_1.connections.delete(businessNumber);
         });
