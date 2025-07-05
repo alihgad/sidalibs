@@ -25,7 +25,7 @@ export interface materials extends Document {
   isDeleted: boolean;
 }
 
-const materialsSchema = new Schema<materials>({
+export const materialsSchema = new Schema<materials>({
   name: {
     type: String,
     required: true,

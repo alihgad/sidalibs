@@ -1,4 +1,4 @@
-import { Document, Types } from 'mongoose';
+import { Schema, Model, Document, Types } from 'mongoose';
 import { CostCalculationMethod } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 export interface materials extends Document {
@@ -20,6 +20,15 @@ export interface materials extends Document {
     ingredients?: Types.ObjectId[];
     isDeleted: boolean;
 }
+export declare const materialsSchema: Schema<materials, Model<materials, any, any, any, Document<unknown, any, materials, any> & materials & Required<{
+    _id: unknown;
+}> & {
+    __v: number;
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, materials, Document<unknown, {}, import("mongoose").FlatRecord<materials>, {}> & import("mongoose").FlatRecord<materials> & Required<{
+    _id: unknown;
+}> & {
+    __v: number;
+}>;
 export type MaterialsDocument = materials & Document;
 export declare const getMaterialsModel: (businessNumber: string) => DataBaseRepository<MaterialsDocument>;
 //# sourceMappingURL=materials.model.d.ts.map

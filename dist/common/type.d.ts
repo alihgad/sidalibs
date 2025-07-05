@@ -122,4 +122,17 @@ export declare enum CostCalculationMethod {
     FIXED = "FIXED",
     OPERATION_BASED = "OPERATION_BASED"
 }
+export declare enum PricingMethod {
+    FIXED = "FIXED",
+    OPEN = "OPEN"
+}
+export declare enum SaleMethod {
+    UNIT = "UNIT",
+    WEIGHT = "WEIGHT"
+}
+export declare enum ServingUnit {
+    GRAM = "GRAM",
+    ML = "ML",
+    SERVING = "SERVING"
+}
 //# sourceMappingURL=type.d.ts.map
