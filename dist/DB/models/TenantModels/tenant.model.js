@@ -99,6 +99,8 @@ __decorate([
                 enum: Object.values(type_1.PlanDuration),
                 required: true,
             },
+            startDate: { type: Date },
+            endDate: { type: Date },
         },
         required: false,
     }),

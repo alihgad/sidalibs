@@ -79,6 +79,8 @@ export class Tenant {
         enum: Object.values(PlanDuration),
         required: true,
       },
+      startDate: { type: Date },
+      endDate: { type: Date },
     },
     required: false,
   })
