@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-<<<<<<< HEAD
-exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = void 0;
-=======
-exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
->>>>>>> 376b574ddf6de63059b1a10fd0e402b411312d8d
+exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 var deviceTypeEnum;
 (function (deviceTypeEnum) {
