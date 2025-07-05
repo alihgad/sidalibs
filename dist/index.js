@@ -58,6 +58,8 @@ __exportStar(require("./DB/models/inventoryModels/materials.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/supplier.model"), exports);
 // ========== Product Models ==========
 __exportStar(require("./DB/models/productModels/categories.model"), exports);
+__exportStar(require("./DB/models/productModels/groups.model"), exports);
+__exportStar(require("./DB/models/productModels/product.model"), exports);
 // ========== Tenant Models ==========
 __exportStar(require("./DB/models/TenantModels/branch.model"), exports);
 __exportStar(require("./DB/models/TenantModels/brand.model"), exports);
