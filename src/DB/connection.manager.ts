@@ -32,8 +32,15 @@ export class ConnectionManager {
     }
 
     // Create new connection if not exists
-    const connection = createConnection(`${mongoUri}/tenant_${businessNumber}`, {
 
+    let url ;
+    if(mongoUri[mongoUri.length - 1] === '/'){
+      url = mongoUri.slice(0, mongoUri.length - 1);
+    }else{
+      url = mongoUri
+    }
+
+    const connection = createConnection(`${mongoUri}/tenant_${businessNumber}`, {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,
     });

@@ -36,6 +36,13 @@ let ConnectionManager = ConnectionManager_1 = class ConnectionManager {
             ConnectionManager_1.connections.delete(businessNumber);
         }
         // Create new connection if not exists
+        let url;
+        if (mongoUri[mongoUri.length - 1] === '/') {
+            url = mongoUri.slice(0, mongoUri.length - 1);
+        }
+        else {
+            url = mongoUri;
+        }
         const connection = (0, mongoose_1.createConnection)(`${mongoUri}/tenant_${businessNumber}`, {
             serverSelectionTimeoutMS: 5000,
             socketTimeoutMS: 45000,
