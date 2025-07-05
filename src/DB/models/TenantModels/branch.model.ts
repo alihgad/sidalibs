@@ -9,7 +9,7 @@ import { ConnectionManager } from '../../connection.manager';
 })
 export class Branch {
     @Prop({ required: true })
-    name!: string;
+    name!: string; // وقت التسجيل
 
     @Prop({ type: String, required: true })
     type!: string;
@@ -22,8 +22,82 @@ export class Branch {
     
     @Prop({ type: Boolean, default: false })
     onlineOrder!: boolean
+
     @Prop({ type: Boolean, default: false })
     reservations!: boolean;
+
+    @Prop({ 
+        type: String, 
+        required: false,
+        match: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
+    })
+    workStartTime!: string;
+
+    @Prop({ 
+        type: String, 
+        required: false,
+        match: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
+    })
+    workEndTime!: string;
+
+    @Prop({ type: String, required: false })
+    referenceNumber!: string; // وقت التسجيل
+
+    @Prop({ type: String, required: false })
+    taxGroup!: string; // وقت التسجيل
+
+    @Prop({ type: String, required: false })
+    branchTaxRegistrationName!: string;
+
+    @Prop({ type: String, required: false })
+    phone!: string;
+
+    @Prop({ type: String, required: false })
+    address!: string;
+
+    @Prop({ type: String, required: false })
+    streetName!: string;
+
+    @Prop({ type: String, required: false })
+    buildingNumber!: string;
+
+    @Prop({ type: String, required: false })
+    subNumber!: string;
+
+    @Prop({ type: String, required: false })
+    city!: string;
+
+    @Prop({ type: String, required: false })
+    district!: string;
+
+    @Prop({ type: String, required: false })
+    postalCode!: string;
+
+    @Prop({ type: String, required: false })
+    commercialRegistrationNumber!: string;
+
+    @Prop({ type: Number, required: false })
+    latitude!: number;
+
+    @Prop({ type: Number, required: false })
+    longitude!: number;
+
+    @Prop({ type: String, required: false })
+    orderViewerApp!: {
+        public_id: string,
+        secure_url: string,
+    }; // URL للصورة المرفوعة
+
+    @Prop({ type: String, required: false })
+    invoiceTop!: string;
+
+    @Prop({ type: String, required: false })
+    invoiceBottom!: string; 
+
+    @Prop({ type: Boolean, default: false })
+    receiveCallCenterAndApiOrders!: boolean;
+
+    
 }
 export type BranchDocument = HydratedDocument<Branch> & { _id: string };
 export const BranchSchema = SchemaFactory.createForClass(Branch);

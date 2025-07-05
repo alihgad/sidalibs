@@ -24,6 +24,18 @@ export class Payment {
 
   @Prop({ required: true })
   paidAt!: Date;
+
+  @Prop({required:true})
+  items!:[string]
+
+  @Prop({required : true})
+  countery!: string
+
+
+  @Prop({required : true})
+  plan!: string
+
+
 }
 
 export type paymentDocument = HydratedDocument<Payment> & { _id: string };

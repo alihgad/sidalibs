@@ -8,16 +8,28 @@ export declare class Tenant {
     businessNumber: string;
     Email: string;
     countryCode: string;
+    countryName: string;
     phoneNumber: string;
     confirmed: boolean;
     seconderyNameing: boolean;
     pricesWithVat: boolean;
     specficSupplier: boolean;
     timeZone: string;
-    requestedPlan?: {
+    branchesCount: number;
+    requestedItems?: {
+        software: [];
+        hardware: [];
+    };
+    status?: string;
+    requstedPlan?: {
         plan: PlanType;
         duration: PlanDuration;
+        startDate: Date;
+        endDate: Date;
     };
+    branchesLimit: number;
+    cashierLimit: number;
+    KDSLimit: number;
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;

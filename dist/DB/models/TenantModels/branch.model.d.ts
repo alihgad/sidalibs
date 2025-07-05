@@ -7,6 +7,29 @@ export declare class Branch {
     secondName: string;
     onlineOrder: boolean;
     reservations: boolean;
+    workStartTime: string;
+    workEndTime: string;
+    referenceNumber: string;
+    taxGroup: string;
+    branchTaxRegistrationName: string;
+    phone: string;
+    address: string;
+    streetName: string;
+    buildingNumber: string;
+    subNumber: string;
+    city: string;
+    district: string;
+    postalCode: string;
+    commercialRegistrationNumber: string;
+    latitude: number;
+    longitude: number;
+    orderViewerApp: {
+        public_id: string;
+        secure_url: string;
+    };
+    invoiceTop: string;
+    invoiceBottom: string;
+    receiveCallCenterAndApiOrders: boolean;
 }
 export type BranchDocument = HydratedDocument<Branch> & {
     _id: string;

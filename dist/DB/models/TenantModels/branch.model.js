@@ -40,6 +40,94 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Branch.prototype, "reservations", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        type: String,
+        required: false,
+        match: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
+    }),
+    __metadata("design:type", String)
+], Branch.prototype, "workStartTime", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        type: String,
+        required: false,
+        match: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
+    }),
+    __metadata("design:type", String)
+], Branch.prototype, "workEndTime", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "referenceNumber", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "taxGroup", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "branchTaxRegistrationName", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "phone", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "address", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "streetName", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "buildingNumber", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "subNumber", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "city", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "district", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "postalCode", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "commercialRegistrationNumber", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, required: false }),
+    __metadata("design:type", Number)
+], Branch.prototype, "latitude", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, required: false }),
+    __metadata("design:type", Number)
+], Branch.prototype, "longitude", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", Object)
+], Branch.prototype, "orderViewerApp", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "invoiceTop", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "invoiceBottom", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Branch.prototype, "receiveCallCenterAndApiOrders", void 0);
 exports.Branch = Branch = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

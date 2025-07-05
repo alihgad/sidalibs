@@ -42,6 +42,10 @@ __decorate([
     __metadata("design:type", String)
 ], Tenant.prototype, "countryCode", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: String, required: true }),
+    __metadata("design:type", String)
+], Tenant.prototype, "countryName", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: String, required: true, unique: true }),
     __metadata("design:type", String)
 ], Tenant.prototype, "phoneNumber", void 0);
@@ -66,6 +70,27 @@ __decorate([
     __metadata("design:type", String)
 ], Tenant.prototype, "timeZone", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    __metadata("design:type", Number)
+], Tenant.prototype, "branchesCount", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        type: {
+            software: [],
+            hardware: []
+        },
+        required: false,
+    }),
+    __metadata("design:type", Object)
+], Tenant.prototype, "requestedItems", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        type: { String },
+        default: "notConfirmed"
+    }),
+    __metadata("design:type", String)
+], Tenant.prototype, "status", void 0);
+__decorate([
     (0, mongoose_1.Prop)({
         type: {
             plan: { type: String, enum: Object.values(type_1.PlanType), required: true },
@@ -78,7 +103,19 @@ __decorate([
         required: false,
     }),
     __metadata("design:type", Object)
-], Tenant.prototype, "requestedPlan", void 0);
+], Tenant.prototype, "requstedPlan", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    __metadata("design:type", Number)
+], Tenant.prototype, "branchesLimit", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    __metadata("design:type", Number)
+], Tenant.prototype, "cashierLimit", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    __metadata("design:type", Number)
+], Tenant.prototype, "KDSLimit", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

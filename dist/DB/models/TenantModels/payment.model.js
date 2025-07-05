@@ -40,6 +40,18 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", Date)
 ], Payment.prototype, "paidAt", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true }),
+    __metadata("design:type", Array)
+], Payment.prototype, "items", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true }),
+    __metadata("design:type", String)
+], Payment.prototype, "countery", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true }),
+    __metadata("design:type", String)
+], Payment.prototype, "plan", void 0);
 exports.Payment = Payment = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Payment);

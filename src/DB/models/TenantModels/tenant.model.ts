@@ -30,6 +30,9 @@ export class Tenant {
   @Prop({ type: String, required: true })
   countryCode!: string;
 
+  @Prop({ type: String, required: true })
+  countryName!: string;
+
   @Prop({ type: String, required: true, unique: true })
   phoneNumber!: string;
 
@@ -47,6 +50,27 @@ export class Tenant {
   @Prop({ type: String, default: "Asia/Riyadh" })
   timeZone!: string;
 
+  @Prop({type:Number, default:0})
+  branchesCount!: number;
+
+  @Prop({
+    type:{
+      software:[],
+      hardware:[]
+    },
+    required: false,
+  })
+  requestedItems?: {
+    software:[],
+    hardware:[]
+  };
+
+  @Prop({
+    type:{String},
+    default:"notConfirmed"
+  })
+  status?: string;
+
   @Prop({
     type: {
       plan: { type: String, enum: Object.values(PlanType), required: true },
@@ -58,10 +82,24 @@ export class Tenant {
     },
     required: false,
   })
-  requestedPlan?: {
+  requstedPlan ?: {
     plan: PlanType;
     duration: PlanDuration;
+    startDate : Date;
+    endDate: Date;
   };
+
+  @Prop({type:Number, default:0})
+  branchesLimit!: number;
+
+
+  @Prop({type:Number, default:0})
+  cashierLimit!: number;
+
+  @Prop({type:Number, default:0})
+  KDSLimit!: number;
+
+
 }
 
 export type TenantDocument = HydratedDocument<Tenant> & { _id: string };

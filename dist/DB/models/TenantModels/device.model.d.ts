@@ -1,8 +1,9 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
-import { PlanDuration, PlanType } from '../../../common/type';
+import { deviceTypeEnum, PlanDuration, PlanType } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Device {
     name: string;
+    deviceType: deviceTypeEnum;
     branchId: Types.ObjectId;
     activationCode: string;
     isActivated: boolean;

@@ -8,6 +8,9 @@ export declare class Payment {
     status: 'completed' | 'failed' | 'pending';
     notes?: string;
     paidAt: Date;
+    items: [string];
+    countery: string;
+    plan: string;
 }
 export type paymentDocument = HydratedDocument<Payment> & {
     _id: string;
