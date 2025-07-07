@@ -116,8 +116,8 @@ export class Product {
     tags!: Types.ObjectId[]; // الوسوم
 
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Addition' }], default: [] })
-    additions!: Types.ObjectId[]; // الإضافات (لم يتم إنشاؤها بعد)
-
+    additions!: Types.ObjectId[]; // الإضافات
+    
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Material' }], default: [] })
     ingredients!: Types.ObjectId[]; // المكونات
 
@@ -130,8 +130,8 @@ export class Product {
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Branch' }], default: [] })
     outOfStockBranches!: Types.ObjectId[]; // فروع نفذت من المخزون
 
-    @Prop({ type: [{ type: Types.ObjectId, ref: 'PriceTag' }], default: [] })
-    priceTagApplies!: Types.ObjectId[]; // وسوم الأسعار (لم يتم إنشاؤها بعد)
+    @Prop({ type: [{ type: Types.ObjectId, ref: 'PriceTagApplies' }], default: [] })
+    priceTagApplies!: Types.ObjectId[]; // وسوم الأسعار
 
     @Prop({ type: [{ type: Types.ObjectId, ref: 'ProductGroup' }], default: [] })
     productGroups!: Types.ObjectId[];  // المجموعات
