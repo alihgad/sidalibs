@@ -176,7 +176,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Product.prototype, "outOfStockBranches", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'PriceTag' }], default: [] }),
+    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'PriceTagApplies' }], default: [] }),
     __metadata("design:type", Array)
 ], Product.prototype, "priceTagApplies", void 0);
 __decorate([
