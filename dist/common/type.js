@@ -1,7 +1,17 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.LicenseType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
+const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
 (function (deviceTypeEnum) {
     deviceTypeEnum["cashier"] = "cashier";
@@ -46,6 +56,46 @@ var productsType;
     name: 'ProductsTypeEnum',
     description: 'The type of product',
 });
+let DeviceType = class DeviceType {
+};
+exports.DeviceType = DeviceType;
+__decorate([
+    (0, graphql_1.Field)(() => ProductsTypeEnum),
+    (0, class_validator_1.IsEnum)(ProductsTypeEnum),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], DeviceType.prototype, "type", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Number),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", Number)
+], DeviceType.prototype, "quantity", void 0);
+exports.DeviceType = DeviceType = __decorate([
+    (0, graphql_1.ObjectType)('DeviceType'),
+    (0, graphql_1.InputType)('DeviceInputType')
+], DeviceType);
+let LicenseType = class LicenseType {
+};
+exports.LicenseType = LicenseType;
+__decorate([
+    (0, graphql_1.Field)(() => licencesEnum),
+    (0, class_validator_1.IsEnum)(licencesEnum),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], LicenseType.prototype, "type", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Number),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", Number)
+], LicenseType.prototype, "quantity", void 0);
+exports.LicenseType = LicenseType = __decorate([
+    (0, graphql_1.ObjectType)('LicenceType'),
+    (0, graphql_1.InputType)('LicenceInputType')
+], LicenseType);
 var PlanType;
 (function (PlanType) {
     PlanType["FREE"] = "FREE";

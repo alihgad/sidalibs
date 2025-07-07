@@ -76,8 +76,8 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({
         type: {
-            software: [],
-            hardware: []
+            software: [type_1.LicenseType],
+            hardware: [type_1.DeviceType]
         },
         required: false,
     }),
@@ -94,30 +94,11 @@ __decorate([
     (0, mongoose_1.Prop)({
         type: {
             plan: { type: String, enum: Object.values(type_1.PlanType), required: true },
-            duration: {
-                type: String,
-                enum: Object.values(type_1.PlanDuration),
-                required: true,
-            },
-            startDate: { type: Date },
-            endDate: { type: Date },
         },
         required: false,
     }),
-    __metadata("design:type", Object)
-], Tenant.prototype, "requstedPlan", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
-    __metadata("design:type", Number)
-], Tenant.prototype, "branchesLimit", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
-    __metadata("design:type", Number)
-], Tenant.prototype, "cashierLimit", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
-    __metadata("design:type", Number)
-], Tenant.prototype, "KDSLimit", void 0);
+    __metadata("design:type", String)
+], Tenant.prototype, "plan", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

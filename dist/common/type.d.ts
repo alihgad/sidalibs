@@ -27,6 +27,14 @@ export declare enum ProductsTypeEnum {
     IPAD = "iPad",
     KDS = "KDS"
 }
+export declare class DeviceType {
+    type: ProductsTypeEnum;
+    quantity: number;
+}
+export declare class LicenseType {
+    type: licencesEnum;
+    quantity: number;
+}
 export declare enum PlanType {
     FREE = "FREE",
     BASIC = "BASIC",

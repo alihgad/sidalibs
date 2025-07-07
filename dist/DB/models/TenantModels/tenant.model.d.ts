@@ -1,5 +1,5 @@
 import { HydratedDocument, Model } from 'mongoose';
-import { PlanDuration, PlanType } from '../../../common/type';
+import { DeviceType, LicenseType, PlanType } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Tenant {
     ownerFirstName: string;
@@ -17,19 +17,11 @@ export declare class Tenant {
     timeZone: string;
     branchesCount: number;
     requestedItems?: {
-        software: [];
-        hardware: [];
+        software: LicenseType[];
+        hardware: DeviceType[];
     };
     status?: string;
-    requstedPlan?: {
-        plan: PlanType;
-        duration: PlanDuration;
-        startDate: Date;
-        endDate: Date;
-    };
-    branchesLimit: number;
-    cashierLimit: number;
-    KDSLimit: number;
+    plan: PlanType;
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;
