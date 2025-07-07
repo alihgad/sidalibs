@@ -23,14 +23,6 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: String, required: true }),
     __metadata("design:type", String)
-], Branch.prototype, "type", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true }),
-    __metadata("design:type", String)
-], Branch.prototype, "description", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true }),
-    __metadata("design:type", String)
 ], Branch.prototype, "secondName", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
@@ -56,6 +48,10 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], Branch.prototype, "workEndTime", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Branch.prototype, "TaxNumber", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: String, required: false }),
     __metadata("design:type", String)

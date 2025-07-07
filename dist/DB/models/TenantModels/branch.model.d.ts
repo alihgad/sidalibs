@@ -2,13 +2,12 @@ import { HydratedDocument, Model } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Branch {
     name: string;
-    type: string;
-    description: string;
     secondName: string;
     onlineOrder: boolean;
     reservations: boolean;
     workStartTime: string;
     workEndTime: string;
+    TaxNumber: string;
     referenceNumber: string;
     taxGroup: string;
     branchTaxRegistrationName: string;
