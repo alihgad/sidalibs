@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:dev": "tsc -p tsconfig.json --watch",
-    "publish": "npm run build && git add . && git commit -m \"auto update\" git push "
+    "publish": "npm run build && git add . && git commit -m \"auto update\" && git push"
   },
   "keywords": [
     "sida",
