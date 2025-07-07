@@ -52,6 +52,7 @@ const Hash_helper_1 = require("../../../secuirty/Hash.helper");
 const dotenv = __importStar(require("dotenv"));
 const path = __importStar(require("path"));
 const roles_model_1 = require("./roles.model");
+const branch_model_1 = require("../TenantModels/branch.model");
 const crypto_exporter_1 = require("../../../secuirty/crypto.exporter");
 const type_1 = require("../../../common/type");
 // Load environment variables from the correct path
@@ -113,7 +114,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "cashirLogin", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'branches' }),
+    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Branch' }),
     __metadata("design:type", Array)
 ], User.prototype, "branches", void 0);
 __decorate([
@@ -181,8 +182,13 @@ const getUserModel = (businessNumber) => {
         throw new Error("businessNumber is required in user model");
     }
     let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
-    connection.model('roles', roles_model_1.rolesSchema);
-    connection.model('Branch', roles_model_1.rolesSchema);
+    // تسجيل الـ models المطلوبة للـ refs
+    if (!connection.models['roles']) {
+        connection.model('roles', roles_model_1.rolesSchema);
+    }
+    if (!connection.models['Branch']) {
+        connection.model('Branch', branch_model_1.BranchSchema);
+    }
     const model = connection.models['User'] || connection.model('User', exports.UserSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };

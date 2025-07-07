@@ -50,6 +50,7 @@ const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 const dotenv = __importStar(require("dotenv"));
 const path = __importStar(require("path"));
+const branch_model_1 = require("../TenantModels/branch.model");
 // Load environment variables from the correct path
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 let customers = class customers {
@@ -105,11 +106,11 @@ __decorate([
     __metadata("design:type", Boolean)
 ], customers.prototype, "creditAccount", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'branches' }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], customers.prototype, "favoriteBranch", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'items' }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Product' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], customers.prototype, "favoriteItem", void 0);
 __decorate([
@@ -140,6 +141,11 @@ const getcustomersModel = (businessNumber) => {
         throw new Error("businessNumber is required in customers model");
     }
     let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
+    // تسجيل الـ models المطلوبة للـ refs
+    if (!connection.models['Branch']) {
+        connection.model('Branch', branch_model_1.BranchSchema);
+    }
+    // Note: Product model registration will be handled by its own getModel function when needed
     const model = connection.models['customers'] || connection.model('customers', exports.customersSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };
