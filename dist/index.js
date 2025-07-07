@@ -78,6 +78,7 @@ __exportStar(require("./DB/models/TenantModels/taxes.model"), exports);
 __exportStar(require("./DB/models/TenantModels/temporaryEvents.model"), exports);
 __exportStar(require("./DB/models/TenantModels/tenant.model"), exports);
 __exportStar(require("./DB/models/TenantModels/payment.model"), exports);
+__exportStar(require("./DB/models/TenantModels/priceTagApplies.model"), exports);
 // ========== User Models ==========
 __exportStar(require("./DB/models/userModels/customers.model"), exports);
 __exportStar(require("./DB/models/userModels/permission.model"), exports);

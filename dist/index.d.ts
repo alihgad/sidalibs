@@ -29,6 +29,7 @@ export * from './DB/models/TenantModels/taxes.model';
 export * from './DB/models/TenantModels/temporaryEvents.model';
 export * from './DB/models/TenantModels/tenant.model';
 export * from './DB/models/TenantModels/payment.model';
+export * from './DB/models/TenantModels/priceTagApplies.model';
 export * from './DB/models/userModels/customers.model';
 export * from './DB/models/userModels/permission.model';
 export * from './DB/models/userModels/roles.model';
