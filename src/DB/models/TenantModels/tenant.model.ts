@@ -61,8 +61,8 @@ export class Tenant {
     required: false,
   })
   requestedItems?: {
-    software:[],
-    hardware:[]
+    software:LicenseType[],
+    hardware:DeviceType[]
   };
 
   @Prop({

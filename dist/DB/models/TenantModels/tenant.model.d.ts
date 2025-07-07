@@ -1,5 +1,5 @@
 import { HydratedDocument, Model } from 'mongoose';
-import { PlanType } from '../../../common/type';
+import { DeviceType, LicenseType, PlanType } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Tenant {
     ownerFirstName: string;
@@ -17,8 +17,8 @@ export declare class Tenant {
     timeZone: string;
     branchesCount: number;
     requestedItems?: {
-        software: [];
-        hardware: [];
+        software: LicenseType[];
+        hardware: DeviceType[];
     };
     status?: string;
     plan: PlanType;
