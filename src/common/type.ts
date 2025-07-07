@@ -1,4 +1,6 @@
-import { registerEnumType } from '@nestjs/graphql';
+import { Field, InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
+import { IsEnum, IsNotEmpty, IsInt, Min } from 'class-validator';
+
 import Stripe from 'stripe';
 
 
@@ -49,6 +51,41 @@ registerEnumType(ProductsTypeEnum, {
     name: 'ProductsTypeEnum',
     description: 'The type of product',
 });
+
+
+
+
+@ObjectType('DeviceType')
+@InputType('DeviceInputType')
+export class DeviceType {
+    @Field(() => ProductsTypeEnum)
+    @IsEnum(ProductsTypeEnum)
+    @IsNotEmpty()
+    type!: ProductsTypeEnum;
+
+    @Field(() => Number)
+    @IsInt()
+    @Min(1)
+    @IsNotEmpty()
+    quantity!: number;
+}
+
+@ObjectType('LicenceType')
+@InputType('LicenceInputType')
+export class LicenseType {
+    @Field(() => licencesEnum)
+    @IsEnum(licencesEnum)
+    @IsNotEmpty()
+    type!: licencesEnum;
+
+    @Field(() => Number)
+    @IsInt()
+    @Min(1)
+    @IsNotEmpty()
+    quantity!: number;
+}
+
+
 export enum PlanType {
     FREE = 'FREE',
     BASIC = 'BASIC',

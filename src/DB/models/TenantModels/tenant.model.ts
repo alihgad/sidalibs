@@ -1,6 +1,6 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model } from 'mongoose';
-import { PlanDuration, PlanType, ProductsTypeEnum } from '../../../common/type';
+import { DeviceType, LicenseType,  PlanType } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 
@@ -55,8 +55,8 @@ export class Tenant {
 
   @Prop({
     type:{
-      software:[],
-      hardware:[]
+      software:[LicenseType],
+      hardware:[DeviceType]
     },
     required: false,
   })
@@ -74,32 +74,10 @@ export class Tenant {
   @Prop({
     type: {
       plan: { type: String, enum: Object.values(PlanType), required: true },
-      duration: {
-        type: String,
-        enum: Object.values(PlanDuration),
-        required: true,
-      },
-      startDate: { type: Date },
-      endDate: { type: Date },
     },
     required: false,
   })
-  requstedPlan ?: {
-    plan: PlanType;
-    duration: PlanDuration;
-    startDate : Date;
-    endDate: Date;
-  };
-
-  @Prop({type:Number, default:0})
-  branchesLimit!: number;
-
-
-  @Prop({type:Number, default:0})
-  cashierLimit!: number;
-
-  @Prop({type:Number, default:0})
-  KDSLimit!: number;
+    plan!: PlanType;
 
 
 }
