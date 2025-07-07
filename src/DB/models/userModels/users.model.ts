@@ -7,6 +7,7 @@ import { Hash } from '../../../secuirty/Hash.helper';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import { rolesSchema } from './roles.model';
+import { BranchSchema } from '../TenantModels/branch.model';
 import { CryptoExporter } from '../../../secuirty/crypto.exporter';
 import { languages } from '../../../common/type';
 
@@ -69,7 +70,7 @@ export class User {
   jwtSecret: string;
   @Prop({ type: String })
   cashirLogin?: string;
-  @Prop({ type: [Types.ObjectId], ref: 'branches' })
+  @Prop({ type: [Types.ObjectId], ref: 'Branch' })
   branches!: Types.ObjectId[];
   @Prop({ type: String, enum: Object.values(languages), default: languages.AR, required: true })
   language?: string;
@@ -134,11 +135,16 @@ export const getUserModel = (businessNumber: string): DataBaseRepository<UserDoc
     throw new Error("businessNumber is required in user model")
   }
   let connection = ConnectionManager.getConnection(businessNumber);
-  connection.model('roles', rolesSchema);
-  connection.model('Branch', rolesSchema);
+  
+  // تسجيل الـ models المطلوبة للـ refs
+  if (!connection.models['roles']) {
+    connection.model('roles', rolesSchema);
+  }
+  if (!connection.models['Branch']) {
+    connection.model('Branch', BranchSchema);
+  }
 
   const model = connection.models['User'] || connection.model('User', UserSchema) as unknown as Model<UserDocument>;
-
 
   return new DataBaseRepository<UserDocument>(model);
 }

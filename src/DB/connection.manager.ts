@@ -1,6 +1,6 @@
 import { Injectable, Logger } from "@nestjs/common";
 import { Connection, ConnectionStates, createConnection } from "mongoose";
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
 
 dotenv.config();
 

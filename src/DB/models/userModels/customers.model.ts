@@ -7,6 +7,7 @@ import { Hash } from '../../../secuirty/Hash.helper';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import { rolesSchema } from './roles.model';
+import { BranchSchema } from '../TenantModels/branch.model';
 import { CryptoExporter } from '../../../secuirty/crypto.exporter';
 import { languages } from '../../../common/type';
 
@@ -72,12 +73,11 @@ export class customers {
     @Prop({ type: Boolean, default: false })
     creditAccount: boolean;
 
-    @Prop({ type: Types.ObjectId, ref: 'branches' })
+    @Prop({ type: Types.ObjectId, ref: 'Branch' })
     favoriteBranch: Types.ObjectId;
 
-    @Prop({ type: Types.ObjectId, ref: 'items' })
+    @Prop({ type: Types.ObjectId, ref: 'Product' })
     favoriteItem: Types.ObjectId;
-
 
     @Prop({ type: String, required: false })
     notes?: string;
@@ -88,7 +88,6 @@ export type customersDocument = HydratedDocument<customers>;
 export const customersSchema = SchemaFactory.createForClass(customers);
 export const customers_MODEL = 'customers_MODEL';
 export const customersModel = MongooseModule.forFeature([{ name: 'customers', schema: customersSchema }]);
-
 
 // customersSchema.pre("save", function (next) {
 //     if (this.isModified('phone')) {
@@ -103,6 +102,13 @@ export const getcustomersModel = (businessNumber: string): DataBaseRepository<cu
         throw new Error("businessNumber is required in customers model")
     }
     let connection = ConnectionManager.getConnection(businessNumber);
+    
+    // تسجيل الـ models المطلوبة للـ refs
+    if (!connection.models['Branch']) {
+        connection.model('Branch', BranchSchema);
+    }
+    // Note: Product model registration will be handled by its own getModel function when needed
+    
     const model = connection.models['customers'] || connection.model('customers', customersSchema) as unknown as Model<customersDocument>;
     return new DataBaseRepository<customersDocument>(model);
 }

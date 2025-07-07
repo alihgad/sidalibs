@@ -23,6 +23,8 @@ export * from './DB/models/inventoryModels/supplier.model';
 
 // ========== Product Models ==========
 export * from './DB/models/productModels/categories.model';
+export * from './DB/models/productModels/groups.model';
+export * from './DB/models/productModels/product.model';
 
 // ========== Tenant Models ==========
 export * from './DB/models/TenantModels/branch.model';
@@ -42,6 +44,7 @@ export * from './DB/models/TenantModels/taxes.model';
 export * from './DB/models/TenantModels/temporaryEvents.model';
 export * from './DB/models/TenantModels/tenant.model';
 export * from './DB/models/TenantModels/payment.model';
+export * from './DB/models/TenantModels/priceTagApplies.model';
 
 // ========== User Models ==========
 export * from './DB/models/userModels/customers.model';
