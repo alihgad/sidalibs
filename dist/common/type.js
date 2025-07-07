@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.LicenseType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
@@ -76,26 +76,6 @@ exports.DeviceType = DeviceType = __decorate([
     (0, graphql_1.ObjectType)('DeviceType'),
     (0, graphql_1.InputType)('DeviceInputType')
 ], DeviceType);
-let LicenseType = class LicenseType {
-};
-exports.LicenseType = LicenseType;
-__decorate([
-    (0, graphql_1.Field)(() => licencesEnum),
-    (0, class_validator_1.IsEnum)(licencesEnum),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], LicenseType.prototype, "type", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => Number),
-    (0, class_validator_1.IsInt)(),
-    (0, class_validator_1.Min)(1),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Number)
-], LicenseType.prototype, "quantity", void 0);
-exports.LicenseType = LicenseType = __decorate([
-    (0, graphql_1.ObjectType)('LicenceType'),
-    (0, graphql_1.InputType)('LicenceInputType')
-], LicenseType);
 var PlanType;
 (function (PlanType) {
     PlanType["FREE"] = "FREE";
@@ -152,6 +132,31 @@ var languages;
     name: 'Languages',
     description: 'Available languages for the application',
 });
+let LicenseType = class LicenseType {
+};
+exports.LicenseType = LicenseType;
+__decorate([
+    (0, graphql_1.Field)(() => licencesEnum),
+    (0, class_validator_1.IsEnum)(licencesEnum),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], LicenseType.prototype, "type", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], LicenseType.prototype, "name", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => PlanDuration),
+    (0, class_validator_1.IsEnum)(PlanDuration),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], LicenseType.prototype, "duration", void 0);
+exports.LicenseType = LicenseType = __decorate([
+    (0, graphql_1.ObjectType)('LicenceType'),
+    (0, graphql_1.InputType)('LicenceInputType')
+], LicenseType);
 var OrderType;
 (function (OrderType) {
     OrderType["LOCAL"] = "LOCAL";
