@@ -11,11 +11,6 @@ export class Branch {
     @Prop({ required: true })
     name!: string; // وقت التسجيل
 
-    @Prop({ type: String, required: true })
-    type!: string;
-
-    @Prop({ type: String, required: true })
-    description!: string;
 
     @Prop({ type: String, required: true })
     secondName!: string;
@@ -39,6 +34,9 @@ export class Branch {
         match: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/
     })
     workEndTime!: string;
+
+    @Prop({ type: String, required: false })
+    TaxNumber!: string;
 
     @Prop({ type: String, required: false })
     referenceNumber!: string; // وقت التسجيل

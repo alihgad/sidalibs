@@ -1,5 +1,5 @@
 import { Field, InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
-import { IsEnum, IsNotEmpty, IsInt, Min } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsInt, Min, IsString } from 'class-validator';
 
 import Stripe from 'stripe';
 
@@ -70,20 +70,7 @@ export class DeviceType {
     quantity!: number;
 }
 
-@ObjectType('LicenceType')
-@InputType('LicenceInputType')
-export class LicenseType {
-    @Field(() => licencesEnum)
-    @IsEnum(licencesEnum)
-    @IsNotEmpty()
-    type!: licencesEnum;
 
-    @Field(() => Number)
-    @IsInt()
-    @Min(1)
-    @IsNotEmpty()
-    quantity!: number;
-}
 
 
 export enum PlanType {
@@ -147,6 +134,30 @@ registerEnumType(languages, {
     name: 'Languages',
     description: 'Available languages for the application',
 });
+
+
+@ObjectType('LicenceType')
+@InputType('LicenceInputType')
+export class LicenseType {
+
+    @Field(() => licencesEnum)
+    @IsEnum(licencesEnum)
+    @IsNotEmpty()
+    type!: licencesEnum;
+
+    @Field(() => String)
+    @IsString()
+    @IsNotEmpty()
+    name!: string;
+
+    @Field(() => PlanDuration)
+    @IsEnum(PlanDuration)
+    @IsNotEmpty()
+    duration!: PlanDuration;
+
+}
+
+
 
 export enum OrderType {
     LOCAL = 'LOCAL',

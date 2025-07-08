@@ -31,10 +31,6 @@ export declare class DeviceType {
     type: ProductsTypeEnum;
     quantity: number;
 }
-export declare class LicenseType {
-    type: licencesEnum;
-    quantity: number;
-}
 export declare enum PlanType {
     FREE = "FREE",
     BASIC = "BASIC",
@@ -59,6 +55,11 @@ export interface ProductPurchase {
 export declare enum languages {
     AR = "AR",
     EN = "EN"
+}
+export declare class LicenseType {
+    type: licencesEnum;
+    name: string;
+    duration: PlanDuration;
 }
 export declare enum OrderType {
     LOCAL = "LOCAL",
