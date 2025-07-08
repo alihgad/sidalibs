@@ -76,8 +76,19 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({
         type: {
-            software: [type_1.LicenseType],
-            hardware: [type_1.DeviceType]
+            software: [{
+                    type: {
+                        type: { type: String, enum: Object.values(type_1.licencesEnum), required: true },
+                        name: { type: String, required: true },
+                        duration: { type: String, enum: Object.values(type_1.PlanDuration), required: true }
+                    }
+                }],
+            hardware: [{
+                    type: {
+                        type: { type: String, enum: Object.values(type_1.ProductsTypeEnum), required: true },
+                        quantity: { type: Number, required: true, min: 1 }
+                    }
+                }]
         },
         required: false,
     }),
