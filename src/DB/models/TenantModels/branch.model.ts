@@ -1,5 +1,5 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Model } from 'mongoose';
+import { Collection, Document, HydratedDocument, Model } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 @Schema({
@@ -112,4 +112,12 @@ export const getBranchModel = (businessNumber: string): DataBaseRepository<Branc
     let connection = ConnectionManager.getConnection(businessNumber);
     const model = connection.models['Branch'] || connection.model('Branch', BranchSchema) as unknown as Model<BranchDocument>;
     return new DataBaseRepository<BranchDocument>(model);
+}
+export const getBranchCollection = (businessNumber: string): Collection => {
+    if (!businessNumber) {
+        throw new Error("businessNumber is required in branch model")
+    }
+    let connection = ConnectionManager.getConnection(businessNumber);
+    const collection = connection.collections['Branch'] || connection.collection('Branch');
+    return collection;
 }

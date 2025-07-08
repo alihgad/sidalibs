@@ -1,5 +1,5 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Model, Types } from 'mongoose';
+import { Collection, HydratedDocument, Model, Types } from 'mongoose';
 import { deviceTypeEnum, PlanDuration, PlanType, ProductsTypeEnum } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
@@ -100,4 +100,13 @@ export const getDevices = (businessNumber: string): DataBaseRepository<DeviceDoc
     let connection = ConnectionManager.getConnection(businessNumber);
     const model = connection.models['Device'] || connection.model('Device', DeviceSchema) as unknown as Model<DeviceDocument>;
     return new DataBaseRepository<DeviceDocument>(model);
+}
+
+export const getDeviceCollection = (businessNumber: string): Collection<DeviceDocument> => {
+    if(!businessNumber){
+        throw new Error("businessNumber is required in device model")
+    }
+    let connection = ConnectionManager.getConnection(businessNumber);
+    const collection = connection.collection('Device') as unknown as Collection<DeviceDocument>;
+    return collection;
 }

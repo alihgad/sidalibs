@@ -1,4 +1,4 @@
-import { HydratedDocument, Model, Types } from 'mongoose';
+import { Collection, HydratedDocument, Model, Types } from 'mongoose';
 import { deviceTypeEnum, PlanDuration, PlanType } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Device {
@@ -47,4 +47,5 @@ export declare const DeviceSchema: import("mongoose").Schema<Device, Model<Devic
 export declare const Device_MODEL = "Device_MODEL";
 export declare const DeviceModel: import("@nestjs/common").DynamicModule;
 export declare const getDevices: (businessNumber: string) => DataBaseRepository<DeviceDocument>;
+export declare const getDeviceCollection: (businessNumber: string) => Collection<DeviceDocument>;
 //# sourceMappingURL=device.model.d.ts.map

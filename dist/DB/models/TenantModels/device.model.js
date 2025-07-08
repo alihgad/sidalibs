@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDevices = exports.DeviceModel = exports.Device_MODEL = exports.DeviceSchema = exports.Device = void 0;
+exports.getDeviceCollection = exports.getDevices = exports.DeviceModel = exports.Device_MODEL = exports.DeviceSchema = exports.Device = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const type_1 = require("../../../common/type");
@@ -103,3 +103,12 @@ const getDevices = (businessNumber) => {
     return new DataBase_repository_1.DataBaseRepository(model);
 };
 exports.getDevices = getDevices;
+const getDeviceCollection = (businessNumber) => {
+    if (!businessNumber) {
+        throw new Error("businessNumber is required in device model");
+    }
+    let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
+    const collection = connection.collection('Device');
+    return collection;
+};
+exports.getDeviceCollection = getDeviceCollection;
