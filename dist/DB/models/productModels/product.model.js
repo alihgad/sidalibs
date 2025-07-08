@@ -20,8 +20,6 @@ const tax_groups_model_1 = require("../TenantModels/tax-groups.model");
 const tags_model_1 = require("../TenantModels/tags.model");
 const materials_model_1 = require("../inventoryModels/materials.model");
 const branch_model_1 = require("../TenantModels/branch.model");
-const temporaryEvents_model_1 = require("../TenantModels/temporaryEvents.model");
-const groups_model_1 = require("./groups.model");
 // Custom Branch Price Schema
 let CustomBranchPrice = class CustomBranchPrice {
 };
@@ -180,13 +178,9 @@ __decorate([
     __metadata("design:type", Array)
 ], Product.prototype, "priceTagApplies", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'ProductGroup' }], default: [] }),
-    __metadata("design:type", Array)
-], Product.prototype, "productGroups", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'TemporaryEvent' }], default: [] }),
-    __metadata("design:type", Array)
-], Product.prototype, "temporaryEvents", void 0);
+    (0, mongoose_1.Prop)({ type: Number, default: 5, min: 0 }),
+    __metadata("design:type", Number)
+], Product.prototype, "walkTime", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: exports.NutritionalValuesSchema, required: false }),
     __metadata("design:type", NutritionalValues)
@@ -231,12 +225,6 @@ const getProductModel = (businessNumber) => {
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', branch_model_1.BranchSchema);
-    }
-    if (!connection.models['TemporaryEvent']) {
-        connection.model('TemporaryEvent', temporaryEvents_model_1.TemporaryEventSchema);
-    }
-    if (!connection.models['ProductGroup']) {
-        connection.model('ProductGroup', groups_model_1.ProductGroupSchema);
     }
     const model = connection.models['Product'] || connection.model('Product', exports.ProductSchema);
     return new DataBase_repository_1.DataBaseRepository(model);

@@ -1,6 +1,6 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model } from 'mongoose';
-import { DeviceType, LicenseType,  PlanType } from '../../../common/type';
+import { DeviceType, LicenseType, PlanType, licencesEnum, PlanDuration, ProductsTypeEnum } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 
@@ -54,15 +54,26 @@ export class Tenant {
   branchesCount!: number;
 
   @Prop({
-    type:{
-      software:[LicenseType],
-      hardware:[DeviceType]
+    type: {
+      software: [{
+        type: {
+          type: { type: String, enum: Object.values(licencesEnum), required: true },
+          name: { type: String, required: true },
+          duration: { type: String, enum: Object.values(PlanDuration), required: true }
+        }
+      }],
+      hardware: [{
+        type: {
+          type: { type: String, enum: Object.values(ProductsTypeEnum), required: true },
+          quantity: { type: Number, required: true, min: 1 }
+        }
+      }]
     },
     required: false,
   })
   requestedItems?: {
-    software:LicenseType[],
-    hardware:DeviceType[]
+    software: LicenseType[],
+    hardware: DeviceType[]
   };
 
   @Prop({
