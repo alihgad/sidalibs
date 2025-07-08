@@ -29,6 +29,7 @@ export declare class Branch {
     invoiceTop: string;
     invoiceBottom: string;
     receiveCallCenterAndApiOrders: boolean;
+    isActive: boolean;
 }
 export type BranchDocument = HydratedDocument<Branch> & {
     _id: string;

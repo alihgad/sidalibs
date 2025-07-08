@@ -124,6 +124,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Branch.prototype, "receiveCallCenterAndApiOrders", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Branch.prototype, "isActive", void 0);
 exports.Branch = Branch = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

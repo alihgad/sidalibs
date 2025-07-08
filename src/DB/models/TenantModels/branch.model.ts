@@ -95,6 +95,9 @@ export class Branch {
     @Prop({ type: Boolean, default: false })
     receiveCallCenterAndApiOrders!: boolean;
 
+
+    @Prop({ type: Boolean, default: false })
+    isActive!: boolean;
     
 }
 export type BranchDocument = HydratedDocument<Branch> & { _id: string };
