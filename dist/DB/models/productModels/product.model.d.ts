@@ -58,8 +58,7 @@ export declare class Product {
     inactiveBranches: Types.ObjectId[];
     outOfStockBranches: Types.ObjectId[];
     priceTagApplies: Types.ObjectId[];
-    productGroups: Types.ObjectId[];
-    temporaryEvents: Types.ObjectId[];
+    walkTime: number;
     nutritionalValues?: NutritionalValues;
     isActive: boolean;
     isDeleted: boolean;
