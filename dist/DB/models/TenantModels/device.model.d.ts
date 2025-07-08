@@ -16,10 +16,7 @@ export declare class Device {
         paid: boolean;
         startDate: Date;
         endDate: Date;
-        branchId: Types.ObjectId;
         receiptUrl?: string;
-        amountPaid?: number;
-        currency?: string;
     };
     subscriptionHistory: {
         plan: PlanType;
@@ -27,10 +24,11 @@ export declare class Device {
         paid: boolean;
         startDate: Date;
         receiptUrl?: string;
-        amountPaid?: number;
-        currency?: string;
         endDate?: Date;
     }[];
+    autoRenew: boolean;
+    isDeleted: boolean;
+    isActive: boolean;
 }
 export type DeviceDocument = HydratedDocument<Device> & {
     _id: string;

@@ -58,10 +58,7 @@ __decorate([
             paid: { type: Boolean, default: false },
             startDate: { type: Date },
             endDate: { type: Date },
-            branchId: { type: mongoose_2.Types.ObjectId, ref: 'Branch' },
             receiptUrl: { type: String },
-            amountPaid: { type: Number },
-            currency: { type: String },
         },
         required: true,
     }),
@@ -75,13 +72,23 @@ __decorate([
             paid: { type: Boolean, default: false },
             startDate: { type: Date, required: true },
             receiptUrl: { type: String },
-            amountPaid: { type: Number },
-            currency: { type: String },
             endDate: { type: Date },
         },
     ]),
     __metadata("design:type", Array)
 ], Device.prototype, "subscriptionHistory", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "autoRenew", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "isActive", void 0);
 exports.Device = Device = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

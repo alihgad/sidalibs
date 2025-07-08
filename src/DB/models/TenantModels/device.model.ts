@@ -43,10 +43,7 @@ export class Device {
             paid: { type: Boolean, default: false },
             startDate: { type: Date },
             endDate: { type: Date },
-            branchId: { type: Types.ObjectId, ref: 'Branch' },
             receiptUrl: { type: String },
-            amountPaid: { type: Number },
-            currency: { type: String },
         },
         required: true,
     })
@@ -56,10 +53,7 @@ export class Device {
         paid: boolean;
         startDate: Date;
         endDate: Date;
-        branchId: Types.ObjectId;
         receiptUrl?: string;
-        amountPaid?: number;
-        currency?: string;
     };
     @Prop([
         {
@@ -68,8 +62,6 @@ export class Device {
             paid: { type: Boolean, default: false },
             startDate: { type: Date, required: true },
             receiptUrl: { type: String },
-            amountPaid: { type: Number },
-            currency: { type: String },
             endDate: { type: Date },
         },
     ])
@@ -79,10 +71,21 @@ export class Device {
         paid: boolean;
         startDate: Date;
         receiptUrl?: string;
-        amountPaid?: number;
-        currency?: string;
         endDate?: Date;
     }[];
+
+    @Prop({ type: Boolean, default: false })
+    autoRenew!: boolean;
+
+
+    @Prop({ type: Boolean, default: false })
+    isDeleted!: boolean;
+
+    @Prop({ type: Boolean, default: false })
+    isActive!: boolean;
+
+    
+
 }
 
 export type DeviceDocument = HydratedDocument<Device> & { _id: string };
