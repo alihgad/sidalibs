@@ -12,7 +12,8 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 import { verifyToken } from '../Jwt';
 import { getUserModel } from '../../DB/models/userModels/users.model';
 import { CryptoHelper } from '../crypto.helper';
-import { Inject } from '@nestjs/common';
+import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
+import { PlanType } from '../../common/type';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -28,6 +29,22 @@ export class AuthGuard implements CanActivate {
     }
     try {
       const payload = await verifyToken(token, process.env.JWT_SECRET)
+      const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
+      if (!tenant) {
+        throw new Error('Forbidden resource');
+      }
+      if(tenant.plan === PlanType.FREE){
+
+        // التحقق من المدة التجريبية (15 يوم)
+        const currentDate = new Date();
+        const tenantCreatedDate = new Date((tenant as any).createdAt || (tenant as any)._id.getTimestamp());
+        const daysDifference = Math.floor((currentDate.getTime() - tenantCreatedDate.getTime()) / (1000 * 60 * 60 * 24));
+        
+        if (daysDifference > 15) {
+          throw new ForbiddenException("Trial period expired. Your 15-day trial period has ended. Please subscribe to continue using the service.")
+        }
+
+      }
 
       let userModel = getUserModel(payload.businessNumber)
       const user = await userModel.findById(
@@ -50,6 +67,7 @@ export class AuthGuard implements CanActivate {
       request['user'] = user;
       request['lsid'] = payload.lsid
       request['businessNumber'] = payload.businessNumber;
+
     } catch (error: unknown) {
       if (error instanceof Error) {
         throw new ForbiddenException(error.message);
