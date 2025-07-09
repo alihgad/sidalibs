@@ -5,7 +5,8 @@ import Stripe from 'stripe';
 
 
 export enum deviceTypeEnum{
-    "cashier" = "cashier",
+    "mainCashier" = "mainCashier",
+    "addOnsCashier" = "addOnsCashier",
     "KDS" = "KDS"
 }
 

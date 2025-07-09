@@ -18,6 +18,8 @@ const graphql_1 = require("@nestjs/graphql");
 const Jwt_1 = require("../Jwt");
 const users_model_1 = require("../../DB/models/userModels/users.model");
 const crypto_helper_1 = require("../crypto.helper");
+const tenant_model_1 = require("../../DB/models/TenantModels/tenant.model");
+const type_1 = require("../../common/type");
 let AuthGuard = class AuthGuard {
     constructor(cryptoHelper) {
         this.cryptoHelper = cryptoHelper;
@@ -30,6 +32,19 @@ let AuthGuard = class AuthGuard {
         }
         try {
             const payload = await (0, Jwt_1.verifyToken)(token, process.env.JWT_SECRET);
+            const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
+            if (!tenant) {
+                throw new Error('Forbidden resource');
+            }
+            if (tenant.plan === type_1.PlanType.FREE) {
+                // التحقق من المدة التجريبية (15 يوم)
+                const currentDate = new Date();
+                const tenantCreatedDate = new Date(tenant.createdAt || tenant._id.getTimestamp());
+                const daysDifference = Math.floor((currentDate.getTime() - tenantCreatedDate.getTime()) / (1000 * 60 * 60 * 24));
+                if (daysDifference > 15) {
+                    throw new common_1.ForbiddenException("Trial period expired. Your 15-day trial period has ended. Please subscribe to continue using the service.");
+                }
+            }
             let userModel = (0, users_model_1.getUserModel)(payload.businessNumber);
             const user = await userModel.findById(payload._id, 'email jwtSecret firstName lastName userName role isOwner phone loginDevicesSession', { path: 'role' });
             if (!user) {

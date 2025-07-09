@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDevices = exports.DeviceModel = exports.Device_MODEL = exports.DeviceSchema = exports.Device = void 0;
+exports.getDeviceCollection = exports.getDevices = exports.DeviceModel = exports.Device_MODEL = exports.DeviceSchema = exports.Device = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const type_1 = require("../../../common/type");
@@ -58,10 +58,7 @@ __decorate([
             paid: { type: Boolean, default: false },
             startDate: { type: Date },
             endDate: { type: Date },
-            branchId: { type: mongoose_2.Types.ObjectId, ref: 'Branch' },
             receiptUrl: { type: String },
-            amountPaid: { type: Number },
-            currency: { type: String },
         },
         required: true,
     }),
@@ -75,13 +72,23 @@ __decorate([
             paid: { type: Boolean, default: false },
             startDate: { type: Date, required: true },
             receiptUrl: { type: String },
-            amountPaid: { type: Number },
-            currency: { type: String },
             endDate: { type: Date },
         },
     ]),
     __metadata("design:type", Array)
 ], Device.prototype, "subscriptionHistory", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "autoRenew", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "isActive", void 0);
 exports.Device = Device = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
@@ -103,3 +110,12 @@ const getDevices = (businessNumber) => {
     return new DataBase_repository_1.DataBaseRepository(model);
 };
 exports.getDevices = getDevices;
+const getDeviceCollection = (businessNumber) => {
+    if (!businessNumber) {
+        throw new Error("businessNumber is required in device model");
+    }
+    let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
+    const collection = connection.collection('Device');
+    return collection;
+};
+exports.getDeviceCollection = getDeviceCollection;

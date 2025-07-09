@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBranchModel = exports.BranchModel = exports.Branch_MODEL = exports.BranchSchema = exports.Branch = void 0;
+exports.getBranchCollection = exports.getBranchModel = exports.BranchModel = exports.Branch_MODEL = exports.BranchSchema = exports.Branch = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
@@ -124,6 +124,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Branch.prototype, "receiveCallCenterAndApiOrders", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Branch.prototype, "isActive", void 0);
 exports.Branch = Branch = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
@@ -145,3 +149,12 @@ const getBranchModel = (businessNumber) => {
     return new DataBase_repository_1.DataBaseRepository(model);
 };
 exports.getBranchModel = getBranchModel;
+const getBranchCollection = (businessNumber) => {
+    if (!businessNumber) {
+        throw new Error("businessNumber is required in branch model");
+    }
+    let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
+    const collection = connection.collections['Branch'] || connection.collection('Branch');
+    return collection;
+};
+exports.getBranchCollection = getBranchCollection;

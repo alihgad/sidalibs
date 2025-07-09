@@ -14,7 +14,8 @@ const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
 (function (deviceTypeEnum) {
-    deviceTypeEnum["cashier"] = "cashier";
+    deviceTypeEnum["mainCashier"] = "mainCashier";
+    deviceTypeEnum["addOnsCashier"] = "addOnsCashier";
     deviceTypeEnum["KDS"] = "KDS";
 })(deviceTypeEnum || (exports.deviceTypeEnum = deviceTypeEnum = {}));
 (0, graphql_1.registerEnumType)(deviceTypeEnum, {
