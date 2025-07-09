@@ -48,7 +48,7 @@ export declare class Product {
     isRetailProduct: boolean;
     referenceCode: string;
     pricingMethod: PricingMethod;
-    price: number;
+    price?: number;
     taxGroup?: Types.ObjectId;
     costCalculationMethod: CostCalculationMethod;
     cost?: number;

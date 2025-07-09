@@ -138,7 +138,9 @@ __decorate([
     __metadata("design:type", String)
 ], Product.prototype, "pricingMethod", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: true }),
+    (0, mongoose_1.Prop)({ type: Number, required: function () {
+            return this.pricingMethod === type_1.PricingMethod.FIXED;
+        } }),
     __metadata("design:type", Number)
 ], Product.prototype, "price", void 0);
 __decorate([

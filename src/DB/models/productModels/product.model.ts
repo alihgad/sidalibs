@@ -101,8 +101,10 @@ export class Product {
     @Prop({ type: String, enum: PricingMethod, required: true })
     pricingMethod!: PricingMethod; // طريقة التسعير
 
-    @Prop({ type: Number, required: true })
-    price!: number; // السعر
+    @Prop({ type: Number, required: function(this: Product) {
+        return this.pricingMethod === PricingMethod.FIXED;
+    }})
+    price?: number; // السعر (مطلوب إذا كان التسعير ثابت)
 
     @Prop({ type: Types.ObjectId, ref: 'TaxGroup', required: false })
     taxGroup?: Types.ObjectId; // مجموعة ضريبية
