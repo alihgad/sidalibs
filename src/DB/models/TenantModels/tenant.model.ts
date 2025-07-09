@@ -50,23 +50,23 @@ export class Tenant {
   @Prop({ type: String, default: "Asia/Riyadh" })
   timeZone!: string;
 
-  @Prop({type:Number, default:0})
+  @Prop({ type: Number, default: 0 })
   branchesCount!: number;
 
   @Prop({
     type: {
       software: [{
-        type: {
-          type: { type: String, enum: Object.values(licencesEnum), required: true },
-          name: { type: String, required: true },
-          duration: { type: String, enum: Object.values(PlanDuration), required: true }
-        }
+
+        type: { type: String, enum: Object.values(licencesEnum), required: true },
+        name: { type: String, required: true },
+        duration: { type: String, enum: Object.values(PlanDuration), required: true }
+
       }],
       hardware: [{
-        type: {
-          type: { type: String, enum: Object.values(ProductsTypeEnum), required: true },
-          quantity: { type: Number, required: true, min: 1 }
-        }
+
+        type: { type: String, enum: Object.values(ProductsTypeEnum), required: true },
+        quantity: { type: Number, required: true, min: 1 }
+
       }]
     },
     required: false,
@@ -77,8 +77,8 @@ export class Tenant {
   };
 
   @Prop({
-    type:String,
-    default:"notConfirmed"
+    type: String,
+    default: "notConfirmed"
   })
   status?: string;
 
@@ -88,7 +88,7 @@ export class Tenant {
     required: false,
   })
   plan!: PlanType;
-  
+
 
 
 }

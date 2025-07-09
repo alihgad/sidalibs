@@ -77,17 +77,13 @@ __decorate([
     (0, mongoose_1.Prop)({
         type: {
             software: [{
-                    type: {
-                        type: { type: String, enum: Object.values(type_1.licencesEnum), required: true },
-                        name: { type: String, required: true },
-                        duration: { type: String, enum: Object.values(type_1.PlanDuration), required: true }
-                    }
+                    type: { type: String, enum: Object.values(type_1.licencesEnum), required: true },
+                    name: { type: String, required: true },
+                    duration: { type: String, enum: Object.values(type_1.PlanDuration), required: true }
                 }],
             hardware: [{
-                    type: {
-                        type: { type: String, enum: Object.values(type_1.ProductsTypeEnum), required: true },
-                        quantity: { type: Number, required: true, min: 1 }
-                    }
+                    type: { type: String, enum: Object.values(type_1.ProductsTypeEnum), required: true },
+                    quantity: { type: Number, required: true, min: 1 }
                 }]
         },
         required: false,
