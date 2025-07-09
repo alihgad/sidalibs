@@ -13,7 +13,7 @@ export class ConnectionManager {
 
   static getConnection(businessNumber: string): Connection {
     const mongoUri = process.env.MONGODB_URI;
-    console.log(mongoUri);
+    console.log(mongoUri , "mongoUri ");
 
     if (!mongoUri) throw new Error("MONGODB_URI is not defined");
 
