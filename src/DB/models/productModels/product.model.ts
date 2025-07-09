@@ -8,6 +8,8 @@ import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
 import { TagSchema } from '../TenantModels/tags.model';
 import { materialsSchema } from '../inventoryModels/materials.model';
 import { BranchSchema } from '../TenantModels/branch.model';
+import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
+import { AdditionSchema } from './additions.model';
 
 // Custom Branch Price Schema
 @Schema({ _id: false })
@@ -81,6 +83,12 @@ export class Product {
     @Prop({ type: String, required: false })
     secondaryName?: string; // الاسم الثانوي
 
+    @Prop({ type: String, required: false })
+    description?: string; // الوصف
+
+    @Prop({ type: String, required: false })
+    secondaryDescription?: string; // الوصف الثانوي
+
     @Prop({ type: Types.ObjectId, ref: 'ProductCategory', required: true })
     category!: Types.ObjectId; // التصنيف
 
@@ -142,6 +150,9 @@ export class Product {
 
     @Prop({ type: Boolean, default: false })
     isDeleted!: boolean; // المنتج محذوف
+
+    @Prop({ type: Boolean, default: false })
+    containsHighSalt!: boolean; // يحتوي على نسبة عالية من الملح
 }
 
 export type ProductDocument = HydratedDocument<Product> & { _id: string };
@@ -165,13 +176,19 @@ export const getProductModel = (businessNumber: string): DataBaseRepository<Prod
         connection.model('TaxGroup', TaxGroupSchema);
     }
     if (!connection.models['Tag']) {
-        connection.model('Tag', TagSchema);
+        connection.model('Tag', TagSchema); 
     }
     if (!connection.models['Material']) {
         connection.model('Material', materialsSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', BranchSchema);
+    }
+    if (!connection.models['PriceTagApplies']) {
+        connection.model('PriceTagApplies', PriceTagAppliesSchema);
+    }
+    if (!connection.models['Addition']) {
+        connection.model('Addition', AdditionSchema);
     }
     const model = connection.models['Product'] || connection.model('Product', ProductSchema) as unknown as Model<ProductDocument>;
     return new DataBaseRepository<ProductDocument>(model);

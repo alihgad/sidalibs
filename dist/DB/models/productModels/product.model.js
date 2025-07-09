@@ -20,6 +20,8 @@ const tax_groups_model_1 = require("../TenantModels/tax-groups.model");
 const tags_model_1 = require("../TenantModels/tags.model");
 const materials_model_1 = require("../inventoryModels/materials.model");
 const branch_model_1 = require("../TenantModels/branch.model");
+const priceTagApplies_model_1 = require("../TenantModels/priceTagApplies.model");
+const additions_model_1 = require("./additions.model");
 // Custom Branch Price Schema
 let CustomBranchPrice = class CustomBranchPrice {
 };
@@ -112,6 +114,14 @@ __decorate([
     __metadata("design:type", String)
 ], Product.prototype, "secondaryName", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Product.prototype, "description", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Product.prototype, "secondaryDescription", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'ProductCategory', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], Product.prototype, "category", void 0);
@@ -193,6 +203,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Product.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Product.prototype, "containsHighSalt", void 0);
 exports.Product = Product = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
@@ -225,6 +239,12 @@ const getProductModel = (businessNumber) => {
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', branch_model_1.BranchSchema);
+    }
+    if (!connection.models['PriceTagApplies']) {
+        connection.model('PriceTagApplies', priceTagApplies_model_1.PriceTagAppliesSchema);
+    }
+    if (!connection.models['Addition']) {
+        connection.model('Addition', additions_model_1.AdditionSchema);
     }
     const model = connection.models['Product'] || connection.model('Product', exports.ProductSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
