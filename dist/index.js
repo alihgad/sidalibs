@@ -26,18 +26,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.notifications = exports.test = void 0;
+exports.notifications = void 0;
 // common
 __exportStar(require("./common/pagination.type"), exports);
 __exportStar(require("./common/type"), exports);
 __exportStar(require("./common/decorators/is-valid-date.decorator"), exports);
 __exportStar(require("./common/scalars/object-id.scalar"), exports);
 __exportStar(require("./common/validators/IsPhoneWithCountryCode"), exports);
-// test
-let test = () => {
-    console.log('test ali hassan force');
-};
-exports.test = test;
 // DB
 __exportStar(require("./DB/connection.manager"), exports);
 __exportStar(require("./DB/DataBase.repository"), exports);

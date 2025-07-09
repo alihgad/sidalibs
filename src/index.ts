@@ -5,12 +5,6 @@ export * from './common/decorators/is-valid-date.decorator';
 export * from './common/scalars/object-id.scalar';
 export * from './common/validators/IsPhoneWithCountryCode';
 
-// test
-export let test = ()=>{
-    console.log('test ali hassan force');
-}
-
-
 // DB
 export * from './DB/connection.manager';
 export * from './DB/DataBase.repository';

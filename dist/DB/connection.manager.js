@@ -42,7 +42,6 @@ let ConnectionManager = ConnectionManager_1 = class ConnectionManager {
     constructor() { }
     static getConnection(businessNumber) {
         const mongoUri = process.env.MONGODB_URI;
-        console.log(mongoUri, "mongoUri ");
         if (!mongoUri)
             throw new Error("MONGODB_URI is not defined");
         // Check if connection exists in map
