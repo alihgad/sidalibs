@@ -59,7 +59,7 @@ export declare enum languages {
 }
 export declare class LicenseType {
     type: licencesEnum;
-    name: string;
+    name?: string;
     duration: PlanDuration;
 }
 export declare enum OrderType {
