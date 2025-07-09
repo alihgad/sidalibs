@@ -19,8 +19,7 @@ export class ConnectionManager {
 
     // Check if connection exists in map
     if (ConnectionManager.connections.has(businessNumber)) {
-      const existingConnection =
-        ConnectionManager.connections.get(businessNumber)!;
+      const existingConnection = ConnectionManager.connections.get(businessNumber)!;
       if (existingConnection.readyState === ConnectionStates.connected) {
         console.log("exsist Connection");
 
@@ -38,10 +37,7 @@ export class ConnectionManager {
       url = `${mongoUri}/tenant_${businessNumber}`;
     }
 
-    const connection = createConnection(url, {
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
+    const connection = createConnection(url);
 
     connection.on("connected", () => {
       ConnectionManager.logger.log(

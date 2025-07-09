@@ -61,10 +61,7 @@ let ConnectionManager = ConnectionManager_1 = class ConnectionManager {
         else {
             url = `${mongoUri}/tenant_${businessNumber}`;
         }
-        const connection = (0, mongoose_1.createConnection)(url, {
-            serverSelectionTimeoutMS: 5000,
-            socketTimeoutMS: 45000,
-        });
+        const connection = (0, mongoose_1.createConnection)(url);
         connection.on("connected", () => {
             ConnectionManager_1.logger.log(`Connected to database for tenant: ${businessNumber}`);
         });
