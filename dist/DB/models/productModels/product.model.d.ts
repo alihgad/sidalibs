@@ -42,11 +42,13 @@ export declare const NutritionalValuesSchema: import("mongoose").Schema<Nutritio
 export declare class Product {
     name: string;
     secondaryName?: string;
+    description?: string;
+    secondaryDescription?: string;
     category: Types.ObjectId;
     isRetailProduct: boolean;
     referenceCode: string;
     pricingMethod: PricingMethod;
-    price: number;
+    price?: number;
     taxGroup?: Types.ObjectId;
     costCalculationMethod: CostCalculationMethod;
     cost?: number;
@@ -62,6 +64,7 @@ export declare class Product {
     nutritionalValues?: NutritionalValues;
     isActive: boolean;
     isDeleted: boolean;
+    containsHighSalt: boolean;
 }
 export type ProductDocument = HydratedDocument<Product> & {
     _id: string;
