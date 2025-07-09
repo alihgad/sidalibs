@@ -83,12 +83,12 @@ export class Tenant {
   status?: string;
 
   @Prop({
-    type: {
-      plan: { type: String, enum: Object.values(PlanType), required: true },
-    },
+    type: String,
+    enum: Object.values(PlanType),
     required: false,
   })
-    plan!: PlanType;
+  plan!: PlanType;
+  
 
 
 }

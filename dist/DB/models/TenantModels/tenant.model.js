@@ -103,9 +103,8 @@ __decorate([
 ], Tenant.prototype, "status", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
-        type: {
-            plan: { type: String, enum: Object.values(type_1.PlanType), required: true },
-        },
+        type: String,
+        enum: Object.values(type_1.PlanType),
         required: false,
     }),
     __metadata("design:type", String)
