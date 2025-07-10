@@ -67,6 +67,8 @@ export class AuthGuard implements CanActivate {
       request['user'] = user;
       request['lsid'] = payload.lsid
       request['businessNumber'] = payload.businessNumber;
+      console.log( request['businessNumber'])
+      
 
     } catch (error: unknown) {
       if (error instanceof Error) {

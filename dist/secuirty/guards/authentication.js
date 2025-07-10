@@ -61,6 +61,7 @@ let AuthGuard = class AuthGuard {
             request['user'] = user;
             request['lsid'] = payload.lsid;
             request['businessNumber'] = payload.businessNumber;
+            console.log(request['businessNumber']);
         }
         catch (error) {
             if (error instanceof Error) {
