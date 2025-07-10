@@ -89,12 +89,52 @@ export class Tenant {
   })
   plan!: PlanType;
 
+  @Prop({ type: Date, default: null })
+  deletedAt?: Date;
 
+  @Prop({ type: Boolean, default: false })
+  isDeleted!: boolean;
 
 }
 
 export type TenantDocument = HydratedDocument<Tenant> & { _id: string };
 export const TenantSchema = SchemaFactory.createForClass(Tenant);
+
+// Paranoid (Soft Delete) Middleware
+TenantSchema.pre('find', function() {
+  this.where({ isDeleted: { $ne: true } });
+});
+
+TenantSchema.pre('findOne', function() {
+  this.where({ isDeleted: { $ne: true } });
+});
+
+TenantSchema.pre('findOneAndUpdate', function() {
+  this.where({ isDeleted: { $ne: true } });
+});
+
+TenantSchema.pre('findOneAndDelete', function() {
+  this.where({ isDeleted: { $ne: true } });
+});
+
+TenantSchema.pre('countDocuments', function() {
+  this.where({ isDeleted: { $ne: true } });
+});
+
+// Soft delete method
+TenantSchema.methods.softDelete = function() {
+  this.isDeleted = true;
+  this.deletedAt = new Date();
+  return this.save();
+};
+
+// Restore method
+TenantSchema.methods.restore = function() {
+  this.isDeleted = false;
+  this.deletedAt = null;
+  return this.save();
+};
+
 export const TENANT_MODEL = 'TENANT_MODEL';
 export const TenantModel = MongooseModule.forFeature([
   { name: Tenant.name, schema: TenantSchema },
@@ -106,3 +146,24 @@ export const getTenantModel = (): DataBaseRepository<TenantDocument> => {
   const model = connection.models['Tenant'] || connection.model('Tenant', TenantSchema) as unknown as Model<TenantDocument>;
   return new DataBaseRepository<TenantDocument>(model);
 }
+
+// Helper functions for paranoid operations
+export const getTenantModelWithDeleted = (): DataBaseRepository<TenantDocument> => {
+  let connection = ConnectionManager.getConnection("main");
+  const model = connection.models['Tenant'] || connection.model('Tenant', TenantSchema) as unknown as Model<TenantDocument>;
+  const repository = new DataBaseRepository<TenantDocument>(model);
+  
+  // Override find methods to include deleted records
+  const originalFind = repository.find.bind(repository);
+  const originalFindOne = repository.findOne.bind(repository);
+  
+  repository.find = (filter?: any) => {
+    return originalFind(filter);
+  };
+  
+  repository.findOne = (filter?: any) => {
+    return originalFindOne(filter);
+  };
+  
+  return repository;
+};

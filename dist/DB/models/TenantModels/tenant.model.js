@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTenantModel = exports.TenantModel = exports.TENANT_MODEL = exports.TenantSchema = exports.Tenant = void 0;
+exports.getTenantModelWithDeleted = exports.getTenantModel = exports.TenantModel = exports.TENANT_MODEL = exports.TenantSchema = exports.Tenant = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const type_1 = require("../../../common/type");
 const DataBase_repository_1 = require("../../DataBase.repository");
@@ -105,6 +105,14 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], Tenant.prototype, "plan", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date, default: null }),
+    __metadata("design:type", Date)
+], Tenant.prototype, "deletedAt", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Tenant.prototype, "isDeleted", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
@@ -113,6 +121,34 @@ exports.Tenant = Tenant = __decorate([
     })
 ], Tenant);
 exports.TenantSchema = mongoose_1.SchemaFactory.createForClass(Tenant);
+// Paranoid (Soft Delete) Middleware
+exports.TenantSchema.pre('find', function () {
+    this.where({ isDeleted: { $ne: true } });
+});
+exports.TenantSchema.pre('findOne', function () {
+    this.where({ isDeleted: { $ne: true } });
+});
+exports.TenantSchema.pre('findOneAndUpdate', function () {
+    this.where({ isDeleted: { $ne: true } });
+});
+exports.TenantSchema.pre('findOneAndDelete', function () {
+    this.where({ isDeleted: { $ne: true } });
+});
+exports.TenantSchema.pre('countDocuments', function () {
+    this.where({ isDeleted: { $ne: true } });
+});
+// Soft delete method
+exports.TenantSchema.methods.softDelete = function () {
+    this.isDeleted = true;
+    this.deletedAt = new Date();
+    return this.save();
+};
+// Restore method
+exports.TenantSchema.methods.restore = function () {
+    this.isDeleted = false;
+    this.deletedAt = null;
+    return this.save();
+};
 exports.TENANT_MODEL = 'TENANT_MODEL';
 exports.TenantModel = mongoose_1.MongooseModule.forFeature([
     { name: Tenant.name, schema: exports.TenantSchema },
@@ -123,3 +159,20 @@ const getTenantModel = () => {
     return new DataBase_repository_1.DataBaseRepository(model);
 };
 exports.getTenantModel = getTenantModel;
+// Helper functions for paranoid operations
+const getTenantModelWithDeleted = () => {
+    let connection = connection_manager_1.ConnectionManager.getConnection("main");
+    const model = connection.models['Tenant'] || connection.model('Tenant', exports.TenantSchema);
+    const repository = new DataBase_repository_1.DataBaseRepository(model);
+    // Override find methods to include deleted records
+    const originalFind = repository.find.bind(repository);
+    const originalFindOne = repository.findOne.bind(repository);
+    repository.find = (filter) => {
+        return originalFind(filter);
+    };
+    repository.findOne = (filter) => {
+        return originalFindOne(filter);
+    };
+    return repository;
+};
+exports.getTenantModelWithDeleted = getTenantModelWithDeleted;
