@@ -133,6 +133,7 @@ exports.Branch = Branch = __decorate([
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
+        collection: 'Branch'
     })
 ], Branch);
 exports.BranchSchema = mongoose_1.SchemaFactory.createForClass(Branch);

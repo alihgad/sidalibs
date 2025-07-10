@@ -11,6 +11,7 @@ import { ConnectionManager } from '../../connection.manager';
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
+    collection: 'Device'
 })
 export class Device {
     @Prop({ required: true, trim: true })

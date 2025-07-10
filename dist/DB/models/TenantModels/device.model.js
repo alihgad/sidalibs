@@ -92,6 +92,7 @@ exports.Device = Device = __decorate([
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
+        collection: 'Device'
     })
 ], Device);
 exports.DeviceSchema = mongoose_1.SchemaFactory.createForClass(Device);
