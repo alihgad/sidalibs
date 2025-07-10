@@ -1,5 +1,5 @@
 import { Collection, HydratedDocument, Model, Types } from 'mongoose';
-import { deviceTypeEnum, PlanDuration, PlanType } from '../../../common/type';
+import { deviceTypeEnum, PlanDuration } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Device {
     name: string;
@@ -11,7 +11,6 @@ export declare class Device {
     lastActivatedAt?: Date;
     lastOnlineAt?: Date;
     currentSubscription: {
-        plan: PlanType;
         duration: PlanDuration;
         paid: boolean;
         startDate: Date;
@@ -19,7 +18,6 @@ export declare class Device {
         receiptUrl?: string;
     };
     subscriptionHistory: {
-        plan: PlanType;
         duration: PlanDuration;
         paid: boolean;
         startDate: Date;

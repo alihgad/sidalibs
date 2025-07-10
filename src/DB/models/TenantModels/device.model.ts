@@ -1,6 +1,6 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Collection, HydratedDocument, Model, Types } from 'mongoose';
-import { deviceTypeEnum, PlanDuration, PlanType, ProductsTypeEnum } from '../../../common/type';
+import { deviceTypeEnum, PlanDuration } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 
@@ -38,7 +38,6 @@ export class Device {
     lastOnlineAt?: Date;
     @Prop({
         type: {
-            plan: { type: String, enum: Object.values(PlanType), required: true },
             duration: { type: String, enum: Object.values(PlanDuration), required: true },
             paid: { type: Boolean, default: false },
             startDate: { type: Date },
@@ -48,7 +47,6 @@ export class Device {
         required: true,
     })
     currentSubscription!: {
-        plan: PlanType;
         duration: PlanDuration;
         paid: boolean;
         startDate: Date;
@@ -57,7 +55,6 @@ export class Device {
     };
     @Prop([
         {
-            plan: { type: String, enum: Object.values(PlanType), required: true },
             duration: { type: String, enum: Object.values(PlanDuration), required: true },
             paid: { type: Boolean, default: false },
             startDate: { type: Date, required: true },
@@ -66,7 +63,6 @@ export class Device {
         },
     ])
     subscriptionHistory!: {
-        plan: PlanType;
         duration: PlanDuration;
         paid: boolean;
         startDate: Date;
