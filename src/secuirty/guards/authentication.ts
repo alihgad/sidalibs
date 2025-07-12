@@ -1,3 +1,10 @@
+// Try to load environment variables from the correct path
+try {
+  require('dotenv').config({ path: '../../../.env' });
+} catch (error: any) {
+  console.log('Failed to load .env file:', error?.message || 'Unknown error');
+}
+
 // import { getUserModel } from '@libs/DB/models/userModels/users.model';
 // import { Decrypt } from '@libs/secuirty/crypto.helper';
 // import { verifyToken } from '@libs/secuirty/jwt';
@@ -14,24 +21,39 @@ import { getUserModel } from '../../DB/models/userModels/users.model';
 import { CryptoHelper } from '../crypto.helper';
 import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
     private readonly cryptoHelper: CryptoHelper,
+    private readonly configService: ConfigService,
   ) { }
 
   async canActivate(context: ExecutionContext): Promise<any> {
+
+    
     const request = context.switchToHttp().getRequest() || GqlExecutionContext.create(context).getContext().req;
     const token = request.headers.authorization;
     if (!token) {
-      throw new Error('Forbidden resource');
+      throw new Error('Forbidden resource T');
     }
     try {
-      const payload = await verifyToken(token, process.env.JWT_SECRET)
-      const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
+      const jwtSecret = process.env.JWT_SECRET;
+      if (!jwtSecret) {
+        throw new ForbiddenException('JWT_SECRET not configured');
+      }
+      console.log('Using JWT_SECRET:', jwtSecret ? 'EXISTS' : 'NOT FOUND')
+      const payload = await verifyToken(token, jwtSecret)
+      console.log(payload.businessNumber)
+      const tenantRepo = getTenantModel()
+      const tenant = await tenantRepo.findOne({ businessNumber: payload.businessNumber })
+      console.log(tenant)
+      console.log(await tenantRepo.find({}))
+      
+      console.log(tenant)
       if (!tenant) {
-        throw new Error('Forbidden resource');
+        throw new Error('Forbidden resource TT');
       }
       if(tenant.plan === PlanType.FREE){
 
@@ -53,26 +75,29 @@ export class AuthGuard implements CanActivate {
         { path: 'role' }
       );
       if (!user) {
-        throw new ForbiddenException('Forbidden resource');
+        throw new ForbiddenException('Forbidden resource 1 ');
       }
 
       const decryptedJwtSecret = this.cryptoHelper.decrypt(user.jwtSecret)?.toString();
       if (decryptedJwtSecret !== payload.jwtSecret) {
-        throw new ForbiddenException('Forbidden resource');
+        throw new ForbiddenException('Forbidden resource 2 ');
       }
       // Check if the lsid from payload exists in user's loginDevicesSession
       if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
-        throw new ForbiddenException('Forbidden resource');
+        throw new ForbiddenException('Forbidden resource 3 ');
       }
+
+ 
+
+      
       request['user'] = user;
       request['lsid'] = payload.lsid
       request['businessNumber'] = payload.businessNumber;
-      console.log( request['businessNumber'])
       
 
     } catch (error: unknown) {
       if (error instanceof Error) {
-        throw new ForbiddenException(error.message);
+        throw new ForbiddenException(error.message , error.stack);
       }
       throw new ForbiddenException('An unknown error occurred');
     }

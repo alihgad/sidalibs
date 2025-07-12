@@ -24,7 +24,7 @@ var deviceTypeEnum;
 });
 var licencesEnum;
 (function (licencesEnum) {
-    licencesEnum["cashier"] = "cashier";
+    licencesEnum["mainCashier"] = "mainCashier";
     licencesEnum["KDS"] = "KDS";
     licencesEnum["addOnsCashier"] = "addOnsCashier";
 })(licencesEnum || (exports.licencesEnum = licencesEnum = {}));
@@ -119,10 +119,26 @@ exports.devicePriceMap = {
     [ProductsTypeEnum.TABLET]: 0
 };
 exports.planPriceMap = {
-    [PlanType.BASIC]: 2000,
-    [PlanType.STANDARD]: 4000,
-    [PlanType.PREMIUM]: 6000,
-    [PlanType.FREE]: 0,
+    [PlanType.BASIC]: {
+        [licencesEnum.mainCashier]: 2000,
+        [licencesEnum.KDS]: 500,
+        [licencesEnum.addOnsCashier]: 1000,
+    },
+    [PlanType.STANDARD]: {
+        [licencesEnum.mainCashier]: 4000,
+        [licencesEnum.KDS]: 1000,
+        [licencesEnum.addOnsCashier]: 2000,
+    },
+    [PlanType.PREMIUM]: {
+        [licencesEnum.mainCashier]: 6000,
+        [licencesEnum.KDS]: 1500,
+        [licencesEnum.addOnsCashier]: 3000,
+    },
+    [PlanType.FREE]: {
+        [licencesEnum.mainCashier]: 0,
+        [licencesEnum.KDS]: 0,
+        [licencesEnum.addOnsCashier]: 0,
+    },
 };
 var languages;
 (function (languages) {
