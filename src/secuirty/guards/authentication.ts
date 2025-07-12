@@ -1,8 +1,9 @@
-import { config } from 'dotenv';
-import * as path from 'path';
-
-// Load environment variables with explicit path
-config({ path: path.resolve(process.cwd(), '.env') });
+// Try to load environment variables
+try {
+  require('dotenv').config();
+} catch (error: any) {
+  console.log('Failed to load .env file:', error?.message || 'Unknown error');
+}
 
 // import { getUserModel } from '@libs/DB/models/userModels/users.model';
 // import { Decrypt } from '@libs/secuirty/crypto.helper';
@@ -32,6 +33,9 @@ export class AuthGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<any> {
     // Debug: Check if dotenv loaded
     console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('JWT')));
+    console.log('Current working directory:', process.cwd());
+    console.log('JWT_SECRET exists:', !!process.env.JWT_SECRET);
+    console.log('JWT_SECRET length:', process.env.JWT_SECRET?.length || 0);
     
     const request = context.switchToHttp().getRequest() || GqlExecutionContext.create(context).getContext().req;
     const token = request.headers.authorization;
