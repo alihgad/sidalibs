@@ -73,16 +73,16 @@ export class AuthGuard implements CanActivate {
         { path: 'role' }
       );
       if (!user) {
-        throw new ForbiddenException('Forbidden resource');
+        throw new ForbiddenException('Forbidden resource 1 ');
       }
 
       const decryptedJwtSecret = this.cryptoHelper.decrypt(user.jwtSecret)?.toString();
       if (decryptedJwtSecret !== payload.jwtSecret) {
-        throw new ForbiddenException('Forbidden resource');
+        throw new ForbiddenException('Forbidden resource 2 ');
       }
       // Check if the lsid from payload exists in user's loginDevicesSession
       if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
-        throw new ForbiddenException('Forbidden resource');
+        throw new ForbiddenException('Forbidden resource 3 ');
       }
 
  

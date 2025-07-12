@@ -67,15 +67,15 @@ let AuthGuard = class AuthGuard {
             let userModel = (0, users_model_1.getUserModel)(payload.businessNumber);
             const user = await userModel.findById(payload._id, 'email jwtSecret firstName lastName userName role isOwner phone loginDevicesSession', { path: 'role' });
             if (!user) {
-                throw new common_1.ForbiddenException('Forbidden resource');
+                throw new common_1.ForbiddenException('Forbidden resource 1 ');
             }
             const decryptedJwtSecret = this.cryptoHelper.decrypt(user.jwtSecret)?.toString();
             if (decryptedJwtSecret !== payload.jwtSecret) {
-                throw new common_1.ForbiddenException('Forbidden resource');
+                throw new common_1.ForbiddenException('Forbidden resource 2 ');
             }
             // Check if the lsid from payload exists in user's loginDevicesSession
             if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
-                throw new common_1.ForbiddenException('Forbidden resource');
+                throw new common_1.ForbiddenException('Forbidden resource 3 ');
             }
             request['user'] = user;
             request['lsid'] = payload.lsid;
