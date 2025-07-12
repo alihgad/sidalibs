@@ -21,10 +21,12 @@ const crypto_helper_1 = require("../crypto.helper");
 const tenant_model_1 = require("../../DB/models/TenantModels/tenant.model");
 const type_1 = require("../../common/type");
 const dotenv_1 = require("dotenv");
+const config_1 = require("@nestjs/config");
 (0, dotenv_1.config)({ path: "./../../.env" });
 let AuthGuard = class AuthGuard {
-    constructor(cryptoHelper) {
+    constructor(cryptoHelper, configService) {
         this.cryptoHelper = cryptoHelper;
+        this.configService = configService;
     }
     async canActivate(context) {
         const request = context.switchToHttp().getRequest() || graphql_1.GqlExecutionContext.create(context).getContext().req;
@@ -34,8 +36,8 @@ let AuthGuard = class AuthGuard {
         }
         try {
             console.log(token);
-            console.log(process.env.JWT_SECRET);
-            const payload = await (0, Jwt_1.verifyToken)(token, process.env.JWT_SECRET);
+            console.log(this.configService.get('JWT_SECRET'));
+            const payload = await (0, Jwt_1.verifyToken)(token, this.configService.get('JWT_SECRET'));
             const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
             if (!tenant) {
                 throw new Error('Forbidden resource');
@@ -79,5 +81,6 @@ let AuthGuard = class AuthGuard {
 exports.AuthGuard = AuthGuard;
 exports.AuthGuard = AuthGuard = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [crypto_helper_1.CryptoHelper])
+    __metadata("design:paramtypes", [crypto_helper_1.CryptoHelper,
+        config_1.ConfigService])
 ], AuthGuard);

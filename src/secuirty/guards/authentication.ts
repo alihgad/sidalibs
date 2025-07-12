@@ -15,12 +15,14 @@ import { CryptoHelper } from '../crypto.helper';
 import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
 import { config } from 'dotenv';
+import { ConfigService } from '@nestjs/config';
 config({path: "./../../.env"});
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
     private readonly cryptoHelper: CryptoHelper,
+    private readonly configService: ConfigService,
   ) { }
 
   async canActivate(context: ExecutionContext): Promise<any> {
@@ -31,8 +33,8 @@ export class AuthGuard implements CanActivate {
     }
     try {
       console.log(token)
-      console.log(process.env.JWT_SECRET)
-      const payload = await verifyToken(token, process.env.JWT_SECRET)
+      console.log(this.configService.get('JWT_SECRET'))
+      const payload = await verifyToken(token, this.configService.get('JWT_SECRET'))
       const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
       if (!tenant) {
         throw new Error('Forbidden resource');
