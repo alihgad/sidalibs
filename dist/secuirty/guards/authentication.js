@@ -21,7 +21,7 @@ const crypto_helper_1 = require("../crypto.helper");
 const tenant_model_1 = require("../../DB/models/TenantModels/tenant.model");
 const type_1 = require("../../common/type");
 const dotenv_1 = require("dotenv");
-(0, dotenv_1.config)();
+(0, dotenv_1.config)({ path: "./../../.env" });
 let AuthGuard = class AuthGuard {
     constructor(cryptoHelper) {
         this.cryptoHelper = cryptoHelper;
@@ -33,6 +33,8 @@ let AuthGuard = class AuthGuard {
             throw new Error('Forbidden resource');
         }
         try {
+            console.log(token);
+            console.log(process.env.JWT_SECRET);
             const payload = await (0, Jwt_1.verifyToken)(token, process.env.JWT_SECRET);
             const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
             if (!tenant) {
@@ -60,7 +62,6 @@ let AuthGuard = class AuthGuard {
             if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
                 throw new common_1.ForbiddenException('Forbidden resource');
             }
-            console.log(payload);
             request['user'] = user;
             request['lsid'] = payload.lsid;
             request['businessNumber'] = payload.businessNumber;

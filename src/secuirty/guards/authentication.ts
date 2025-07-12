@@ -15,7 +15,7 @@ import { CryptoHelper } from '../crypto.helper';
 import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
 import { config } from 'dotenv';
-config();
+config({path: "./../../.env"});
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -30,6 +30,8 @@ export class AuthGuard implements CanActivate {
       throw new Error('Forbidden resource');
     }
     try {
+      console.log(token)
+      console.log(process.env.JWT_SECRET)
       const payload = await verifyToken(token, process.env.JWT_SECRET)
       const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
       if (!tenant) {
@@ -67,7 +69,7 @@ export class AuthGuard implements CanActivate {
         throw new ForbiddenException('Forbidden resource');
       }
 
-      console.log(payload)
+ 
 
       
       request['user'] = user;
