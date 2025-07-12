@@ -48,6 +48,7 @@ let AuthGuard = class AuthGuard {
             const payload = await (0, Jwt_1.verifyToken)(token, jwtSecret);
             console.log(payload.businessNumber);
             const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
+            console.log(tenant);
             if (!tenant) {
                 throw new Error('Forbidden resource TT');
             }
@@ -76,7 +77,6 @@ let AuthGuard = class AuthGuard {
             request['user'] = user;
             request['lsid'] = payload.lsid;
             request['businessNumber'] = payload.businessNumber;
-            console.log(request['businessNumber']);
         }
         catch (error) {
             if (error instanceof Error) {

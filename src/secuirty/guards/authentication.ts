@@ -47,6 +47,7 @@ export class AuthGuard implements CanActivate {
       const payload = await verifyToken(token, jwtSecret)
       console.log(payload.businessNumber)
       const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
+      console.log(tenant)
       if (!tenant) {
         throw new Error('Forbidden resource TT');
       }
@@ -88,7 +89,6 @@ export class AuthGuard implements CanActivate {
       request['user'] = user;
       request['lsid'] = payload.lsid
       request['businessNumber'] = payload.businessNumber;
-      console.log( request['businessNumber'])
       
 
     } catch (error: unknown) {
