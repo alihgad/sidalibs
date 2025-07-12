@@ -16,7 +16,7 @@ import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
-config({path: process.cwd() + "/.env"});
+config();
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -32,10 +32,11 @@ export class AuthGuard implements CanActivate {
       throw new Error('Forbidden resource');
     }
     try {
-      console.log(token)
-      console.log(this.configService.get('JWT_SECRET'))
-      console.log(process.env.JWT_SECRET)
-      const payload = await verifyToken(token, this.configService.get('JWT_SECRET'))
+      const jwtSecret = this.configService.get('JWT_SECRET') || process.env.JWT_SECRET;
+      console.log('JWT_SECRET from configService:', this.configService.get('JWT_SECRET'))
+      console.log('JWT_SECRET from process.env:', process.env.JWT_SECRET)
+      console.log('Using JWT_SECRET:', jwtSecret)
+      const payload = await verifyToken(token, jwtSecret)
       const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
       if (!tenant) {
         throw new Error('Forbidden resource');

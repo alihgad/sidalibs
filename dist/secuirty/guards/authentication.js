@@ -22,7 +22,7 @@ const tenant_model_1 = require("../../DB/models/TenantModels/tenant.model");
 const type_1 = require("../../common/type");
 const dotenv_1 = require("dotenv");
 const config_1 = require("@nestjs/config");
-(0, dotenv_1.config)({ path: process.cwd() + "/.env" });
+(0, dotenv_1.config)();
 let AuthGuard = class AuthGuard {
     constructor(cryptoHelper, configService) {
         this.cryptoHelper = cryptoHelper;
@@ -35,10 +35,11 @@ let AuthGuard = class AuthGuard {
             throw new Error('Forbidden resource');
         }
         try {
-            console.log(token);
-            console.log(this.configService.get('JWT_SECRET'));
-            console.log(process.env.JWT_SECRET);
-            const payload = await (0, Jwt_1.verifyToken)(token, this.configService.get('JWT_SECRET'));
+            const jwtSecret = this.configService.get('JWT_SECRET') || process.env.JWT_SECRET;
+            console.log('JWT_SECRET from configService:', this.configService.get('JWT_SECRET'));
+            console.log('JWT_SECRET from process.env:', process.env.JWT_SECRET);
+            console.log('Using JWT_SECRET:', jwtSecret);
+            const payload = await (0, Jwt_1.verifyToken)(token, jwtSecret);
             const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
             if (!tenant) {
                 throw new Error('Forbidden resource');
