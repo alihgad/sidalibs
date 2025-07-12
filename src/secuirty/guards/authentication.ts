@@ -1,6 +1,6 @@
-// Try to load environment variables
+// Try to load environment variables from the correct path
 try {
-  require('dotenv').config();
+  require('dotenv').config({ path: '../../../.env' });
 } catch (error: any) {
   console.log('Failed to load .env file:', error?.message || 'Unknown error');
 }

@@ -10,9 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthGuard = void 0;
-// Try to load environment variables
+// Try to load environment variables from the correct path
 try {
-    require('dotenv').config();
+    require('dotenv').config({ path: '../../../.env' });
 }
 catch (error) {
     console.log('Failed to load .env file:', error?.message || 'Unknown error');
