@@ -1,3 +1,9 @@
+import { config } from 'dotenv';
+import * as path from 'path';
+
+// Load environment variables with explicit path
+config({ path: path.resolve(process.cwd(), '.env') });
+
 // import { getUserModel } from '@libs/DB/models/userModels/users.model';
 // import { Decrypt } from '@libs/secuirty/crypto.helper';
 // import { verifyToken } from '@libs/secuirty/jwt';
@@ -14,11 +20,7 @@ import { getUserModel } from '../../DB/models/userModels/users.model';
 import { CryptoHelper } from '../crypto.helper';
 import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
-import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
-
-// Load environment variables at module level
-config();
 
 @Injectable()
 export class AuthGuard implements CanActivate {
