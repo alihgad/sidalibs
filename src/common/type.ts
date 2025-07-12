@@ -1,5 +1,5 @@
 import { Field, InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
-import { IsEnum, IsNotEmpty, IsInt, Min, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsInt, Min, IsString, IsOptional } from 'class-validator';
 
 import Stripe from 'stripe';
 
@@ -148,8 +148,8 @@ export class LicenseType {
 
     @Field(() => String)
     @IsString()
-    @IsNotEmpty()
-    name!: string;
+    @IsOptional()
+    name?: string;
 
     @Field(() => PlanDuration)
     @IsEnum(PlanDuration)

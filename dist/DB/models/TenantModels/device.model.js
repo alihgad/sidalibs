@@ -53,7 +53,6 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({
         type: {
-            plan: { type: String, enum: Object.values(type_1.PlanType), required: true },
             duration: { type: String, enum: Object.values(type_1.PlanDuration), required: true },
             paid: { type: Boolean, default: false },
             startDate: { type: Date },
@@ -67,7 +66,6 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)([
         {
-            plan: { type: String, enum: Object.values(type_1.PlanType), required: true },
             duration: { type: String, enum: Object.values(type_1.PlanDuration), required: true },
             paid: { type: Boolean, default: false },
             startDate: { type: Date, required: true },
@@ -94,6 +92,7 @@ exports.Device = Device = __decorate([
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
+        collection: 'Device'
     })
 ], Device);
 exports.DeviceSchema = mongoose_1.SchemaFactory.createForClass(Device);

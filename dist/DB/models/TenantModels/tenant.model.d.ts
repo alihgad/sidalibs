@@ -22,6 +22,8 @@ export declare class Tenant {
     };
     status?: string;
     plan: PlanType;
+    deletedAt?: Date;
+    isDeleted: boolean;
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;
@@ -38,4 +40,5 @@ export declare const TenantSchema: import("mongoose").Schema<Tenant, Model<Tenan
 export declare const TENANT_MODEL = "TENANT_MODEL";
 export declare const TenantModel: import("@nestjs/common").DynamicModule;
 export declare const getTenantModel: () => DataBaseRepository<TenantDocument>;
+export declare const getTenantModelWithDeleted: () => DataBaseRepository<TenantDocument>;
 //# sourceMappingURL=tenant.model.d.ts.map

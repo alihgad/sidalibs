@@ -6,6 +6,7 @@ import { ConnectionManager } from '../../connection.manager';
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
+    collection: 'Branch'
 })
 export class Branch {
     @Prop({ required: true })
