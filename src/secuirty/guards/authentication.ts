@@ -31,16 +31,12 @@ export class AuthGuard implements CanActivate {
   ) { }
 
   async canActivate(context: ExecutionContext): Promise<any> {
-    // Debug: Check if dotenv loaded
-    console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('JWT')));
-    console.log('Current working directory:', process.cwd());
-    console.log('JWT_SECRET exists:', !!process.env.JWT_SECRET);
-    console.log('JWT_SECRET length:', process.env.JWT_SECRET?.length || 0);
+
     
     const request = context.switchToHttp().getRequest() || GqlExecutionContext.create(context).getContext().req;
     const token = request.headers.authorization;
     if (!token) {
-      throw new Error('Forbidden resource');
+      throw new Error('Forbidden resource T');
     }
     try {
       const jwtSecret = process.env.JWT_SECRET;
@@ -51,7 +47,7 @@ export class AuthGuard implements CanActivate {
       const payload = await verifyToken(token, jwtSecret)
       const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
       if (!tenant) {
-        throw new Error('Forbidden resource');
+        throw new Error('Forbidden resource TT');
       }
       if(tenant.plan === PlanType.FREE){
 

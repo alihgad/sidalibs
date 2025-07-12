@@ -34,15 +34,10 @@ let AuthGuard = class AuthGuard {
         this.configService = configService;
     }
     async canActivate(context) {
-        // Debug: Check if dotenv loaded
-        console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('JWT')));
-        console.log('Current working directory:', process.cwd());
-        console.log('JWT_SECRET exists:', !!process.env.JWT_SECRET);
-        console.log('JWT_SECRET length:', process.env.JWT_SECRET?.length || 0);
         const request = context.switchToHttp().getRequest() || graphql_1.GqlExecutionContext.create(context).getContext().req;
         const token = request.headers.authorization;
         if (!token) {
-            throw new Error('Forbidden resource');
+            throw new Error('Forbidden resource T');
         }
         try {
             const jwtSecret = process.env.JWT_SECRET;
@@ -53,7 +48,7 @@ let AuthGuard = class AuthGuard {
             const payload = await (0, Jwt_1.verifyToken)(token, jwtSecret);
             const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
             if (!tenant) {
-                throw new Error('Forbidden resource');
+                throw new Error('Forbidden resource TT');
             }
             if (tenant.plan === type_1.PlanType.FREE) {
                 // التحقق من المدة التجريبية (15 يوم)
