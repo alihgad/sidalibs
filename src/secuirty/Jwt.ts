@@ -1,5 +1,8 @@
 
 import jwt from "jsonwebtoken"
+import { config } from 'dotenv';
+config({path: process.cwd() + "/.env"});
+console.log(process.env.JWT_SECRET)
 
 
 export const generateToken = (payload: any, secret: string = process.env.JWT_SECRET as string, expireAt: string = "1d"): string => {

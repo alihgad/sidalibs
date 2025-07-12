@@ -16,7 +16,7 @@ import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
-config({path: "./../../.env"});
+config({path: process.cwd() + "/.env"});
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -34,6 +34,7 @@ export class AuthGuard implements CanActivate {
     try {
       console.log(token)
       console.log(this.configService.get('JWT_SECRET'))
+      console.log(process.env.JWT_SECRET)
       const payload = await verifyToken(token, this.configService.get('JWT_SECRET'))
       const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
       if (!tenant) {
