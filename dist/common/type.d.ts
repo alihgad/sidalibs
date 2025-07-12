@@ -5,7 +5,7 @@ export declare enum deviceTypeEnum {
     "KDS" = "KDS"
 }
 export declare enum licencesEnum {
-    "cashier" = "cashier",
+    "mainCashier" = "mainCashier",
     "KDS" = "KDS",
     "addOnsCashier" = "addOnsCashier"
 }

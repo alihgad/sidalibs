@@ -17,7 +17,7 @@ registerEnumType(deviceTypeEnum, {
 })
 
 export enum licencesEnum{
-    "cashier" = "cashier",
+    "mainCashier" = "mainCashier",
     "KDS" = "KDS",
     "addOnsCashier" = "addOnsCashier",
 }
@@ -116,22 +116,22 @@ export const devicePriceMap: Record<ProductsTypeEnum, number> = {
 
 export const planPriceMap: Record<PlanType, Record<licencesEnum, number>> = {
     [PlanType.BASIC]: {
-        [licencesEnum.cashier]: 2000,
+        [licencesEnum.mainCashier]: 2000,
         [licencesEnum.KDS]: 500,
         [licencesEnum.addOnsCashier]: 1000,
     },
     [PlanType.STANDARD]: {
-        [licencesEnum.cashier]: 4000,
+        [licencesEnum.mainCashier]: 4000,
         [licencesEnum.KDS]: 1000,
         [licencesEnum.addOnsCashier]: 2000,
     },
     [PlanType.PREMIUM]: {
-        [licencesEnum.cashier]: 6000,
+        [licencesEnum.mainCashier]: 6000,
         [licencesEnum.KDS]: 1500,
         [licencesEnum.addOnsCashier]: 3000,
     },
     [PlanType.FREE]: {
-        [licencesEnum.cashier]: 0,
+        [licencesEnum.mainCashier]: 0,
         [licencesEnum.KDS]: 0,
         [licencesEnum.addOnsCashier]: 0,
     },
