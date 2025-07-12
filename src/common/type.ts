@@ -114,11 +114,27 @@ export const devicePriceMap: Record<ProductsTypeEnum, number> = {
     [ProductsTypeEnum.TABLET]: 0
 };
 
-export const planPriceMap: Record<PlanType, number> = {
-    [PlanType.BASIC]: 2000,
-    [PlanType.STANDARD]: 4000,
-    [PlanType.PREMIUM]: 6000,
-    [PlanType.FREE]: 0,
+export const planPriceMap: Record<PlanType, Record<licencesEnum, number>> = {
+    [PlanType.BASIC]: {
+        [licencesEnum.cashier]: 2000,
+        [licencesEnum.KDS]: 500,
+        [licencesEnum.addOnsCashier]: 1000,
+    },
+    [PlanType.STANDARD]: {
+        [licencesEnum.cashier]: 4000,
+        [licencesEnum.KDS]: 1000,
+        [licencesEnum.addOnsCashier]: 2000,
+    },
+    [PlanType.PREMIUM]: {
+        [licencesEnum.cashier]: 6000,
+        [licencesEnum.KDS]: 1500,
+        [licencesEnum.addOnsCashier]: 3000,
+    },
+    [PlanType.FREE]: {
+        [licencesEnum.cashier]: 0,
+        [licencesEnum.KDS]: 0,
+        [licencesEnum.addOnsCashier]: 0,
+    },
 };
 export interface ProductPurchase {
     productName: string;

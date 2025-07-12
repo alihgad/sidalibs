@@ -46,7 +46,7 @@ export declare enum PlanDuration {
 export declare const planIntervalsMap: Record<PlanDuration, Stripe.Price.Recurring.Interval>;
 export declare const planIntervalCountMap: Record<PlanDuration, number>;
 export declare const devicePriceMap: Record<ProductsTypeEnum, number>;
-export declare const planPriceMap: Record<PlanType, number>;
+export declare const planPriceMap: Record<PlanType, Record<licencesEnum, number>>;
 export interface ProductPurchase {
     productName: string;
     productDescription: string;

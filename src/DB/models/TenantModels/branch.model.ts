@@ -40,7 +40,7 @@ export class Branch {
     TaxNumber!: string;
 
     @Prop({ type: String, required: false })
-    referenceNumber!: string; // وقت التسجيل
+    referenceNumber!: string; 
 
     @Prop({ type: String, required: false })
     taxGroup!: string; // وقت التسجيل
