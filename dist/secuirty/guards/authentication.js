@@ -22,6 +22,7 @@ const tenant_model_1 = require("../../DB/models/TenantModels/tenant.model");
 const type_1 = require("../../common/type");
 const dotenv_1 = require("dotenv");
 const config_1 = require("@nestjs/config");
+// Load environment variables at module level
 (0, dotenv_1.config)();
 let AuthGuard = class AuthGuard {
     constructor(cryptoHelper, configService) {
@@ -29,16 +30,19 @@ let AuthGuard = class AuthGuard {
         this.configService = configService;
     }
     async canActivate(context) {
+        // Debug: Check if dotenv loaded
+        console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('JWT')));
         const request = context.switchToHttp().getRequest() || graphql_1.GqlExecutionContext.create(context).getContext().req;
         const token = request.headers.authorization;
         if (!token) {
             throw new Error('Forbidden resource');
         }
         try {
-            const jwtSecret = this.configService.get('JWT_SECRET') || process.env.JWT_SECRET;
-            console.log('JWT_SECRET from configService:', this.configService.get('JWT_SECRET'));
-            console.log('JWT_SECRET from process.env:', process.env.JWT_SECRET);
-            console.log('Using JWT_SECRET:', jwtSecret);
+            const jwtSecret = process.env.JWT_SECRET;
+            if (!jwtSecret) {
+                throw new common_1.ForbiddenException('JWT_SECRET not configured');
+            }
+            console.log('Using JWT_SECRET:', jwtSecret ? 'EXISTS' : 'NOT FOUND');
             const payload = await (0, Jwt_1.verifyToken)(token, jwtSecret);
             const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
             if (!tenant) {

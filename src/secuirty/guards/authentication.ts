@@ -16,6 +16,8 @@ import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
 import { config } from 'dotenv';
 import { ConfigService } from '@nestjs/config';
+
+// Load environment variables at module level
 config();
 
 @Injectable()
@@ -26,16 +28,20 @@ export class AuthGuard implements CanActivate {
   ) { }
 
   async canActivate(context: ExecutionContext): Promise<any> {
+    // Debug: Check if dotenv loaded
+    console.log('All env vars:', Object.keys(process.env).filter(key => key.includes('JWT')));
+    
     const request = context.switchToHttp().getRequest() || GqlExecutionContext.create(context).getContext().req;
     const token = request.headers.authorization;
     if (!token) {
       throw new Error('Forbidden resource');
     }
     try {
-      const jwtSecret = this.configService.get('JWT_SECRET') || process.env.JWT_SECRET;
-      console.log('JWT_SECRET from configService:', this.configService.get('JWT_SECRET'))
-      console.log('JWT_SECRET from process.env:', process.env.JWT_SECRET)
-      console.log('Using JWT_SECRET:', jwtSecret)
+      const jwtSecret = process.env.JWT_SECRET;
+      if (!jwtSecret) {
+        throw new ForbiddenException('JWT_SECRET not configured');
+      }
+      console.log('Using JWT_SECRET:', jwtSecret ? 'EXISTS' : 'NOT FOUND')
       const payload = await verifyToken(token, jwtSecret)
       const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
       if (!tenant) {
