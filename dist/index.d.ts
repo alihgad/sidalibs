@@ -12,6 +12,7 @@ export * from './DB/models/productModels/categories.model';
 export * from './DB/models/productModels/groups.model';
 export * from './DB/models/productModels/product.model';
 export * from './DB/models/productModels/additions.model';
+export * from './DB/models/productModels/giftCards.model';
 export * from './DB/models/TenantModels/branch.model';
 export * from './DB/models/TenantModels/brand.model';
 export * from './DB/models/TenantModels/coupon.model';

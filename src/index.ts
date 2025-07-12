@@ -20,6 +20,7 @@ export * from './DB/models/productModels/categories.model';
 export * from './DB/models/productModels/groups.model';
 export * from './DB/models/productModels/product.model';
 export * from './DB/models/productModels/additions.model';
+export * from './DB/models/productModels/giftCards.model';
 
 // ========== Tenant Models ==========
 export * from './DB/models/TenantModels/branch.model';
