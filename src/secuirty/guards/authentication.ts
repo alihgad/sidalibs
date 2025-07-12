@@ -46,7 +46,11 @@ export class AuthGuard implements CanActivate {
       console.log('Using JWT_SECRET:', jwtSecret ? 'EXISTS' : 'NOT FOUND')
       const payload = await verifyToken(token, jwtSecret)
       console.log(payload.businessNumber)
-      const tenant = await getTenantModel().findOne({ businessNumber: payload.businessNumber })
+      const tenantRepo = getTenantModel()
+      const tenant = await tenantRepo.findOne({ businessNumber: payload.businessNumber })
+      console.log(tenant)
+      console.log(await tenantRepo.find({}))
+      
       console.log(tenant)
       if (!tenant) {
         throw new Error('Forbidden resource TT');
