@@ -46,6 +46,7 @@ let AuthGuard = class AuthGuard {
             }
             console.log('Using JWT_SECRET:', jwtSecret ? 'EXISTS' : 'NOT FOUND');
             const payload = await (0, Jwt_1.verifyToken)(token, jwtSecret);
+            console.log(payload.businessNumber);
             const tenant = await (0, tenant_model_1.getTenantModel)().findOne({ businessNumber: payload.businessNumber });
             if (!tenant) {
                 throw new Error('Forbidden resource TT');
