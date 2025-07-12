@@ -14,6 +14,8 @@ import { getUserModel } from '../../DB/models/userModels/users.model';
 import { CryptoHelper } from '../crypto.helper';
 import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
+import { config } from 'dotenv';
+config();
 
 @Injectable()
 export class AuthGuard implements CanActivate {

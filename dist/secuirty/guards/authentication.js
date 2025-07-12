@@ -20,6 +20,8 @@ const users_model_1 = require("../../DB/models/userModels/users.model");
 const crypto_helper_1 = require("../crypto.helper");
 const tenant_model_1 = require("../../DB/models/TenantModels/tenant.model");
 const type_1 = require("../../common/type");
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.config)();
 let AuthGuard = class AuthGuard {
     constructor(cryptoHelper) {
         this.cryptoHelper = cryptoHelper;
