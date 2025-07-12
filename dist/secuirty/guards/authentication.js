@@ -60,6 +60,7 @@ let AuthGuard = class AuthGuard {
             if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
                 throw new common_1.ForbiddenException('Forbidden resource');
             }
+            console.log(payload);
             request['user'] = user;
             request['lsid'] = payload.lsid;
             request['businessNumber'] = payload.businessNumber;
@@ -67,7 +68,7 @@ let AuthGuard = class AuthGuard {
         }
         catch (error) {
             if (error instanceof Error) {
-                throw new common_1.ForbiddenException(error.message);
+                throw new common_1.ForbiddenException(error.message, error.stack);
             }
             throw new common_1.ForbiddenException('An unknown error occurred');
         }

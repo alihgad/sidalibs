@@ -66,6 +66,10 @@ export class AuthGuard implements CanActivate {
       if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
         throw new ForbiddenException('Forbidden resource');
       }
+
+      console.log(payload)
+
+      
       request['user'] = user;
       request['lsid'] = payload.lsid
       request['businessNumber'] = payload.businessNumber;
@@ -74,7 +78,7 @@ export class AuthGuard implements CanActivate {
 
     } catch (error: unknown) {
       if (error instanceof Error) {
-        throw new ForbiddenException(error.message);
+        throw new ForbiddenException(error.message , error.stack);
       }
       throw new ForbiddenException('An unknown error occurred');
     }
