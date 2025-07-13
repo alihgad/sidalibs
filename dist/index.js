@@ -71,6 +71,7 @@ __exportStar(require("./DB/models/userModels/customers.model"), exports);
 __exportStar(require("./DB/models/userModels/permission.model"), exports);
 __exportStar(require("./DB/models/userModels/roles.model"), exports);
 __exportStar(require("./DB/models/userModels/users.model"), exports);
+__exportStar(require("./DB/models/userModels/sales.model"), exports);
 // notifications
 exports.notifications = __importStar(require("./notifications/notifications"));
 // permissions

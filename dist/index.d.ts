@@ -35,6 +35,7 @@ export * from './DB/models/userModels/customers.model';
 export * from './DB/models/userModels/permission.model';
 export * from './DB/models/userModels/roles.model';
 export * from './DB/models/userModels/users.model';
+export * from './DB/models/userModels/sales.model';
 export * as notifications from './notifications/notifications';
 export * from './permissions/permissions';
 export * from './permissions/permissionsCategorys';

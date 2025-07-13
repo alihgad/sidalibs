@@ -109,6 +109,8 @@ export const SalesModel = MongooseModule.forFeature([
   { name: 'Sales', schema: SalesSchema }
 ]);
 
+
+
 export const getSalesModel = (businessNumber: string): DataBaseRepository<SalesDocument> => {
   if (!businessNumber) {
     throw new Error("businessNumber is required in sales model")
