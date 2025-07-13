@@ -4,6 +4,7 @@ import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
+import { PaymentMethodEnum, SaleStatusEnum } from '../../../common/type';
 
 // Load environment variables from the correct path
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
@@ -43,11 +44,11 @@ export class Sales {
   @Prop({ type: Number, required: true, min: 0 })
   finalAmount!: number;
 
-  @Prop({ type: String, required: true, enum: ['CASH', 'CARD', 'OTHER'] , nullable: true })
-  paymentMethod?: string | null;
+  @Prop({ type: String, required: true, enum: PaymentMethodEnum , nullable: true })
+  paymentMethod?: PaymentMethodEnum | null;
 
-  @Prop({ type: String, required: true, enum: ['PENDING', 'COMPLETED', 'CANCELLED', 'REFUNDED'] , nullable: true })
-  status?: string | null;
+  @Prop({ type: String, required: true, enum: SaleStatusEnum , nullable: true })
+  status?: SaleStatusEnum | null;
 
   @Prop({ type: [{
     productId: { type: Types.ObjectId, ref: 'Product', required: true },

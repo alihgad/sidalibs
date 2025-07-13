@@ -340,3 +340,27 @@ registerEnumType(ServingUnit, {
     name: 'ServingUnit',
     description: 'Serving unit for nutritional values',
 });
+
+
+export enum SaleStatusEnum {
+    PENDING = 'PENDING',
+    COMPLETED = 'COMPLETED',
+    CANCELLED = 'CANCELLED',
+    REFUNDED = 'REFUNDED'
+}
+
+registerEnumType(SaleStatusEnum, {
+    name: 'SaleStatus',
+    description: 'The status of the sale',
+});
+
+export enum PaymentMethodEnum {
+    CASH = 'CASH',
+    CARD = 'CARD',
+    OTHER = 'OTHER'
+}
+
+registerEnumType(PaymentMethodEnum, {
+    name: 'PaymentMethod',
+    description: 'The method of payment',
+});

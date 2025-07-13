@@ -1,5 +1,6 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
+import { PaymentMethodEnum, SaleStatusEnum } from '../../../common/type';
 export declare class Sales {
     invoiceNumber: string;
     salesPersonId: Types.ObjectId;
@@ -9,8 +10,8 @@ export declare class Sales {
     taxAmount?: number | null;
     discountAmount?: number | null;
     finalAmount: number;
-    paymentMethod?: string | null;
-    status?: string | null;
+    paymentMethod?: PaymentMethodEnum | null;
+    status?: SaleStatusEnum | null;
     items: {
         productId: Types.ObjectId;
         productName: string;

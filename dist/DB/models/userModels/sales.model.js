@@ -39,6 +39,7 @@ const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 const dotenv = __importStar(require("dotenv"));
 const path = __importStar(require("path"));
+const type_1 = require("../../../common/type");
 // Load environment variables from the correct path
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 let Sales = class Sales {
@@ -81,11 +82,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Sales.prototype, "finalAmount", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true, enum: ['CASH', 'CARD', 'OTHER'], nullable: true }),
+    (0, mongoose_1.Prop)({ type: String, required: true, enum: type_1.PaymentMethodEnum, nullable: true }),
     __metadata("design:type", Object)
 ], Sales.prototype, "paymentMethod", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true, enum: ['PENDING', 'COMPLETED', 'CANCELLED', 'REFUNDED'], nullable: true }),
+    (0, mongoose_1.Prop)({ type: String, required: true, enum: type_1.SaleStatusEnum, nullable: true }),
     __metadata("design:type", Object)
 ], Sales.prototype, "status", void 0);
 __decorate([
