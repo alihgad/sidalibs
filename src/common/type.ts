@@ -343,10 +343,10 @@ registerEnumType(ServingUnit, {
 
 
 export enum SaleStatusEnum {
-    PENDING = 'PENDING',
-    COMPLETED = 'COMPLETED',
-    CANCELLED = 'CANCELLED',
-    REFUNDED = 'REFUNDED'
+    PENDING = 'pending',
+    COMPLETED = 'completed',
+    CANCELLED = 'cancelled',
+    REFUNDED = 'refunded'
 }
 
 registerEnumType(SaleStatusEnum, {
@@ -355,9 +355,9 @@ registerEnumType(SaleStatusEnum, {
 });
 
 export enum PaymentMethodEnum {
-    CASH = 'CASH',
-    CARD = 'CARD',
-    OTHER = 'OTHER'
+    CASH = 'cash',
+    CARD = 'card',
+    OTHER = 'other'
 }
 
 registerEnumType(PaymentMethodEnum, {

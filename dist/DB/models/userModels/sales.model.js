@@ -102,6 +102,10 @@ __decorate([
     __metadata("design:type", Array)
 ], Sales.prototype, "items", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Number, required: true, min: 0 }),
+    __metadata("design:type", Number)
+], Sales.prototype, "totalQuantity", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: String, nullable: true }),
     __metadata("design:type", Object)
 ], Sales.prototype, "notes", void 0);

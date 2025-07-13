@@ -146,14 +146,14 @@ export declare enum ServingUnit {
     SERVING = "SERVING"
 }
 export declare enum SaleStatusEnum {
-    PENDING = "PENDING",
-    COMPLETED = "COMPLETED",
-    CANCELLED = "CANCELLED",
-    REFUNDED = "REFUNDED"
+    PENDING = "pending",
+    COMPLETED = "completed",
+    CANCELLED = "cancelled",
+    REFUNDED = "refunded"
 }
 export declare enum PaymentMethodEnum {
-    CASH = "CASH",
-    CARD = "CARD",
-    OTHER = "OTHER"
+    CASH = "cash",
+    CARD = "card",
+    OTHER = "other"
 }
 //# sourceMappingURL=type.d.ts.map

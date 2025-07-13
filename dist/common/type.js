@@ -329,10 +329,10 @@ var ServingUnit;
 });
 var SaleStatusEnum;
 (function (SaleStatusEnum) {
-    SaleStatusEnum["PENDING"] = "PENDING";
-    SaleStatusEnum["COMPLETED"] = "COMPLETED";
-    SaleStatusEnum["CANCELLED"] = "CANCELLED";
-    SaleStatusEnum["REFUNDED"] = "REFUNDED";
+    SaleStatusEnum["PENDING"] = "pending";
+    SaleStatusEnum["COMPLETED"] = "completed";
+    SaleStatusEnum["CANCELLED"] = "cancelled";
+    SaleStatusEnum["REFUNDED"] = "refunded";
 })(SaleStatusEnum || (exports.SaleStatusEnum = SaleStatusEnum = {}));
 (0, graphql_1.registerEnumType)(SaleStatusEnum, {
     name: 'SaleStatus',
@@ -340,9 +340,9 @@ var SaleStatusEnum;
 });
 var PaymentMethodEnum;
 (function (PaymentMethodEnum) {
-    PaymentMethodEnum["CASH"] = "CASH";
-    PaymentMethodEnum["CARD"] = "CARD";
-    PaymentMethodEnum["OTHER"] = "OTHER";
+    PaymentMethodEnum["CASH"] = "cash";
+    PaymentMethodEnum["CARD"] = "card";
+    PaymentMethodEnum["OTHER"] = "other";
 })(PaymentMethodEnum || (exports.PaymentMethodEnum = PaymentMethodEnum = {}));
 (0, graphql_1.registerEnumType)(PaymentMethodEnum, {
     name: 'PaymentMethod',

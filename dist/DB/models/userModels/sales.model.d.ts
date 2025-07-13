@@ -21,6 +21,7 @@ export declare class Sales {
         discount?: number;
         tax?: number;
     }[];
+    totalQuantity: number;
     notes?: string | null;
     completedAt?: Date | null;
     cancelledAt?: Date | null;

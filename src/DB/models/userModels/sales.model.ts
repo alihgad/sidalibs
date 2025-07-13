@@ -69,6 +69,9 @@ export class Sales {
     tax?: number;
   }[];
 
+  @Prop({ type: Number, required: true, min: 0 })
+  totalQuantity!: number;
+
   @Prop({ type: String , nullable: true })
   notes?: string | null;
 
