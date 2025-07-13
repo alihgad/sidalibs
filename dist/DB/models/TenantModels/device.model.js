@@ -27,8 +27,8 @@ __decorate([
     __metadata("design:type", String)
 ], Device.prototype, "deviceType", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch', nullable: true }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch', default: null }),
+    __metadata("design:type", Object)
 ], Device.prototype, "branchId", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true, unique: true }),

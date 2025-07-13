@@ -20,11 +20,11 @@ export class Device {
     @Prop({ required: true, trim: true })
     deviceType!: deviceTypeEnum;
 
-    @Prop({ type: Types.ObjectId, ref: 'Branch' , nullable: true })
-    branchId!: Types.ObjectId;
+    @Prop({ type: Types.ObjectId, ref: 'Branch' , default: null })
+    branchId!: Types.ObjectId | null;
 
     @Prop({ required: true, unique: true })
-    activationCode!: string;
+    activationCode!: string; 
 
     @Prop({ default: false })
     isActivated!: boolean;
