@@ -20,7 +20,7 @@ export class Device {
     @Prop({ required: true, trim: true })
     deviceType!: deviceTypeEnum;
 
-    @Prop({ type: Types.ObjectId, ref: 'Branch' })
+    @Prop({ type: Types.ObjectId, ref: 'Branch' , nullable: true })
     branchId!: Types.ObjectId;
 
     @Prop({ required: true, unique: true })
