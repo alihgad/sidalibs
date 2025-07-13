@@ -45,13 +45,17 @@ let Sales = class Sales {
 };
 exports.Sales = Sales;
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true }),
+    (0, mongoose_1.Prop)({
+        type: String,
+        required: true,
+        unique: true,
+    }),
     __metadata("design:type", String)
 ], Sales.prototype, "invoiceNumber", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], Sales.prototype, "cashierId", void 0);
+], Sales.prototype, "salesPersonId", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
@@ -97,40 +101,40 @@ __decorate([
     __metadata("design:type", Array)
 ], Sales.prototype, "items", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
+    (0, mongoose_1.Prop)({ type: String, nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "notes", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Date }),
-    __metadata("design:type", Date)
+    (0, mongoose_1.Prop)({ type: Date, nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "completedAt", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Date }),
-    __metadata("design:type", Date)
+    (0, mongoose_1.Prop)({ type: Date, nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "cancelledAt", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
+    (0, mongoose_1.Prop)({ type: String, nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "cancellationReason", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User', nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "cancelledBy", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
-    __metadata("design:type", Boolean)
+    __metadata("design:type", Object)
 ], Sales.prototype, "isRefunded", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Date }),
-    __metadata("design:type", Date)
+    (0, mongoose_1.Prop)({ type: Date, nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "refundedAt", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User', nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "refundedBy", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
+    (0, mongoose_1.Prop)({ type: String, nullable: true }),
+    __metadata("design:type", Object)
 ], Sales.prototype, "refundReason", void 0);
 exports.Sales = Sales = __decorate([
     (0, mongoose_1.Schema)({

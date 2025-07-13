@@ -15,11 +15,15 @@ dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
   collection: 'Sales'
 })
 export class Sales {
-  @Prop({ type: String, required: true })
+  @Prop({ 
+    type: String, 
+    required: true, 
+    unique: true,
+  })
   invoiceNumber!: string;
 
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
-  cashierId!: Types.ObjectId;
+  salesPersonId!: Types.ObjectId;
 
   @Prop({ type: Types.ObjectId, ref: 'Branch', required: true })
   branchId!: Types.ObjectId;
@@ -31,19 +35,19 @@ export class Sales {
   totalAmount!: number;
 
   @Prop({ type: Number, required: true, min: 0, default: 0 , nullable: true })
-  taxAmount!: number | null;
+  taxAmount?: number | null;
 
   @Prop({ type: Number, required: true, min: 0, default: 0 , nullable: true })
-  discountAmount!: number | null;
+  discountAmount?: number | null;
 
   @Prop({ type: Number, required: true, min: 0 })
   finalAmount!: number;
 
   @Prop({ type: String, required: true, enum: ['CASH', 'CARD', 'OTHER'] , nullable: true })
-  paymentMethod!: string | null;
+  paymentMethod?: string | null;
 
   @Prop({ type: String, required: true, enum: ['PENDING', 'COMPLETED', 'CANCELLED', 'REFUNDED'] , nullable: true })
-  status!: string | null;
+  status?: string | null;
 
   @Prop({ type: [{
     productId: { type: Types.ObjectId, ref: 'Product', required: true },
@@ -60,36 +64,36 @@ export class Sales {
     quantity: number;
     unitPrice: number;
     totalPrice: number;
-    discount: number;
-    tax: number;
+    discount?: number;
+    tax?: number;
   }[];
 
-  @Prop({ type: String })
-  notes?: string;
+  @Prop({ type: String , nullable: true })
+  notes?: string | null;
 
-  @Prop({ type: Date })
-  completedAt?: Date;
+  @Prop({ type: Date , nullable: true })
+  completedAt?: Date | null;
 
-  @Prop({ type: Date })
-  cancelledAt?: Date;
+  @Prop({ type: Date , nullable: true })
+  cancelledAt?: Date | null;
 
-  @Prop({ type: String })
-  cancellationReason?: string;
+  @Prop({ type: String , nullable: true })
+  cancellationReason?: string | null;
 
-  @Prop({ type: Types.ObjectId, ref: 'User' })
-  cancelledBy?: Types.ObjectId;
+  @Prop({ type: Types.ObjectId, ref: 'User' , nullable: true })
+  cancelledBy?: Types.ObjectId | null;
 
   @Prop({ type: Boolean, default: false })
-  isRefunded!: boolean;
+  isRefunded!: boolean | null;
 
-  @Prop({ type: Date })
-  refundedAt?: Date;
+  @Prop({ type: Date , nullable: true })
+  refundedAt?: Date | null;
 
-  @Prop({ type: Types.ObjectId, ref: 'User' })
-  refundedBy?: Types.ObjectId;
+  @Prop({ type: Types.ObjectId, ref: 'User' , nullable: true })
+  refundedBy?: Types.ObjectId | null;
 
-  @Prop({ type: String })
-  refundReason?: string;
+  @Prop({ type: String , nullable: true })
+  refundReason?: string | null;
 
 }
 
