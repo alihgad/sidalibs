@@ -4,7 +4,7 @@ import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Device {
     name: string;
     deviceType: deviceTypeEnum;
-    branchId: Types.ObjectId | null;
+    branchId: Types.ObjectId | undefined;
     activationCode: string;
     isActivated: boolean;
     jwtSecret?: string;
