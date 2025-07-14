@@ -105,7 +105,7 @@ export type SalesDocument = HydratedDocument<Sales>;
 export const SalesSchema = SchemaFactory.createForClass(Sales);
 
 // Indexes for better performance
-SalesSchema.index({ invoiceNumber: 1 });
+// SalesSchema.index({ invoiceNumber: 1 });
 SalesSchema.index({ cashierId: 1 });
 SalesSchema.index({ branchId: 1 });
 SalesSchema.index({ customerId: 1 });

@@ -151,7 +151,7 @@ exports.Sales = Sales = __decorate([
 ], Sales);
 exports.SalesSchema = mongoose_1.SchemaFactory.createForClass(Sales);
 // Indexes for better performance
-exports.SalesSchema.index({ invoiceNumber: 1 });
+// SalesSchema.index({ invoiceNumber: 1 });
 exports.SalesSchema.index({ cashierId: 1 });
 exports.SalesSchema.index({ branchId: 1 });
 exports.SalesSchema.index({ customerId: 1 });
