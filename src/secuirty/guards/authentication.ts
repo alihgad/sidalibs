@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<any> {
 
-    
+
     const request = context.switchToHttp().getRequest() || GqlExecutionContext.create(context).getContext().req;
     const token = request.headers.authorization;
     if (!token) {
@@ -45,68 +45,71 @@ export class AuthGuard implements CanActivate {
       }
       console.log('Using JWT_SECRET:', jwtSecret ? 'EXISTS' : 'NOT FOUND')
       const payload = await verifyToken(token, jwtSecret)
-      console.log("payload ---------------------------- ",payload)
+      console.log("payload ---------------------------- ", payload)
       const tenantRepo = getTenantModel()
       const tenant = await tenantRepo.findOne({ businessNumber: payload.businessNumber })
-      console.log( "tenant ---------------------------- ",tenant)
-  
+      console.log("tenant ---------------------------- ", tenant)
+
       if (!tenant) {
         throw new Error('Forbidden resource TT');
       }
-      if(tenant.plan === PlanType.FREE){
+      if (tenant.plan === PlanType.FREE) {
 
         // التحقق من المدة التجريبية (15 يوم)
         const currentDate = new Date();
         const tenantCreatedDate = new Date((tenant as any).createdAt || (tenant as any)._id.getTimestamp());
         const daysDifference = Math.floor((currentDate.getTime() - tenantCreatedDate.getTime()) / (1000 * 60 * 60 * 24));
-        
+
         if (daysDifference > 15) {
           throw new ForbiddenException("Trial period expired. Your 15-day trial period has ended. Please subscribe to continue using the service.")
         }
 
       }
-      if(payload._id){
-      let userModel = getUserModel(payload.businessNumber)
-      const user = await userModel.findById(
-        payload._id,
-        'email jwtSecret firstName lastName userName role isOwner phone loginDevicesSession',
-        { path: 'role' }
-      );
-      if (!user) {
-        throw new ForbiddenException('Forbidden resource 1 ');
-      }
-      
-      const decryptedJwtSecret = this.cryptoHelper.decrypt(user.jwtSecret)?.toString();
-      if (decryptedJwtSecret !== payload.jwtSecret) {
-        throw new ForbiddenException('Forbidden resource 2 ');
-      }
-      // Check if the lsid from payload exists in user's loginDevicesSession
-      if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
-        throw new ForbiddenException('Forbidden resource 3 ');
+      if (payload._id) {
+        let userModel = getUserModel(payload.businessNumber)
+        const user = await userModel.findById(
+          payload._id,
+          'email jwtSecret firstName lastName userName role isOwner phone loginDevicesSession',
+          { path: 'role' }
+        );
+        if (!user) {
+          throw new ForbiddenException('Forbidden resource 1 ');
+        }
+
+        const decryptedJwtSecret = this.cryptoHelper.decrypt(user.jwtSecret)?.toString();
+        if (decryptedJwtSecret !== payload.jwtSecret) {
+          throw new ForbiddenException('Forbidden resource 2 ');
+        }
+        // Check if the lsid from payload exists in user's loginDevicesSession
+        if (payload.lsid) {
+
+          if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
+            throw new ForbiddenException('Forbidden resource 3 ');
+          }
+        }
+
+        request['user'] = user;
       }
 
-      request['user'] = user;
-    }
- 
 
-      
 
-      if(payload.lsid){
+
+      if (payload.lsid) {
         request['lsid'] = payload.lsid
       }
 
-      if(payload.businessNumber){
+      if (payload.businessNumber) {
         request['businessNumber'] = payload.businessNumber;
       }
 
-      if(payload.deviceId){
+      if (payload.deviceId) {
         request['deviceId'] = payload.deviceId
       }
-      
+
 
     } catch (error: unknown) {
       if (error instanceof Error) {
-        throw new ForbiddenException(error.message , error.stack);
+        throw new ForbiddenException(error.message, error.stack);
       }
       throw new ForbiddenException('An unknown error occurred');
     }
