@@ -29,7 +29,7 @@ export class Sales {
   @Prop({ type: Types.ObjectId, ref: 'Branch', required: true })
   branchId!: Types.ObjectId;
 
-  @Prop({ type: Types.ObjectId, ref: 'Customer', required: false })
+  @Prop({ type: Types.ObjectId, ref: 'customers', required: false })
   customerId?: Types.ObjectId;
 
   @Prop({ type: Number, required: true, min: 0 })

@@ -62,7 +62,7 @@ __decorate([
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], Sales.prototype, "branchId", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Customer', required: false }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'customers', required: false }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], Sales.prototype, "customerId", void 0);
 __decorate([
