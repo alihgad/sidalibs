@@ -45,13 +45,11 @@ export class AuthGuard implements CanActivate {
       }
       console.log('Using JWT_SECRET:', jwtSecret ? 'EXISTS' : 'NOT FOUND')
       const payload = await verifyToken(token, jwtSecret)
-      console.log(payload.businessNumber)
+      console.log("payload ---------------------------- ",payload)
       const tenantRepo = getTenantModel()
       const tenant = await tenantRepo.findOne({ businessNumber: payload.businessNumber })
-      console.log(tenant)
-      console.log(await tenantRepo.find({}))
-      
-      console.log(tenant)
+      console.log( "tenant ---------------------------- ",tenant)
+  
       if (!tenant) {
         throw new Error('Forbidden resource TT');
       }
@@ -86,7 +84,7 @@ export class AuthGuard implements CanActivate {
       if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
         throw new ForbiddenException('Forbidden resource 3 ');
       }
-      
+
       request['user'] = user;
     }
  
