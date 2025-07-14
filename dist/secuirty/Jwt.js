@@ -9,7 +9,7 @@ const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)({ path: process.cwd() + "/.env" });
 console.log(process.env.JWT_SECRET);
 const generateToken = (payload, secret = process.env.JWT_SECRET, expireAt = "1d") => {
-    return jsonwebtoken_1.default.sign(payload, secret, { expiresIn: '1d' });
+    return jsonwebtoken_1.default.sign(payload, secret);
 };
 exports.generateToken = generateToken;
 const verifyToken = (token, secret = process.env.JWT_SECRET) => {

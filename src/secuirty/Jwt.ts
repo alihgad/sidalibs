@@ -6,7 +6,7 @@ console.log(process.env.JWT_SECRET)
 
 
 export const generateToken = (payload: any, secret: string = process.env.JWT_SECRET as string, expireAt: string = "1d"): string => {
-  return jwt.sign(payload, secret, { expiresIn: '1d' });
+  return jwt.sign(payload, secret);
 }
 
 export const verifyToken = (token: string, secret: string = process.env.JWT_SECRET as string): any => {
