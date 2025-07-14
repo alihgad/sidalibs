@@ -77,9 +77,18 @@ let AuthGuard = class AuthGuard {
             if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
                 throw new common_1.ForbiddenException('Forbidden resource 3 ');
             }
-            request['user'] = user;
-            request['lsid'] = payload.lsid;
-            request['businessNumber'] = payload.businessNumber;
+            if (user) {
+                request['user'] = user;
+            }
+            if (payload.lsid) {
+                request['lsid'] = payload.lsid;
+            }
+            if (payload.businessNumber) {
+                request['businessNumber'] = payload.businessNumber;
+            }
+            if (payload.deviceId) {
+                request['deviceId'] = payload.deviceId;
+            }
         }
         catch (error) {
             if (error instanceof Error) {
