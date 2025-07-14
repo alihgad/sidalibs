@@ -1,7 +1,7 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class User {
-    constructor(firstName: string, lastName: string, phone: string, role: Types.ObjectId[], isOwner: Boolean, jwtSecret: string, cashirLogin?: string, email?: string, password?: string, notifications?: string[], loginDevicesSession?: Map<string, {
+    constructor(firstName: string, lastName: string, phone: string, role: Types.ObjectId[], isOwner: Boolean, jwtSecret: string, cashierLogin?: string, email?: string, password?: string, notifications?: string[], loginDevicesSession?: Map<string, {
         LSID: string;
         userAgent: string;
         ipAddress: string;
@@ -17,7 +17,7 @@ export declare class User {
     role: Types.ObjectId[];
     notifications: string[];
     jwtSecret: string;
-    cashirLogin?: string;
+    cashierLogin?: string;
     branches: Types.ObjectId[];
     language?: string;
     isEmailVerified?: boolean;

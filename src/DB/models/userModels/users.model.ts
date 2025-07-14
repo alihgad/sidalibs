@@ -27,7 +27,7 @@ export class User {
     role: Types.ObjectId[],
     isOwner: Boolean,
     jwtSecret: string,
-    cashirLogin?: string,
+    cashierLogin?: string,
     email?: string,
     password?: string,
     notifications?: string[],
@@ -39,7 +39,7 @@ export class User {
     this.role = role;
     this.isOwner = isOwner;
     this.jwtSecret = jwtSecret;
-    this.cashirLogin = cashirLogin;
+    this.cashierLogin = cashierLogin;
     this.email = email;
     this.password = password;
     this.notifications = notifications || [];
@@ -69,7 +69,7 @@ export class User {
   @Prop({ type: String, select: false })
   jwtSecret: string;
   @Prop({ type: String })
-  cashirLogin?: string;
+  cashierLogin?: string;
   @Prop({ type: [Types.ObjectId], ref: 'Branch' })
   branches!: Types.ObjectId[];
   @Prop({ type: String, enum: Object.values(languages), default: languages.AR, required: true })

@@ -48,14 +48,14 @@ const type_1 = require("../../../common/type");
 // Load environment variables from the correct path
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 let User = class User {
-    constructor(firstName, lastName, phone, role, isOwner, jwtSecret, cashirLogin, email, password, notifications, loginDevicesSession) {
+    constructor(firstName, lastName, phone, role, isOwner, jwtSecret, cashierLogin, email, password, notifications, loginDevicesSession) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.role = role;
         this.isOwner = isOwner;
         this.jwtSecret = jwtSecret;
-        this.cashirLogin = cashirLogin;
+        this.cashierLogin = cashierLogin;
         this.email = email;
         this.password = password;
         this.notifications = notifications || [];
@@ -102,7 +102,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: String }),
     __metadata("design:type", String)
-], User.prototype, "cashirLogin", void 0);
+], User.prototype, "cashierLogin", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Branch' }),
     __metadata("design:type", Array)
