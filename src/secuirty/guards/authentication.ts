@@ -67,7 +67,7 @@ export class AuthGuard implements CanActivate {
         }
 
       }
-
+      if(payload._id){
       let userModel = getUserModel(payload.businessNumber)
       const user = await userModel.findById(
         payload._id,
@@ -77,7 +77,7 @@ export class AuthGuard implements CanActivate {
       if (!user) {
         throw new ForbiddenException('Forbidden resource 1 ');
       }
-
+      
       const decryptedJwtSecret = this.cryptoHelper.decrypt(user.jwtSecret)?.toString();
       if (decryptedJwtSecret !== payload.jwtSecret) {
         throw new ForbiddenException('Forbidden resource 2 ');
@@ -86,17 +86,17 @@ export class AuthGuard implements CanActivate {
       if (!user.loginDevicesSession || !user.loginDevicesSession.has(payload.lsid)) {
         throw new ForbiddenException('Forbidden resource 3 ');
       }
-
+      
+      request['user'] = user;
+    }
  
 
-      if(user){
-        request['user'] = user;
-      }
+      
 
       if(payload.lsid){
         request['lsid'] = payload.lsid
       }
-      
+
       if(payload.businessNumber){
         request['businessNumber'] = payload.businessNumber;
       }
