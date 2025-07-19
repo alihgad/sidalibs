@@ -40,14 +40,14 @@ export class QuantityAdjustment {
   productsCount!: number;
 
   @Prop({ type: [{
-    material: { type: Types.ObjectId, required: true, ref: 'Material' },
+    materialId: { type: Types.ObjectId, required: true, ref: 'Material' },
     quantity: { type: Number, required: true },
     code: { type: String, required: true },
     price: { type: Number, required: true },
     total: { type: Number, required: true },
   }], required: true })
   materials!: {
-    material: Types.ObjectId;
+    materialId: Types.ObjectId;
     quantity: number;
     code: string;
     price: number;
