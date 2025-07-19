@@ -1,126 +1,117 @@
-import { Schema, model, Model, Document, Types } from 'mongoose';
+import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument, Model, Types } from 'mongoose';
 import { CostCalculationMethod } from '../../../common/type';
-import { ConnectionManager } from '../../connection.manager';
 import { DataBaseRepository } from '../../DataBase.repository';
-import { TagSchema } from '../TenantModels/tags.model';
-import { supplierSchema } from './supplier.model';
+import { ConnectionManager } from '../../connection.manager';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 
-export interface materials extends Document {
-  name: string;
+// Load environment variables from the correct path
+dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
+
+@Schema({
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true },
+  collection: 'materials'
+})
+export class Materials {
+  @Prop({ type: String, required: true, minlength: 2, maxlength: 50 })
+  name!: string;
+
+  @Prop({ type: String, required: false, maxlength: 50 })
   secondaryName?: string;
-  code: string;
-  category: string;
-  storageUnit: string;
-  recipeUnit: string;
-  conversionFactor: number;
-  costCalculationMethod: CostCalculationMethod;
-  cost: number;
-  reorderLevel: number;
+
+  @Prop({ type: String, required: true, unique: true })
+  code!: string;
+
+  @Prop({ type: String, required: true })
+  category!: string;
+
+  @Prop({ type: String, required: true })
+  storageUnit!: string;
+
+  @Prop({ type: String, required: true })
+  recipeUnit!: string;
+
+  @Prop({ type: Number, required: true })
+  conversionFactor!: number;
+
+  @Prop({ 
+    type: String, 
+    enum: Object.values(CostCalculationMethod), 
+    required: true 
+  })
+  costCalculationMethod!: CostCalculationMethod;
+
+  @Prop({ type: Number, required: true, min: 0 })
+  cost!: number;
+
+  @Prop({ type: Number, required: true, min: 0 })
+  reorderLevel!: number;
+
+  @Prop({ type: String, required: false })
   barcode?: string;
-  minLevel: number;
-  maxLevel: number;
+
+  @Prop({ type: Number, required: true, min: 0 })
+  minLevel!: number;
+
+  @Prop({ type: Number, required: true, min: 0 })
+  maxLevel!: number;
+
+  @Prop({ type: [Types.ObjectId], ref: 'Supplier', required: false })
   suppliers?: Types.ObjectId[];
+
+  @Prop({ type: [Types.ObjectId], ref: 'Tag', required: false })
   tags?: Types.ObjectId[];
+
+  @Prop({ type: [Types.ObjectId], ref: 'Material', required: false })
   ingredients?: Types.ObjectId[];
-  isDeleted: boolean;
+
+  @Prop({ type: Boolean, default: false })
+  isDeleted!: boolean;
+
+  // Timestamps (automatically added by Mongoose)
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
-export const materialsSchema = new Schema<materials>({
-  name: {
-    type: String,
-    required: true,
-    minlength: 2,
-    maxlength: 50
-  },
-  secondaryName: {
-    type: String,
-    required: false,
-    maxlength: 50
-  },
-  code: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  category: {
-    type: String,
-    required: true
-  },
-  storageUnit: {
-    type: String,
-    required: true
-  },
-  recipeUnit: {
-    type: String,
-    required: true
-  },
-  conversionFactor: {
-    type: Number,
-    required: true
-  },
-  costCalculationMethod: {
-    type: String,
-    enum: Object.values(CostCalculationMethod),
-    required: true
-  },
-  cost: {
-    type: Number,
-    required: true
-  },
-  reorderLevel: {
-    type: Number,
-    required: true
-  },
-  barcode: {
-    type: String,
-    required: false
-  },
-  minLevel: {
-    type: Number,
-    required: true
-  },
-  maxLevel: {
-    type: Number,
-    required: true
-  },
-  suppliers: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Supplier',
-    required: false
-  }],
-  tags: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Tag',
-    required: false
-  }],
-  ingredients: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Material',
-    required: false
-  }],
-  isDeleted: {
-    type: Boolean,
-    default: false
-  }
-}, {
-  timestamps: true
-});
+export type MaterialsDocument = HydratedDocument<Materials>;
+export const MaterialsSchema = SchemaFactory.createForClass(Materials);
 
-export type MaterialsDocument = materials & Document;
+// Indexes for better performance
+MaterialsSchema.index({ name: 1 });
+MaterialsSchema.index({ code: 1 });
+MaterialsSchema.index({ category: 1 });
+MaterialsSchema.index({ barcode: 1 });
+MaterialsSchema.index({ isDeleted: 1 });
+MaterialsSchema.index({ createdAt: -1 });
+
+// Compound index for unique code per business
+MaterialsSchema.index({ code: 1, isDeleted: 1 });
+
+export const MATERIALS_MODEL = 'MATERIALS_MODEL';
+export const MaterialsModel = MongooseModule.forFeature([
+  { name: 'Materials', schema: MaterialsSchema }
+]);
 
 export const getMaterialsModel = (businessNumber: string): DataBaseRepository<MaterialsDocument> => {
   if (!businessNumber) {
     throw new Error('businessNumber is required in materials model');
   }
   let connection = ConnectionManager.getConnection(businessNumber);
-  // Register Tag model in the same connection if not already registered
+  
+  // Register required models for refs
   if (!connection.models['Tag']) {
+    const { TagSchema } = require('../TenantModels/tags.model');
     connection.model('Tag', TagSchema);
   }
-  // Register Supplier model in the same connection if not already registered
   if (!connection.models['Supplier']) {
+    const { supplierSchema } = require('./supplier.model');
     connection.model('Supplier', supplierSchema);
   }
-  const model = connection.models['Material'] || connection.model('Material', materialsSchema) as unknown as Model<MaterialsDocument>;
+
+  const model = connection.models['Materials'] || connection.model('Materials', MaterialsSchema) as unknown as Model<MaterialsDocument>;
   return new DataBaseRepository<MaterialsDocument>(model);
-}; 
+}
+

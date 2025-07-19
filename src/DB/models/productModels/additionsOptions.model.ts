@@ -2,11 +2,7 @@ import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
-import { PricingMethod, CostCalculationMethod, OrderType } from '../../../common/type';
-import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
-import { materialsSchema } from '../inventoryModels/materials.model';
-import { BranchSchema } from '../TenantModels/branch.model';
-import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
+import {  CostCalculationMethod, OrderType } from '../../../common/type';
 import { NutritionalValuesSchema } from '../shared/nutritional-values.schema';
 
 @Schema({
