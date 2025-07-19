@@ -14,6 +14,8 @@ export * from './DB/DataBase.repository';
 export * from './DB/models/inventoryModels/categories.model';
 export * from './DB/models/inventoryModels/materials.model';
 export * from './DB/models/inventoryModels/supplier.model';
+export * from './DB/models/inventoryModels/QuantityAdjustment.model';
+
 
 // ========== Product Models ==========
 export * from './DB/models/productModels/categories.model';
@@ -33,7 +35,7 @@ export * from './DB/models/TenantModels/log.model';
 export * from './DB/models/TenantModels/notifications.model';
 export * from './DB/models/TenantModels/paymentMethods.model';
 export * from './DB/models/TenantModels/PromotionalOffer.model';
-export * from './DB/models/TenantModels/reson.model';
+export * from './DB/models/TenantModels/reason.model';
 export * from './DB/models/TenantModels/tags.model';
 export * from './DB/models/TenantModels/tax-groups.model';
 export * from './DB/models/TenantModels/taxes.model';
