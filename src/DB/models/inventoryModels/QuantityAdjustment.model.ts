@@ -39,6 +39,9 @@ export class QuantityAdjustment {
   @Prop({ type: Number })
   productsCount!: number;
 
+  @Prop({ type: Boolean, default: false })
+  isSent!: boolean;
+
   @Prop({ type: [{
     materialId: { type: Types.ObjectId, ref: 'Material' },
     quantity: { type: Number },

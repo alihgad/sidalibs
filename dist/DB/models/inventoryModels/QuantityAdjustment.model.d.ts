@@ -8,6 +8,7 @@ export declare class QuantityAdjustment {
     sendBy: Types.ObjectId;
     sendAt: Date;
     productsCount: number;
+    isSent: boolean;
     materials: {
         materialId: Types.ObjectId;
         quantity: number;

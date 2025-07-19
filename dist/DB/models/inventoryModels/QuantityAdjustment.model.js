@@ -73,6 +73,10 @@ __decorate([
     __metadata("design:type", Number)
 ], QuantityAdjustment.prototype, "productsCount", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], QuantityAdjustment.prototype, "isSent", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: [{
                 materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material' },
                 quantity: { type: Number },
