@@ -36,11 +36,12 @@ __exportStar(require("./common/validators/IsPhoneWithCountryCode"), exports);
 // DB
 __exportStar(require("./DB/connection.manager"), exports);
 __exportStar(require("./DB/DataBase.repository"), exports);
-// models
+// DB models
 // ========== Inventory Models ==========
 __exportStar(require("./DB/models/inventoryModels/categories.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/materials.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/supplier.model"), exports);
+__exportStar(require("./DB/models/inventoryModels/QuantityAdjustment.model"), exports);
 // ========== Product Models ==========
 __exportStar(require("./DB/models/productModels/categories.model"), exports);
 __exportStar(require("./DB/models/productModels/groups.model"), exports);
@@ -58,7 +59,7 @@ __exportStar(require("./DB/models/TenantModels/log.model"), exports);
 __exportStar(require("./DB/models/TenantModels/notifications.model"), exports);
 __exportStar(require("./DB/models/TenantModels/paymentMethods.model"), exports);
 __exportStar(require("./DB/models/TenantModels/PromotionalOffer.model"), exports);
-__exportStar(require("./DB/models/TenantModels/reson.model"), exports);
+__exportStar(require("./DB/models/TenantModels/reason.model"), exports);
 __exportStar(require("./DB/models/TenantModels/tags.model"), exports);
 __exportStar(require("./DB/models/TenantModels/tax-groups.model"), exports);
 __exportStar(require("./DB/models/TenantModels/taxes.model"), exports);

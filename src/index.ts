@@ -9,7 +9,7 @@ export * from './common/validators/IsPhoneWithCountryCode';
 export * from './DB/connection.manager';
 export * from './DB/DataBase.repository';
 
-// models
+// DB models
 // ========== Inventory Models ==========
 export * from './DB/models/inventoryModels/categories.model';
 export * from './DB/models/inventoryModels/materials.model';
