@@ -32,7 +32,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getQuantityAdjustmentModel = exports.QuantityAdjustmentModel = exports.QUANTITY_ADJUSTMENT_MODEL = exports.QuantityAdjustmentSchema = exports.QuantityAdjustment = void 0;
+exports.getPriceAdjustmentCollection = exports.getPriceAdjustmentModel = exports.PriceAdjustmentModel = exports.PRICE_ADJUSTMENT_MODEL = exports.PriceAdjustmentSchema = exports.PriceAdjustment = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
@@ -41,75 +41,109 @@ const dotenv = __importStar(require("dotenv"));
 const path = __importStar(require("path"));
 // Load environment variables from the correct path
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
-let QuantityAdjustment = class QuantityAdjustment {
+let PriceAdjustment = class PriceAdjustment {
 };
-exports.QuantityAdjustment = QuantityAdjustment;
+exports.PriceAdjustment = PriceAdjustment;
 __decorate([
     (0, mongoose_1.Prop)({ type: String, required: true }),
     __metadata("design:type", String)
-], QuantityAdjustment.prototype, "referenceNumber", void 0);
+], PriceAdjustment.prototype, "referenceNumber", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'Branch' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], QuantityAdjustment.prototype, "branch", void 0);
+], PriceAdjustment.prototype, "branch", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'reason' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], QuantityAdjustment.prototype, "reason", void 0);
+], PriceAdjustment.prototype, "reason", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Date, required: true }),
     __metadata("design:type", Date)
-], QuantityAdjustment.prototype, "workDate", void 0);
+], PriceAdjustment.prototype, "workDate", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'User' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], QuantityAdjustment.prototype, "createdBy", void 0);
+], PriceAdjustment.prototype, "createdBy", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], QuantityAdjustment.prototype, "sendBy", void 0);
+], PriceAdjustment.prototype, "sendBy", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Date }),
     __metadata("design:type", Date)
-], QuantityAdjustment.prototype, "sendAt", void 0);
+], PriceAdjustment.prototype, "sendAt", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Number }),
     __metadata("design:type", Number)
-], QuantityAdjustment.prototype, "productsCount", void 0);
+], PriceAdjustment.prototype, "productsCount", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
-], QuantityAdjustment.prototype, "isSent", void 0);
+], PriceAdjustment.prototype, "isSent", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
                 materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material' },
                 name: { type: String },
-                quantity: { type: Number },
+                oldPrice: { type: Number },
+                newPrice: { type: Number },
                 code: { type: String },
-                price: { type: Number },
-                total: { type: Number },
+                storageUnit: { type: String }
             }] }),
     __metadata("design:type", Array)
-], QuantityAdjustment.prototype, "materials", void 0);
-exports.QuantityAdjustment = QuantityAdjustment = __decorate([
+], PriceAdjustment.prototype, "materials", void 0);
+exports.PriceAdjustment = PriceAdjustment = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
-        collection: 'quantityAdjustment'
+        collection: 'priceAdjustment'
     })
-], QuantityAdjustment);
-exports.QuantityAdjustmentSchema = mongoose_1.SchemaFactory.createForClass(QuantityAdjustment);
-exports.QUANTITY_ADJUSTMENT_MODEL = 'QUANTITY_ADJUSTMENT_MODEL';
-exports.QuantityAdjustmentModel = mongoose_1.MongooseModule.forFeature([
-    { name: 'QuantityAdjustment', schema: exports.QuantityAdjustmentSchema }
+], PriceAdjustment);
+exports.PriceAdjustmentSchema = mongoose_1.SchemaFactory.createForClass(PriceAdjustment);
+// Indexes for better performance
+exports.PriceAdjustmentSchema.index({ referenceNumber: 1 });
+exports.PriceAdjustmentSchema.index({ branch: 1 });
+exports.PriceAdjustmentSchema.index({ reason: 1 });
+exports.PriceAdjustmentSchema.index({ createdBy: 1 });
+exports.PriceAdjustmentSchema.index({ workDate: -1 });
+exports.PriceAdjustmentSchema.index({ isSent: 1 });
+exports.PriceAdjustmentSchema.index({ createdAt: -1 });
+exports.PRICE_ADJUSTMENT_MODEL = 'PRICE_ADJUSTMENT_MODEL';
+exports.PriceAdjustmentModel = mongoose_1.MongooseModule.forFeature([
+    { name: 'PriceAdjustment', schema: exports.PriceAdjustmentSchema }
 ]);
-const getQuantityAdjustmentModel = (businessNumber) => {
+const getPriceAdjustmentModel = (businessNumber) => {
     if (!businessNumber) {
-        throw new Error("businessNumber is required in quantity adjustment model");
+        throw new Error("businessNumber is required in price adjustment model");
     }
     let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
-    const model = connection.models['QuantityAdjustment'] || connection.model('QuantityAdjustment', exports.QuantityAdjustmentSchema);
+    // Register required models for refs
+    if (!connection.models['Branch']) {
+        const { BranchSchema } = require('../TenantModels/branch.model');
+        connection.model('Branch', BranchSchema);
+    }
+    if (!connection.models['User']) {
+        const { UserSchema } = require('../userModels/users.model');
+        connection.model('User', UserSchema);
+    }
+    if (!connection.models['Material']) {
+        const { MaterialsSchema } = require('./materials.model');
+        connection.model('Material', MaterialsSchema);
+    }
+    if (!connection.models['reason']) {
+        const { ReasonSchema } = require('../TenantModels/reson.model');
+        connection.model('reason', ReasonSchema);
+    }
+    const model = connection.models['PriceAdjustment'] || connection.model('PriceAdjustment', exports.PriceAdjustmentSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };
-exports.getQuantityAdjustmentModel = getQuantityAdjustmentModel;
+exports.getPriceAdjustmentModel = getPriceAdjustmentModel;
+const getPriceAdjustmentCollection = (businessNumber) => {
+    if (!businessNumber) {
+        throw new Error("businessNumber is required in price adjustment model");
+    }
+    let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
+    const collection = connection.collection('priceAdjustment');
+    return collection;
+};
+exports.getPriceAdjustmentCollection = getPriceAdjustmentCollection;

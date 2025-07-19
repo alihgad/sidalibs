@@ -48,6 +48,7 @@ export class QuantityAdjustment {
 
   @Prop({ type: [{
     materialId: { type: Types.ObjectId, ref: 'Material' },
+    name: { type: String },
     quantity: { type: Number },
     code: { type: String },
     price: { type: Number },
@@ -55,6 +56,7 @@ export class QuantityAdjustment {
   }] })
   materials!: {
     materialId: Types.ObjectId;
+    name: string;
     quantity: number;
     code: string;
     price: number;

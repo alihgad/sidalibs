@@ -12,6 +12,7 @@ export declare class QuantityAdjustment {
     isSent: boolean;
     materials: {
         materialId: Types.ObjectId;
+        name: string;
         quantity: number;
         code: string;
         price: number;
