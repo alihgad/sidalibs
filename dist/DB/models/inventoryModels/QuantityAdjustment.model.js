@@ -61,25 +61,25 @@ __decorate([
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], QuantityAdjustment.prototype, "createdBy", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'User' }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], QuantityAdjustment.prototype, "sendBy", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Date, required: true }),
+    (0, mongoose_1.Prop)({ type: Date }),
     __metadata("design:type", Date)
 ], QuantityAdjustment.prototype, "sendAt", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: true }),
+    (0, mongoose_1.Prop)({ type: Number }),
     __metadata("design:type", Number)
 ], QuantityAdjustment.prototype, "productsCount", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
-                materialId: { type: mongoose_2.Types.ObjectId, required: true, ref: 'Material' },
-                quantity: { type: Number, required: true },
-                code: { type: String, required: true },
-                price: { type: Number, required: true },
-                total: { type: Number, required: true },
-            }], required: true }),
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material' },
+                quantity: { type: Number },
+                code: { type: String },
+                price: { type: Number },
+                total: { type: Number },
+            }] }),
     __metadata("design:type", Array)
 ], QuantityAdjustment.prototype, "materials", void 0);
 exports.QuantityAdjustment = QuantityAdjustment = __decorate([

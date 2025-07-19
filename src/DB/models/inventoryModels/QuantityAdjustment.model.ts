@@ -30,22 +30,22 @@ export class QuantityAdjustment {
   @Prop({ type: Types.ObjectId, required: true, ref: 'User' })
   createdBy!: Types.ObjectId;
 
-  @Prop({ type: Types.ObjectId, required: true, ref: 'User' })
+  @Prop({ type: Types.ObjectId, ref: 'User' })
   sendBy!: Types.ObjectId;
 
-  @Prop({ type: Date, required: true })
+  @Prop({ type: Date})
   sendAt!: Date;
 
-  @Prop({ type: Number, required: true })
+  @Prop({ type: Number })
   productsCount!: number;
 
   @Prop({ type: [{
-    materialId: { type: Types.ObjectId, required: true, ref: 'Material' },
-    quantity: { type: Number, required: true },
-    code: { type: String, required: true },
-    price: { type: Number, required: true },
-    total: { type: Number, required: true },
-  }], required: true })
+    materialId: { type: Types.ObjectId, ref: 'Material' },
+    quantity: { type: Number },
+    code: { type: String },
+    price: { type: Number },
+    total: { type: Number },
+  }] })
   materials!: {
     materialId: Types.ObjectId;
     quantity: number;
