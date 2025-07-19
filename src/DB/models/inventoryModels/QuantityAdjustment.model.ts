@@ -58,10 +58,6 @@ export class QuantityAdjustment {
 export type QuantityAdjustmentDocument = HydratedDocument<QuantityAdjustment>;
 export const QuantityAdjustmentSchema = SchemaFactory.createForClass(QuantityAdjustment);
 
-// Indexes for better performance
-QuantityAdjustmentSchema.index({ name: 1 });
-QuantityAdjustmentSchema.index({ isActive: 1 });
-QuantityAdjustmentSchema.index({ createdAt: -1 });
 
 export const QUANTITY_ADJUSTMENT_MODEL = 'QUANTITY_ADJUSTMENT_MODEL';
 export const QuantityAdjustmentModel = MongooseModule.forFeature([
@@ -76,15 +72,5 @@ export const getQuantityAdjustmentModel = (businessNumber: string): DataBaseRepo
   const model = connection.models['QuantityAdjustment'] || connection.model('QuantityAdjustment', QuantityAdjustmentSchema) as unknown as Model<QuantityAdjustmentDocument>;
   return new DataBaseRepository<QuantityAdjustmentDocument>(model);
 }
-
-export const getQuantityAdjustmentCollection = (businessNumber: string): any => {
-  if (!businessNumber) {
-    throw new Error("businessNumber is required in quantity adjustment model")
-  }
-  let connection = ConnectionManager.getConnection(businessNumber);
-  const collection = connection.collection('quantityAdjustment');
-  return collection;
-} 
-
 
 
