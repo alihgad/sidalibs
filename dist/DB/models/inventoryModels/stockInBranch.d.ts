@@ -19,5 +19,4 @@ export declare const StockInBranchSchema: import("mongoose").Schema<StockInBranc
 export declare const STOCK_IN_BRANCH_MODEL = "STOCK_IN_BRANCH_MODEL";
 export declare const StockInBranchModel: import("@nestjs/common").DynamicModule;
 export declare const getStockInBranchModel: (businessNumber: string) => DataBaseRepository<StockInBranchDocument>;
-export declare const getStockInBranchCollection: (businessNumber: string) => any;
 //# sourceMappingURL=stockInBranch.d.ts.map

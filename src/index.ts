@@ -15,7 +15,7 @@ export * from './DB/models/inventoryModels/categories.model';
 export * from './DB/models/inventoryModels/materials.model';
 export * from './DB/models/inventoryModels/supplier.model';
 export * from './DB/models/inventoryModels/QuantityAdjustment.model';
-
+export * from './DB/models/inventoryModels/stockInBranch';
 
 // ========== Product Models ==========
 export * from './DB/models/productModels/categories.model';

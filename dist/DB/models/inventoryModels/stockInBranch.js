@@ -32,7 +32,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getStockInBranchCollection = exports.getStockInBranchModel = exports.StockInBranchModel = exports.STOCK_IN_BRANCH_MODEL = exports.StockInBranchSchema = exports.StockInBranch = void 0;
+exports.getStockInBranchModel = exports.StockInBranchModel = exports.STOCK_IN_BRANCH_MODEL = exports.StockInBranchSchema = exports.StockInBranch = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
@@ -98,12 +98,3 @@ const getStockInBranchModel = (businessNumber) => {
     return new DataBase_repository_1.DataBaseRepository(model);
 };
 exports.getStockInBranchModel = getStockInBranchModel;
-const getStockInBranchCollection = (businessNumber) => {
-    if (!businessNumber) {
-        throw new Error("businessNumber is required in stock in branch model");
-    }
-    let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
-    const collection = connection.collection('stockInBranch');
-    return collection;
-};
-exports.getStockInBranchCollection = getStockInBranchCollection;

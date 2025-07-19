@@ -67,11 +67,3 @@ export const getStockInBranchModel = (businessNumber: string): DataBaseRepositor
   return new DataBaseRepository<StockInBranchDocument>(model);
 }
 
-export const getStockInBranchCollection = (businessNumber: string): any => {
-  if (!businessNumber) {
-    throw new Error("businessNumber is required in stock in branch model")
-  }
-  let connection = ConnectionManager.getConnection(businessNumber);
-  const collection = connection.collection('stockInBranch');
-  return collection;
-}
