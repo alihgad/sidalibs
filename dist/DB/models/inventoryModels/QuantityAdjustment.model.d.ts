@@ -9,7 +9,7 @@ export declare class QuantityAdjustment {
     sendAt: Date;
     productsCount: number;
     materials: {
-        material: Types.ObjectId;
+        materialId: Types.ObjectId;
         quantity: number;
         code: string;
         price: number;

@@ -74,7 +74,7 @@ __decorate([
 ], QuantityAdjustment.prototype, "productsCount", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
-                material: { type: mongoose_2.Types.ObjectId, required: true, ref: 'Material' },
+                materialId: { type: mongoose_2.Types.ObjectId, required: true, ref: 'Material' },
                 quantity: { type: Number, required: true },
                 code: { type: String, required: true },
                 price: { type: Number, required: true },

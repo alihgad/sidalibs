@@ -1,4 +1,4 @@
-import { FilterQuery, Model, PopulateOptions, QueryOptions, Types, UpdateQuery, UpdateResult, UpdateWriteOpResult } from "mongoose";
+import { FilterQuery, Model, PipelineStage, PopulateOptions, QueryOptions, Types, UpdateQuery, UpdateResult, UpdateWriteOpResult } from "mongoose";
 
 interface FindOptions<TDocument> {
     filter?: FilterQuery<TDocument>;
@@ -11,6 +11,11 @@ interface FindOptions<TDocument> {
 
 export class DataBaseRepository<TDocument> {
     constructor(private readonly model: Model<TDocument>) { }
+
+
+    async aggregate(pipeline: PipelineStage[]): Promise<any[]> {
+        return this.model.aggregate(pipeline);
+    }
 
     async create(data: Partial<TDocument>): Promise<TDocument> {
 
