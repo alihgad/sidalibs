@@ -10,6 +10,7 @@ export * from './DB/models/inventoryModels/materials.model';
 export * from './DB/models/inventoryModels/supplier.model';
 export * from './DB/models/inventoryModels/QuantityAdjustment.model';
 export * from './DB/models/inventoryModels/stockInBranch';
+export * from './DB/models/inventoryModels/PriceAdjustment.model';
 export * from './DB/models/productModels/categories.model';
 export * from './DB/models/productModels/groups.model';
 export * from './DB/models/productModels/product.model';
