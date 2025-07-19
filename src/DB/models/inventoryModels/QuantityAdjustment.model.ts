@@ -18,6 +18,10 @@ dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 })
 export class QuantityAdjustment {
   // Add your properties here
+
+  @Prop({ type: String, required: true })
+  referenceNumber!: string;
+
   @Prop({ type: Types.ObjectId, required: true, ref: 'Branch' })
   branch!: Types.ObjectId;
 

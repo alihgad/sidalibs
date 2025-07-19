@@ -45,6 +45,10 @@ let QuantityAdjustment = class QuantityAdjustment {
 };
 exports.QuantityAdjustment = QuantityAdjustment;
 __decorate([
+    (0, mongoose_1.Prop)({ type: String, required: true }),
+    __metadata("design:type", String)
+], QuantityAdjustment.prototype, "referenceNumber", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'Branch' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], QuantityAdjustment.prototype, "branch", void 0);

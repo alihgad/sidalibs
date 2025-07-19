@@ -1,6 +1,7 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class QuantityAdjustment {
+    referenceNumber: string;
     branch: Types.ObjectId;
     reason: Types.ObjectId;
     workDate: Date;
