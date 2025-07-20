@@ -411,6 +411,7 @@ var PurchaseOrderStatus;
     PurchaseOrderStatus["REJECTED"] = "REJECTED";
     PurchaseOrderStatus["CLOSED"] = "CLOSED";
     PurchaseOrderStatus["DRAFT"] = "DRAFT";
+    PurchaseOrderStatus["CANCELLED"] = "CANCELLED";
 })(PurchaseOrderStatus || (exports.PurchaseOrderStatus = PurchaseOrderStatus = {}));
 (0, graphql_1.registerEnumType)(PurchaseOrderStatus, {
     name: 'PurchaseOrderStatus',

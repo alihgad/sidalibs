@@ -212,6 +212,7 @@ export declare enum PurchaseOrderStatus {
     APPROVED = "APPROVED",
     REJECTED = "REJECTED",
     CLOSED = "CLOSED",
-    DRAFT = "DRAFT"
+    DRAFT = "DRAFT",
+    CANCELLED = "CANCELLED"
 }
 //# sourceMappingURL=type.d.ts.map

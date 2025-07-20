@@ -429,7 +429,8 @@ export enum DeliveryTime {
     APPROVED = 'APPROVED',
     REJECTED = 'REJECTED',
     CLOSED = 'CLOSED',
-    DRAFT = 'DRAFT'
+    DRAFT = 'DRAFT',
+    CANCELLED = 'CANCELLED'
   }
 
   registerEnumType(PurchaseOrderStatus, {
