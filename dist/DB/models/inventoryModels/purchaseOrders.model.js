@@ -134,6 +134,14 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Date }),
     __metadata("design:type", Date)
 ], PurchaseOrders.prototype, "rejectedAt", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], PurchaseOrders.prototype, "cancelledBy", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
+], PurchaseOrders.prototype, "cancelledAt", void 0);
 exports.PurchaseOrders = PurchaseOrders = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

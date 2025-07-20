@@ -107,6 +107,14 @@ export class PurchaseOrders {
   @Prop({ type: Date })
   rejectedAt?: Date;
 
+  @Prop({ type: Types.ObjectId, ref: 'User' })
+  cancelledBy?: Types.ObjectId;
+
+  @Prop({ type: Date })
+  cancelledAt?: Date;
+
+
+
 
 }
 

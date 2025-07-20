@@ -33,6 +33,8 @@ export declare class PurchaseOrders {
     approvedAt?: Date;
     rejectedBy?: Types.ObjectId;
     rejectedAt?: Date;
+    cancelledBy?: Types.ObjectId;
+    cancelledAt?: Date;
 }
 export type PurchaseOrdersDocument = HydratedDocument<PurchaseOrders>;
 export declare const PurchaseOrdersSchema: import("mongoose").Schema<PurchaseOrders, Model<PurchaseOrders, any, any, any, import("mongoose").Document<unknown, any, PurchaseOrders, any> & PurchaseOrders & {
