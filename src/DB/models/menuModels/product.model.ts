@@ -3,13 +3,14 @@ import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { PricingMethod, SaleMethod, CostCalculationMethod, ServingUnit } from '../../../common/type';
-import { ProductCategorySchema } from './categories.model';
+import { MenuCategorySchema } from './categories.model';
 import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
 import { TagSchema } from '../TenantModels/tags.model';
 import { materialsSchema } from '../inventoryModels/materials.model';
 import { BranchSchema } from '../TenantModels/branch.model';
 import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
 import { AdditionSchema } from './additions.model';
+import { MenuGroupSchema } from './groups.model';
 
 // Custom Branch Price Schema
 @Schema({ _id: false })
@@ -141,6 +142,9 @@ export class Product {
     @Prop({ type: [{ type: Types.ObjectId, ref: 'PriceTagApplies' }], default: [] })
     priceTagApplies!: Types.ObjectId[]; // وسوم الأسعار
 
+    @Prop({ type: Types.ObjectId, ref: 'MenuGroup', required: false })
+    menuGroup?: Types.ObjectId;
+
     @Prop({ type: Number, default: 5, min: 0 })
     walkTime!: number; // وقت المشي - الوقت المقدر لتوصيل المنتج للعميل (بالدقائق)
 
@@ -171,8 +175,8 @@ export const getProductModel = (businessNumber: string): DataBaseRepository<Prod
     let connection = ConnectionManager.getConnection(businessNumber);
     
     // Register all dependent models if not already registered
-    if (!connection.models['ProductCategory']) {
-        connection.model('ProductCategory', ProductCategorySchema);
+    if (!connection.models['MenuCategorySchema']) {
+        connection.model('MenuCategorySchema', MenuCategorySchema);
     }
     if (!connection.models['TaxGroup']) {
         connection.model('TaxGroup', TaxGroupSchema);
@@ -191,6 +195,9 @@ export const getProductModel = (businessNumber: string): DataBaseRepository<Prod
     }
     if (!connection.models['Addition']) {
         connection.model('Addition', AdditionSchema);
+    }
+    if (!connection.models['MenuGroup']) {
+        connection.model('MenuGroup', MenuGroupSchema);
     }
     const model = connection.models['Product'] || connection.model('Product', ProductSchema) as unknown as Model<ProductDocument>;
     return new DataBaseRepository<ProductDocument>(model);

@@ -3,9 +3,10 @@ import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { PricingMethod } from '../../../common/type';
-import { ProductCategorySchema } from './categories.model';
+import { MenuCategorySchema } from './categories.model';
 import { TagSchema } from '../TenantModels/tags.model';
 import { BranchSchema } from '../TenantModels/branch.model';
+import { MenuGroupSchema } from './groups.model';
 
 @Schema({
     timestamps: true,
@@ -25,8 +26,8 @@ export class GiftCard {
     @Prop({ type: String, required: false })
     barcode?: string; // باركود
 
-    @Prop({ type: Types.ObjectId, ref: 'ProductCategory', required: true })
-    category!: Types.ObjectId; // التصنيف - مرجع على ProductCategory
+    @Prop({ type: Types.ObjectId, ref: 'MenuCategory', required: true })
+    category!: Types.ObjectId; // التصنيف - مرجع على MenuCategory
 
     @Prop({ type: String, enum: Object.values(PricingMethod), required: true })
     pricingMethod!: PricingMethod; // طريقة التسعير - ثابت أو مفتوح
@@ -42,6 +43,9 @@ export class GiftCard {
 
     @Prop({ type: [Types.ObjectId], ref: 'Branch', default: [] })
     inactiveBranches!: Types.ObjectId[]; // الفروع غير النشطة - مرجع على Branch
+
+    @Prop({ type: Types.ObjectId, ref: 'MenuGroup', required: false })
+    menuGroup?: Types.ObjectId;
 
     @Prop({ type: Boolean, default: false })
     isDeleted!: boolean;
@@ -61,14 +65,17 @@ export const getGiftCardsModel = (businessNumber: string): DataBaseRepository<Gi
     let connection = ConnectionManager.getConnection(businessNumber);
     
     // Register required models in connection
-    if (!connection.models['ProductCategory']) {
-        connection.model('ProductCategory', ProductCategorySchema);
+    if (!connection.models['MenuCategory']) {
+        connection.model('MenuCategory', MenuCategorySchema);
     }
     if (!connection.models['Tag']) {
         connection.model('Tag', TagSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', BranchSchema);
+    }
+    if (!connection.models['MenuGroup']) {
+        connection.model('MenuGroup', MenuGroupSchema);
     }
     
     const model = connection.models['GiftCard'] || connection.model('GiftCard', GiftCardSchema) as unknown as Model<GiftCardDocument>;
