@@ -18,10 +18,10 @@ const type_1 = require("../../../common/type");
 const categories_model_1 = require("./categories.model");
 const tax_groups_model_1 = require("../TenantModels/tax-groups.model");
 const tags_model_1 = require("../TenantModels/tags.model");
-const materials_model_1 = require("../inventoryModels/materials.model");
 const branch_model_1 = require("../TenantModels/branch.model");
 const priceTagApplies_model_1 = require("../TenantModels/priceTagApplies.model");
 const additions_model_1 = require("./additions.model");
+const materials_model_1 = require("../inventoryModels/materials.model");
 // Custom Branch Price Schema
 let CustomBranchPrice = class CustomBranchPrice {
 };
@@ -237,7 +237,7 @@ const getProductModel = (businessNumber) => {
         connection.model('Tag', tags_model_1.TagSchema);
     }
     if (!connection.models['Material']) {
-        connection.model('Material', materials_model_1.materialsSchema);
+        connection.model('Material', materials_model_1.MaterialsSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', branch_model_1.BranchSchema);

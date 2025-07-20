@@ -6,11 +6,11 @@ import { PricingMethod, SaleMethod, CostCalculationMethod, ServingUnit } from '.
 import { MenuCategorySchema } from './categories.model';
 import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
 import { TagSchema } from '../TenantModels/tags.model';
-import { materialsSchema } from '../inventoryModels/materials.model';
 import { BranchSchema } from '../TenantModels/branch.model';
 import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
 import { AdditionSchema } from './additions.model';
 import { MenuGroupSchema } from './groups.model';
+import { MaterialsSchema } from '../inventoryModels/materials.model';
 
 // Custom Branch Price Schema
 @Schema({ _id: false })
@@ -185,7 +185,7 @@ export const getProductModel = (businessNumber: string): DataBaseRepository<Prod
         connection.model('Tag', TagSchema); 
     }
     if (!connection.models['Material']) {
-        connection.model('Material', materialsSchema);
+        connection.model('Material', MaterialsSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', BranchSchema);

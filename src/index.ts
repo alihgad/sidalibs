@@ -9,11 +9,14 @@ export * from './common/validators/IsPhoneWithCountryCode';
 export * from './DB/connection.manager';
 export * from './DB/DataBase.repository';
 
-// models
+// DB models
 // ========== Inventory Models ==========
 export * from './DB/models/inventoryModels/categories.model';
 export * from './DB/models/inventoryModels/materials.model';
 export * from './DB/models/inventoryModels/supplier.model';
+export * from './DB/models/inventoryModels/QuantityAdjustment.model';
+export * from './DB/models/inventoryModels/stockInBranch';
+export * from './DB/models/inventoryModels/PriceAdjustment.model';
 
 // ========== Product Models ==========
 export * from './DB/models/menuModels/categories.model';
@@ -33,7 +36,7 @@ export * from './DB/models/TenantModels/log.model';
 export * from './DB/models/TenantModels/notifications.model';
 export * from './DB/models/TenantModels/paymentMethods.model';
 export * from './DB/models/TenantModels/PromotionalOffer.model';
-export * from './DB/models/TenantModels/reson.model';
+export * from './DB/models/TenantModels/reason.model';
 export * from './DB/models/TenantModels/tags.model';
 export * from './DB/models/TenantModels/tax-groups.model';
 export * from './DB/models/TenantModels/taxes.model';

@@ -1,7 +1,7 @@
-import { Schema, Model, Document, Types } from 'mongoose';
+import { HydratedDocument, Model, Types } from 'mongoose';
 import { CostCalculationMethod } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
-export interface materials extends Document {
+export declare class Materials {
     name: string;
     secondaryName?: string;
     code: string;
@@ -19,16 +19,20 @@ export interface materials extends Document {
     tags?: Types.ObjectId[];
     ingredients?: Types.ObjectId[];
     isDeleted: boolean;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
-export declare const materialsSchema: Schema<materials, Model<materials, any, any, any, Document<unknown, any, materials, any> & materials & Required<{
-    _id: unknown;
-}> & {
+export type MaterialsDocument = HydratedDocument<Materials>;
+export declare const MaterialsSchema: import("mongoose").Schema<Materials, Model<Materials, any, any, any, import("mongoose").Document<unknown, any, Materials, any> & Materials & {
+    _id: Types.ObjectId;
+} & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, materials, Document<unknown, {}, import("mongoose").FlatRecord<materials>, {}> & import("mongoose").FlatRecord<materials> & Required<{
-    _id: unknown;
-}> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Materials, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Materials>, {}> & import("mongoose").FlatRecord<Materials> & {
+    _id: Types.ObjectId;
+} & {
     __v: number;
 }>;
-export type MaterialsDocument = materials & Document;
+export declare const MATERIALS_MODEL = "MATERIALS_MODEL";
+export declare const MaterialsModel: import("@nestjs/common").DynamicModule;
 export declare const getMaterialsModel: (businessNumber: string) => DataBaseRepository<MaterialsDocument>;
 //# sourceMappingURL=materials.model.d.ts.map

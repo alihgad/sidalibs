@@ -6,6 +6,9 @@ class DataBaseRepository {
     constructor(model) {
         this.model = model;
     }
+    async aggregate(pipeline) {
+        return this.model.aggregate(pipeline);
+    }
     async create(data) {
         return this.model.create(data);
     }
