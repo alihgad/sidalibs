@@ -18,12 +18,12 @@ export * from './DB/models/inventoryModels/QuantityAdjustment.model';
 export * from './DB/models/inventoryModels/stockInBranch';
 export * from './DB/models/inventoryModels/PriceAdjustment.model';
 
-// ========== Product Models ==========
-export * from './DB/models/productModels/categories.model';
-export * from './DB/models/productModels/groups.model';
-export * from './DB/models/productModels/product.model';
-export * from './DB/models/productModels/additions.model';
-export * from './DB/models/productModels/giftCards.model';
+// ========== Menu Models ==========
+export * from './DB/models/menuModels/categories.model';
+export * from './DB/models/menuModels/groups.model';
+export * from './DB/models/menuModels/product.model';
+export * from './DB/models/menuModels/additions.model';
+export * from './DB/models/menuModels/giftCards.model';
 
 // ========== Tenant Models ==========
 export * from './DB/models/TenantModels/branch.model';
