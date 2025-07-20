@@ -6,10 +6,10 @@ export declare class Reason {
     secondaryName?: string;
     type: ReasonType;
     isDeleted: boolean;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
-export type ReasonDocument = HydratedDocument<Reason> & {
-    _id: string;
-};
+export type ReasonDocument = HydratedDocument<Reason>;
 export declare const ReasonSchema: import("mongoose").Schema<Reason, Model<Reason, any, any, any, import("mongoose").Document<unknown, any, Reason, any> & Reason & {
     _id: Types.ObjectId;
 } & {
@@ -19,7 +19,7 @@ export declare const ReasonSchema: import("mongoose").Schema<Reason, Model<Reaso
 } & {
     __v: number;
 }>;
-export declare const REASON_MODEL = "Reason";
+export declare const REASON_MODEL = "REASON_MODEL";
 export declare const ReasonModel: import("@nestjs/common").DynamicModule;
 export declare const getReasonModel: (businessNumber: string) => DataBaseRepository<ReasonDocument>;
 //# sourceMappingURL=reason.model.d.ts.map

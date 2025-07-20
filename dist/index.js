@@ -44,12 +44,12 @@ __exportStar(require("./DB/models/inventoryModels/supplier.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/QuantityAdjustment.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/stockInBranch"), exports);
 __exportStar(require("./DB/models/inventoryModels/PriceAdjustment.model"), exports);
-// ========== Product Models ==========
-__exportStar(require("./DB/models/productModels/categories.model"), exports);
-__exportStar(require("./DB/models/productModels/groups.model"), exports);
-__exportStar(require("./DB/models/productModels/product.model"), exports);
-__exportStar(require("./DB/models/productModels/additions.model"), exports);
-__exportStar(require("./DB/models/productModels/giftCards.model"), exports);
+// ========== Menu Models ==========
+__exportStar(require("./DB/models/menuModels/categories.model"), exports);
+__exportStar(require("./DB/models/menuModels/groups.model"), exports);
+__exportStar(require("./DB/models/menuModels/product.model"), exports);
+__exportStar(require("./DB/models/menuModels/additions.model"), exports);
+__exportStar(require("./DB/models/menuModels/giftCards.model"), exports);
 // ========== Tenant Models ==========
 __exportStar(require("./DB/models/TenantModels/branch.model"), exports);
 __exportStar(require("./DB/models/TenantModels/brand.model"), exports);

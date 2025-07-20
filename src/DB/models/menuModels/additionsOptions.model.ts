@@ -5,6 +5,10 @@ import { ConnectionManager } from '../../connection.manager';
 import {  CostCalculationMethod, OrderType } from '../../../common/type';
 import { NutritionalValuesSchema } from '../shared/nutritional-values.schema';
 import { MenuGroupSchema } from './groups.model';
+import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
+import { MaterialsSchema } from '../inventoryModels/materials.model';
+import { BranchSchema } from '../TenantModels/branch.model';
+import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
 
 // الحقول بالترتيب:
 // 1. الاسم (name)
@@ -111,7 +115,7 @@ export const getAdditionsModel = (businessNumber: string): DataBaseRepository<Ad
         connection.model('TaxGroup', TaxGroupSchema);
     }
     if (!connection.models['Material']) {
-        connection.model('Material', materialsSchema);
+        connection.model('Material', MaterialsSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', BranchSchema);

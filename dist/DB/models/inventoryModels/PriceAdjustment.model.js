@@ -53,7 +53,7 @@ __decorate([
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], PriceAdjustment.prototype, "branch", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'reason' }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'Reason' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], PriceAdjustment.prototype, "reason", void 0);
 __decorate([
@@ -130,9 +130,9 @@ const getPriceAdjustmentModel = (businessNumber) => {
         const { MaterialsSchema } = require('./materials.model');
         connection.model('Material', MaterialsSchema);
     }
-    if (!connection.models['reason']) {
-        const { ReasonSchema } = require('../TenantModels/reson.model');
-        connection.model('reason', ReasonSchema);
+    if (!connection.models['Reason']) {
+        const { ReasonSchema } = require('../TenantModels/reason.model');
+        connection.model('Reason', ReasonSchema);
     }
     const model = connection.models['PriceAdjustment'] || connection.model('PriceAdjustment', exports.PriceAdjustmentSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
