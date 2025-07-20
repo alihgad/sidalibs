@@ -21,7 +21,7 @@ export class PriceAdjustment {
   @Prop({ type: Types.ObjectId, required: true, ref: 'Branch' })
   branch!: Types.ObjectId;
 
-  @Prop({ type: Types.ObjectId, required: true, ref: 'reason' })
+  @Prop({ type: Types.ObjectId, required: true, ref: 'Reason' })
   reason!: Types.ObjectId;
 
   @Prop({ type: Date, required: true })
@@ -100,9 +100,9 @@ export const getPriceAdjustmentModel = (businessNumber: string): DataBaseReposit
     const { MaterialsSchema } = require('./materials.model');
     connection.model('Material', MaterialsSchema);
   }
-  if (!connection.models['reason']) {
-    const { ReasonSchema } = require('../TenantModels/reson.model');
-    connection.model('reason', ReasonSchema);
+  if (!connection.models['Reason']) {
+    const { ReasonSchema } = require('../TenantModels/reason.model');
+    connection.model('Reason', ReasonSchema);
   }
 
   const model = connection.models['PriceAdjustment'] || connection.model('PriceAdjustment', PriceAdjustmentSchema) as unknown as Model<PriceAdjustmentDocument>;
