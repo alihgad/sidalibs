@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
@@ -347,4 +347,72 @@ var PaymentMethodEnum;
 (0, graphql_1.registerEnumType)(PaymentMethodEnum, {
     name: 'PaymentMethod',
     description: 'The method of payment',
+});
+var DeliveryTime;
+(function (DeliveryTime) {
+    DeliveryTime["00:00"] = "00:00";
+    DeliveryTime["00:30"] = "00:30";
+    DeliveryTime["01:00"] = "01:00";
+    DeliveryTime["01:30"] = "01:30";
+    DeliveryTime["02:00"] = "02:00";
+    DeliveryTime["02:30"] = "02:30";
+    DeliveryTime["03:00"] = "03:00";
+    DeliveryTime["03:30"] = "03:30";
+    DeliveryTime["04:00"] = "04:00";
+    DeliveryTime["04:30"] = "04:30";
+    DeliveryTime["05:00"] = "05:00";
+    DeliveryTime["05:30"] = "05:30";
+    DeliveryTime["06:00"] = "06:00";
+    DeliveryTime["06:30"] = "06:30";
+    DeliveryTime["07:00"] = "07:00";
+    DeliveryTime["07:30"] = "07:30";
+    DeliveryTime["08:00"] = "08:00";
+    DeliveryTime["08:30"] = "08:30";
+    DeliveryTime["09:00"] = "09:00";
+    DeliveryTime["09:30"] = "09:30";
+    DeliveryTime["10:00"] = "10:00";
+    DeliveryTime["10:30"] = "10:30";
+    DeliveryTime["11:00"] = "11:00";
+    DeliveryTime["11:30"] = "11:30";
+    DeliveryTime["12:00"] = "12:00";
+    DeliveryTime["12:30"] = "12:30";
+    DeliveryTime["13:00"] = "13:00";
+    DeliveryTime["13:30"] = "13:30";
+    DeliveryTime["14:00"] = "14:00";
+    DeliveryTime["14:30"] = "14:30";
+    DeliveryTime["15:00"] = "15:00";
+    DeliveryTime["15:30"] = "15:30";
+    DeliveryTime["16:00"] = "16:00";
+    DeliveryTime["16:30"] = "16:30";
+    DeliveryTime["17:00"] = "17:00";
+    DeliveryTime["17:30"] = "17:30";
+    DeliveryTime["18:00"] = "18:00";
+    DeliveryTime["18:30"] = "18:30";
+    DeliveryTime["19:00"] = "19:00";
+    DeliveryTime["19:30"] = "19:30";
+    DeliveryTime["20:00"] = "20:00";
+    DeliveryTime["20:30"] = "20:30";
+    DeliveryTime["21:00"] = "21:00";
+    DeliveryTime["21:30"] = "21:30";
+    DeliveryTime["22:00"] = "22:00";
+    DeliveryTime["22:30"] = "22:30";
+    DeliveryTime["23:00"] = "23:00";
+    DeliveryTime["23:30"] = "23:30";
+    DeliveryTime["23:59"] = "23:59";
+})(DeliveryTime || (exports.DeliveryTime = DeliveryTime = {}));
+(0, graphql_1.registerEnumType)(DeliveryTime, {
+    name: 'DeliveryTime',
+    description: 'The time of the delivery',
+});
+var PurchaseOrderStatus;
+(function (PurchaseOrderStatus) {
+    PurchaseOrderStatus["PENDING"] = "PENDING";
+    PurchaseOrderStatus["APPROVED"] = "APPROVED";
+    PurchaseOrderStatus["REJECTED"] = "REJECTED";
+    PurchaseOrderStatus["CLOSED"] = "CLOSED";
+    PurchaseOrderStatus["DRAFT"] = "DRAFT";
+})(PurchaseOrderStatus || (exports.PurchaseOrderStatus = PurchaseOrderStatus = {}));
+(0, graphql_1.registerEnumType)(PurchaseOrderStatus, {
+    name: 'PurchaseOrderStatus',
+    description: 'The status of the purchase order',
 });

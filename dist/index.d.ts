@@ -11,6 +11,7 @@ export * from './DB/models/inventoryModels/supplier.model';
 export * from './DB/models/inventoryModels/QuantityAdjustment.model';
 export * from './DB/models/inventoryModels/stockInBranch';
 export * from './DB/models/inventoryModels/PriceAdjustment.model';
+export * from './DB/models/inventoryModels/purchaseOrders.model';
 export * from './DB/models/menuModels/categories.model';
 export * from './DB/models/menuModels/groups.model';
 export * from './DB/models/menuModels/product.model';
