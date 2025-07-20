@@ -16,6 +16,7 @@ export declare class PurchaseOrders {
     businessDate: Date;
     deliveryTime: DeliveryTime;
     createdBy: Types.ObjectId;
+    additionalCost: number;
     notes?: string;
     items: {
         materialId: Types.ObjectId;

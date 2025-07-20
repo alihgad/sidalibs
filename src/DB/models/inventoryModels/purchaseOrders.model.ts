@@ -61,6 +61,10 @@ export class PurchaseOrders {
   createdBy!: Types.ObjectId;
 
 
+  @Prop({ type: Number, min: 0, default: 0 })
+  additionalCost!: number;
+
+
   @Prop({ type: String })
   notes?: string;
 

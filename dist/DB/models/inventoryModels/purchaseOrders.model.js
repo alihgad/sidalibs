@@ -89,6 +89,10 @@ __decorate([
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], PurchaseOrders.prototype, "createdBy", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Number, min: 0, default: 0 }),
+    __metadata("design:type", Number)
+], PurchaseOrders.prototype, "additionalCost", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: String }),
     __metadata("design:type", String)
 ], PurchaseOrders.prototype, "notes", void 0);
