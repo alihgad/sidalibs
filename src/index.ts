@@ -18,7 +18,7 @@ export * from './DB/models/inventoryModels/QuantityAdjustment.model';
 export * from './DB/models/inventoryModels/stockInBranch';
 export * from './DB/models/inventoryModels/PriceAdjustment.model';
 
-// ========== Product Models ==========
+// ========== Menu Models ==========
 export * from './DB/models/menuModels/categories.model';
 export * from './DB/models/menuModels/groups.model';
 export * from './DB/models/menuModels/product.model';
