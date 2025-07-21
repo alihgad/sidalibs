@@ -215,4 +215,12 @@ export declare enum PurchaseOrderStatus {
     DRAFT = "DRAFT",
     CANCELLED = "CANCELLED"
 }
+export declare enum PurchaseStatus {
+    CLOSED = "CLOSED",
+    DRAFT = "DRAFT"
+}
+export declare enum PurchaseType {
+    PURCHASE = "PURCHASE",
+    RETURN = "RETURN"
+}
 //# sourceMappingURL=type.d.ts.map

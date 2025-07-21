@@ -45,6 +45,7 @@ __exportStar(require("./DB/models/inventoryModels/QuantityAdjustment.model"), ex
 __exportStar(require("./DB/models/inventoryModels/stockInBranch"), exports);
 __exportStar(require("./DB/models/inventoryModels/PriceAdjustment.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/purchaseOrders.model"), exports);
+__exportStar(require("./DB/models/inventoryModels/purchase.model"), exports);
 // ========== Menu Models ==========
 __exportStar(require("./DB/models/menuModels/categories.model"), exports);
 __exportStar(require("./DB/models/menuModels/groups.model"), exports);

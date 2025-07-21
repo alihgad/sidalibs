@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
@@ -416,4 +416,22 @@ var PurchaseOrderStatus;
 (0, graphql_1.registerEnumType)(PurchaseOrderStatus, {
     name: 'PurchaseOrderStatus',
     description: 'The status of the purchase order',
+});
+var PurchaseStatus;
+(function (PurchaseStatus) {
+    PurchaseStatus["CLOSED"] = "CLOSED";
+    PurchaseStatus["DRAFT"] = "DRAFT";
+})(PurchaseStatus || (exports.PurchaseStatus = PurchaseStatus = {}));
+(0, graphql_1.registerEnumType)(PurchaseStatus, {
+    name: 'PurchaseStatus',
+    description: 'The status of the purchase',
+});
+var PurchaseType;
+(function (PurchaseType) {
+    PurchaseType["PURCHASE"] = "PURCHASE";
+    PurchaseType["RETURN"] = "RETURN";
+})(PurchaseType || (exports.PurchaseType = PurchaseType = {}));
+(0, graphql_1.registerEnumType)(PurchaseType, {
+    name: 'PurchaseType',
+    description: 'The type of purchase',
 });
