@@ -41,17 +41,27 @@ export class Purchase {
         branchId: Types.ObjectId;
         branchName: string;
     };
-
-    @Prop({ type: PurchaseType, required: true , default: PurchaseType.PURCHASE })
-    type!: PurchaseType;
-
-    @Prop({ type: PurchaseStatus, required: true, default: PurchaseStatus.DRAFT })
-    status!: PurchaseStatus;
+    @Prop({
+        type: String,
+        enum: PurchaseType,
+        required: true,
+        default: PurchaseType.PURCHASE
+      })
+      type!: PurchaseType;
+      
+      @Prop({
+        type: String,
+        enum: PurchaseStatus,
+        required: true,
+        default: PurchaseStatus.DRAFT
+      })
+      status!: PurchaseStatus;
+      
 
     @Prop({ type: Date, required: true })
     businessDate!: Date;
 
-    
+
 
     @Prop({ type: Number, required: true, min: 0 })
     totalAmount!: number;
@@ -112,14 +122,14 @@ export class Purchase {
     @Prop({ type: String })
     invoiceNumber?: string;
 
-    @Prop({ type: Number,  })
+    @Prop({ type: Number, })
     additionalCosts?: number;
 
-    @Prop({ type: Number,  })
+    @Prop({ type: Number, })
     paidTaxAmount?: number;
 
-  
-    
+
+
 }
 
 export type PurchaseDocument = HydratedDocument<Purchase>;
