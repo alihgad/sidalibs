@@ -49,7 +49,7 @@ export class Purchase {
     status!: PurchaseStatus;
 
     @Prop({ type: Date, required: true })
-    purchaseDate!: Date;
+    businessDate!: Date;
 
     
 

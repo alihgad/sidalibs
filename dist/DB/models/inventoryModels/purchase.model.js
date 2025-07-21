@@ -78,7 +78,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: Date, required: true }),
     __metadata("design:type", Date)
-], Purchase.prototype, "purchaseDate", void 0);
+], Purchase.prototype, "businessDate", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Number, required: true, min: 0 }),
     __metadata("design:type", Number)

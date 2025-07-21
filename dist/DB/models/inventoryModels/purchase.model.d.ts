@@ -13,7 +13,7 @@ export declare class Purchase {
     };
     type: PurchaseType;
     status: PurchaseStatus;
-    purchaseDate: Date;
+    businessDate: Date;
     totalAmount: number;
     taxAmount: number;
     discountAmount: number;
