@@ -42,14 +42,14 @@ export class Purchase {
         branchName: string;
     };
 
-    @Prop({ type: PurchaseType, required: true })
+    @Prop({ type: PurchaseType, required: true , default: PurchaseType.PURCHASE })
     type!: PurchaseType;
 
     @Prop({ type: PurchaseStatus, required: true, default: PurchaseStatus.DRAFT })
     status!: PurchaseStatus;
 
     @Prop({ type: Date, required: true })
-    purchaseDate!: Date;
+    businessDate!: Date;
 
     
 
@@ -67,21 +67,21 @@ export class Purchase {
 
     @Prop({
         type: [{
-            materialId: { type: Types.ObjectId, ref: 'Material', required: true },
-            materialName: { type: String, required: true },
-            quantity: { type: Number, required: true, min: 1 },
-            unitPrice: { type: Number, required: true, min: 0 },
-            totalPrice: { type: Number, required: true, min: 0 },
-            receivedQuantity: { type: Number, default: 0, min: 0 }
-        }], required: true
+            materialId: { type: Types.ObjectId, ref: 'Material' },
+            materialName: { type: String },
+            code: { type: String },
+            quantity: { type: Number, min: 1 },
+            unitPrice: { type: Number, min: 0 },
+            totalPrice: { type: Number, min: 0 }
+        }]
     })
     items!: {
         materialId: Types.ObjectId;
         materialName: string;
+        code: string;
         quantity: number;
         unitPrice: number;
         totalPrice: number;
-        receivedQuantity: number;
     }[];
 
     @Prop({ type: Types.ObjectId, ref: 'User', required: true })

@@ -406,12 +406,12 @@ var DeliveryTime;
 });
 var PurchaseOrderStatus;
 (function (PurchaseOrderStatus) {
-    PurchaseOrderStatus["PENDING"] = "PENDING";
-    PurchaseOrderStatus["APPROVED"] = "APPROVED";
-    PurchaseOrderStatus["REJECTED"] = "REJECTED";
-    PurchaseOrderStatus["CLOSED"] = "CLOSED";
-    PurchaseOrderStatus["DRAFT"] = "DRAFT";
-    PurchaseOrderStatus["CANCELLED"] = "CANCELLED";
+    PurchaseOrderStatus["PENDING"] = "pending";
+    PurchaseOrderStatus["APPROVED"] = "approved";
+    PurchaseOrderStatus["REJECTED"] = "rejected";
+    PurchaseOrderStatus["CLOSED"] = "closed";
+    PurchaseOrderStatus["DRAFT"] = "draft";
+    PurchaseOrderStatus["CANCELLED"] = "cancelled";
 })(PurchaseOrderStatus || (exports.PurchaseOrderStatus = PurchaseOrderStatus = {}));
 (0, graphql_1.registerEnumType)(PurchaseOrderStatus, {
     name: 'PurchaseOrderStatus',
@@ -419,8 +419,9 @@ var PurchaseOrderStatus;
 });
 var PurchaseStatus;
 (function (PurchaseStatus) {
-    PurchaseStatus["CLOSED"] = "CLOSED";
-    PurchaseStatus["DRAFT"] = "DRAFT";
+    PurchaseStatus["CLOSED"] = "closed";
+    PurchaseStatus["DRAFT"] = "draft";
+    PurchaseStatus["PENDING"] = "pending";
 })(PurchaseStatus || (exports.PurchaseStatus = PurchaseStatus = {}));
 (0, graphql_1.registerEnumType)(PurchaseStatus, {
     name: 'PurchaseStatus',
@@ -428,8 +429,8 @@ var PurchaseStatus;
 });
 var PurchaseType;
 (function (PurchaseType) {
-    PurchaseType["PURCHASE"] = "PURCHASE";
-    PurchaseType["RETURN"] = "RETURN";
+    PurchaseType["PURCHASE"] = "purchase";
+    PurchaseType["RETURN"] = "return";
 })(PurchaseType || (exports.PurchaseType = PurchaseType = {}));
 (0, graphql_1.registerEnumType)(PurchaseType, {
     name: 'PurchaseType',
