@@ -25,6 +25,7 @@ export declare const permissionKeys: {
     send_transfer_requests: string;
     create_transfers: string;
     send_transfers: string;
+    read_purchases: string;
     create_purchases: string;
     send_purchases: string;
     create_purchases_from_purchase_orders: string;
@@ -41,6 +42,8 @@ export declare const permissionKeys: {
     create_instant_inventory_checks: string;
     send_instant_inventory_checks: string;
     create_inventory_count_template: string;
+    read_categories: string;
+    manage_categories: string;
     read_menu_items: string;
     manage_menu_items: string;
     manage_ingredients: string;
@@ -117,10 +120,5 @@ export declare const permissionKeys: {
     activate_future_orders: string;
     assign_as_driver: string;
     perform_cash_check: string;
-    manage_roles: string;
-    read_roles: string;
-    read_devices: string;
-    read_categories: string;
-    manage_categories: string;
 };
 //# sourceMappingURL=permissions.d.ts.map

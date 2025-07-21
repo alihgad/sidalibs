@@ -729,6 +729,7 @@ exports.permissionKeys = {
     "send_transfer_requests": "send_transfer_requests",
     "create_transfers": "create_transfers",
     "send_transfers": "send_transfers",
+    "read_purchases": "read_purchases",
     "create_purchases": "create_purchases",
     "send_purchases": "send_purchases",
     "create_purchases_from_purchase_orders": "create_purchases_from_purchase_orders",
@@ -745,6 +746,8 @@ exports.permissionKeys = {
     "create_instant_inventory_checks": "create_instant_inventory_checks",
     "send_instant_inventory_checks": "send_instant_inventory_checks",
     "create_inventory_count_template": "create_inventory_count_template",
+    "read_categories": "read_categories",
+    "manage_categories": "manage_categories",
     "read_menu_items": "read_menu_items",
     "manage_menu_items": "manage_menu_items",
     "manage_ingredients": "manage_ingredients",
@@ -820,10 +823,5 @@ exports.permissionKeys = {
     "manage_product_availability": "manage_product_availability",
     "activate_future_orders": "activate_future_orders",
     "assign_as_driver": "assign_as_driver",
-    "perform_cash_check": "perform_cash_check",
-    "manage_roles": "manage_roles",
-    "read_roles": "read_roles",
-    "read_devices": "read_devices",
-    "read_categories": "read_categories",
-    "manage_categories": "manage_categories",
+    "perform_cash_check": "perform_cash_check"
 };
