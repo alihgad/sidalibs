@@ -127,6 +127,12 @@ export let permissions = [
         key: 'send_transfers'
     },
     {
+        name: 'قراءة عمليات الشراء',
+        description: 'السماح للمستخدم بعرض عمليات الشراء',
+        category: permissionsCategorys.purchase_permissions,
+        key: 'read_purchases'
+    },
+    {
         name: 'إنشاء عمليات الشراء',
         description: 'السماح للمستخدم بإنشاء عملية شراء وحفظها كمسودة',
         category: permissionsCategorys.inventory_permissions,

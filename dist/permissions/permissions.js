@@ -127,6 +127,12 @@ exports.permissions = [
         key: 'send_transfers'
     },
     {
+        name: 'قراءة عمليات الشراء',
+        description: 'السماح للمستخدم بعرض عمليات الشراء',
+        category: permissionsCategorys_1.permissionsCategorys.purchase_permissions,
+        key: 'read_purchases'
+    },
+    {
         name: 'إنشاء عمليات الشراء',
         description: 'السماح للمستخدم بإنشاء عملية شراء وحفظها كمسودة',
         category: permissionsCategorys_1.permissionsCategorys.inventory_permissions,
