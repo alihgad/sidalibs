@@ -4,7 +4,7 @@ import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
-import { PurchaseStatus } from '../../../common/type';
+import { PurchaseStatus, PurchaseType } from '../../../common/type';
 
 // Load environment variables from the correct path
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
@@ -42,8 +42,11 @@ export class Purchase {
         branchName: string;
     };
 
+    @Prop({ type: PurchaseType, required: true })
+    type!: PurchaseType;
+
     @Prop({ type: PurchaseStatus, required: true, default: PurchaseStatus.DRAFT })
-    type!: PurchaseStatus;
+    status!: PurchaseStatus;
 
     @Prop({ type: Date, required: true })
     purchaseDate!: Date;

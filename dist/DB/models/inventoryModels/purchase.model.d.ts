@@ -1,6 +1,6 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
-import { PurchaseStatus } from '../../../common/type';
+import { PurchaseStatus, PurchaseType } from '../../../common/type';
 export declare class Purchase {
     referenceNumber: string;
     supplier: {
@@ -11,7 +11,8 @@ export declare class Purchase {
         branchId: Types.ObjectId;
         branchName: string;
     };
-    type: PurchaseStatus;
+    type: PurchaseType;
+    status: PurchaseStatus;
     purchaseDate: Date;
     totalAmount: number;
     taxAmount: number;

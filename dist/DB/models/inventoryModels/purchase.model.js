@@ -68,9 +68,13 @@ __decorate([
     __metadata("design:type", Object)
 ], Purchase.prototype, "branch", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: type_1.PurchaseStatus, required: true, default: type_1.PurchaseStatus.DRAFT }),
+    (0, mongoose_1.Prop)({ type: type_1.PurchaseType, required: true }),
     __metadata("design:type", String)
 ], Purchase.prototype, "type", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: type_1.PurchaseStatus, required: true, default: type_1.PurchaseStatus.DRAFT }),
+    __metadata("design:type", String)
+], Purchase.prototype, "status", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Date, required: true }),
     __metadata("design:type", Date)
