@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.productsType = exports.ProductsTypeEnum = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
@@ -32,12 +32,6 @@ var licencesEnum;
     name: 'licencesEnum',
     description: 'The type of licence',
 });
-var ProductsTypeEnum;
-(function (ProductsTypeEnum) {
-    ProductsTypeEnum["POS"] = "POS";
-    ProductsTypeEnum["KIOSK"] = "KIOSK";
-    ProductsTypeEnum["TABLET"] = "TABLET";
-})(ProductsTypeEnum || (exports.ProductsTypeEnum = ProductsTypeEnum = {}));
 var productsType;
 (function (productsType) {
     productsType["cashier device"] = "prod_SIzCGDfhu25vAS";
@@ -46,6 +40,7 @@ var productsType;
     productsType["iPad"] = "prod_SIzFplT3mK3nu9";
     productsType["KDS"] = "prod_SIzEHkZq4Xehzz";
 })(productsType || (exports.productsType = productsType = {}));
+var ProductsTypeEnum;
 (function (ProductsTypeEnum) {
     ProductsTypeEnum["CASHIER_DEVICE"] = "cashier device";
     ProductsTypeEnum["CASH_DRAWER"] = "Cash drawer";
@@ -113,10 +108,7 @@ exports.devicePriceMap = {
     [ProductsTypeEnum.CASH_DRAWER]: 5000,
     [ProductsTypeEnum.PRINTER]: 8000,
     [ProductsTypeEnum.IPAD]: 30000,
-    [ProductsTypeEnum.KDS]: 7000,
-    [ProductsTypeEnum.POS]: 0,
-    [ProductsTypeEnum.KIOSK]: 0,
-    [ProductsTypeEnum.TABLET]: 0
+    [ProductsTypeEnum.KDS]: 7000
 };
 exports.planPriceMap = {
     [PlanType.BASIC]: {
@@ -350,59 +342,59 @@ var PaymentMethodEnum;
 });
 var DeliveryTime;
 (function (DeliveryTime) {
-    DeliveryTime["00:00"] = "00:00";
-    DeliveryTime["00:30"] = "00:30";
-    DeliveryTime["01:00"] = "01:00";
-    DeliveryTime["01:30"] = "01:30";
-    DeliveryTime["02:00"] = "02:00";
-    DeliveryTime["02:30"] = "02:30";
-    DeliveryTime["03:00"] = "03:00";
-    DeliveryTime["03:30"] = "03:30";
-    DeliveryTime["04:00"] = "04:00";
-    DeliveryTime["04:30"] = "04:30";
-    DeliveryTime["05:00"] = "05:00";
-    DeliveryTime["05:30"] = "05:30";
-    DeliveryTime["06:00"] = "06:00";
-    DeliveryTime["06:30"] = "06:30";
-    DeliveryTime["07:00"] = "07:00";
-    DeliveryTime["07:30"] = "07:30";
-    DeliveryTime["08:00"] = "08:00";
-    DeliveryTime["08:30"] = "08:30";
-    DeliveryTime["09:00"] = "09:00";
-    DeliveryTime["09:30"] = "09:30";
-    DeliveryTime["10:00"] = "10:00";
-    DeliveryTime["10:30"] = "10:30";
-    DeliveryTime["11:00"] = "11:00";
-    DeliveryTime["11:30"] = "11:30";
-    DeliveryTime["12:00"] = "12:00";
-    DeliveryTime["12:30"] = "12:30";
-    DeliveryTime["13:00"] = "13:00";
-    DeliveryTime["13:30"] = "13:30";
-    DeliveryTime["14:00"] = "14:00";
-    DeliveryTime["14:30"] = "14:30";
-    DeliveryTime["15:00"] = "15:00";
-    DeliveryTime["15:30"] = "15:30";
-    DeliveryTime["16:00"] = "16:00";
-    DeliveryTime["16:30"] = "16:30";
-    DeliveryTime["17:00"] = "17:00";
-    DeliveryTime["17:30"] = "17:30";
-    DeliveryTime["18:00"] = "18:00";
-    DeliveryTime["18:30"] = "18:30";
-    DeliveryTime["19:00"] = "19:00";
-    DeliveryTime["19:30"] = "19:30";
-    DeliveryTime["20:00"] = "20:00";
-    DeliveryTime["20:30"] = "20:30";
-    DeliveryTime["21:00"] = "21:00";
-    DeliveryTime["21:30"] = "21:30";
-    DeliveryTime["22:00"] = "22:00";
-    DeliveryTime["22:30"] = "22:30";
-    DeliveryTime["23:00"] = "23:00";
-    DeliveryTime["23:30"] = "23:30";
-    DeliveryTime["23:59"] = "23:59";
+    DeliveryTime["T_00_00"] = "00:00";
+    DeliveryTime["T_00_30"] = "00:30";
+    DeliveryTime["T_01_00"] = "01:00";
+    DeliveryTime["T_01_30"] = "01:30";
+    DeliveryTime["T_02_00"] = "02:00";
+    DeliveryTime["T_02_30"] = "02:30";
+    DeliveryTime["T_03_00"] = "03:00";
+    DeliveryTime["T_03_30"] = "03:30";
+    DeliveryTime["T_04_00"] = "04:00";
+    DeliveryTime["T_04_30"] = "04:30";
+    DeliveryTime["T_05_00"] = "05:00";
+    DeliveryTime["T_05_30"] = "05:30";
+    DeliveryTime["T_06_00"] = "06:00";
+    DeliveryTime["T_06_30"] = "06:30";
+    DeliveryTime["T_07_00"] = "07:00";
+    DeliveryTime["T_07_30"] = "07:30";
+    DeliveryTime["T_08_00"] = "08:00";
+    DeliveryTime["T_08_30"] = "08:30";
+    DeliveryTime["T_09_00"] = "09:00";
+    DeliveryTime["T_09_30"] = "09:30";
+    DeliveryTime["T_10_00"] = "10:00";
+    DeliveryTime["T_10_30"] = "10:30";
+    DeliveryTime["T_11_00"] = "11:00";
+    DeliveryTime["T_11_30"] = "11:30";
+    DeliveryTime["T_12_00"] = "12:00";
+    DeliveryTime["T_12_30"] = "12:30";
+    DeliveryTime["T_13_00"] = "13:00";
+    DeliveryTime["T_13_30"] = "13:30";
+    DeliveryTime["T_14_00"] = "14:00";
+    DeliveryTime["T_14_30"] = "14:30";
+    DeliveryTime["T_15_00"] = "15:00";
+    DeliveryTime["T_15_30"] = "15:30";
+    DeliveryTime["T_16_00"] = "16:00";
+    DeliveryTime["T_16_30"] = "16:30";
+    DeliveryTime["T_17_00"] = "17:00";
+    DeliveryTime["T_17_30"] = "17:30";
+    DeliveryTime["T_18_00"] = "18:00";
+    DeliveryTime["T_18_30"] = "18:30";
+    DeliveryTime["T_19_00"] = "19:00";
+    DeliveryTime["T_19_30"] = "19:30";
+    DeliveryTime["T_20_00"] = "20:00";
+    DeliveryTime["T_20_30"] = "20:30";
+    DeliveryTime["T_21_00"] = "21:00";
+    DeliveryTime["T_21_30"] = "21:30";
+    DeliveryTime["T_22_00"] = "22:00";
+    DeliveryTime["T_22_30"] = "22:30";
+    DeliveryTime["T_23_00"] = "23:00";
+    DeliveryTime["T_23_30"] = "23:30";
+    DeliveryTime["T_23_59"] = "23:59";
 })(DeliveryTime || (exports.DeliveryTime = DeliveryTime = {}));
 (0, graphql_1.registerEnumType)(DeliveryTime, {
     name: 'DeliveryTime',
-    description: 'The time of the delivery',
+    description: 'The delivery time slots',
 });
 var PurchaseOrderStatus;
 (function (PurchaseOrderStatus) {
