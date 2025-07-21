@@ -98,13 +98,13 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({
         type: [{
-                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material', required: true },
-                materialName: { type: String, required: true },
-                quantity: { type: Number, required: true, min: 1 },
-                unitPrice: { type: Number, required: true, min: 0 },
-                totalPrice: { type: Number, required: true, min: 0 },
-                receivedQuantity: { type: Number, default: 0, min: 0 }
-            }], required: true
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material' },
+                materialName: { type: String },
+                code: { type: String },
+                quantity: { type: Number, min: 1 },
+                unitPrice: { type: Number, min: 0 },
+                totalPrice: { type: Number, min: 0 }
+            }]
     }),
     __metadata("design:type", Array)
 ], Purchase.prototype, "items", void 0);

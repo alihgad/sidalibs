@@ -21,10 +21,10 @@ export declare class Purchase {
     items: {
         materialId: Types.ObjectId;
         materialName: string;
+        code: string;
         quantity: number;
         unitPrice: number;
         totalPrice: number;
-        receivedQuantity: number;
     }[];
     createdBy: Types.ObjectId;
     receivedBy?: Types.ObjectId;
