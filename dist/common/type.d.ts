@@ -208,19 +208,20 @@ export declare enum DeliveryTime {
     '23:59' = "23:59"
 }
 export declare enum PurchaseOrderStatus {
-    PENDING = "PENDING",
-    APPROVED = "APPROVED",
-    REJECTED = "REJECTED",
-    CLOSED = "CLOSED",
-    DRAFT = "DRAFT",
-    CANCELLED = "CANCELLED"
+    PENDING = "pending",
+    APPROVED = "approved",
+    REJECTED = "rejected",
+    CLOSED = "closed",
+    DRAFT = "draft",
+    CANCELLED = "cancelled"
 }
 export declare enum PurchaseStatus {
-    CLOSED = "CLOSED",
-    DRAFT = "DRAFT"
+    CLOSED = "closed",
+    DRAFT = "draft",
+    PENDING = "pending"
 }
 export declare enum PurchaseType {
-    PURCHASE = "PURCHASE",
-    RETURN = "RETURN"
+    PURCHASE = "purchase",
+    RETURN = "return"
 }
 //# sourceMappingURL=type.d.ts.map

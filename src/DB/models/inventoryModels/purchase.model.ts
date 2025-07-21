@@ -42,7 +42,7 @@ export class Purchase {
         branchName: string;
     };
 
-    @Prop({ type: PurchaseType, required: true })
+    @Prop({ type: PurchaseType, required: true , default: PurchaseType.PURCHASE })
     type!: PurchaseType;
 
     @Prop({ type: PurchaseStatus, required: true, default: PurchaseStatus.DRAFT })

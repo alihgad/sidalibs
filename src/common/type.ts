@@ -425,12 +425,12 @@ export enum DeliveryTime {
 
 
   export enum PurchaseOrderStatus {
-    PENDING = 'PENDING',
-    APPROVED = 'APPROVED',
-    REJECTED = 'REJECTED',
-    CLOSED = 'CLOSED',
-    DRAFT = 'DRAFT',
-    CANCELLED = 'CANCELLED'
+    PENDING = 'pending',
+    APPROVED = 'approved',
+    REJECTED = 'rejected',
+    CLOSED = 'closed',
+    DRAFT = 'draft',
+    CANCELLED = 'cancelled'
   }
 
   registerEnumType(PurchaseOrderStatus, {
@@ -440,8 +440,9 @@ export enum DeliveryTime {
 
 
   export enum PurchaseStatus {
-    CLOSED = 'CLOSED',
-    DRAFT = 'DRAFT'
+    CLOSED = 'closed',
+    DRAFT = 'draft',
+    PENDING = 'pending'
   }
 
   registerEnumType(PurchaseStatus, {
@@ -450,8 +451,8 @@ export enum DeliveryTime {
   });
 
   export enum PurchaseType {
-    PURCHASE = 'PURCHASE',
-    RETURN = 'RETURN'
+    PURCHASE = 'purchase',
+    RETURN = 'return'
   }
 
   registerEnumType(PurchaseType, {
