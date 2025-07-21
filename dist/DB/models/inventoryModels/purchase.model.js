@@ -145,11 +145,11 @@ __decorate([
     __metadata("design:type", String)
 ], Purchase.prototype, "invoiceNumber", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
+    (0, mongoose_1.Prop)({ type: Number, }),
+    __metadata("design:type", Number)
 ], Purchase.prototype, "additionalCosts", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    (0, mongoose_1.Prop)({ type: Number, }),
     __metadata("design:type", Number)
 ], Purchase.prototype, "paidTaxAmount", void 0);
 exports.Purchase = Purchase = __decorate([

@@ -35,7 +35,7 @@ export declare class Purchase {
     returnedNotes?: string;
     invoiceDate?: Date;
     invoiceNumber?: string;
-    additionalCosts?: string;
+    additionalCosts?: number;
     paidTaxAmount?: number;
 }
 export type PurchaseDocument = HydratedDocument<Purchase>;

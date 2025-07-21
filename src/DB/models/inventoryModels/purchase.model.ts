@@ -112,10 +112,10 @@ export class Purchase {
     @Prop({ type: String })
     invoiceNumber?: string;
 
-    @Prop({ type: String })
-    additionalCosts?: string;
+    @Prop({ type: Number,  })
+    additionalCosts?: number;
 
-    @Prop({ type: Number, default: 0 })
+    @Prop({ type: Number,  })
     paidTaxAmount?: number;
 
   
