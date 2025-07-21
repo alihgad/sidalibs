@@ -439,5 +439,27 @@ export enum DeliveryTime {
   });
 
 
+  export enum PurchaseStatus {
+    CLOSED = 'CLOSED',
+    DRAFT = 'DRAFT'
+  }
+
+  registerEnumType(PurchaseStatus, {
+    name: 'PurchaseStatus',
+    description: 'The status of the purchase',
+  });
+
+  export enum PurchaseType {
+    PURCHASE = 'PURCHASE',
+    RETURN = 'RETURN'
+  }
+
+  registerEnumType(PurchaseType, {
+    name: 'PurchaseType',
+    description: 'The type of purchase',
+  });
+  
+
+
 
 
