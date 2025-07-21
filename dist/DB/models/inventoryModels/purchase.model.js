@@ -48,7 +48,7 @@ exports.Purchase = Purchase;
 __decorate([
     (0, mongoose_1.Prop)({ type: String, required: true }),
     __metadata("design:type", String)
-], Purchase.prototype, "ReferenceNumber", void 0);
+], Purchase.prototype, "referenceNumber", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
         type: {

@@ -2,7 +2,7 @@ import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { PurchaseStatus } from '../../../common/type';
 export declare class Purchase {
-    ReferenceNumber: string;
+    referenceNumber: string;
     supplier: {
         supplierId: Types.ObjectId;
         supplierName: string;

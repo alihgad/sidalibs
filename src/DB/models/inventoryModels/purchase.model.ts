@@ -18,7 +18,7 @@ dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 export class Purchase {
     // Add your properties here
     @Prop({ type: String, required: true })
-    ReferenceNumber!: string;
+    referenceNumber!: string;
 
     @Prop({
         type: {
