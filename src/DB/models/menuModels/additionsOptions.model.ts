@@ -18,7 +18,7 @@ import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
 // 5. السعر (price)
 // 6. مجموعة ضريبية (taxGroup)
 // 7. طريقة حساب التكلفة (costCalculationMethod)
-// 8. تكلفة المكونات (cost)
+// 8. تكلفة المكونات (cost) -- للعرض فقط
 // 9. المكونات (ingredients) - ريف على المواد
 // 10. أنواع الأوردر (orderTypes) - أنواع الطلبات
 // 11. الكمية (quantity)
@@ -57,9 +57,6 @@ export class Addition {
 
     @Prop({ type: String, enum: CostCalculationMethod, required: true })
     costCalculationMethod!: CostCalculationMethod;
-
-    @Prop({ type: Number, required: false })
-    cost?: number;
 
     @Prop({ type: Types.ObjectId, ref: 'MenuGroup', required: false })
     menuGroup?: Types.ObjectId;

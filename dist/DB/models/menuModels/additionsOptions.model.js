@@ -29,7 +29,7 @@ const priceTagApplies_model_1 = require("../TenantModels/priceTagApplies.model")
 // 5. السعر (price)
 // 6. مجموعة ضريبية (taxGroup)
 // 7. طريقة حساب التكلفة (costCalculationMethod)
-// 8. تكلفة المكونات (cost)
+// 8. تكلفة المكونات (cost) -- للعرض فقط
 // 9. المكونات (ingredients) - ريف على المواد
 // 10. أنواع الأوردر (orderTypes) - أنواع الطلبات
 // 11. الكمية (quantity)
@@ -72,10 +72,6 @@ __decorate([
     (0, mongoose_1.Prop)({ type: String, enum: type_1.CostCalculationMethod, required: true }),
     __metadata("design:type", String)
 ], Addition.prototype, "costCalculationMethod", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: false }),
-    __metadata("design:type", Number)
-], Addition.prototype, "cost", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'MenuGroup', required: false }),
     __metadata("design:type", mongoose_2.Types.ObjectId)

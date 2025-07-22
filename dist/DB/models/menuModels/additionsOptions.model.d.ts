@@ -9,7 +9,6 @@ export declare class Addition {
     price?: number;
     taxGroup?: Types.ObjectId;
     costCalculationMethod: CostCalculationMethod;
-    cost?: number;
     menuGroup?: Types.ObjectId;
     ingredients: Types.ObjectId[];
     orderTypes: OrderType[];
