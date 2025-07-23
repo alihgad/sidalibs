@@ -843,6 +843,8 @@ export const permissionKeys = {
     "manage_product_availability": "manage_product_availability",
     "activate_future_orders": "activate_future_orders",
     "assign_as_driver": "assign_as_driver",
-    "perform_cash_check": "perform_cash_check"
+    "perform_cash_check": "perform_cash_check",
+    "manage_roles": "manage_roles",
+    "read_roles": "read_roles"
   }
   
