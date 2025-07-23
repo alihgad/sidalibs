@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getWarehouseModel = exports.WarehouseModel = exports.WAREHOUSE_MODEL = exports.WarehouseSchema = exports.Warehouse = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
+const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 const type_1 = require("../../../common/type");
+// import { ID } from '@nestjs/common';
 let Warehouse = class Warehouse {
 };
 exports.Warehouse = Warehouse;
@@ -42,10 +44,6 @@ __decorate([
     __metadata("design:type", Number)
 ], Warehouse.prototype, "longitude", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Boolean, default: true }),
-    __metadata("design:type", Boolean)
-], Warehouse.prototype, "isActive", void 0);
-__decorate([
     (0, mongoose_1.Prop)({ type: String }),
     __metadata("design:type", String)
 ], Warehouse.prototype, "description", void 0);
@@ -53,6 +51,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: String }),
     __metadata("design:type", String)
 ], Warehouse.prototype, "address", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], Warehouse.prototype, "updatedBy", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)

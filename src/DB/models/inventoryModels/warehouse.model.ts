@@ -1,8 +1,9 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Model } from 'mongoose';
+import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { DeliveryTime } from '../../../common/type';
+// import { ID } from '@nestjs/common';
 
 @Schema({
   timestamps: true,
@@ -30,21 +31,18 @@ export class Warehouse {
   longitude!: number; // خط الطول - Longitude (e.g., 46.614142)
 
 
-  @Prop({ type: Boolean, default: true })
-  isActive!: boolean; // Whether the warehouse is active
-
   @Prop({ type: String })
   description?: string; // Optional description
 
   @Prop({ type: String })
   address?: string; // Optional address
 
+  @Prop({ type: Types.ObjectId , ref: 'User' })
+  updatedBy!: Types.ObjectId;
+
   @Prop({ type: Boolean, default: false })
   isDeleted!: boolean;
 
-  // Timestamps (automatically added by Mongoose)
-  createdAt?: Date;
-  updatedAt?: Date;
 }
 
 export type WarehouseDocument = HydratedDocument<Warehouse>;

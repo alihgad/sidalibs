@@ -1,4 +1,4 @@
-import { HydratedDocument, Model } from 'mongoose';
+import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Warehouse {
     name: string;
@@ -7,20 +7,18 @@ export declare class Warehouse {
     referenceNumber: string;
     latitude: number;
     longitude: number;
-    isActive: boolean;
     description?: string;
     address?: string;
+    updatedBy: Types.ObjectId;
     isDeleted: boolean;
-    createdAt?: Date;
-    updatedAt?: Date;
 }
 export type WarehouseDocument = HydratedDocument<Warehouse>;
 export declare const WarehouseSchema: import("mongoose").Schema<Warehouse, Model<Warehouse, any, any, any, import("mongoose").Document<unknown, any, Warehouse, any> & Warehouse & {
-    _id: import("mongoose").Types.ObjectId;
+    _id: Types.ObjectId;
 } & {
     __v: number;
 }, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Warehouse, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Warehouse>, {}> & import("mongoose").FlatRecord<Warehouse> & {
-    _id: import("mongoose").Types.ObjectId;
+    _id: Types.ObjectId;
 } & {
     __v: number;
 }>;
