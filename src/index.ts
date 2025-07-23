@@ -19,6 +19,7 @@ export * from './DB/models/inventoryModels/stockInBranch';
 export * from './DB/models/inventoryModels/PriceAdjustment.model';
 export * from './DB/models/inventoryModels/purchaseOrders.model';
 export * from './DB/models/inventoryModels/purchase.model';
+export * from './DB/models/inventoryModels/warehouse.model';
 
 // ========== Menu Models ==========
 export * from './DB/models/menuModels/categories.model';
