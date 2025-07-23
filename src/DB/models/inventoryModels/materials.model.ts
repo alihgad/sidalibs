@@ -22,7 +22,7 @@ export class Materials {
   @Prop({ type: String, required: false, maxlength: 50 })
   secondaryName?: string;
 
-  @Prop({ type: String, required: true, unique: true })
+  @Prop({ type: String, required: true, unique: true, index: true })
   code!: string;
 
   @Prop({ type: String, required: true })
@@ -81,7 +81,6 @@ export const MaterialsSchema = SchemaFactory.createForClass(Materials);
 
 // Indexes for better performance
 MaterialsSchema.index({ name: 1 });
-MaterialsSchema.index({ code: 1 });
 MaterialsSchema.index({ category: 1 });
 MaterialsSchema.index({ barcode: 1 });
 MaterialsSchema.index({ isDeleted: 1 });

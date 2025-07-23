@@ -54,7 +54,7 @@ __decorate([
     __metadata("design:type", String)
 ], Materials.prototype, "secondaryName", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true, unique: true }),
+    (0, mongoose_1.Prop)({ type: String, required: true, unique: true, index: true }),
     __metadata("design:type", String)
 ], Materials.prototype, "code", void 0);
 __decorate([
@@ -128,7 +128,6 @@ exports.Materials = Materials = __decorate([
 exports.MaterialsSchema = mongoose_1.SchemaFactory.createForClass(Materials);
 // Indexes for better performance
 exports.MaterialsSchema.index({ name: 1 });
-exports.MaterialsSchema.index({ code: 1 });
 exports.MaterialsSchema.index({ category: 1 });
 exports.MaterialsSchema.index({ barcode: 1 });
 exports.MaterialsSchema.index({ isDeleted: 1 });
