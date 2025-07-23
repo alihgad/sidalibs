@@ -9,5 +9,6 @@ export declare const permissionsCategorys: {
     customer_permissions: string;
     order_permissions: string;
     purchase_permissions: string;
+    role_permissions: string;
 };
 //# sourceMappingURL=permissionsCategorys.d.ts.map

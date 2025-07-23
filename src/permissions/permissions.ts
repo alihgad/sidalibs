@@ -1,6 +1,20 @@
 import { permissionsCategorys } from "./permissionsCategorys";
 
 export let permissions = [
+    // Role Permissions
+    {
+        name: 'إدارة الأدوار',
+        description: 'السماح للمستخدم بإدارة وتعديل وحذف الأدوار في وحدة التحكم',
+        category: permissionsCategorys.role_permissions,
+        key: 'manage_roles'
+    },
+    {
+        name: 'قراءة الأدوار',
+        description: 'السماح للمستخدم بعرض الأدوار في وحدة التحكم',
+        category: permissionsCategorys.role_permissions,
+        key: 'read_roles'
+    },
+    
     // Order Permissions
     {
         name: 'قراءة الطلبات',

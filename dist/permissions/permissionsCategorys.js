@@ -11,5 +11,6 @@ exports.permissionsCategorys = {
     inventory_permissions: "inventory_permissions",
     customer_permissions: "customer_permissions",
     order_permissions: "order_permissions",
-    purchase_permissions: "purchase_permissions"
+    purchase_permissions: "purchase_permissions",
+    role_permissions: "role_permissions"
 };
