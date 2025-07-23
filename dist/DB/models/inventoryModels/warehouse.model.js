@@ -13,6 +13,7 @@ exports.getWarehouseModel = exports.WarehouseModel = exports.WAREHOUSE_MODEL = e
 const mongoose_1 = require("@nestjs/mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
+const type_1 = require("../../../common/type");
 let Warehouse = class Warehouse {
 };
 exports.Warehouse = Warehouse;
@@ -25,7 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], Warehouse.prototype, "secondaryName", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: String }),
+    (0, mongoose_1.Prop)({ required: true, type: String, enum: type_1.DeliveryTime }),
     __metadata("design:type", String)
 ], Warehouse.prototype, "endOfDayTime", void 0);
 __decorate([

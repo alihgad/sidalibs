@@ -2,6 +2,7 @@ import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
+import { DeliveryTime } from '../../../common/type';
 
 @Schema({
   timestamps: true,
@@ -16,7 +17,7 @@ export class Warehouse {
   @Prop({ type: String })
   secondaryName!: string; // الاسم الثانوي - Secondary name in another language
 
-  @Prop({ required: true, type: String })
+  @Prop({ required: true, type: String , enum: DeliveryTime })
   endOfDayTime!: string; // نهاية يوم المخزون - End of day time (format: HH:MM)
 
   @Prop({ required: true, type: String, unique: true })
