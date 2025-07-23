@@ -132,8 +132,6 @@ exports.MaterialsSchema.index({ category: 1 });
 exports.MaterialsSchema.index({ barcode: 1 });
 exports.MaterialsSchema.index({ isDeleted: 1 });
 exports.MaterialsSchema.index({ createdAt: -1 });
-// Compound index for unique code per business
-exports.MaterialsSchema.index({ code: 1, isDeleted: 1 });
 exports.MATERIALS_MODEL = 'MATERIALS_MODEL';
 exports.MaterialsModel = mongoose_1.MongooseModule.forFeature([
     { name: 'Materials', schema: exports.MaterialsSchema }

@@ -1,9 +1,10 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
+import { DeliveryTime } from '../../../common/type';
 export declare class Warehouse {
     name: string;
     secondaryName: string;
-    endOfDayTime: string;
+    endOfDayTime: DeliveryTime;
     referenceNumber: string;
     latitude: number;
     longitude: number;

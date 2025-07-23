@@ -86,8 +86,6 @@ MaterialsSchema.index({ barcode: 1 });
 MaterialsSchema.index({ isDeleted: 1 });
 MaterialsSchema.index({ createdAt: -1 });
 
-// Compound index for unique code per business
-MaterialsSchema.index({ code: 1, isDeleted: 1 });
 
 export const MATERIALS_MODEL = 'MATERIALS_MODEL';
 export const MaterialsModel = MongooseModule.forFeature([

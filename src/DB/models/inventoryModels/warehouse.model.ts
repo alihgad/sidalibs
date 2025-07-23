@@ -19,7 +19,7 @@ export class Warehouse {
   secondaryName!: string; // الاسم الثانوي - Secondary name in another language
 
   @Prop({ required: true, type: String , enum: DeliveryTime })
-  endOfDayTime!: string; // نهاية يوم المخزون - End of day time (format: HH:MM)
+  endOfDayTime!: DeliveryTime; // نهاية يوم المخزون - End of day time (format: HH:MM)
 
   @Prop({ required: true, type: String, unique: true, index: true })
   referenceNumber!: string; // الرقم المرجعي - Reference code (e.g., W01)
