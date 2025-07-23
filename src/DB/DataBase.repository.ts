@@ -56,7 +56,7 @@ export class DataBaseRepository<TDocument> {
         const query = this.model.find(filter);
         if (populate) query.populate(populate);
         if (select) query.select(select.replaceAll(",", " "));
-        if (sort) query.sort(sort.replaceAll(",", " "));
+        if (sort) query?.sort(sort?.replaceAll(",", " "));
         if (limit) query.limit(limit);
         if (page && limit) query.skip((page - 1) * limit);
         return await query.exec();

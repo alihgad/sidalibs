@@ -45,9 +45,13 @@ let StockInBranch = class StockInBranch {
 };
 exports.StockInBranch = StockInBranch;
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch', required: true }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch ', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], StockInBranch.prototype, "branchId", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Warehouse ', required: true }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], StockInBranch.prototype, "warehouseId", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Materials', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
