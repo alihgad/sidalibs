@@ -9,8 +9,10 @@ export declare class Warehouse {
     longitude: number;
     description?: string;
     address?: string;
-    updatedBy: Types.ObjectId;
+    updatedBy?: Types.ObjectId;
     isDeleted: boolean;
+    deletedBy?: Types.ObjectId;
+    deletedAt?: Date;
 }
 export type WarehouseDocument = HydratedDocument<Warehouse>;
 export declare const WarehouseSchema: import("mongoose").Schema<Warehouse, Model<Warehouse, any, any, any, import("mongoose").Document<unknown, any, Warehouse, any> & Warehouse & {

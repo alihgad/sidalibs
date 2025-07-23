@@ -20,7 +20,7 @@ let Warehouse = class Warehouse {
 };
 exports.Warehouse = Warehouse;
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: String, unique: true }),
+    (0, mongoose_1.Prop)({ required: true, type: String, unique: true, index: true }),
     __metadata("design:type", String)
 ], Warehouse.prototype, "name", void 0);
 __decorate([
@@ -32,7 +32,7 @@ __decorate([
     __metadata("design:type", String)
 ], Warehouse.prototype, "endOfDayTime", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: String, unique: true }),
+    (0, mongoose_1.Prop)({ required: true, type: String, unique: true, index: true }),
     __metadata("design:type", String)
 ], Warehouse.prototype, "referenceNumber", void 0);
 __decorate([
@@ -59,6 +59,14 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Warehouse.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], Warehouse.prototype, "deletedBy", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
+], Warehouse.prototype, "deletedAt", void 0);
 exports.Warehouse = Warehouse = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
@@ -69,11 +77,10 @@ exports.Warehouse = Warehouse = __decorate([
 ], Warehouse);
 exports.WarehouseSchema = mongoose_1.SchemaFactory.createForClass(Warehouse);
 // Indexes for better performance
-exports.WarehouseSchema.index({ name: 1 });
-exports.WarehouseSchema.index({ referenceNumber: 1 });
-exports.WarehouseSchema.index({ isActive: 1 });
 exports.WarehouseSchema.index({ isDeleted: 1 });
 exports.WarehouseSchema.index({ createdAt: -1 });
+exports.WarehouseSchema.index({ updatedBy: 1 });
+exports.WarehouseSchema.index({ deletedBy: 1 });
 // Compound index for unique name per business
 exports.WarehouseSchema.index({ name: 1, isDeleted: 1 });
 exports.WAREHOUSE_MODEL = 'WAREHOUSE_MODEL';
