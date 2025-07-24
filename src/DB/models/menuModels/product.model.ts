@@ -14,7 +14,7 @@ import { MaterialsSchema } from '../inventoryModels/materials.model';
 
 // Custom Branch Price Schema
 @Schema({ _id: false })
-export class CustomBranchPrice {
+export class CustomProductBranchPrice {
     @Prop({ type: Types.ObjectId, ref: 'Branch', required: true })
     branch!: Types.ObjectId;
 
@@ -22,7 +22,7 @@ export class CustomBranchPrice {
     price!: number;
 }
 
-export const CustomBranchPriceSchema = SchemaFactory.createForClass(CustomBranchPrice);
+export const CustomProductBranchPriceSchema = SchemaFactory.createForClass(CustomProductBranchPrice);
 
 // Nutritional Values Schema
 @Schema({ _id: false })
@@ -130,8 +130,8 @@ export class Product {
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Material' }], default: [] })
     ingredients!: Types.ObjectId[]; // المكونات
 
-    @Prop({ type: [CustomBranchPriceSchema], default: [] })
-    customBranchPrices!: CustomBranchPrice[]; // أسعار مخصصة للفروع
+    @Prop({ type: [CustomProductBranchPriceSchema], default: [] })
+    CustomProductBranchPrices!: CustomProductBranchPrice[]; // أسعار مخصصة للفروع
 
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Branch' }], default: [] })
     inactiveBranches!: Types.ObjectId[]; // فروع غير نشطة   

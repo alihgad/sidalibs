@@ -1,15 +1,15 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { PricingMethod, SaleMethod, CostCalculationMethod, ServingUnit } from '../../../common/type';
-export declare class CustomBranchPrice {
+export declare class CustomProductBranchPrice {
     branch: Types.ObjectId;
     price: number;
 }
-export declare const CustomBranchPriceSchema: import("mongoose").Schema<CustomBranchPrice, Model<CustomBranchPrice, any, any, any, import("mongoose").Document<unknown, any, CustomBranchPrice, any> & CustomBranchPrice & {
+export declare const CustomProductBranchPriceSchema: import("mongoose").Schema<CustomProductBranchPrice, Model<CustomProductBranchPrice, any, any, any, import("mongoose").Document<unknown, any, CustomProductBranchPrice, any> & CustomProductBranchPrice & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CustomBranchPrice, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CustomBranchPrice>, {}> & import("mongoose").FlatRecord<CustomBranchPrice> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CustomProductBranchPrice, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CustomProductBranchPrice>, {}> & import("mongoose").FlatRecord<CustomProductBranchPrice> & {
     _id: Types.ObjectId;
 } & {
     __v: number;
@@ -56,7 +56,7 @@ export declare class Product {
     tags: Types.ObjectId[];
     additions: Types.ObjectId[];
     ingredients: Types.ObjectId[];
-    customBranchPrices: CustomBranchPrice[];
+    CustomProductBranchPrices: CustomProductBranchPrice[];
     inactiveBranches: Types.ObjectId[];
     outOfStockBranches: Types.ObjectId[];
     priceTagApplies: Types.ObjectId[];

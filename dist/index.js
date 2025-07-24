@@ -33,6 +33,7 @@ __exportStar(require("./common/type"), exports);
 __exportStar(require("./common/decorators/is-valid-date.decorator"), exports);
 __exportStar(require("./common/scalars/object-id.scalar"), exports);
 __exportStar(require("./common/validators/IsPhoneWithCountryCode"), exports);
+__exportStar(require("./common/validators/IsMongoIdObject"), exports);
 // DB
 __exportStar(require("./DB/connection.manager"), exports);
 __exportStar(require("./DB/DataBase.repository"), exports);
@@ -54,6 +55,7 @@ __exportStar(require("./DB/models/menuModels/groups.model"), exports);
 __exportStar(require("./DB/models/menuModels/product.model"), exports);
 __exportStar(require("./DB/models/menuModels/additions.model"), exports);
 __exportStar(require("./DB/models/menuModels/giftCards.model"), exports);
+__exportStar(require("./DB/models/menuModels/additionsOptions.model"), exports);
 // ========== Tenant Models ==========
 __exportStar(require("./DB/models/TenantModels/branch.model"), exports);
 __exportStar(require("./DB/models/TenantModels/brand.model"), exports);

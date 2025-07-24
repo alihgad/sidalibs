@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAdditionsModel = exports.AdditionModel = exports.ADDITION_MODEL = exports.AdditionSchema = exports.Addition = void 0;
+exports.getAdditionsOptionModel = exports.AdditionsOptionModel = exports.ADDITIONS_OPTION_MODEL = exports.AdditionsOptionSchema = exports.AdditionsOption = exports.PriceTagApplySchema = exports.PriceTagApply = exports.CustomAddationsOptionsBranchPriceSchema = exports.CustomAddationsOptionsBranchPrice = exports.IngredientSchema = exports.Ingredient = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
@@ -21,123 +21,147 @@ const tax_groups_model_1 = require("../TenantModels/tax-groups.model");
 const materials_model_1 = require("../inventoryModels/materials.model");
 const branch_model_1 = require("../TenantModels/branch.model");
 const priceTagApplies_model_1 = require("../TenantModels/priceTagApplies.model");
-// الحقول بالترتيب:
-// 1. الاسم (name)
-// 2. الاسم الثانوي (secondaryName)
-// 3. الوصف (description)
-// 4. كود التعريف (referenceNumber)
-// 5. السعر (price)
-// 6. مجموعة ضريبية (taxGroup)
-// 7. طريقة حساب التكلفة (costCalculationMethod)
-// 8. تكلفة المكونات (cost) -- للعرض فقط
-// 9. المكونات (ingredients) - ريف على المواد
-// 10. أنواع الأوردر (orderTypes) - أنواع الطلبات
-// 11. الكمية (quantity)
-// 12. استثناء من الكومبو (comboException) - ريف على كومبو
-// 13. القيم الغذائية (nutritionalValues)
-// 14. أسعار مخصصة للفروع (customBranchPrices)
-// 15. غير نشط في فرع معين (inactiveBranches)
-// 16. نفذ من المخزون في فرع معين (outOfStockBranches)
-// 17. ينطبق على وسم سعر (priceTagApplies)
-// 18. نشط أو معطل (isActive)
-// 19. محذوف (isDeleted)
-let Addition = class Addition {
+let Ingredient = class Ingredient {
 };
-exports.Addition = Addition;
+exports.Ingredient = Ingredient;
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Material', required: true }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], Ingredient.prototype, "materialId", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, required: true }),
+    __metadata("design:type", Number)
+], Ingredient.prototype, "quantity", void 0);
+exports.Ingredient = Ingredient = __decorate([
+    (0, mongoose_1.Schema)()
+], Ingredient);
+exports.IngredientSchema = mongoose_1.SchemaFactory.createForClass(Ingredient);
+let CustomAddationsOptionsBranchPrice = class CustomAddationsOptionsBranchPrice {
+};
+exports.CustomAddationsOptionsBranchPrice = CustomAddationsOptionsBranchPrice;
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch', required: true }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], CustomAddationsOptionsBranchPrice.prototype, "branch", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, required: true }),
+    __metadata("design:type", Number)
+], CustomAddationsOptionsBranchPrice.prototype, "price", void 0);
+exports.CustomAddationsOptionsBranchPrice = CustomAddationsOptionsBranchPrice = __decorate([
+    (0, mongoose_1.Schema)()
+], CustomAddationsOptionsBranchPrice);
+exports.CustomAddationsOptionsBranchPriceSchema = mongoose_1.SchemaFactory.createForClass(CustomAddationsOptionsBranchPrice);
+let PriceTagApply = class PriceTagApply {
+};
+exports.PriceTagApply = PriceTagApply;
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'PriceTagApplies', required: true }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], PriceTagApply.prototype, "priceTag", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, required: true }),
+    __metadata("design:type", Number)
+], PriceTagApply.prototype, "price", void 0);
+exports.PriceTagApply = PriceTagApply = __decorate([
+    (0, mongoose_1.Schema)()
+], PriceTagApply);
+exports.PriceTagApplySchema = mongoose_1.SchemaFactory.createForClass(PriceTagApply);
+let AdditionsOption = class AdditionsOption {
+};
+exports.AdditionsOption = AdditionsOption;
 __decorate([
     (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], Addition.prototype, "name", void 0);
+], AdditionsOption.prototype, "name", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: false }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Addition.prototype, "secondaryName", void 0);
+], AdditionsOption.prototype, "secondaryName", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: false }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Addition.prototype, "description", void 0);
+], AdditionsOption.prototype, "description", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true }),
+    (0, mongoose_1.Prop)({ required: true }),
     __metadata("design:type", String)
-], Addition.prototype, "referenceNumber", void 0);
+], AdditionsOption.prototype, "referenceNumber", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: false }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", Number)
-], Addition.prototype, "price", void 0);
+], AdditionsOption.prototype, "price", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'TaxGroup', required: false }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'TaxGroup' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], Addition.prototype, "taxGroup", void 0);
+], AdditionsOption.prototype, "taxGroup", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: String, enum: type_1.CostCalculationMethod, required: true }),
     __metadata("design:type", String)
-], Addition.prototype, "costCalculationMethod", void 0);
+], AdditionsOption.prototype, "costCalculationMethod", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'MenuGroup', required: false }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'MenuGroup' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], Addition.prototype, "menuGroup", void 0);
+], AdditionsOption.prototype, "menuGroup", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Material' }], default: [] }),
+    (0, mongoose_1.Prop)({ type: [exports.IngredientSchema], default: [] }),
     __metadata("design:type", Array)
-], Addition.prototype, "ingredients", void 0);
+], AdditionsOption.prototype, "ingredients", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [String], enum: type_1.OrderType, default: [] }),
     __metadata("design:type", Array)
-], Addition.prototype, "orderTypes", void 0);
+], AdditionsOption.prototype, "orderTypes", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: false }),
+    (0, mongoose_1.Prop)(),
     __metadata("design:type", Number)
-], Addition.prototype, "quantity", void 0);
+], AdditionsOption.prototype, "quantity", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Combo', required: false }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Combo' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], Addition.prototype, "comboException", void 0);
+], AdditionsOption.prototype, "comboException", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: nutritional_values_schema_1.NutritionalValuesSchema, required: false }),
-    __metadata("design:type", Object)
-], Addition.prototype, "nutritionalValues", void 0);
+    (0, mongoose_1.Prop)({ type: nutritional_values_schema_1.NutritionalValuesSchema }),
+    __metadata("design:type", nutritional_values_schema_1.NutritionalValues)
+], AdditionsOption.prototype, "nutritionalValues", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{ branch: { type: mongoose_2.Types.ObjectId, ref: 'Branch' }, price: Number }], default: [] }),
+    (0, mongoose_1.Prop)({ type: [exports.CustomAddationsOptionsBranchPriceSchema], default: [] }),
     __metadata("design:type", Array)
-], Addition.prototype, "customBranchPrices", void 0);
+], AdditionsOption.prototype, "CustomAddationsOptionsBranchPrices", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Branch' }], default: [] }),
     __metadata("design:type", Array)
-], Addition.prototype, "inactiveBranches", void 0);
+], AdditionsOption.prototype, "inactiveBranches", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Branch' }], default: [] }),
     __metadata("design:type", Array)
-], Addition.prototype, "outOfStockBranches", void 0);
+], AdditionsOption.prototype, "outOfStockBranches", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{ priceTag: { type: mongoose_2.Types.ObjectId, ref: 'PriceTagApplies' }, price: Number }], default: [] }),
+    (0, mongoose_1.Prop)({ type: [exports.PriceTagApplySchema], default: [] }),
     __metadata("design:type", Array)
-], Addition.prototype, "priceTagApplies", void 0);
+], AdditionsOption.prototype, "priceTagApplies", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Boolean, default: true }),
+    (0, mongoose_1.Prop)({ default: true }),
     __metadata("design:type", Boolean)
-], Addition.prototype, "isActive", void 0);
+], AdditionsOption.prototype, "isActive", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    (0, mongoose_1.Prop)({ default: false }),
     __metadata("design:type", Boolean)
-], Addition.prototype, "isDeleted", void 0);
-exports.Addition = Addition = __decorate([
+], AdditionsOption.prototype, "isDeleted", void 0);
+exports.AdditionsOption = AdditionsOption = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
     })
-], Addition);
-exports.AdditionSchema = mongoose_1.SchemaFactory.createForClass(Addition);
-exports.ADDITION_MODEL = 'Addition';
-exports.AdditionModel = mongoose_1.MongooseModule.forFeature([
-    { name: Addition.name, schema: exports.AdditionSchema },
+], AdditionsOption);
+exports.AdditionsOptionSchema = mongoose_1.SchemaFactory.createForClass(AdditionsOption);
+exports.ADDITIONS_OPTION_MODEL = 'AdditionsOption';
+exports.AdditionsOptionModel = mongoose_1.MongooseModule.forFeature([
+    { name: exports.ADDITIONS_OPTION_MODEL, schema: exports.AdditionsOptionSchema },
 ]);
-const getAdditionsModel = (businessNumber) => {
+const getAdditionsOptionModel = (businessNumber) => {
     if (!businessNumber) {
-        throw new Error("businessNumber is required in Addition model");
+        throw new Error("businessNumber is required in AdditionsOption model");
     }
-    let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
-    // Register all dependent models if not already registered
+    const connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
     if (!connection.models['TaxGroup']) {
         connection.model('TaxGroup', tax_groups_model_1.TaxGroupSchema);
     }
@@ -153,14 +177,10 @@ const getAdditionsModel = (businessNumber) => {
     if (!connection.models['MenuGroup']) {
         connection.model('MenuGroup', groups_model_1.MenuGroupSchema);
     }
-    // Combo model placeholder (to be implemented)
     if (!connection.models['Combo']) {
-        // Placeholder schema for Combo, replace with actual schema when implemented
-        const ComboSchema = new (require('mongoose').Schema)({});
-        connection.model('Combo', ComboSchema);
-        // TODO: Replace ComboSchema with actual Combo schema when available
+        connection.model('Combo', new mongoose_2.Schema({})); // Replace when Combo schema is ready
     }
-    const model = connection.models['Addition'] || connection.model('Addition', exports.AdditionSchema);
+    const model = connection.models[exports.ADDITIONS_OPTION_MODEL] || connection.model(exports.ADDITIONS_OPTION_MODEL, exports.AdditionsOptionSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };
-exports.getAdditionsModel = getAdditionsModel;
+exports.getAdditionsOptionModel = getAdditionsOptionModel;

@@ -4,6 +4,7 @@ export * from './common/type';
 export * from './common/decorators/is-valid-date.decorator';
 export * from './common/scalars/object-id.scalar';
 export * from './common/validators/IsPhoneWithCountryCode';
+export * from './common/validators/IsMongoIdObject';
 
 // DB
 export * from './DB/connection.manager';
@@ -29,7 +30,7 @@ export * from './DB/models/menuModels/groups.model';
 export * from './DB/models/menuModels/product.model';
 export * from './DB/models/menuModels/additions.model';
 export * from './DB/models/menuModels/giftCards.model';
-
+export * from './DB/models/menuModels/additionsOptions.model';
 
 // ========== Tenant Models ==========
 export * from './DB/models/TenantModels/branch.model';
