@@ -43,6 +43,7 @@ __exportStar(require("./common/type"), exports);
 __exportStar(require("./common/decorators/is-valid-date.decorator"), exports);
 __exportStar(require("./common/scalars/object-id.scalar"), exports);
 __exportStar(require("./common/validators/IsPhoneWithCountryCode"), exports);
+__exportStar(require("./common/validators/IsMongoIdObject"), exports);
 // DB
 __exportStar(require("./DB/connection.manager"), exports);
 __exportStar(require("./DB/DataBase.repository"), exports);

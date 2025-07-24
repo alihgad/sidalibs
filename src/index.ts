@@ -4,6 +4,7 @@ export * from './common/type';
 export * from './common/decorators/is-valid-date.decorator';
 export * from './common/scalars/object-id.scalar';
 export * from './common/validators/IsPhoneWithCountryCode';
+export * from './common/validators/IsMongoIdObject';
 
 // DB
 export * from './DB/connection.manager';
