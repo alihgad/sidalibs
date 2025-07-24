@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProductModel = exports.ProductModel = exports.PRODUCT_MODEL = exports.ProductSchema = exports.Product = exports.NutritionalValuesSchema = exports.NutritionalValues = exports.CustomBranchPriceSchema = exports.CustomBranchPrice = void 0;
+exports.getProductModel = exports.ProductModel = exports.PRODUCT_MODEL = exports.ProductSchema = exports.Product = exports.NutritionalValuesSchema = exports.NutritionalValues = exports.CustomProductBranchPriceSchema = exports.CustomProductBranchPrice = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
@@ -24,21 +24,21 @@ const additions_model_1 = require("./additions.model");
 const groups_model_1 = require("./groups.model");
 const materials_model_1 = require("../inventoryModels/materials.model");
 // Custom Branch Price Schema
-let CustomBranchPrice = class CustomBranchPrice {
+let CustomProductBranchPrice = class CustomProductBranchPrice {
 };
-exports.CustomBranchPrice = CustomBranchPrice;
+exports.CustomProductBranchPrice = CustomProductBranchPrice;
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], CustomBranchPrice.prototype, "branch", void 0);
+], CustomProductBranchPrice.prototype, "branch", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Number, required: true }),
     __metadata("design:type", Number)
-], CustomBranchPrice.prototype, "price", void 0);
-exports.CustomBranchPrice = CustomBranchPrice = __decorate([
+], CustomProductBranchPrice.prototype, "price", void 0);
+exports.CustomProductBranchPrice = CustomProductBranchPrice = __decorate([
     (0, mongoose_1.Schema)({ _id: false })
-], CustomBranchPrice);
-exports.CustomBranchPriceSchema = mongoose_1.SchemaFactory.createForClass(CustomBranchPrice);
+], CustomProductBranchPrice);
+exports.CustomProductBranchPriceSchema = mongoose_1.SchemaFactory.createForClass(CustomProductBranchPrice);
 // Nutritional Values Schema
 let NutritionalValues = class NutritionalValues {
 };
@@ -175,9 +175,9 @@ __decorate([
     __metadata("design:type", Array)
 ], Product.prototype, "ingredients", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [exports.CustomBranchPriceSchema], default: [] }),
+    (0, mongoose_1.Prop)({ type: [exports.CustomProductBranchPriceSchema], default: [] }),
     __metadata("design:type", Array)
-], Product.prototype, "customBranchPrices", void 0);
+], Product.prototype, "CustomProductBranchPrices", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Branch' }], default: [] }),
     __metadata("design:type", Array)

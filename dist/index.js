@@ -64,6 +64,7 @@ __exportStar(require("./DB/models/menuModels/groups.model"), exports);
 __exportStar(require("./DB/models/menuModels/product.model"), exports);
 __exportStar(require("./DB/models/menuModels/additions.model"), exports);
 __exportStar(require("./DB/models/menuModels/giftCards.model"), exports);
+__exportStar(require("./DB/models/menuModels/additionsOptions.model"), exports);
 // ========== Tenant Models ==========
 __exportStar(require("./DB/models/TenantModels/branch.model"), exports);
 __exportStar(require("./DB/models/TenantModels/brand.model"), exports);

@@ -28,7 +28,7 @@ export * from './DB/models/menuModels/groups.model';
 export * from './DB/models/menuModels/product.model';
 export * from './DB/models/menuModels/additions.model';
 export * from './DB/models/menuModels/giftCards.model';
-
+export * from './DB/models/menuModels/additionsOptions.model';
 
 // ========== Tenant Models ==========
 export * from './DB/models/TenantModels/branch.model';
