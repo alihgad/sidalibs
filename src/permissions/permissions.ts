@@ -721,6 +721,19 @@ export let permissions = [
         description: 'تمكن المستخدم من تنفيذ فحص النقود اثناء يوم العمل دون اغلاق العهدة و طباعة المبيعات الحالية',
         category: permissionsCategorys.cashier_waiter_permissions,
         key: 'perform_cash_check'
+    },
+    // Inventory Spot Permissions
+    {
+        name: 'إدارة عمليات المخزون',
+        description: 'السماح للمستخدم بإدارة عمليات المخزون',
+        category: permissionsCategorys.inventory_spot_permissions,
+        key: 'manage_inventory_spot'
+    },
+    {
+        name: 'عرض عمليات المخزون',
+        description: 'السماح للمستخدم بعرض عمليات المخزون',
+        category: permissionsCategorys.inventory_spot_permissions,
+        key: 'read_inventory_spot'
     }
 ];
 //  ده بدل ما تعمل الاوبجكت الى تحت يدوي شغل دي وهيطلعلك الاوبجكت فى كونسول لوج
@@ -845,6 +858,8 @@ export const permissionKeys = {
     "assign_as_driver": "assign_as_driver",
     "perform_cash_check": "perform_cash_check",
     "manage_roles": "manage_roles",
-    "read_roles": "read_roles"
+    "read_roles": "read_roles",
+    "manage_inventory_spot": "manage_inventory_spot",
+    "read_inventory_spot": "read_inventory_spot"
   }
   

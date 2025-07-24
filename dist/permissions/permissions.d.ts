@@ -122,5 +122,7 @@ export declare const permissionKeys: {
     perform_cash_check: string;
     manage_roles: string;
     read_roles: string;
+    manage_inventory_spot: string;
+    read_inventory_spot: string;
 };
 //# sourceMappingURL=permissions.d.ts.map
