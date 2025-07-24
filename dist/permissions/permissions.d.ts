@@ -120,5 +120,7 @@ export declare const permissionKeys: {
     activate_future_orders: string;
     assign_as_driver: string;
     perform_cash_check: string;
+    manage_roles: string;
+    read_roles: string;
 };
 //# sourceMappingURL=permissions.d.ts.map

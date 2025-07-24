@@ -32,7 +32,7 @@ class DataBaseRepository {
         if (select)
             query.select(select.replaceAll(",", " "));
         if (sort)
-            query.sort(sort.replaceAll(",", " "));
+            query?.sort(sort?.replaceAll(",", " "));
         if (limit)
             query.limit(limit);
         if (page && limit)

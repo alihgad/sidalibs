@@ -47,6 +47,7 @@ export class AuthGuard implements CanActivate {
       const payload = await verifyToken(token, jwtSecret)
       console.log("payload ---------------------------- ", payload)
       const tenantRepo = getTenantModel()
+      
       const tenant = await tenantRepo.findOne({ businessNumber: payload.businessNumber })
       console.log("tenant ---------------------------- ", tenant)
 

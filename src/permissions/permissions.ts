@@ -1,6 +1,20 @@
 import { permissionsCategorys } from "./permissionsCategorys";
 
 export let permissions = [
+    // Role Permissions
+    {
+        name: 'إدارة الأدوار',
+        description: 'السماح للمستخدم بإدارة وتعديل وحذف الأدوار في وحدة التحكم',
+        category: permissionsCategorys.role_permissions,
+        key: 'manage_roles'
+    },
+    {
+        name: 'قراءة الأدوار',
+        description: 'السماح للمستخدم بعرض الأدوار في وحدة التحكم',
+        category: permissionsCategorys.role_permissions,
+        key: 'read_roles'
+    },
+    
     // Order Permissions
     {
         name: 'قراءة الطلبات',
@@ -829,6 +843,8 @@ export const permissionKeys = {
     "manage_product_availability": "manage_product_availability",
     "activate_future_orders": "activate_future_orders",
     "assign_as_driver": "assign_as_driver",
-    "perform_cash_check": "perform_cash_check"
+    "perform_cash_check": "perform_cash_check",
+    "manage_roles": "manage_roles",
+    "read_roles": "read_roles"
   }
   

@@ -3,6 +3,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.permissionKeys = exports.permissions = void 0;
 const permissionsCategorys_1 = require("./permissionsCategorys");
 exports.permissions = [
+    // Role Permissions
+    {
+        name: 'إدارة الأدوار',
+        description: 'السماح للمستخدم بإدارة وتعديل وحذف الأدوار في وحدة التحكم',
+        category: permissionsCategorys_1.permissionsCategorys.role_permissions,
+        key: 'manage_roles'
+    },
+    {
+        name: 'قراءة الأدوار',
+        description: 'السماح للمستخدم بعرض الأدوار في وحدة التحكم',
+        category: permissionsCategorys_1.permissionsCategorys.role_permissions,
+        key: 'read_roles'
+    },
     // Order Permissions
     {
         name: 'قراءة الطلبات',
@@ -823,5 +836,7 @@ exports.permissionKeys = {
     "manage_product_availability": "manage_product_availability",
     "activate_future_orders": "activate_future_orders",
     "assign_as_driver": "assign_as_driver",
-    "perform_cash_check": "perform_cash_check"
+    "perform_cash_check": "perform_cash_check",
+    "manage_roles": "manage_roles",
+    "read_roles": "read_roles"
 };
