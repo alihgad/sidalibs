@@ -77,7 +77,15 @@ __decorate([
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], Addition.prototype, "menuGroup", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Material' }], default: [] }),
+    (0, mongoose_1.Prop)({
+        type: [
+            {
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material', required: true },
+                quantity: { type: Number, required: true }
+            }
+        ],
+        default: []
+    }),
     __metadata("design:type", Array)
 ], Addition.prototype, "ingredients", void 0);
 __decorate([

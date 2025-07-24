@@ -10,7 +10,10 @@ export declare class Addition {
     taxGroup?: Types.ObjectId;
     costCalculationMethod: CostCalculationMethod;
     menuGroup?: Types.ObjectId;
-    ingredients: Types.ObjectId[];
+    ingredients: {
+        materialId: Types.ObjectId;
+        quantity: number;
+    }[];
     orderTypes: OrderType[];
     quantity?: number;
     comboException?: Types.ObjectId;
@@ -28,7 +31,7 @@ export declare class Addition {
     isActive: boolean;
     isDeleted: boolean;
 }
-export type AdditionDocument = HydratedDocument<Addition> & {
+export type AdditionsOptionDocument = HydratedDocument<Addition> & {
     _id: string;
 };
 export declare const AdditionSchema: import("mongoose").Schema<Addition, Model<Addition, any, any, any, import("mongoose").Document<unknown, any, Addition, any> & Addition & {
@@ -42,5 +45,5 @@ export declare const AdditionSchema: import("mongoose").Schema<Addition, Model<A
 }>;
 export declare const ADDITION_MODEL = "Addition";
 export declare const AdditionModel: import("@nestjs/common").DynamicModule;
-export declare const getAdditionsModel: (businessNumber: string) => DataBaseRepository<AdditionDocument>;
+export declare const getAdditionsModel: (businessNumber: string) => DataBaseRepository<AdditionsOptionDocument>;
 //# sourceMappingURL=additionsOptions.model.d.ts.map

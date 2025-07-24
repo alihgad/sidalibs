@@ -2,7 +2,7 @@ import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
-import {  CostCalculationMethod, OrderType } from '../../../common/type';
+import { CostCalculationMethod, OrderType } from '../../../common/type';
 import { NutritionalValuesSchema } from '../shared/nutritional-values.schema';
 import { MenuGroupSchema } from './groups.model';
 import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
@@ -61,9 +61,16 @@ export class Addition {
     @Prop({ type: Types.ObjectId, ref: 'MenuGroup', required: false })
     menuGroup?: Types.ObjectId;
 
-    @Prop({ type: [{ type: Types.ObjectId, ref: 'Material' }], default: [] })
-    ingredients!: Types.ObjectId[];
-
+    @Prop({
+        type: [
+            {
+                materialId: { type: Types.ObjectId, ref: 'Material', required: true },
+                quantity: { type: Number, required: true }
+            }
+        ],
+        default: []
+    })
+    ingredients!: { materialId: Types.ObjectId; quantity: number }[];
     @Prop({ type: [String], enum: OrderType, default: [] })
     orderTypes!: OrderType[];
 
@@ -95,15 +102,15 @@ export class Addition {
     isDeleted!: boolean;
 }
 
-export type AdditionDocument = HydratedDocument<Addition> & { _id: string };
+export type AdditionsOptionDocument = HydratedDocument<Addition> & { _id: string };
 export const AdditionSchema = SchemaFactory.createForClass(Addition);
 export const ADDITION_MODEL = 'Addition';
 export const AdditionModel = MongooseModule.forFeature([
     { name: Addition.name, schema: AdditionSchema },
 ]);
 
-export const getAdditionsModel = (businessNumber: string): DataBaseRepository<AdditionDocument> => {
-    if(!businessNumber){
+export const getAdditionsModel = (businessNumber: string): DataBaseRepository<AdditionsOptionDocument> => {
+    if (!businessNumber) {
         throw new Error("businessNumber is required in Addition model")
     }
     let connection = ConnectionManager.getConnection(businessNumber);
@@ -130,6 +137,6 @@ export const getAdditionsModel = (businessNumber: string): DataBaseRepository<Ad
         connection.model('Combo', ComboSchema);
         // TODO: Replace ComboSchema with actual Combo schema when available
     }
-    const model = connection.models['Addition'] || connection.model('Addition', AdditionSchema) as unknown as Model<AdditionDocument>;
-    return new DataBaseRepository<AdditionDocument>(model);
+    const model = connection.models['Addition'] || connection.model('Addition', AdditionSchema) as unknown as Model<AdditionsOptionDocument>;
+    return new DataBaseRepository<AdditionsOptionDocument>(model);
 } 
