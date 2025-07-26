@@ -49,6 +49,7 @@ __exportStar(require("./DB/models/inventoryModels/purchaseOrders.model"), export
 __exportStar(require("./DB/models/inventoryModels/purchase.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/warehouse.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/inventorySpot.model"), exports);
+__exportStar(require("./DB/models/inventoryModels/countSheet.model"), exports);
 // ========== Menu Models ==========
 __exportStar(require("./DB/models/menuModels/categories.model"), exports);
 __exportStar(require("./DB/models/menuModels/groups.model"), exports);

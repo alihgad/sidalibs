@@ -16,6 +16,7 @@ export * from './DB/models/inventoryModels/purchaseOrders.model';
 export * from './DB/models/inventoryModels/purchase.model';
 export * from './DB/models/inventoryModels/warehouse.model';
 export * from './DB/models/inventoryModels/inventorySpot.model';
+export * from './DB/models/inventoryModels/countSheet.model';
 export * from './DB/models/menuModels/categories.model';
 export * from './DB/models/menuModels/groups.model';
 export * from './DB/models/menuModels/product.model';
