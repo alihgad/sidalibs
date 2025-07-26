@@ -101,6 +101,33 @@ export class Transfer {
 
   @Prop({ type: Date })
   deletedAt?: Date; // تاريخ الحذف - Deletion date
+
+  @Prop({ type: Boolean, default: false })
+  isSend!: boolean;
+
+  @Prop({ type: Types.ObjectId, ref: 'User' })
+  sendBy?: Types.ObjectId;
+
+  @Prop({ type: Date })
+  sendAt?: Date;
+
+  @Prop({ type: Boolean, default: false })
+  isReceived!: boolean;
+
+  @Prop({ type: Types.ObjectId, ref: 'User' })
+  receivedBy?: Types.ObjectId;
+
+  @Prop({ type: Date })
+  receivedAt?: Date;
+
+  @Prop({ type: Boolean, default: false })
+  isRejected!: boolean;
+
+  @Prop({ type: Types.ObjectId, ref: 'User' })
+  rejectedBy?: Types.ObjectId;
+
+  @Prop({ type: Date })
+  rejectedAt?: Date;
 }
 
 export type TransferDocument = HydratedDocument<Transfer>;

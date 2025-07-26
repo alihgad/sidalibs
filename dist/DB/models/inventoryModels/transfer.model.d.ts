@@ -38,6 +38,15 @@ export declare class Transfer {
     isDeleted: boolean;
     deletedBy?: Types.ObjectId;
     deletedAt?: Date;
+    isSend: boolean;
+    sendBy?: Types.ObjectId;
+    sendAt?: Date;
+    isReceived: boolean;
+    receivedBy?: Types.ObjectId;
+    receivedAt?: Date;
+    isRejected: boolean;
+    rejectedBy?: Types.ObjectId;
+    rejectedAt?: Date;
 }
 export type TransferDocument = HydratedDocument<Transfer>;
 export declare const TransferSchema: import("mongoose").Schema<Transfer, Model<Transfer, any, any, any, import("mongoose").Document<unknown, any, Transfer, any> & Transfer & {
