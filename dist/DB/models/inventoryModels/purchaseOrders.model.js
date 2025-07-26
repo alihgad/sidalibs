@@ -72,7 +72,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({
         type: {
-            branchId: { type: mongoose_2.Types.ObjectId, ref: 'Branch', required: true },
+            branchId: { type: mongoose_2.Types.ObjectId, required: true },
             branchName: { type: String, required: true },
         }, required: true
     }),

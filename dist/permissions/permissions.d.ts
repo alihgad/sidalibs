@@ -124,5 +124,9 @@ export declare const permissionKeys: {
     read_roles: string;
     manage_inventory_spot: string;
     read_inventory_spot: string;
+    manage_count_sheet: string;
+    read_count_sheet: string;
+    manage_transfer: string;
+    read_transfer: string;
 };
 //# sourceMappingURL=permissions.d.ts.map

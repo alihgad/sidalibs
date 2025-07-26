@@ -44,6 +44,10 @@ __decorate([
     __metadata("design:type", Date)
 ], InventorySpot.prototype, "sendAt", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], InventorySpot.prototype, "isDeleted", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: String }),
     __metadata("design:type", String)
 ], InventorySpot.prototype, "totalDiffCost", void 0);
@@ -52,14 +56,22 @@ __decorate([
                 materialId: mongoose_2.Types.ObjectId,
                 materialName: String,
                 materialCode: String,
-                insertedQuantity: String,
-                materialQuantity: String,
-                diffQuantity: String,
+                insertedQuantity: Number,
+                materialQuantity: Number,
+                diffQuantity: Number,
                 diffPercent: String,
                 diffCost: String,
             }] }),
     __metadata("design:type", Array)
 ], InventorySpot.prototype, "items", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], InventorySpot.prototype, "deletedBy", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
+], InventorySpot.prototype, "deletedAt", void 0);
 exports.InventorySpot = InventorySpot = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

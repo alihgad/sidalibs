@@ -34,6 +34,9 @@ export class InventorySpot {
     @Prop({ type: Date })
     sendAt!: Date;
 
+    @Prop({ type: Boolean, default: false })
+    isDeleted!: boolean;
+
     @Prop({ type: String })
     totalDiffCost!: string;
 
@@ -41,9 +44,9 @@ export class InventorySpot {
         materialId: Types.ObjectId,
         materialName: String,
         materialCode: String,
-        insertedQuantity: String,
-        materialQuantity: String,
-        diffQuantity: String,
+        insertedQuantity: Number,
+        materialQuantity: Number,
+        diffQuantity: Number,
         diffPercent: String,
         diffCost: String,
     }] })
@@ -57,6 +60,12 @@ export class InventorySpot {
         diffPercent: String,
         diffCost: String,
     }[];
+
+    @Prop({ type: Types.ObjectId, ref: 'User' })
+    deletedBy!: Types.ObjectId;
+
+    @Prop({ type: Date })
+    deletedAt!: Date;
 
 
 

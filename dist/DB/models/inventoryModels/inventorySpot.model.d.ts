@@ -9,6 +9,7 @@ export declare class InventorySpot {
     createdBy: Types.ObjectId;
     sendBy: Types.ObjectId;
     sendAt: Date;
+    isDeleted: boolean;
     totalDiffCost: string;
     items: {
         materialId: Types.ObjectId;
@@ -20,6 +21,8 @@ export declare class InventorySpot {
         diffPercent: String;
         diffCost: String;
     }[];
+    deletedBy: Types.ObjectId;
+    deletedAt: Date;
 }
 export type InventorySpotDocument = HydratedDocument<InventorySpot>;
 export declare const InventorySpotSchema: import("mongoose").Schema<InventorySpot, Model<InventorySpot, any, any, any, import("mongoose").Document<unknown, any, InventorySpot, any> & InventorySpot & {

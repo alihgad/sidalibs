@@ -36,7 +36,7 @@ export class PurchaseOrders {
 
   @Prop({
     type: {
-      branchId: { type: Types.ObjectId, ref: 'Branch', required: true },
+      branchId: { type: Types.ObjectId, required: true },
       branchName: { type: String, required: true },
     }, required: true
   })
