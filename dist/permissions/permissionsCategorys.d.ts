@@ -11,5 +11,6 @@ export declare const permissionsCategorys: {
     purchase_permissions: string;
     role_permissions: string;
     inventory_spot_permissions: string;
+    count_sheet_permissions: string;
 };
 //# sourceMappingURL=permissionsCategorys.d.ts.map

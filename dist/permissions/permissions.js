@@ -727,6 +727,19 @@ exports.permissions = [
         description: 'السماح للمستخدم بعرض عمليات المخزون',
         category: permissionsCategorys_1.permissionsCategorys.inventory_spot_permissions,
         key: 'read_inventory_spot'
+    },
+    // Count Sheet Permissions
+    {
+        name: 'إدارة عمليات الجرد',
+        description: 'السماح للمستخدم بإدارة عمليات الجرد',
+        category: permissionsCategorys_1.permissionsCategorys.count_sheet_permissions,
+        key: 'manage_count_sheet'
+    },
+    {
+        name: 'عرض عمليات الجرد',
+        description: 'السماح للمستخدم بعرض عمليات الجرد',
+        category: permissionsCategorys_1.permissionsCategorys.count_sheet_permissions,
+        key: 'read_count_sheet'
     }
 ];
 //  ده بدل ما تعمل الاوبجكت الى تحت يدوي شغل دي وهيطلعلك الاوبجكت فى كونسول لوج
@@ -853,5 +866,7 @@ exports.permissionKeys = {
     "manage_roles": "manage_roles",
     "read_roles": "read_roles",
     "manage_inventory_spot": "manage_inventory_spot",
-    "read_inventory_spot": "read_inventory_spot"
+    "read_inventory_spot": "read_inventory_spot",
+    "manage_count_sheet": "manage_count_sheet",
+    "read_count_sheet": "read_count_sheet"
 };
