@@ -109,7 +109,6 @@ export const ADDITIONS_OPTION_MODEL = 'AdditionsOption';
 export const AdditionsOptionModel = MongooseModule.forFeature([
   { name: ADDITIONS_OPTION_MODEL, schema: AdditionsOptionSchema },
 ]);
-
 export const getAdditionsOptionModel = (businessNumber: string): DataBaseRepository<AdditionsOptionDocument> => {
   if (!businessNumber) {
     throw new Error("businessNumber is required in AdditionsOption model");
