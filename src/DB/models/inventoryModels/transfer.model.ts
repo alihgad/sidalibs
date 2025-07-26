@@ -3,10 +3,6 @@ import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { TransferStatus, TransferType } from '../../../common/type';
-
-// Enum for transfer status
-
-
 @Schema({
   timestamps: true,
   toJSON: { virtuals: true },
@@ -79,8 +75,6 @@ export class Transfer {
     totalCost: number;
   }];
 
- 
-
   @Prop({ type: Date })
   dateDueToReceive?: Date;
 
@@ -93,16 +87,20 @@ export class Transfer {
   @Prop({ type: String })
   transferSendingReference?: string;
 
-
   @Prop({ type: Number })
   totalCost?: number;
 
   @Prop({ type: Number })
   totalItems?: number;
 
+  @Prop({ type: Boolean, default: false })
+  isDeleted!: boolean; // محذوف أم لا - Soft delete flag
 
+  @Prop({ type: Types.ObjectId, ref: 'User' })
+  deletedBy?: Types.ObjectId; // المستخدم المحذوف - User who deleted
 
-
+  @Prop({ type: Date })
+  deletedAt?: Date; // تاريخ الحذف - Deletion date
 }
 
 export type TransferDocument = HydratedDocument<Transfer>;
@@ -112,29 +110,24 @@ export const TransferSchema = SchemaFactory.createForClass(Transfer);
 TransferSchema.index({ referenceNumber: 1 });
 TransferSchema.index({ status: 1 });
 TransferSchema.index({ transferType: 1 });
-TransferSchema.index({ sourceLocationType: 1 });
-TransferSchema.index({ sourceLocationId: 1 });
-TransferSchema.index({ destinationLocationType: 1 });
-TransferSchema.index({ destinationLocationId: 1 });
-TransferSchema.index({ requestedDate: 1 });
-TransferSchema.index({ approvedDate: 1 });
-TransferSchema.index({ shippedDate: 1 });
-TransferSchema.index({ receivedDate: 1 });
-TransferSchema.index({ expectedDeliveryDate: 1 });
-TransferSchema.index({ requestedBy: 1 });
-TransferSchema.index({ approvedBy: 1 });
-TransferSchema.index({ shippedBy: 1 });
-TransferSchema.index({ receivedBy: 1 });
-TransferSchema.index({ trackingNumber: 1 });
+TransferSchema.index({ 'source.sourceId': 1 });
+TransferSchema.index({ 'destination.destinationId': 1 });
+TransferSchema.index({ createdBy: 1 });
+TransferSchema.index({ submittedBy: 1 });
+TransferSchema.index({ workDate: 1 });
+TransferSchema.index({ dateDueToReceive: 1 });
+TransferSchema.index({ transferReceivingReference: 1 });
+TransferSchema.index({ transferSendingReference: 1 });
 TransferSchema.index({ isDeleted: 1 });
+TransferSchema.index({ deletedBy: 1 });
 TransferSchema.index({ createdAt: -1 });
 
 // Compound indexes
-TransferSchema.index({ sourceLocationId: 1, status: 1 });
-TransferSchema.index({ destinationLocationId: 1, status: 1 });
+TransferSchema.index({ 'source.sourceId': 1, status: 1 });
+TransferSchema.index({ 'destination.destinationId': 1, status: 1 });
 TransferSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
 TransferSchema.index({ status: 1, isDeleted: 1 });
-TransferSchema.index({ requestedDate: 1, status: 1 });
+TransferSchema.index({ workDate: 1, status: 1 });
 
 export const TRANSFER_MODEL = 'TRANSFER_MODEL';
 export const TransferModel = MongooseModule.forFeature([
@@ -148,14 +141,6 @@ export const getTransferModel = (businessNumber: string): DataBaseRepository<Tra
   let connection = ConnectionManager.getConnection(businessNumber);
   
   // Register required models for refs
-  if (!connection.models['Warehouse']) {
-    const { WarehouseSchema } = require('./warehouse.model');
-    connection.model('Warehouse', WarehouseSchema);
-  }
-  if (!connection.models['Branch']) {
-    const { BranchSchema } = require('../TenantModels/branch.model');
-    connection.model('Branch', BranchSchema);
-  }
   if (!connection.models['Materials']) {
     const { MaterialsSchema } = require('./materials.model');
     connection.model('Materials', MaterialsSchema);

@@ -14,5 +14,6 @@ exports.permissionsCategorys = {
     purchase_permissions: "purchase_permissions",
     role_permissions: "role_permissions",
     inventory_spot_permissions: "inventory_spot_permissions",
-    count_sheet_permissions: "count_sheet_permissions"
+    count_sheet_permissions: "count_sheet_permissions",
+    transfer_permissions: "transfer_permissions"
 };

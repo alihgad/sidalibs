@@ -740,6 +740,19 @@ exports.permissions = [
         description: 'السماح للمستخدم بعرض عمليات الجرد',
         category: permissionsCategorys_1.permissionsCategorys.count_sheet_permissions,
         key: 'read_count_sheet'
+    },
+    // Transfer Permissions
+    {
+        name: 'إدارة عمليات النقل',
+        description: 'السماح للمستخدم بإدارة عمليات النقل',
+        category: permissionsCategorys_1.permissionsCategorys.transfer_permissions,
+        key: 'manage_transfer'
+    },
+    {
+        name: 'عرض عمليات النقل',
+        description: 'السماح للمستخدم بعرض عمليات النقل',
+        category: permissionsCategorys_1.permissionsCategorys.transfer_permissions,
+        key: 'read_transfer'
     }
 ];
 //  ده بدل ما تعمل الاوبجكت الى تحت يدوي شغل دي وهيطلعلك الاوبجكت فى كونسول لوج
@@ -868,5 +881,7 @@ exports.permissionKeys = {
     "manage_inventory_spot": "manage_inventory_spot",
     "read_inventory_spot": "read_inventory_spot",
     "manage_count_sheet": "manage_count_sheet",
-    "read_count_sheet": "read_count_sheet"
+    "read_count_sheet": "read_count_sheet",
+    "manage_transfer": "manage_transfer",
+    "read_transfer": "read_transfer"
 };

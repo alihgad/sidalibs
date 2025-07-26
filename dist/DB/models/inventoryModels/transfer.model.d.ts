@@ -35,6 +35,9 @@ export declare class Transfer {
     transferSendingReference?: string;
     totalCost?: number;
     totalItems?: number;
+    isDeleted: boolean;
+    deletedBy?: Types.ObjectId;
+    deletedAt?: Date;
 }
 export type TransferDocument = HydratedDocument<Transfer>;
 export declare const TransferSchema: import("mongoose").Schema<Transfer, Model<Transfer, any, any, any, import("mongoose").Document<unknown, any, Transfer, any> & Transfer & {

@@ -15,7 +15,6 @@ const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 const type_1 = require("../../../common/type");
-// Enum for transfer status
 let Transfer = class Transfer {
 };
 exports.Transfer = Transfer;
@@ -98,6 +97,18 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Number }),
     __metadata("design:type", Number)
 ], Transfer.prototype, "totalItems", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Transfer.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], Transfer.prototype, "deletedBy", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
+], Transfer.prototype, "deletedAt", void 0);
 exports.Transfer = Transfer = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
@@ -111,28 +122,23 @@ exports.TransferSchema = mongoose_1.SchemaFactory.createForClass(Transfer);
 exports.TransferSchema.index({ referenceNumber: 1 });
 exports.TransferSchema.index({ status: 1 });
 exports.TransferSchema.index({ transferType: 1 });
-exports.TransferSchema.index({ sourceLocationType: 1 });
-exports.TransferSchema.index({ sourceLocationId: 1 });
-exports.TransferSchema.index({ destinationLocationType: 1 });
-exports.TransferSchema.index({ destinationLocationId: 1 });
-exports.TransferSchema.index({ requestedDate: 1 });
-exports.TransferSchema.index({ approvedDate: 1 });
-exports.TransferSchema.index({ shippedDate: 1 });
-exports.TransferSchema.index({ receivedDate: 1 });
-exports.TransferSchema.index({ expectedDeliveryDate: 1 });
-exports.TransferSchema.index({ requestedBy: 1 });
-exports.TransferSchema.index({ approvedBy: 1 });
-exports.TransferSchema.index({ shippedBy: 1 });
-exports.TransferSchema.index({ receivedBy: 1 });
-exports.TransferSchema.index({ trackingNumber: 1 });
+exports.TransferSchema.index({ 'source.sourceId': 1 });
+exports.TransferSchema.index({ 'destination.destinationId': 1 });
+exports.TransferSchema.index({ createdBy: 1 });
+exports.TransferSchema.index({ submittedBy: 1 });
+exports.TransferSchema.index({ workDate: 1 });
+exports.TransferSchema.index({ dateDueToReceive: 1 });
+exports.TransferSchema.index({ transferReceivingReference: 1 });
+exports.TransferSchema.index({ transferSendingReference: 1 });
 exports.TransferSchema.index({ isDeleted: 1 });
+exports.TransferSchema.index({ deletedBy: 1 });
 exports.TransferSchema.index({ createdAt: -1 });
 // Compound indexes
-exports.TransferSchema.index({ sourceLocationId: 1, status: 1 });
-exports.TransferSchema.index({ destinationLocationId: 1, status: 1 });
+exports.TransferSchema.index({ 'source.sourceId': 1, status: 1 });
+exports.TransferSchema.index({ 'destination.destinationId': 1, status: 1 });
 exports.TransferSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
 exports.TransferSchema.index({ status: 1, isDeleted: 1 });
-exports.TransferSchema.index({ requestedDate: 1, status: 1 });
+exports.TransferSchema.index({ workDate: 1, status: 1 });
 exports.TRANSFER_MODEL = 'TRANSFER_MODEL';
 exports.TransferModel = mongoose_1.MongooseModule.forFeature([
     { name: 'Transfer', schema: exports.TransferSchema }
@@ -143,14 +149,6 @@ const getTransferModel = (businessNumber) => {
     }
     let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
     // Register required models for refs
-    if (!connection.models['Warehouse']) {
-        const { WarehouseSchema } = require('./warehouse.model');
-        connection.model('Warehouse', WarehouseSchema);
-    }
-    if (!connection.models['Branch']) {
-        const { BranchSchema } = require('../TenantModels/branch.model');
-        connection.model('Branch', BranchSchema);
-    }
     if (!connection.models['Materials']) {
         const { MaterialsSchema } = require('./materials.model');
         connection.model('Materials', MaterialsSchema);
