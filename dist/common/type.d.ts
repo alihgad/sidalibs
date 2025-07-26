@@ -219,4 +219,14 @@ export declare enum PurchaseType {
     PURCHASE = "purchase",
     RETURN = "return"
 }
+export declare enum TransferStatus {
+    DRAFT = "draft",
+    PENDING = "pending",
+    CLOSED = "closed",
+    CANCELLED = "cancelled"
+}
+export declare enum TransferType {
+    TRANSFER_SENDING = "transfer_sending",
+    TRANSFER_RECEIVING = "transfer_receiving"
+}
 //# sourceMappingURL=type.d.ts.map

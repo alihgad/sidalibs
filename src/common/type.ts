@@ -451,6 +451,29 @@ registerEnumType(DeliveryTime, {
     name: 'PurchaseType',
     description: 'The type of purchase',
   });
+
+  export enum TransferStatus {
+    DRAFT = 'draft',
+    PENDING = 'pending',
+    CLOSED = 'closed',
+    CANCELLED = 'cancelled',
+  }
+
+  registerEnumType(TransferStatus, {
+    name: 'TransferStatus',
+    description: 'The status of the transfer',
+  });
+  
+
+  export enum TransferType {
+    TRANSFER_SENDING = 'transfer_sending',
+    TRANSFER_RECEIVING = 'transfer_receiving'
+  }
+
+  registerEnumType(TransferType, {
+    name: 'TransferType',
+    description: 'The type of transfer',
+  });
   
 
 

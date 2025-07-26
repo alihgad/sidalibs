@@ -18,7 +18,7 @@ export class PriceAdjustment {
   @Prop({ type: String, required: true })
   referenceNumber!: string;
 
-  @Prop({ type: Types.ObjectId, required: true, ref: 'Branch' })
+  @Prop({ type: Types.ObjectId, required: true })
   branch!: Types.ObjectId;
 
   @Prop({ type: Types.ObjectId, required: true, ref: 'Reason' })

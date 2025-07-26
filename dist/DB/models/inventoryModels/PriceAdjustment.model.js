@@ -49,7 +49,7 @@ __decorate([
     __metadata("design:type", String)
 ], PriceAdjustment.prototype, "referenceNumber", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true, ref: 'Branch' }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], PriceAdjustment.prototype, "branch", void 0);
 __decorate([
