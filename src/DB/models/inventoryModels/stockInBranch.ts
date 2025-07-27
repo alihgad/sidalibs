@@ -27,8 +27,8 @@ export class StockInBranch {
   @Prop({ type: Number, required: true, min: 0, default: 0 })
   quantity!: number;
 
-  @Prop({ type: Number, required: true, min: 0, default: 0 })
-  price!: number;
+  @Prop({ type: Number, min: 0, default: 0 })
+  price?: number;
 
 
 }

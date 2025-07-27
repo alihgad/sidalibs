@@ -61,7 +61,7 @@ __decorate([
     __metadata("design:type", Number)
 ], StockInBranch.prototype, "quantity", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: true, min: 0, default: 0 }),
+    (0, mongoose_1.Prop)({ type: Number, min: 0, default: 0 }),
     __metadata("design:type", Number)
 ], StockInBranch.prototype, "price", void 0);
 exports.StockInBranch = StockInBranch = __decorate([

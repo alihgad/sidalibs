@@ -24,6 +24,7 @@ export * from './DB/models/inventoryModels/warehouse.model';
 export * from './DB/models/inventoryModels/inventorySpot.model';
 export * from './DB/models/inventoryModels/countSheet.model';
 export * from './DB/models/inventoryModels/transfer.model';
+export * from './DB/models/inventoryModels/transferOrders.model';
 
 // ========== Menu Models ==========
 export * from './DB/models/menuModels/categories.model';

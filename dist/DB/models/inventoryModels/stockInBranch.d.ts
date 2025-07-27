@@ -5,7 +5,7 @@ export declare class StockInBranch {
     warehouseId: Types.ObjectId;
     materialId: Types.ObjectId;
     quantity: number;
-    price: number;
+    price?: number;
 }
 export type StockInBranchDocument = HydratedDocument<StockInBranch>;
 export declare const StockInBranchSchema: import("mongoose").Schema<StockInBranch, Model<StockInBranch, any, any, any, import("mongoose").Document<unknown, any, StockInBranch, any> & StockInBranch & {

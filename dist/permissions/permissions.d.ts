@@ -128,5 +128,7 @@ export declare const permissionKeys: {
     read_count_sheet: string;
     manage_transfer: string;
     read_transfer: string;
+    manage_transfer_order: string;
+    read_transfer_order: string;
 };
 //# sourceMappingURL=permissions.d.ts.map
