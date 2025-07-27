@@ -28,6 +28,9 @@ export declare class TransferOrder {
     isSubmitted: boolean;
     submittedBy?: string;
     submittedAt?: Date;
+    isSent: boolean;
+    sentBy?: string;
+    sentAt?: Date;
     isDeleted: boolean;
     deletedAt?: Date;
 }

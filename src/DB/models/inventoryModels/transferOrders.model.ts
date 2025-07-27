@@ -79,6 +79,15 @@ export class TransferOrder {
     submittedAt?: Date;
 
     @Prop({ type: Boolean, default: false })
+    isSent!: boolean;
+
+    @Prop({ type: String })
+    sentBy?: string;
+
+    @Prop({ type: Date })
+    sentAt?: Date;
+
+    @Prop({ type: Boolean, default: false })
     isDeleted!: boolean; // محذوف أم لا - Soft delete flag
 
     @Prop({ type: Date })

@@ -83,6 +83,18 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
+], TransferOrder.prototype, "isSent", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String }),
+    __metadata("design:type", String)
+], TransferOrder.prototype, "sentBy", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
+], TransferOrder.prototype, "sentAt", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
 ], TransferOrder.prototype, "isDeleted", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Date }),
