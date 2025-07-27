@@ -44,11 +44,8 @@ __decorate([
     __metadata("design:type", Date)
 ], TransferOrder.prototype, "workDate", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: {
-            userId: String,
-            userName: String
-        } }),
-    __metadata("design:type", Object)
+    (0, mongoose_1.Prop)({ required: true, type: String, ref: 'User' }),
+    __metadata("design:type", String)
 ], TransferOrder.prototype, "createdBy", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: String }),

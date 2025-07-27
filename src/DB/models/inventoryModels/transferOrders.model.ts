@@ -39,14 +39,8 @@ export class TransferOrder {
     @Prop({ required: true, type: Date })
     workDate!: Date;
 
-    @Prop({ required: true, type: {
-        userId: String,
-        userName: String
-    } })
-    createdBy!: {
-        userId: string,
-        userName: string
-    };
+    @Prop({ required: true, type: String , ref: 'User' })
+    createdBy!: string;
 
     @Prop({ type: String })
     notes?: string;

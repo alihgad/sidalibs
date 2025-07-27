@@ -12,10 +12,7 @@ export declare class TransferOrder {
         destinationName: string;
     };
     workDate: Date;
-    createdBy: {
-        userId: string;
-        userName: string;
-    };
+    createdBy: string;
     notes?: string;
     status: TransferStatus;
     items: {
