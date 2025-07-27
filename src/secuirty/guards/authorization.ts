@@ -13,7 +13,7 @@ export class RolesGuard implements CanActivate {
 
     const ctx = GqlExecutionContext.create(context).getContext();
     const user = ctx.req.user;
-    console.log(user);
+
     
     if (!user) {
       throw new ForbiddenException('Forbidden resource no user');

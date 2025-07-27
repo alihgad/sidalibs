@@ -23,7 +23,6 @@ let RolesGuard = class RolesGuard {
         const allowAny = this.reflector.get('allowAny', context.getHandler()) || false;
         const ctx = graphql_1.GqlExecutionContext.create(context).getContext();
         const user = ctx.req.user;
-        console.log(user);
         if (!user) {
             throw new common_1.ForbiddenException('Forbidden resource no user');
         }
