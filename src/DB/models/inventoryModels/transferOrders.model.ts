@@ -11,7 +11,7 @@ import { TransferStatus } from '../../../common/type';
     collection: 'transferOrders'
 })
 export class TransferOrder {
-    @Prop({ required: true, type: String, unique: true, index: true })
+    @Prop({ required: true, type: String, unique: true })
     referenceNumber!: string; // رقم أمر النقل - Transfer order number
 
     @Prop({
@@ -99,7 +99,6 @@ export type TransferOrderDocument = HydratedDocument<TransferOrder>;
 export const TransferOrderSchema = SchemaFactory.createForClass(TransferOrder);
 
 // Indexes for better performance
-TransferOrderSchema.index({ referenceNumber: 1 });
 TransferOrderSchema.index({ status: 1 });
 TransferOrderSchema.index({ 'warehouse.warehouseId': 1 });
 TransferOrderSchema.index({ 'destination.destinationId': 1 });
@@ -108,15 +107,20 @@ TransferOrderSchema.index({ 'createdBy.userId': 1 });
 TransferOrderSchema.index({ isSubmitted: 1 });
 TransferOrderSchema.index({ submittedBy: 1 });
 TransferOrderSchema.index({ submittedAt: 1 });
+TransferOrderSchema.index({ isSent: 1 });
+TransferOrderSchema.index({ sentBy: 1 });
+TransferOrderSchema.index({ sentAt: 1 });
 TransferOrderSchema.index({ isDeleted: 1 });
 TransferOrderSchema.index({ deletedAt: 1 });
 TransferOrderSchema.index({ createdAt: -1 });
 
 // Compound indexes
+TransferOrderSchema.index({ referenceNumber: 1 });
 TransferOrderSchema.index({ 'warehouse.warehouseId': 1, status: 1 });
 TransferOrderSchema.index({ 'destination.destinationId': 1, status: 1 });
 TransferOrderSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
 TransferOrderSchema.index({ status: 1, isSubmitted: 1 });
+TransferOrderSchema.index({ status: 1, isSent: 1 });
 TransferOrderSchema.index({ status: 1, isDeleted: 1 });
 TransferOrderSchema.index({ workDate: 1, status: 1 });
 TransferOrderSchema.index({ 'createdBy.userId': 1, status: 1 });
