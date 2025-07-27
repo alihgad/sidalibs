@@ -3,9 +3,9 @@ import { DataBaseRepository } from '../../DataBase.repository';
 import { TransferStatus } from '../../../common/type';
 export declare class TransferOrder {
     referenceNumber: string;
-    wareHouse: {
-        wareHouseId: string;
-        wareHouseName: string;
+    warehouse: {
+        warehouseId: string;
+        warehouseName: string;
     };
     destination: {
         destinationId: string;

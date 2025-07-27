@@ -16,13 +16,13 @@ export class TransferOrder {
 
     @Prop({
         required: true, type: {
-            wareHouseId: String,
-            wareHouseName: String
+            warehouseId: String,
+            warehouseName: String
         }
     })
-    wareHouse!: {
-        wareHouseId: string,
-        wareHouseName: string
+    warehouse!: {
+        warehouseId: string,
+        warehouseName: string
     }
 
     @Prop({
@@ -92,7 +92,7 @@ export const TransferOrderSchema = SchemaFactory.createForClass(TransferOrder);
 // Indexes for better performance
 TransferOrderSchema.index({ referenceNumber: 1 });
 TransferOrderSchema.index({ status: 1 });
-TransferOrderSchema.index({ 'wareHouse.wareHouseId': 1 });
+TransferOrderSchema.index({ 'warehouse.warehouseId': 1 });
 TransferOrderSchema.index({ 'destination.destinationId': 1 });
 TransferOrderSchema.index({ workDate: 1 });
 TransferOrderSchema.index({ 'createdBy.userId': 1 });
@@ -104,7 +104,7 @@ TransferOrderSchema.index({ deletedAt: 1 });
 TransferOrderSchema.index({ createdAt: -1 });
 
 // Compound indexes
-TransferOrderSchema.index({ 'wareHouse.wareHouseId': 1, status: 1 });
+TransferOrderSchema.index({ 'warehouse.warehouseId': 1, status: 1 });
 TransferOrderSchema.index({ 'destination.destinationId': 1, status: 1 });
 TransferOrderSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
 TransferOrderSchema.index({ status: 1, isSubmitted: 1 });

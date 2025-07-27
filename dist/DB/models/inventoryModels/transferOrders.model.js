@@ -24,12 +24,12 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({
         required: true, type: {
-            wareHouseId: String,
-            wareHouseName: String
+            warehouseId: String,
+            warehouseName: String
         }
     }),
     __metadata("design:type", Object)
-], TransferOrder.prototype, "wareHouse", void 0);
+], TransferOrder.prototype, "warehouse", void 0);
 __decorate([
     (0, mongoose_1.Prop)({
         required: true, type: {
@@ -100,7 +100,7 @@ exports.TransferOrderSchema = mongoose_1.SchemaFactory.createForClass(TransferOr
 // Indexes for better performance
 exports.TransferOrderSchema.index({ referenceNumber: 1 });
 exports.TransferOrderSchema.index({ status: 1 });
-exports.TransferOrderSchema.index({ 'wareHouse.wareHouseId': 1 });
+exports.TransferOrderSchema.index({ 'warehouse.warehouseId': 1 });
 exports.TransferOrderSchema.index({ 'destination.destinationId': 1 });
 exports.TransferOrderSchema.index({ workDate: 1 });
 exports.TransferOrderSchema.index({ 'createdBy.userId': 1 });
@@ -111,7 +111,7 @@ exports.TransferOrderSchema.index({ isDeleted: 1 });
 exports.TransferOrderSchema.index({ deletedAt: 1 });
 exports.TransferOrderSchema.index({ createdAt: -1 });
 // Compound indexes
-exports.TransferOrderSchema.index({ 'wareHouse.wareHouseId': 1, status: 1 });
+exports.TransferOrderSchema.index({ 'warehouse.warehouseId': 1, status: 1 });
 exports.TransferOrderSchema.index({ 'destination.destinationId': 1, status: 1 });
 exports.TransferOrderSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
 exports.TransferOrderSchema.index({ status: 1, isSubmitted: 1 });
