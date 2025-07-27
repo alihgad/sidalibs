@@ -14,7 +14,7 @@ import { ConnectionManager } from '../../connection.manager';
   collection: 'countSheets'
 })
 export class CountSheet {
-  @Prop({ required: true, type: String, unique: true, index: true })
+  @Prop({ required: true, type: String, unique: true })
   referenceNumber!: string; // رقم مرجعي للجرد - Count sheet reference number
 
   @Prop({ required: true, type: String })

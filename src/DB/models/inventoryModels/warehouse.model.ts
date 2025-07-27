@@ -12,7 +12,7 @@ import { DeliveryTime } from '../../../common/type';
   collection: 'warehouses'
 })
 export class Warehouse {
-  @Prop({ required: true, type: String, unique: true, index: true })
+  @Prop({ required: true, type: String, unique: true })
   name!: string; // اسم المستودع - Warehouse name
 
   @Prop({ type: String })
@@ -21,7 +21,7 @@ export class Warehouse {
   @Prop({ required: true, type: String , enum: DeliveryTime })
   endOfDayTime!: DeliveryTime; // نهاية يوم المخزون - End of day time (format: HH:MM)
 
-  @Prop({ required: true, type: String, unique: true, index: true })
+  @Prop({ required: true, type: String, unique: true })
   referenceNumber!: string; // الرقم المرجعي - Reference code (e.g., W01)
 
   @Prop({  type: Number })
@@ -55,13 +55,16 @@ export type WarehouseDocument = HydratedDocument<Warehouse>;
 export const WarehouseSchema = SchemaFactory.createForClass(Warehouse);
 
 // Indexes for better performance
+WarehouseSchema.index({ name: 1 });
+WarehouseSchema.index({ referenceNumber: 1 });
 WarehouseSchema.index({ isDeleted: 1 });
 WarehouseSchema.index({ createdAt: -1 });
 WarehouseSchema.index({ updatedBy: 1 });
 WarehouseSchema.index({ deletedBy: 1 });
 
-// Compound index for unique name per business
-WarehouseSchema.index({ name: 1, isDeleted: 1 });
+// Compound indexes for unique constraints
+WarehouseSchema.index({ name: 1, isDeleted: 1 }, { unique: true });
+WarehouseSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
 
 export const WAREHOUSE_MODEL = 'WAREHOUSE_MODEL';
 export const WarehouseModel = MongooseModule.forFeature([

@@ -19,7 +19,7 @@ let Transfer = class Transfer {
 };
 exports.Transfer = Transfer;
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: String, unique: true, index: true }),
+    (0, mongoose_1.Prop)({ required: true, type: String, unique: true }),
     __metadata("design:type", String)
 ], Transfer.prototype, "referenceNumber", void 0);
 __decorate([

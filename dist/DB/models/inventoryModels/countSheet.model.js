@@ -17,7 +17,7 @@ let CountSheet = class CountSheet {
 };
 exports.CountSheet = CountSheet;
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: String, unique: true, index: true }),
+    (0, mongoose_1.Prop)({ required: true, type: String, unique: true }),
     __metadata("design:type", String)
 ], CountSheet.prototype, "referenceNumber", void 0);
 __decorate([

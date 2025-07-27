@@ -20,7 +20,7 @@ let Warehouse = class Warehouse {
 };
 exports.Warehouse = Warehouse;
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: String, unique: true, index: true }),
+    (0, mongoose_1.Prop)({ required: true, type: String, unique: true }),
     __metadata("design:type", String)
 ], Warehouse.prototype, "name", void 0);
 __decorate([
@@ -32,7 +32,7 @@ __decorate([
     __metadata("design:type", String)
 ], Warehouse.prototype, "endOfDayTime", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ required: true, type: String, unique: true, index: true }),
+    (0, mongoose_1.Prop)({ required: true, type: String, unique: true }),
     __metadata("design:type", String)
 ], Warehouse.prototype, "referenceNumber", void 0);
 __decorate([
@@ -77,12 +77,15 @@ exports.Warehouse = Warehouse = __decorate([
 ], Warehouse);
 exports.WarehouseSchema = mongoose_1.SchemaFactory.createForClass(Warehouse);
 // Indexes for better performance
+exports.WarehouseSchema.index({ name: 1 });
+exports.WarehouseSchema.index({ referenceNumber: 1 });
 exports.WarehouseSchema.index({ isDeleted: 1 });
 exports.WarehouseSchema.index({ createdAt: -1 });
 exports.WarehouseSchema.index({ updatedBy: 1 });
 exports.WarehouseSchema.index({ deletedBy: 1 });
-// Compound index for unique name per business
-exports.WarehouseSchema.index({ name: 1, isDeleted: 1 });
+// Compound indexes for unique constraints
+exports.WarehouseSchema.index({ name: 1, isDeleted: 1 }, { unique: true });
+exports.WarehouseSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
 exports.WAREHOUSE_MODEL = 'WAREHOUSE_MODEL';
 exports.WarehouseModel = mongoose_1.MongooseModule.forFeature([
     { name: 'Warehouse', schema: exports.WarehouseSchema }

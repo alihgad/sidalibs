@@ -10,7 +10,7 @@ import { TransferStatus, TransferType } from '../../../common/type';
   collection: 'transfers'
 })
 export class Transfer {
-  @Prop({ required: true, type: String, unique: true, index: true })
+  @Prop({ required: true, type: String, unique: true })
   referenceNumber!: string; // رقم مرجعي للنقل - Transfer reference number
 
   @Prop({ required: true, type: {
