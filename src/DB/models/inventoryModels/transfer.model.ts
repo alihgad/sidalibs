@@ -10,7 +10,7 @@ import { TransferStatus, TransferType } from '../../../common/type';
   collection: 'transfers'
 })
 export class Transfer {
-  @Prop({ required: true, type: String, unique: true })
+  @Prop({ required: true, type: String, unique: true  })
   referenceNumber!: string; // رقم مرجعي للنقل - Transfer reference number
 
   @Prop({ required: true, type: {
@@ -134,7 +134,6 @@ export type TransferDocument = HydratedDocument<Transfer>;
 export const TransferSchema = SchemaFactory.createForClass(Transfer);
 
 // Indexes for better performance
-TransferSchema.index({ referenceNumber: 1 });
 TransferSchema.index({ status: 1 });
 TransferSchema.index({ transferType: 1 });
 TransferSchema.index({ 'source.sourceId': 1 });

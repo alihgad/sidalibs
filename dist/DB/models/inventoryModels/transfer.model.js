@@ -155,7 +155,6 @@ exports.Transfer = Transfer = __decorate([
 ], Transfer);
 exports.TransferSchema = mongoose_1.SchemaFactory.createForClass(Transfer);
 // Indexes for better performance
-exports.TransferSchema.index({ referenceNumber: 1 });
 exports.TransferSchema.index({ status: 1 });
 exports.TransferSchema.index({ transferType: 1 });
 exports.TransferSchema.index({ 'source.sourceId': 1 });

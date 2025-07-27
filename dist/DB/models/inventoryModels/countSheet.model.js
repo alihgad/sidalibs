@@ -57,7 +57,6 @@ exports.CountSheet = CountSheet = __decorate([
 ], CountSheet);
 exports.CountSheetSchema = mongoose_1.SchemaFactory.createForClass(CountSheet);
 // Indexes for better performance
-exports.CountSheetSchema.index({ referenceNumber: 1 });
 exports.CountSheetSchema.index({ name: 1 });
 exports.CountSheetSchema.index({ secondaryName: 1 });
 exports.CountSheetSchema.index({ isDeleted: 1 });

@@ -53,7 +53,6 @@ export type CountSheetDocument = HydratedDocument<CountSheet>;
 export const CountSheetSchema = SchemaFactory.createForClass(CountSheet);
 
 // Indexes for better performance
-CountSheetSchema.index({ referenceNumber: 1 });
 CountSheetSchema.index({ name: 1 });
 CountSheetSchema.index({ secondaryName: 1 });
 CountSheetSchema.index({ isDeleted: 1 });
