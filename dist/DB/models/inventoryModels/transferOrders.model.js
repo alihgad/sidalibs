@@ -73,7 +73,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], TransferOrder.prototype, "isSubmitted", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
+    (0, mongoose_1.Prop)({ type: String, ref: 'User' }),
     __metadata("design:type", String)
 ], TransferOrder.prototype, "submittedBy", void 0);
 __decorate([
@@ -85,7 +85,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], TransferOrder.prototype, "isSent", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
+    (0, mongoose_1.Prop)({ type: String, ref: 'User' }),
     __metadata("design:type", String)
 ], TransferOrder.prototype, "sentBy", void 0);
 __decorate([
@@ -96,6 +96,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], TransferOrder.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, ref: 'User' }),
+    __metadata("design:type", String)
+], TransferOrder.prototype, "deletedBy", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Date }),
     __metadata("design:type", Date)

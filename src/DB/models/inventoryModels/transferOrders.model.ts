@@ -72,7 +72,7 @@ export class TransferOrder {
     @Prop({ type: Boolean, default: false })
     isSubmitted!: boolean;
 
-    @Prop({ type: String })
+    @Prop({ type: String , ref: 'User' })
     submittedBy?: string;
 
     @Prop({ type: Date })
@@ -81,7 +81,7 @@ export class TransferOrder {
     @Prop({ type: Boolean, default: false })
     isSent!: boolean;
 
-    @Prop({ type: String })
+    @Prop({ type: String , ref: 'User' })
     sentBy?: string;
 
     @Prop({ type: Date })
@@ -89,6 +89,9 @@ export class TransferOrder {
 
     @Prop({ type: Boolean, default: false })
     isDeleted!: boolean; // محذوف أم لا - Soft delete flag
+
+    @Prop({ type: String , ref: 'User' })
+    deletedBy?: string;
 
     @Prop({ type: Date })
     deletedAt?: Date; // تاريخ الحذف - Deletion date

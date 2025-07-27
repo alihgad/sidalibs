@@ -32,6 +32,7 @@ export declare class TransferOrder {
     sentBy?: string;
     sentAt?: Date;
     isDeleted: boolean;
+    deletedBy?: string;
     deletedAt?: Date;
 }
 export type TransferOrderDocument = HydratedDocument<TransferOrder>;
