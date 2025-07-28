@@ -50,6 +50,7 @@ export declare class AdditionsOption {
     taxGroup?: Types.ObjectId;
     costCalculationMethod: CostCalculationMethod;
     menuGroup?: Types.ObjectId;
+    addition: Types.ObjectId;
     ingredients: Ingredient[];
     orderTypes: OrderType[];
     quantity?: number;
