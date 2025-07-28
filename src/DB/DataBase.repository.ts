@@ -37,13 +37,13 @@ export class DataBaseRepository<TDocument> {
         query: FilterQuery<TDocument>,
         select?: string | Record<string, 0 | 1>,
         populate?: PopulateOptions[],
-        sort?: {}
+        sort?: string
     ): Promise<TDocument | null> {
         console.log(sort)
         return (await this.model
             .findOne(query)
             .select(select || '')
-            .sort(sort)
+            .sort(sort?.replaceAll(",", " "))
             .populate(populate || [])) as TDocument;
     }
 
