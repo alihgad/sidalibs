@@ -37,7 +37,7 @@ export class DataBaseRepository<TDocument> {
         query: FilterQuery<TDocument>,
         select?: string | Record<string, 0 | 1>,
         populate?: PopulateOptions[],
-        sort?: { [key: string]: 1 | -1 }
+        sort?: {}
     ): Promise<TDocument | null> {
         console.log(sort)
         return (await this.model
