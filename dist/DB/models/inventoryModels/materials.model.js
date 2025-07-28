@@ -58,7 +58,7 @@ __decorate([
     __metadata("design:type", String)
 ], Materials.prototype, "code", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true }),
+    (0, mongoose_1.Prop)({ type: String, required: true, ref: 'inventoryCategory' }),
     __metadata("design:type", String)
 ], Materials.prototype, "category", void 0);
 __decorate([
@@ -152,6 +152,10 @@ const getMaterialsModel = (businessNumber) => {
     if (!connection.models['Supplier']) {
         const { supplierSchema } = require('./supplier.model');
         connection.model('Supplier', supplierSchema);
+    }
+    if (!connection.models['inventoryCategory']) {
+        const { inventoryCategorySchema } = require('./categories.model');
+        connection.model('inventoryCategory', inventoryCategorySchema);
     }
     const model = connection.models['Materials'] || connection.model('Materials', exports.MaterialsSchema);
     return new DataBase_repository_1.DataBaseRepository(model);

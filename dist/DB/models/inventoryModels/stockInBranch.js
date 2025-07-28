@@ -34,7 +34,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getStockInBranchModel = exports.StockInBranchModel = exports.STOCK_IN_BRANCH_MODEL = exports.StockInBranchSchema = exports.StockInBranch = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 const dotenv = __importStar(require("dotenv"));
@@ -45,16 +44,16 @@ let StockInBranch = class StockInBranch {
 };
 exports.StockInBranch = StockInBranch;
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch ', required: true }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: String, ref: 'Branch ' }),
+    __metadata("design:type", String)
 ], StockInBranch.prototype, "branchId", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Warehouse ', required: true }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: String, ref: 'Warehouse ' }),
+    __metadata("design:type", String)
 ], StockInBranch.prototype, "warehouseId", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Materials', required: true }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: String, ref: 'Materials', required: true }),
+    __metadata("design:type", String)
 ], StockInBranch.prototype, "materialId", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Number, required: true, min: 0, default: 0 }),

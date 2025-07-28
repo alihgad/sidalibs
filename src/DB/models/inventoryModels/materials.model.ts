@@ -25,7 +25,7 @@ export class Materials {
   @Prop({ type: String, required: true, unique: true })
   code!: string;
 
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true , ref: 'inventoryCategory' })
   category!: string;
 
   @Prop({ type: String, required: true })
@@ -110,6 +110,11 @@ export const getMaterialsModel = (businessNumber: string): DataBaseRepository<Ma
   if (!connection.models['Supplier']) {
     const { supplierSchema } = require('./supplier.model');
     connection.model('Supplier', supplierSchema);
+  }
+
+  if (!connection.models['inventoryCategory']) {
+    const { inventoryCategorySchema } = require('./categories.model');
+    connection.model('inventoryCategory', inventoryCategorySchema);
   }
 
   const model = connection.models['Materials'] || connection.model('Materials', MaterialsSchema) as unknown as Model<MaterialsDocument>;
