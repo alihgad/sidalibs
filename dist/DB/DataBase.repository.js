@@ -19,10 +19,11 @@ class DataBaseRepository {
         const result = await this.model.insertMany(data);
         return result;
     }
-    async findOne(query, select, populate) {
+    async findOne(query, select, populate, sort) {
         return (await this.model
             .findOne(query)
             .select(select || '')
+            .sort(sort)
             .populate(populate || []));
     }
     async find({ filter = {}, populate = [], page = 1, sort = '', select = ' ', limit, }) {

@@ -14,7 +14,9 @@ export declare class DataBaseRepository<TDocument> {
     create(data: Partial<TDocument>): Promise<TDocument>;
     findOld(query: FilterQuery<TDocument>): Promise<TDocument[] | []>;
     insertMany(data: Partial<TDocument>[]): Promise<TDocument[]>;
-    findOne(query: FilterQuery<TDocument>, select?: string | Record<string, 0 | 1>, populate?: PopulateOptions[]): Promise<TDocument | null>;
+    findOne(query: FilterQuery<TDocument>, select?: string | Record<string, 0 | 1>, populate?: PopulateOptions[], sort?: {
+        [key: string]: 1 | -1;
+    }): Promise<TDocument | null>;
     find({ filter, populate, page, sort, select, limit, }: FindOptions<TDocument>): Promise<TDocument[] | []>;
     findById(id: String, select?: string, populate?: PopulateOptions | PopulateOptions[]): Promise<TDocument | null>;
     findAll(): Promise<TDocument[]>;
