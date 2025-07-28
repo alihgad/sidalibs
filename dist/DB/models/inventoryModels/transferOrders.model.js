@@ -145,13 +145,13 @@ const getTransferOrderModel = (businessNumber) => {
     }
     let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
     // Register required models for refs
-    if (!connection.models['Materials']) {
+    if (!connection.models['materials']) {
         const { MaterialsSchema } = require('./materials.model');
-        connection.model('Materials', MaterialsSchema);
+        connection.model('materials', MaterialsSchema);
     }
-    if (!connection.models['User']) {
+    if (!connection.models['user']) {
         const { UserSchema } = require('../userModels/users.model');
-        connection.model('User', UserSchema);
+        connection.model('user', UserSchema);
     }
     const model = connection.models['TransferOrder'] || connection.model('TransferOrder', exports.TransferOrderSchema);
     return new DataBase_repository_1.DataBaseRepository(model);

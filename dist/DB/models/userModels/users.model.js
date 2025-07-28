@@ -138,7 +138,7 @@ exports.User = User = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
         toJSON: { virtuals: true },
-        toObject: { virtuals: true },
+        toObject: { virtuals: true }
     }),
     __metadata("design:paramtypes", [String, String, String, Array, Boolean, String, String, String, String, Array, Map])
 ], User);
