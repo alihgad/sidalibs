@@ -21,6 +21,7 @@ const tax_groups_model_1 = require("../TenantModels/tax-groups.model");
 const materials_model_1 = require("../inventoryModels/materials.model");
 const branch_model_1 = require("../TenantModels/branch.model");
 const priceTagApplies_model_1 = require("../TenantModels/priceTagApplies.model");
+const additions_model_1 = require("./additions.model");
 let Ingredient = class Ingredient {
 };
 exports.Ingredient = Ingredient;
@@ -102,6 +103,10 @@ __decorate([
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], AdditionsOption.prototype, "menuGroup", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Addition', required: true }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], AdditionsOption.prototype, "addition", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: [exports.IngredientSchema], default: [] }),
     __metadata("design:type", Array)
 ], AdditionsOption.prototype, "ingredients", void 0);
@@ -176,6 +181,9 @@ const getAdditionsOptionModel = (businessNumber) => {
     }
     if (!connection.models['MenuGroup']) {
         connection.model('MenuGroup', groups_model_1.MenuGroupSchema);
+    }
+    if (!connection.models['Addition']) {
+        connection.model('Addition', additions_model_1.AdditionSchema);
     }
     if (!connection.models['Combo']) {
         connection.model('Combo', new mongoose_2.Schema({})); // Replace when Combo schema is ready

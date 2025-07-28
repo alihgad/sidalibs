@@ -9,6 +9,7 @@ import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
 import { MaterialsSchema } from '../inventoryModels/materials.model';
 import { BranchSchema } from '../TenantModels/branch.model';
 import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
+import { AdditionSchema } from './additions.model';
 
 @Schema()
 export class Ingredient {
@@ -68,6 +69,10 @@ export class AdditionsOption {
 
   @Prop({ type: Types.ObjectId, ref: 'MenuGroup' })
   menuGroup?: Types.ObjectId;
+
+  // Add the addition field to link with Addition model
+  @Prop({ type: Types.ObjectId, ref: 'Addition', required: true })
+  addition!: Types.ObjectId;
 
   @Prop({ type: [IngredientSchema], default: [] })
   ingredients!: Ingredient[];
@@ -130,6 +135,9 @@ export const getAdditionsOptionModel = (businessNumber: string): DataBaseReposit
   }
   if (!connection.models['MenuGroup']) {
     connection.model('MenuGroup', MenuGroupSchema);
+  }
+  if (!connection.models['Addition']) {
+    connection.model('Addition', AdditionSchema);
   }
   if (!connection.models['Combo']) {
     connection.model('Combo', new MongooseSchema({})); // Replace when Combo schema is ready
