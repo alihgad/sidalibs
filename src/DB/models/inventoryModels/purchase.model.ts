@@ -77,7 +77,7 @@ export class Purchase {
 
     @Prop({
         type: [{
-            materialId: { type: Types.ObjectId, ref: 'Material' },
+            materialId: { type: Types.ObjectId, ref: 'Materials' },
             materialName: { type: String },
             code: { type: String },
             quantity: { type: Number, min: 1 },
@@ -161,9 +161,9 @@ export const getPurchaseModel = (businessNumber: string): DataBaseRepository<Pur
         const { UserSchema } = require('../userModels/users.model');
         connection.model('User', UserSchema);
     }
-    if (!connection.models['Material']) {
-        const { MaterialsSchema } = require('./materials.model');
-        connection.model('Material', MaterialsSchema);
+    if (!connection.models['Materials']) {
+          const { MaterialsSchema } = require('./materials.model');
+  connection.model('Materials', MaterialsSchema);
     }
 
     const model = connection.models['Purchase'] || connection.model('Purchase', PurchaseSchema) as unknown as Model<PurchaseDocument>;

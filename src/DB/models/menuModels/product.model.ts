@@ -127,7 +127,7 @@ export class Product {
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Addition' }], default: [] })
     additions!: Types.ObjectId[]; // الإضافات
     
-    @Prop({ type: [{ type: Types.ObjectId, ref: 'Material' }], default: [] })
+    @Prop({ type: [{ type: Types.ObjectId, ref: 'Materials' }], default: [] })
     ingredients!: Types.ObjectId[]; // المكونات
 
     @Prop({ type: [CustomProductBranchPriceSchema], default: [] })
@@ -184,8 +184,8 @@ export const getProductModel = (businessNumber: string): DataBaseRepository<Prod
     if (!connection.models['Tag']) {
         connection.model('Tag', TagSchema); 
     }
-    if (!connection.models['Material']) {
-        connection.model('Material', MaterialsSchema);
+    if (!connection.models['Materials']) {
+        connection.model('Materials', MaterialsSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', BranchSchema);

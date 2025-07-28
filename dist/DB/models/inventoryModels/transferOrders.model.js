@@ -149,9 +149,9 @@ const getTransferOrderModel = (businessNumber) => {
         const { MaterialsSchema } = require('./materials.model');
         connection.model('Materials', MaterialsSchema);
     }
-    if (!connection.models['User']) {
+    if (!connection.models['user']) {
         const { UserSchema } = require('../userModels/users.model');
-        connection.model('User', UserSchema);
+        connection.model('user', UserSchema);
     }
     const model = connection.models['TransferOrder'] || connection.model('TransferOrder', exports.TransferOrderSchema);
     return new DataBase_repository_1.DataBaseRepository(model);

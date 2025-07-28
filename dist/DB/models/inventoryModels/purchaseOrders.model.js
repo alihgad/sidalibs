@@ -109,7 +109,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({
         type: [{
-                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material' },
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
                 materialName: { type: String },
                 code: { type: String },
                 availableQuantity: { type: Number, min: 0 },
@@ -187,9 +187,9 @@ const getPurchaseOrdersModel = (businessNumber) => {
         const { UserSchema } = require('../userModels/users.model');
         connection.model('User', UserSchema);
     }
-    if (!connection.models['Material']) {
+    if (!connection.models['Materials']) {
         const { MaterialsSchema } = require('./materials.model');
-        connection.model('Material', MaterialsSchema);
+        connection.model('Materials', MaterialsSchema);
     }
     if (!connection.models['Supplier']) {
         const { supplierSchema } = require('./supplier.model');

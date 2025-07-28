@@ -92,7 +92,7 @@ __decorate([
 ], QuantityAdjustment.prototype, "isSent", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
-                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material' },
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
                 name: { type: String },
                 quantity: { type: Number },
                 code: { type: String },

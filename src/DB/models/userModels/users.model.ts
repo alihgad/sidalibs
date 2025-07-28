@@ -17,7 +17,7 @@ dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
 @Schema({
   timestamps: true,
   toJSON: { virtuals: true },
-  toObject: { virtuals: true },
+  toObject: { virtuals: true }
 })
 export class User {
   constructor(

@@ -26,7 +26,7 @@ let Ingredient = class Ingredient {
 };
 exports.Ingredient = Ingredient;
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Material', required: true }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Materials', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], Ingredient.prototype, "materialId", void 0);
 __decorate([
@@ -170,8 +170,8 @@ const getAdditionsOptionModel = (businessNumber) => {
     if (!connection.models['TaxGroup']) {
         connection.model('TaxGroup', tax_groups_model_1.TaxGroupSchema);
     }
-    if (!connection.models['Material']) {
-        connection.model('Material', materials_model_1.MaterialsSchema);
+    if (!connection.models['Materials']) {
+        connection.model('Materials', materials_model_1.MaterialsSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', branch_model_1.BranchSchema);

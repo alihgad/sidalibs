@@ -20,11 +20,10 @@ class DataBaseRepository {
         return result;
     }
     async findOne(query, select, populate, sort) {
-        console.log(sort);
         return (await this.model
             .findOne(query)
             .select(select || '')
-            .sort(sort)
+            .sort(sort?.replaceAll(",", " "))
             .populate(populate || []));
     }
     async find({ filter = {}, populate = [], page = 1, sort = '', select = ' ', limit, }) {

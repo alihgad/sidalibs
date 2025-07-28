@@ -92,7 +92,7 @@ __decorate([
 ], PriceAdjustment.prototype, "isSent", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
-                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Material' },
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
                 name: { type: String },
                 oldPrice: { type: Number },
                 newPrice: { type: Number },
@@ -136,9 +136,9 @@ const getPriceAdjustmentModel = (businessNumber) => {
         const { UserSchema } = require('../userModels/users.model');
         connection.model('User', UserSchema);
     }
-    if (!connection.models['Material']) {
+    if (!connection.models['Materials']) {
         const { MaterialsSchema } = require('./materials.model');
-        connection.model('Material', MaterialsSchema);
+        connection.model('Materials', MaterialsSchema);
     }
     if (!connection.models['Reason']) {
         const { ReasonSchema } = require('../TenantModels/reason.model');

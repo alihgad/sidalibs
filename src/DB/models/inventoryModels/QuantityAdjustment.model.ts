@@ -47,7 +47,7 @@ export class QuantityAdjustment {
   isSent!: boolean;
 
   @Prop({ type: [{
-    materialId: { type: Types.ObjectId, ref: 'Material' },
+    materialId: { type: Types.ObjectId, ref: 'Materials' },
     name: { type: String },
     quantity: { type: Number },
     code: { type: String },

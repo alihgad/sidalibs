@@ -43,7 +43,7 @@ export class PriceAdjustment {
   isSent!: boolean;
 
   @Prop({ type: [{
-    materialId: { type: Types.ObjectId, ref: 'Material' },
+    materialId: { type: Types.ObjectId, ref: 'Materials' },
     name: { type: String },
     oldPrice: { type: Number },
     newPrice: { type: Number },
@@ -96,9 +96,9 @@ export const getPriceAdjustmentModel = (businessNumber: string): DataBaseReposit
     const { UserSchema } = require('../userModels/users.model');
     connection.model('User', UserSchema);
   }
-  if (!connection.models['Material']) {
-    const { MaterialsSchema } = require('./materials.model');
-    connection.model('Material', MaterialsSchema);
+  if (!connection.models['Materials']) {
+      const { MaterialsSchema } = require('./materials.model');
+  connection.model('Materials', MaterialsSchema);
   }
   if (!connection.models['Reason']) {
     const { ReasonSchema } = require('../TenantModels/reason.model');
