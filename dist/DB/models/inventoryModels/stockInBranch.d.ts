@@ -1,9 +1,9 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class StockInBranch {
-    branchId?: string;
-    warehouseId?: string;
-    materialId: string;
+    branchId?: Types.ObjectId;
+    warehouseId?: Types.ObjectId;
+    materialId: Types.ObjectId;
     quantity: number;
     price?: number;
 }
