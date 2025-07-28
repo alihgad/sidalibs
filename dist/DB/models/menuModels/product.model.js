@@ -171,7 +171,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Product.prototype, "additions", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Material' }], default: [] }),
+    (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Materials' }], default: [] }),
     __metadata("design:type", Array)
 ], Product.prototype, "ingredients", void 0);
 __decorate([
@@ -241,8 +241,8 @@ const getProductModel = (businessNumber) => {
     if (!connection.models['Tag']) {
         connection.model('Tag', tags_model_1.TagSchema);
     }
-    if (!connection.models['Material']) {
-        connection.model('Material', materials_model_1.MaterialsSchema);
+    if (!connection.models['Materials']) {
+        connection.model('Materials', materials_model_1.MaterialsSchema);
     }
     if (!connection.models['Branch']) {
         connection.model('Branch', branch_model_1.BranchSchema);

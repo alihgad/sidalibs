@@ -65,7 +65,7 @@ export class Materials {
   @Prop({ type: [Types.ObjectId], ref: 'Tag', required: false })
   tags?: Types.ObjectId[];
 
-  @Prop({ type: [Types.ObjectId], ref: 'Material', required: false })
+  @Prop({ type: [Types.ObjectId], ref: 'Materials', required: false })
   ingredients?: Types.ObjectId[];
 
   @Prop({ type: Boolean, default: false })

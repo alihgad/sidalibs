@@ -110,7 +110,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Materials.prototype, "tags", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Material', required: false }),
+    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Materials', required: false }),
     __metadata("design:type", Array)
 ], Materials.prototype, "ingredients", void 0);
 __decorate([

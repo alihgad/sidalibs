@@ -12,7 +12,7 @@ import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
 
 @Schema()
 export class Ingredient {
-  @Prop({ type: Types.ObjectId, ref: 'Material', required: true })
+  @Prop({ type: Types.ObjectId, ref: 'Materials', required: true })
   materialId!: Types.ObjectId;
 
   @Prop({ type: Number, required: true })
@@ -119,8 +119,8 @@ export const getAdditionsOptionModel = (businessNumber: string): DataBaseReposit
   if (!connection.models['TaxGroup']) {
     connection.model('TaxGroup', TaxGroupSchema);
   }
-  if (!connection.models['Material']) {
-    connection.model('Material', MaterialsSchema);
+  if (!connection.models['Materials']) {
+    connection.model('Materials', MaterialsSchema);
   }
   if (!connection.models['Branch']) {
     connection.model('Branch', BranchSchema);

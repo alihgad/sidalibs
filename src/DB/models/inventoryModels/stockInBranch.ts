@@ -61,9 +61,9 @@ export const getStockInBranchModel = (businessNumber: string): DataBaseRepositor
     const { BranchSchema } = require('../TenantModels/branch.model');
     connection.model('Branch', BranchSchema);
   }
-  if (!connection.models['Material']) {
-    const { MaterialSchema } = require('./materials.model');
-    connection.model('Material', MaterialSchema);
+  if (!connection.models['Materials']) {
+    const { MaterialsSchema } = require('./materials.model');
+    connection.model('Materials', MaterialsSchema);
   }
 
   const model = connection.models['StockInBranch'] || connection.model('StockInBranch', StockInBranchSchema) as unknown as Model<StockInBranchDocument>;

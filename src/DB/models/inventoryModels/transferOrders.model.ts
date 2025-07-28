@@ -134,10 +134,10 @@ export const getTransferOrderModel = (businessNumber: string): DataBaseRepositor
     let connection = ConnectionManager.getConnection(businessNumber);
 
     // Register required models for refs
-    if (!connection.models['materials']) {
-        const { MaterialsSchema } = require('./materials.model');
-        connection.model('materials', MaterialsSchema);
-    }
+      if (!connection.models['Materials']) {
+    const { MaterialsSchema } = require('./materials.model');
+    connection.model('Materials', MaterialsSchema);
+  }
     if (!connection.models['user']) {
         const { UserSchema } = require('../userModels/users.model');
         connection.model('user', UserSchema);
