@@ -39,6 +39,7 @@ export class DataBaseRepository<TDocument> {
         populate?: PopulateOptions[],
         sort?: { [key: string]: 1 | -1 }
     ): Promise<TDocument | null> {
+        console.log(sort)
         return (await this.model
             .findOne(query)
             .select(select || '')

@@ -20,6 +20,7 @@ class DataBaseRepository {
         return result;
     }
     async findOne(query, select, populate, sort) {
+        console.log(sort);
         return (await this.model
             .findOne(query)
             .select(select || '')
