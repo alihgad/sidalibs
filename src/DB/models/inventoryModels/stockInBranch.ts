@@ -15,10 +15,10 @@ dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
   collection: 'stockInBranch'
 })
 export class StockInBranch {
-  @Prop({ type: String, ref: 'Branch ' })
+  @Prop({ type: String, ref: 'Branch' })
   branchId?: string;
 
-  @Prop({ type: String, ref: 'Warehouse ' })
+  @Prop({ type: String, ref: 'Warehouse' })
   warehouseId?: string;
 
   @Prop({ type: String, ref: 'Materials', required: true })
