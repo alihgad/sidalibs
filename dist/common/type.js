@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
@@ -447,4 +447,15 @@ var TransferType;
 (0, graphql_1.registerEnumType)(TransferType, {
     name: 'TransferType',
     description: 'The type of transfer',
+});
+var InventoryCountStatus;
+(function (InventoryCountStatus) {
+    InventoryCountStatus["DRAFT"] = "draft";
+    InventoryCountStatus["PENDING"] = "pending";
+    InventoryCountStatus["COMPLETED"] = "completed";
+    InventoryCountStatus["CANCELLED"] = "cancelled";
+})(InventoryCountStatus || (exports.InventoryCountStatus = InventoryCountStatus = {}));
+(0, graphql_1.registerEnumType)(InventoryCountStatus, {
+    name: 'InventoryCountStatus',
+    description: 'The status of the inventory count',
 });

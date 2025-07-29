@@ -475,6 +475,21 @@ registerEnumType(DeliveryTime, {
     description: 'The type of transfer',
   });
 
+  
+  export enum InventoryCountStatus {
+    DRAFT = 'draft',
+    PENDING = 'pending',
+    COMPLETED = 'completed',
+    CANCELLED = 'cancelled'
+  }
+
+  registerEnumType(InventoryCountStatus, {
+    name: 'InventoryCountStatus',
+    description: 'The status of the inventory count',
+  });
+
+
+
 
   
 
