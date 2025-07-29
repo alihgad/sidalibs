@@ -77,6 +77,7 @@ let AuthGuard = class AuthGuard {
                     }
                 }
                 request['user'] = user;
+                request['userId'] = user._id;
             }
             if (payload.lsid) {
                 request['lsid'] = payload.lsid;

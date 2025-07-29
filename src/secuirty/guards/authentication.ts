@@ -90,6 +90,7 @@ export class AuthGuard implements CanActivate {
         }
 
         request['user'] = user;
+        request['userId'] = user._id;
       }
 
 
