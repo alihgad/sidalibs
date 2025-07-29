@@ -58,6 +58,9 @@ export class InventoryCount {
   @Prop({ type: Types.ObjectId, ref: 'User' })
   createdBy!: Types.ObjectId;
 
+  @Prop({ type: Boolean, default: false })
+  isSubmitted!: boolean;
+
   @Prop({ type: Types.ObjectId, ref: 'User' })
   submittedBy?: Types.ObjectId;
 
