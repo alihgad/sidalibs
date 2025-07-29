@@ -79,6 +79,9 @@ export class InventoryCount {
   @Prop({ type: Date })
   deletedAt?: Date;
 
+  @Prop({ type: String })
+  notes?: string;
+
 
 }
 

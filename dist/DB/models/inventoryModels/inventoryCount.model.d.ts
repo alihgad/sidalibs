@@ -29,6 +29,7 @@ export declare class InventoryCount {
     isDeleted: boolean;
     deletedBy?: Types.ObjectId;
     deletedAt?: Date;
+    notes?: string;
 }
 export type InventoryCountDocument = HydratedDocument<InventoryCount>;
 export declare const InventoryCountSchema: import("mongoose").Schema<InventoryCount, Model<InventoryCount, any, any, any, import("mongoose").Document<unknown, any, InventoryCount, any> & InventoryCount & {

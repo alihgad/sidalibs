@@ -84,6 +84,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Date }),
     __metadata("design:type", Date)
 ], InventoryCount.prototype, "deletedAt", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String }),
+    __metadata("design:type", String)
+], InventoryCount.prototype, "notes", void 0);
 exports.InventoryCount = InventoryCount = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
