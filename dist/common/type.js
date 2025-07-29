@@ -452,7 +452,7 @@ var InventoryCountStatus;
 (function (InventoryCountStatus) {
     InventoryCountStatus["DRAFT"] = "draft";
     InventoryCountStatus["PENDING"] = "pending";
-    InventoryCountStatus["COMPLETED"] = "completed";
+    InventoryCountStatus["CLOSED"] = "closed";
     InventoryCountStatus["CANCELLED"] = "cancelled";
 })(InventoryCountStatus || (exports.InventoryCountStatus = InventoryCountStatus = {}));
 (0, graphql_1.registerEnumType)(InventoryCountStatus, {

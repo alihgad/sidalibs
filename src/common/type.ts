@@ -479,7 +479,7 @@ registerEnumType(DeliveryTime, {
   export enum InventoryCountStatus {
     DRAFT = 'draft',
     PENDING = 'pending',
-    COMPLETED = 'completed',
+    CLOSED = 'closed',
     CANCELLED = 'cancelled'
   }
 
