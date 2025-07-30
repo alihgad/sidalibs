@@ -25,7 +25,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: String }),
     __metadata("design:type", String)
-], Charges.prototype, "seconderyName", void 0);
+], Charges.prototype, "secondaryName", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: type_1.ChargeType, required: true }),
     __metadata("design:type", String)

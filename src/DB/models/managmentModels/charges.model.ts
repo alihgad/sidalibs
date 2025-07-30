@@ -15,7 +15,7 @@ export class Charges {
   name!: string;
 
   @Prop({ type: String })
-  seconderyName?: string;
+  secondaryName?: string;
 
   @Prop({ type: ChargeType, required: true })
   type!:ChargeType;

@@ -3,7 +3,7 @@ import { DataBaseRepository } from '../../DataBase.repository';
 import { ChargeType, OrderType } from '../../../common/type';
 export declare class Charges {
     name: string;
-    seconderyName?: string;
+    secondaryName?: string;
     type: ChargeType;
     isOpenValue: boolean;
     value: number;
