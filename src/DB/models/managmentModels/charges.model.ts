@@ -23,10 +23,8 @@ export class Charges {
   @Prop({ type: Boolean, required: true })
   isOpenValue!: boolean;
 
-  @Prop({ type: Number, required: function(this: Charges) {
-    return !this.isOpenValue;
-  }})
-  value!: number;
+  @Prop({ type: Number})
+  value?: number;
 
   @Prop({ type: [OrderType], required: true })
   applyOnOrderTypes!: OrderType[];
@@ -38,10 +36,8 @@ export class Charges {
   @Prop({ type: Boolean , default: false })
   applyOnAllBranches!: boolean;
 
-  @Prop({ type: [Types.ObjectId], ref: 'Branch' , required: function(this: Charges) {
-    return !this.applyOnAllBranches;
-  }})
-  applyOnBranches!: Types.ObjectId[];
+  @Prop({ type: [Types.ObjectId], ref: 'Branch' })
+  applyOnBranches?: Types.ObjectId[];
 
 
   @Prop({ type: Boolean , default: false })

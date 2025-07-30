@@ -6,11 +6,11 @@ export declare class Charges {
     secondaryName?: string;
     type: ChargeType;
     isOpenValue: boolean;
-    value: number;
+    value?: number;
     applyOnOrderTypes: OrderType[];
     taxGroup: Types.ObjectId;
     applyOnAllBranches: boolean;
-    applyOnBranches: Types.ObjectId[];
+    applyOnBranches?: Types.ObjectId[];
     autoApply: boolean;
     withoutDiscounts: boolean;
     createdBy: Types.ObjectId;

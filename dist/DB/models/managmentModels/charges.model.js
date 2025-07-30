@@ -35,9 +35,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Charges.prototype, "isOpenValue", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: function () {
-            return !this.isOpenValue;
-        } }),
+    (0, mongoose_1.Prop)({ type: Number }),
     __metadata("design:type", Number)
 ], Charges.prototype, "value", void 0);
 __decorate([
@@ -53,9 +51,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Charges.prototype, "applyOnAllBranches", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Branch', required: function () {
-            return !this.applyOnAllBranches;
-        } }),
+    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Branch' }),
     __metadata("design:type", Array)
 ], Charges.prototype, "applyOnBranches", void 0);
 __decorate([
