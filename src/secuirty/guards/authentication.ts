@@ -17,7 +17,7 @@ import {
 } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { verifyToken } from '../Jwt';
-import { getUserModel } from '../../DB/models/userModels/users.model';
+import { getUserModel } from '../../DB/models/managmentModels/users.model';
 import { CryptoHelper } from '../crypto.helper';
 import { getTenantModel } from '../../DB/models/TenantModels/tenant.model';
 import { PlanType } from '../../common/type';
@@ -90,6 +90,7 @@ export class AuthGuard implements CanActivate {
         }
 
         request['user'] = user;
+        request['userId'] = user._id;
       }
 
 

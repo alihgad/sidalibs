@@ -22,6 +22,7 @@ export declare class InventoryCount {
     }[];
     workDate: Date;
     createdBy: Types.ObjectId;
+    isSubmitted: boolean;
     submittedBy?: Types.ObjectId;
     submittedAt?: Date;
     totalVarianceCost: number;

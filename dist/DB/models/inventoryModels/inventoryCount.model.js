@@ -57,6 +57,10 @@ __decorate([
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], InventoryCount.prototype, "createdBy", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], InventoryCount.prototype, "isSubmitted", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], InventoryCount.prototype, "submittedBy", void 0);

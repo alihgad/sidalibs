@@ -79,12 +79,13 @@ __exportStar(require("./DB/models/TenantModels/temporaryEvents.model"), exports)
 __exportStar(require("./DB/models/TenantModels/tenant.model"), exports);
 __exportStar(require("./DB/models/TenantModels/payment.model"), exports);
 __exportStar(require("./DB/models/TenantModels/priceTagApplies.model"), exports);
-// ========== User Models ==========
-__exportStar(require("./DB/models/userModels/customers.model"), exports);
-__exportStar(require("./DB/models/userModels/permission.model"), exports);
-__exportStar(require("./DB/models/userModels/roles.model"), exports);
-__exportStar(require("./DB/models/userModels/users.model"), exports);
-__exportStar(require("./DB/models/userModels/sales.model"), exports);
+// ========== Managment Models ==========
+__exportStar(require("./DB/models/managmentModels/customers.model"), exports);
+__exportStar(require("./DB/models/managmentModels/permission.model"), exports);
+__exportStar(require("./DB/models/managmentModels/roles.model"), exports);
+__exportStar(require("./DB/models/managmentModels/users.model"), exports);
+__exportStar(require("./DB/models/managmentModels/sales.model"), exports);
+__exportStar(require("./DB/models/managmentModels/charges.model"), exports);
 // notifications
 exports.notifications = __importStar(require("./notifications/notifications"));
 // permissions

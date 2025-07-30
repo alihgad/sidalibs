@@ -232,7 +232,11 @@ export declare enum TransferType {
 export declare enum InventoryCountStatus {
     DRAFT = "draft",
     PENDING = "pending",
-    COMPLETED = "completed",
+    CLOSED = "closed",
     CANCELLED = "cancelled"
+}
+export declare enum ChargeType {
+    VALUE = "value",
+    PERCENTAGE = "percentage"
 }
 //# sourceMappingURL=type.d.ts.map

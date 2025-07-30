@@ -479,7 +479,7 @@ registerEnumType(DeliveryTime, {
   export enum InventoryCountStatus {
     DRAFT = 'draft',
     PENDING = 'pending',
-    COMPLETED = 'completed',
+    CLOSED = 'closed',
     CANCELLED = 'cancelled'
   }
 
@@ -488,6 +488,16 @@ registerEnumType(DeliveryTime, {
     description: 'The status of the inventory count',
   });
 
+
+  export enum ChargeType {
+    VALUE = 'value',
+    PERCENTAGE = 'percentage'
+  }
+
+  registerEnumType(ChargeType, {
+    name: 'ChargeType',
+    description: 'The type of charge',
+  });
 
 
 
