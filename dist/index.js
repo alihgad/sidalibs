@@ -87,6 +87,7 @@ __exportStar(require("./DB/models/managmentModels/roles.model"), exports);
 __exportStar(require("./DB/models/managmentModels/users.model"), exports);
 __exportStar(require("./DB/models/managmentModels/sales.model"), exports);
 __exportStar(require("./DB/models/managmentModels/charges.model"), exports);
+__exportStar(require("./DB/models/managmentModels/ketchenFlow"), exports);
 // notifications
 exports.notifications = __importStar(require("./notifications/notifications"));
 // permissions
