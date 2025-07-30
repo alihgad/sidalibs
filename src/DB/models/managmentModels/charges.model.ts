@@ -17,48 +17,48 @@ export class Charges {
   @Prop({ type: String , unique: true })
   secondaryName?: string;
 
-  @Prop({ type: ChargeType, required: true })
-  type!:ChargeType;
+  @Prop({ type: String, enum: ChargeType, required: true })
+  type!: ChargeType;
 
-  @Prop({ type: Boolean, required: true })
-  isOpenValue!: boolean;
+  @Prop({ type: Boolean, required: false })
+  isOpenValue?: boolean;
 
   @Prop({ type: Number})
   value?: number;
 
-  @Prop({ type: [OrderType], required: true })
-  applyOnOrderTypes!: OrderType[];
+  @Prop({ type: [String], enum: OrderType, required: false })
+  applyOnOrderTypes?: OrderType[];
 
 
   @Prop({ type: Types.ObjectId, ref: 'TaxGroup' })
-  taxGroup!: Types.ObjectId;
+  taxGroup?: Types.ObjectId;
 
   @Prop({ type: Boolean , default: false })
-  applyOnAllBranches!: boolean;
+  applyOnAllBranches?: boolean;
 
   @Prop({ type: [Types.ObjectId], ref: 'Branch' })
   applyOnBranches?: Types.ObjectId[];
 
 
   @Prop({ type: Boolean , default: false })
-  autoApply!: boolean;
+  autoApply?: boolean;
 
 
   @Prop({ type: Boolean , default: false })
-  withoutDiscounts!: boolean;
+  withoutDiscounts?: boolean;
 
   @Prop({ type: Types.ObjectId, ref: 'User' })
-  createdBy!: Types.ObjectId;
+  createdBy?: Types.ObjectId;
 
 
   @Prop({ type: Boolean , default: false })
-  isDeleted!: boolean;
+  isDeleted?: boolean;
 
   @Prop({ type: Types.ObjectId, ref: 'User' })
-  deletedBy!: Types.ObjectId;
+  deletedBy?: Types.ObjectId;
 
   @Prop({ type: Date })
-  deletedAt!: Date;
+  deletedAt?: Date;
 
 
 }

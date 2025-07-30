@@ -27,11 +27,11 @@ __decorate([
     __metadata("design:type", String)
 ], Charges.prototype, "secondaryName", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: type_1.ChargeType, required: true }),
+    (0, mongoose_1.Prop)({ type: String, enum: type_1.ChargeType, required: true }),
     __metadata("design:type", String)
 ], Charges.prototype, "type", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Boolean, required: true }),
+    (0, mongoose_1.Prop)({ type: Boolean, required: false }),
     __metadata("design:type", Boolean)
 ], Charges.prototype, "isOpenValue", void 0);
 __decorate([
@@ -39,7 +39,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Charges.prototype, "value", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [type_1.OrderType], required: true }),
+    (0, mongoose_1.Prop)({ type: [String], enum: type_1.OrderType, required: false }),
     __metadata("design:type", Array)
 ], Charges.prototype, "applyOnOrderTypes", void 0);
 __decorate([

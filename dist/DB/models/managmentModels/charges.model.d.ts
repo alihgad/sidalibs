@@ -5,18 +5,18 @@ export declare class Charges {
     name: string;
     secondaryName?: string;
     type: ChargeType;
-    isOpenValue: boolean;
+    isOpenValue?: boolean;
     value?: number;
-    applyOnOrderTypes: OrderType[];
-    taxGroup: Types.ObjectId;
-    applyOnAllBranches: boolean;
+    applyOnOrderTypes?: OrderType[];
+    taxGroup?: Types.ObjectId;
+    applyOnAllBranches?: boolean;
     applyOnBranches?: Types.ObjectId[];
-    autoApply: boolean;
-    withoutDiscounts: boolean;
-    createdBy: Types.ObjectId;
-    isDeleted: boolean;
-    deletedBy: Types.ObjectId;
-    deletedAt: Date;
+    autoApply?: boolean;
+    withoutDiscounts?: boolean;
+    createdBy?: Types.ObjectId;
+    isDeleted?: boolean;
+    deletedBy?: Types.ObjectId;
+    deletedAt?: Date;
 }
 export type ChargesDocument = HydratedDocument<Charges>;
 export declare const chargeschema: import("mongoose").Schema<Charges, Model<Charges, any, any, any, import("mongoose").Document<unknown, any, Charges, any> & Charges & {
