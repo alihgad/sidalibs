@@ -19,11 +19,11 @@ let Charges = class Charges {
 };
 exports.Charges = Charges;
 __decorate([
-    (0, mongoose_1.Prop)({ type: String, required: true }),
+    (0, mongoose_1.Prop)({ type: String, required: true, unique: true }),
     __metadata("design:type", String)
 ], Charges.prototype, "name", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
+    (0, mongoose_1.Prop)({ type: String, unique: true }),
     __metadata("design:type", String)
 ], Charges.prototype, "secondaryName", void 0);
 __decorate([

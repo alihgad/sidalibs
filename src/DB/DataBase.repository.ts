@@ -61,7 +61,7 @@ export class DataBaseRepository<TDocument> {
         if (sort) query?.sort(sort?.replaceAll(",", " "));
         if (limit) query.limit(limit);
         if (page && limit) query.skip((page - 1) * limit);
-        return await query.exec();
+        return await query.exec() ;
     }
 
     async findById(

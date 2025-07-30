@@ -14,5 +14,6 @@ export declare const permissionsCategorys: {
     count_sheet_permissions: string;
     transfer_permissions: string;
     transfer_order_permissions: string;
+    charges_permissions: string;
 };
 //# sourceMappingURL=permissionsCategorys.d.ts.map

@@ -16,5 +16,6 @@ exports.permissionsCategorys = {
     inventory_spot_permissions: "inventory_spot_permissions",
     count_sheet_permissions: "count_sheet_permissions",
     transfer_permissions: "transfer_permissions",
-    transfer_order_permissions: "transfer_order_permissions"
+    transfer_order_permissions: "transfer_order_permissions",
+    charges_permissions: "charges_permissions"
 };

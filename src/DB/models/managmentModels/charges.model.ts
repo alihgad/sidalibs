@@ -11,10 +11,10 @@ import { ChargeType, OrderType } from '../../../common/type';
   collection: 'charges'
 })
 export class Charges {
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: true , unique: true })
   name!: string;
 
-  @Prop({ type: String })
+  @Prop({ type: String , unique: true })
   secondaryName?: string;
 
   @Prop({ type: ChargeType, required: true })

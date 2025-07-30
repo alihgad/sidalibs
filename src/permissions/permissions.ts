@@ -773,6 +773,19 @@ export let permissions = [
         description: 'السماح للمستخدم بعرض عمليات النقل',
         category: permissionsCategorys.transfer_order_permissions,
         key: 'read_transfer_order'
+    },
+    // Charges Permissions
+    {
+        name: 'إدارة الرسوم',
+        description: 'السماح للمستخدم بإدارة الرسوم',
+        category: permissionsCategorys.charges_permissions,
+        key: 'manage_charges'
+    },
+    {
+        name: 'عرض الرسوم',
+        description: 'السماح للمستخدم بعرض الرسوم',
+        category: permissionsCategorys.charges_permissions,
+        key: 'read_charges'
     }
 ];
 //  ده بدل ما تعمل الاوبجكت الى تحت يدوي شغل دي وهيطلعلك الاوبجكت فى كونسول لوج
@@ -905,6 +918,8 @@ export const permissionKeys = {
     "manage_transfer": "manage_transfer",
     "read_transfer": "read_transfer",
     "manage_transfer_order": "manage_transfer_order",
-    "read_transfer_order": "read_transfer_order"
+    "read_transfer_order": "read_transfer_order",
+    "manage_charges": "manage_charges",
+    "read_charges": "read_charges"
   }
   
