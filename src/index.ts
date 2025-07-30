@@ -56,12 +56,13 @@ export * from './DB/models/TenantModels/payment.model';
 export * from './DB/models/TenantModels/priceTagApplies.model';
 
 
-// ========== User Models ==========
-export * from './DB/models/userModels/customers.model';
-export * from './DB/models/userModels/permission.model';
-export * from './DB/models/userModels/roles.model';
-export * from './DB/models/userModels/users.model';
-export * from './DB/models/userModels/sales.model';
+// ========== Managment Models ==========
+export * from './DB/models/managmentModels/customers.model';
+export * from './DB/models/managmentModels/permission.model';
+export * from './DB/models/managmentModels/roles.model';
+export * from './DB/models/managmentModels/users.model';
+export * from './DB/models/managmentModels/sales.model';
+export * from './DB/models/managmentModels/charges.model';
 
 
 

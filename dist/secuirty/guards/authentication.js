@@ -23,7 +23,7 @@ catch (error) {
 const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
 const Jwt_1 = require("../Jwt");
-const users_model_1 = require("../../DB/models/userModels/users.model");
+const users_model_1 = require("../../DB/models/managmentModels/users.model");
 const crypto_helper_1 = require("../crypto.helper");
 const tenant_model_1 = require("../../DB/models/TenantModels/tenant.model");
 const type_1 = require("../../common/type");

@@ -235,4 +235,8 @@ export declare enum InventoryCountStatus {
     CLOSED = "closed",
     CANCELLED = "cancelled"
 }
+export declare enum ChargeType {
+    VALUE = "value",
+    PERCENTAGE = "percentage"
+}
 //# sourceMappingURL=type.d.ts.map

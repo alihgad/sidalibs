@@ -489,6 +489,16 @@ registerEnumType(DeliveryTime, {
   });
 
 
+  export enum ChargeType {
+    VALUE = 'value',
+    PERCENTAGE = 'percentage'
+  }
+
+  registerEnumType(ChargeType, {
+    name: 'ChargeType',
+    description: 'The type of charge',
+  });
+
 
 
   
