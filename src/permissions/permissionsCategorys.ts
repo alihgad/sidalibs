@@ -14,5 +14,6 @@ export const permissionsCategorys = {
     count_sheet_permissions:"count_sheet_permissions",
     transfer_permissions:"transfer_permissions",
     transfer_order_permissions:"transfer_order_permissions",
-    charges_permissions:"charges_permissions"
+    charges_permissions:"charges_permissions",
+    kitchen_flow_permissions:"kitchen_flow_permissions"
 }
