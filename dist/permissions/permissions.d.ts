@@ -132,5 +132,7 @@ export declare const permissionKeys: {
     read_transfer_order: string;
     manage_charges: string;
     read_charges: string;
+    manage_kitchen_flow: string;
+    read_kitchen_flow: string;
 };
 //# sourceMappingURL=permissions.d.ts.map

@@ -779,6 +779,18 @@ exports.permissions = [
         description: 'السماح للمستخدم بعرض الرسوم',
         category: permissionsCategorys_1.permissionsCategorys.charges_permissions,
         key: 'read_charges'
+    },
+    {
+        name: 'إدارة المسارات الطبخية',
+        description: 'السماح للمستخدم بإدارة المسارات الطبخية',
+        category: permissionsCategorys_1.permissionsCategorys.kitchen_flow_permissions,
+        key: 'manage_kitchen_flow'
+    },
+    {
+        name: 'عرض المسارات الطبخية',
+        description: 'السماح للمستخدم بعرض المسارات الطبخية',
+        category: permissionsCategorys_1.permissionsCategorys.kitchen_flow_permissions,
+        key: 'read_kitchen_flow'
     }
 ];
 //  ده بدل ما تعمل الاوبجكت الى تحت يدوي شغل دي وهيطلعلك الاوبجكت فى كونسول لوج
@@ -913,5 +925,7 @@ exports.permissionKeys = {
     "manage_transfer_order": "manage_transfer_order",
     "read_transfer_order": "read_transfer_order",
     "manage_charges": "manage_charges",
-    "read_charges": "read_charges"
+    "read_charges": "read_charges",
+    "manage_kitchen_flow": "manage_kitchen_flow",
+    "read_kitchen_flow": "read_kitchen_flow"
 };
