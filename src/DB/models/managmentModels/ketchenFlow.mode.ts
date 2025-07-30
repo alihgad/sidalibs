@@ -47,6 +47,12 @@ export class KitchenFlow {
     @Prop({ type: Date })
     deletedAt?: Date;
 
+    @Prop({ type: Types.ObjectId, ref: 'User' })
+    createdAt?: Date;
+
+    @Prop({ type: Types.ObjectId, ref: 'User' })
+    updatedAt?: Date;
+
 
     @Prop({ type: Types.ObjectId, ref: 'User' })
     createdBy?: Types.ObjectId;
