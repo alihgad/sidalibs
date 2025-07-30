@@ -34,6 +34,8 @@ export * from './DB/models/menuModels/product.model';
 export * from './DB/models/menuModels/additions.model';
 export * from './DB/models/menuModels/giftCards.model';
 export * from './DB/models/menuModels/additionsOptions.model';
+export * from './DB/models/menuModels/Combos.model';
+
 
 // ========== Tenant Models ==========
 export * from './DB/models/TenantModels/branch.model';
