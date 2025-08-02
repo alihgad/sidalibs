@@ -5,12 +5,11 @@ import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { rolesSchema } from './roles.model';
 import { UserSchema } from './users.model';
-import { arabicApplyOn, englishApplyOn } from '../../../common/applyOn';
+import { notificationsKyes } from '../../../notifications/notifications';
 
 // Validation function to check if applyOn values are valid
-const validateApplyOn = (applyOn: string[]): boolean => {
-  const allValidValues = [...arabicApplyOn, ...englishApplyOn];
-  return applyOn.every(value => allValidValues.includes(value));
+const validateNotificationsKyes = (input: string[]): boolean => {
+  return input.every(value => Object.values(notificationsKyes).includes(value));
 };
 
 @Schema({
@@ -55,8 +54,8 @@ export class Notification {
     type: [String], 
     required: true,
     validate: {
-      validator: validateApplyOn,
-      message: 'applyOn values must be from the predefined list in applyOn.ts'
+      validator: validateNotificationsKyes,
+      message: 'applyOn values must be from the predefined list in notifications.ts'
     }
   })
   applyOn: string[];
@@ -95,8 +94,8 @@ export const NotificationModel = MongooseModule.forFeature([{ name: 'Notificatio
 // Pre-save hook to validate applyOn values
 NotificationSchema.pre('save', function(next) {
   if (this.applyOn && this.applyOn.length > 0) {
-    if (!validateApplyOn(this.applyOn)) {
-      return next(new Error('Invalid applyOn values. All values must be from the predefined list in applyOn.ts'));
+    if (!validateNotificationsKyes(this.applyOn)) {
+      return next(new Error('Invalid applyOn values. All values must be from the predefined list in notifications.ts'));
     }
   }
   next();
