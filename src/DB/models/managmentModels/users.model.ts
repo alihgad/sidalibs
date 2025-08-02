@@ -109,10 +109,10 @@ export const USER_MODEL = 'USER_MODEL';
 export const UserModel = MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]);
 
 // Define virtual field userName
-UserSchema.virtual('userName').get(function (this: User) {
+UserSchema.virtual('userName').get(function (this: UserDocument) {
   return `${this.firstName} ${this.lastName}`;
 });
-UserSchema.pre("save", function (next) {
+UserSchema.pre("save", function (next: any) {
   if (this.isModified('password')) {
     if (this.password !== undefined) {
       this.password = Hash(this.password, Number(process.env.SALT_ROUND) || 10);
