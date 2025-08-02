@@ -1,6 +1,7 @@
 // common
 export * from './common/pagination.type';
 export * from './common/type';
+export * from './common/audit';
 export * from './common/decorators/is-valid-date.decorator';
 export * from './common/scalars/object-id.scalar';
 export * from './common/validators/IsPhoneWithCountryCode';
