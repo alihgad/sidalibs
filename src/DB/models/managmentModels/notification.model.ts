@@ -107,7 +107,7 @@ NotificationSchema.index({ isActive: 1, triggerType: 1 });
 NotificationSchema.index({ usersToBeNotified: 1 });
 NotificationSchema.index({ rolesToBeNotified: 1 });
 
-export const getNotificationModel = (businessNumber: string): DataBaseRepository<NotificationDocument> => {
+export const getManagmentNotificationModel = (businessNumber: string): DataBaseRepository<NotificationDocument> => {
   if (!businessNumber) {
     throw new Error("businessNumber is required in notification model")
   }
