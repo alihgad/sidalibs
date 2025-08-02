@@ -65,7 +65,9 @@ export * from './DB/models/managmentModels/roles.model';
 export * from './DB/models/managmentModels/users.model';
 export * from './DB/models/managmentModels/sales.model';
 export * from './DB/models/managmentModels/charges.model';
-export * from './DB/models/managmentModels/ketchenFlow.mode';
+export * from './DB/models/managmentModels/ketchenFlow.model';
+export * from './DB/models/managmentModels/notification.model';
+
 
 
 
