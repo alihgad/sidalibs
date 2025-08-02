@@ -17,11 +17,10 @@ const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 const roles_model_1 = require("./roles.model");
 const users_model_1 = require("./users.model");
-const applyOn_1 = require("../../../common/applyOn");
+const notifications_1 = require("../../../notifications/notifications");
 // Validation function to check if applyOn values are valid
-const validateApplyOn = (applyOn) => {
-    const allValidValues = [...applyOn_1.arabicApplyOn, ...applyOn_1.englishApplyOn];
-    return applyOn.every(value => allValidValues.includes(value));
+const validateNotificationsKyes = (input) => {
+    return input.every(value => Object.values(notifications_1.notificationsKyes).includes(value));
 };
 let Notification = class Notification {
     constructor(name, triggerType, applyOn, frequency, usersToBeNotified, rolesToBeNotified, isActive, customSchedule, triggerCount) {
@@ -54,8 +53,8 @@ __decorate([
         type: [String],
         required: true,
         validate: {
-            validator: validateApplyOn,
-            message: 'applyOn values must be from the predefined list in applyOn.ts'
+            validator: validateNotificationsKyes,
+            message: 'applyOn values must be from the predefined list in notifications.ts'
         }
     }),
     __metadata("design:type", Array)
@@ -106,8 +105,8 @@ exports.NotificationModel = mongoose_1.MongooseModule.forFeature([{ name: 'Notif
 // Pre-save hook to validate applyOn values
 exports.NotificationSchema.pre('save', function (next) {
     if (this.applyOn && this.applyOn.length > 0) {
-        if (!validateApplyOn(this.applyOn)) {
-            return next(new Error('Invalid applyOn values. All values must be from the predefined list in applyOn.ts'));
+        if (!validateNotificationsKyes(this.applyOn)) {
+            return next(new Error('Invalid applyOn values. All values must be from the predefined list in notifications.ts'));
         }
     }
     next();
