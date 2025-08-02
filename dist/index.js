@@ -40,6 +40,7 @@ exports.notifications = void 0;
 // common
 __exportStar(require("./common/pagination.type"), exports);
 __exportStar(require("./common/type"), exports);
+__exportStar(require("./common/audit"), exports);
 __exportStar(require("./common/decorators/is-valid-date.decorator"), exports);
 __exportStar(require("./common/scalars/object-id.scalar"), exports);
 __exportStar(require("./common/validators/IsPhoneWithCountryCode"), exports);

@@ -210,4 +210,87 @@ export async function logFinancialOperation(
     status: 'SUCCESS',
     context,
   });
-} 
+}
+
+/**
+ * Helper function for logging user login
+ */
+export async function logUserLogin(
+  businessNumber: string,
+  performedBy: string,
+  userName: string,
+  context?: AuditContext
+): Promise<void> {
+  await createAuditLog({
+    businessNumber,
+    performedBy,
+    actionType: LogActionType.LOGIN,
+    actionName: 'User Login',
+    actionDescription: `User ${userName} logged in successfully`,
+    module: 'User Management',
+    entityType: 'User',
+    entityId: performedBy,
+    status: 'SUCCESS',
+    context,
+  });
+}
+
+/**
+ * Helper function for logging user logout
+ */
+export async function logUserLogout(
+  businessNumber: string,
+  performedBy: string,
+  userName: string,
+  context?: AuditContext
+): Promise<void> {
+  await createAuditLog({
+    businessNumber,
+    performedBy,
+    actionType: LogActionType.LOGOUT,
+    actionName: 'User Logout',
+    actionDescription: `User ${userName} logged out successfully`,
+    module: 'User Management',
+    entityType: 'User',
+    entityId: performedBy,
+    status: 'SUCCESS',
+    context,
+  });
+}
+
+/**
+ * Helper function for logging session termination
+ */
+export async function logSessionTermination(
+  businessNumber: string,
+  performedBy: string,
+  userName: string,
+  context?: AuditContext
+): Promise<void> {
+  await createAuditLog({
+    businessNumber,
+    performedBy,
+    actionType: LogActionType.LOGOUT,
+    actionName: 'Session Termination',
+    actionDescription: `Session terminated for user ${userName}`,
+    module: 'User Management',
+    entityType: 'User',
+    entityId: performedBy,
+    status: 'SUCCESS',
+    context,
+  });
+}
+
+// Export all logging functions as a single object
+export const logActions = {
+  createAuditLog,
+  logCreate,
+  logUpdate,
+  logDelete,
+  logError,
+  logInventoryOperation,
+  logFinancialOperation,
+  logUserLogin,
+  logUserLogout,
+  logSessionTermination,
+};
