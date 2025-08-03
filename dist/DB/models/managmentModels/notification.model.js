@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getManagmentNotificationModel = exports.NotificationModel = exports.NOTIFICATION_MODEL = exports.NotificationSchema = exports.Notification = void 0;
-/* eslint-disable prettier/prettier */
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
@@ -31,8 +30,6 @@ let Notification = class Notification {
         this.usersToBeNotified = usersToBeNotified || [];
         this.rolesToBeNotified = rolesToBeNotified || [];
         this.isActive = isActive !== undefined ? isActive : true;
-        this.customSchedule = customSchedule;
-        this.triggerCount = triggerCount || 0;
     }
 };
 exports.Notification = Notification;
@@ -79,18 +76,6 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: true }),
     __metadata("design:type", Boolean)
 ], Notification.prototype, "isActive", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
-], Notification.prototype, "customSchedule", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Date }),
-    __metadata("design:type", Date)
-], Notification.prototype, "lastTriggered", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
-    __metadata("design:type", Number)
-], Notification.prototype, "triggerCount", void 0);
 exports.Notification = Notification = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' },
@@ -108,6 +93,9 @@ exports.NotificationSchema.pre('save', function (next) {
         if (!validateNotificationsKyes(this.applyOn)) {
             return next(new Error('Invalid applyOn values. All values must be from the predefined list in notifications.ts'));
         }
+    }
+    if (this.usersToBeNotified.length > 0 && this.rolesToBeNotified.length > 0) {
+        return next(new Error('usersToBeNotified and rolesToBeNotified cannot be used together'));
     }
     next();
 });

@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
@@ -36,8 +36,7 @@ export class Notification {
     this.usersToBeNotified = usersToBeNotified || [];
     this.rolesToBeNotified = rolesToBeNotified || [];
     this.isActive = isActive !== undefined ? isActive : true;
-    this.customSchedule = customSchedule;
-    this.triggerCount = triggerCount || 0;
+
   }
 
   @Prop({ type: String, required: true, minlength: 2, maxlength: 100 })
@@ -76,14 +75,6 @@ export class Notification {
   @Prop({ type: Boolean, default: true })
   isActive: boolean;
 
-  @Prop({ type: String })
-  customSchedule?: string;
-
-  @Prop({ type: Date })
-  lastTriggered?: Date;
-
-  @Prop({ type: Number, default: 0 })
-  triggerCount: number;
 }
 
 export type NotificationDocument = HydratedDocument<Notification>;
@@ -98,6 +89,12 @@ NotificationSchema.pre('save', function(next) {
       return next(new Error('Invalid applyOn values. All values must be from the predefined list in notifications.ts'));
     }
   }
+
+  if(this.usersToBeNotified.length > 0 && this.rolesToBeNotified.length > 0) {
+    return next(new Error('usersToBeNotified and rolesToBeNotified cannot be used together'));
+  }
+
+
   next();
 });
 
@@ -110,6 +107,7 @@ export const getManagmentNotificationModel = (businessNumber: string): DataBaseR
   if (!businessNumber) {
     throw new Error("businessNumber is required in notification model")
   }
+
   let connection = ConnectionManager.getConnection(businessNumber);
   
   // Register required models for refs

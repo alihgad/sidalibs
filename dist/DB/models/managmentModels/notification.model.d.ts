@@ -9,9 +9,6 @@ export declare class Notification {
     usersToBeNotified: Types.ObjectId[];
     rolesToBeNotified: Types.ObjectId[];
     isActive: boolean;
-    customSchedule?: string;
-    lastTriggered?: Date;
-    triggerCount: number;
 }
 export type NotificationDocument = HydratedDocument<Notification>;
 export declare const NotificationSchema: import("mongoose").Schema<Notification, Model<Notification, any, any, any, import("mongoose").Document<unknown, any, Notification, any> & Notification & {
