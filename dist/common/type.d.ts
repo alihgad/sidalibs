@@ -239,4 +239,17 @@ export declare enum ChargeType {
     VALUE = "value",
     PERCENTAGE = "percentage"
 }
+export declare enum KitchenFlowStatus {
+    PENDING = "PENDING",
+    IN_PROGRESS = "IN_PROGRESS",
+    COMPLETED = "COMPLETED",
+    CANCELLED = "CANCELLED"
+}
+export declare enum KitchenFlowType {
+    ORDER = "ORDER",
+    PREPARATION = "PREPARATION",
+    COOKING = "COOKING",
+    ASSEMBLY = "ASSEMBLY",
+    PACKAGING = "PACKAGING"
+}
 //# sourceMappingURL=type.d.ts.map

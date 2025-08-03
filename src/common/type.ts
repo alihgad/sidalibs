@@ -500,6 +500,36 @@ registerEnumType(DeliveryTime, {
   });
 
 
+  export enum KitchenFlowStatus {
+  PENDING = 'PENDING',
+  IN_PROGRESS = 'IN_PROGRESS',
+  COMPLETED = 'COMPLETED',
+  CANCELLED = 'CANCELLED'
+}
+
+
+
+export enum KitchenFlowType {
+  ORDER = 'ORDER',
+  PREPARATION = 'PREPARATION',
+  COOKING = 'COOKING',
+  ASSEMBLY = 'ASSEMBLY',
+  PACKAGING = 'PACKAGING'
+}
+
+registerEnumType(KitchenFlowStatus, {
+    name: 'KitchenFlowStatus',
+    description: 'The status of the kitchen flow',
+  });
+
+  registerEnumType(KitchenFlowType, {
+    name: 'KitchenFlowType',
+    description: 'The type of kitchen flow',
+  });
+
+
+
+
 
   
 
