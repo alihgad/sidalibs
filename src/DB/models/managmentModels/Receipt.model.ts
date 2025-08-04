@@ -9,7 +9,7 @@ import { ConnectionManager } from '../../connection.manager';
   toObject: { virtuals: true },
   collection: 'receipts'
 })
-export class Receipt {
+export class ReceiptForm {
   @Prop()
   logoUrl?: {
     public_id: string;
@@ -17,13 +17,13 @@ export class Receipt {
   }; // صورة الشعار
 
   @Prop({ type: [String], enum: ['main', 'localized' , "main & localized"] , default: ["main & localized"] })
-  printLanguages!: string[]; // لغة أو أكثر للطباعة
+  printLanguages?: string[]; // لغة أو أكثر للطباعة
 
   @Prop({ enum: ['ar', 'en'], default: 'ar' })
-  primaryLanguage!: string;
+  primaryLanguage?: string;
 
   @Prop({ enum: ['ar', 'en'], default: 'en' })
-  secondaryLanguage!: string;
+  secondaryLanguage?: string;
 
   @Prop()
   headerText?: string; // أعلى الفاتورة
@@ -35,46 +35,46 @@ export class Receipt {
   invoiceTitle?: string; // عنوان الفاتورة
 
   @Prop({ default: true })
-  showOrderNumber!: boolean;
+  showOrderNumber?: boolean;
 
   @Prop({ default: false })
-  showCalories!: boolean;
+  showCalories?: boolean;
 
   @Prop({ default: true })
-  showSubtotal!: boolean;
+  showSubtotal?: boolean;
 
   @Prop({ default: false })
-  showRounding!: boolean;
+  showRounding?: boolean;
 
   @Prop({ default: false })
-  showClosedBy!: boolean;
+  showClosedBy?: boolean;
 
   @Prop({ default: false })
-  showCreatedBy!: boolean;
+  showCreatedBy?: boolean;
 
   @Prop({ default: false })
-  showCheckNumber!: boolean;
+  showCheckNumber?: boolean;
 
   @Prop({ default: false })
-  hideFreeModiferOptions!: boolean;
+  hideFreeModiferOptions?: boolean;
 
   @Prop({ default: false })
-  printCustomerPhoneNumberInPickupOrders!: boolean;
+  printCustomerPhoneNumberInPickupOrders?: boolean;
 
 }
 
-export type ReceiptDocument = HydratedDocument<Receipt>;
-export const ReceiptSchema = SchemaFactory.createForClass(Receipt);
+export type ReceiptFormDocument = HydratedDocument<ReceiptForm>;
+export const ReceiptFormSchema = SchemaFactory.createForClass(ReceiptForm);
 
 
-export const RECEIPT_MODEL = 'Receipt';
-export const ReceiptModel = MongooseModule.forFeature([
-  { name: RECEIPT_MODEL, schema: ReceiptSchema }
+export const RECEIPT_FORM_MODEL = 'ReceiptForm';
+export const ReceiptFormModel = MongooseModule.forFeature([
+  { name: RECEIPT_FORM_MODEL, schema: ReceiptFormSchema }
 ]);
 
-export const getReceiptModel = (businessNumber: string): DataBaseRepository<ReceiptDocument> => {
+export const getReceiptFormModel = (businessNumber: string): DataBaseRepository<ReceiptFormDocument> => {
   if (!businessNumber) {
-    throw new Error('businessNumber is required in receipt model');
+    throw new Error('businessNumber is required in receipt form model');
   }
   let connection = ConnectionManager.getConnection(businessNumber);
   
@@ -84,8 +84,8 @@ export const getReceiptModel = (businessNumber: string): DataBaseRepository<Rece
     connection.model('User', UserSchema);
   }
 
-  const model = connection.models[RECEIPT_MODEL] || connection.model(RECEIPT_MODEL, ReceiptSchema) as unknown as Model<ReceiptDocument>;
-  return new DataBaseRepository<ReceiptDocument>(model);
+  const model = connection.models[RECEIPT_FORM_MODEL] || connection.model(RECEIPT_FORM_MODEL, ReceiptFormSchema) as unknown as Model<ReceiptFormDocument>;
+  return new DataBaseRepository<ReceiptFormDocument>(model);
 };
 
 
