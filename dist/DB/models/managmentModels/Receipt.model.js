@@ -17,7 +17,14 @@ let ReceiptForm = class ReceiptForm {
 };
 exports.ReceiptForm = ReceiptForm;
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({
+        type: {
+            public_id: { type: String },
+            secure_url: { type: String },
+        },
+        required: false,
+        default: null,
+    }),
     __metadata("design:type", Object)
 ], ReceiptForm.prototype, "logoUrl", void 0);
 __decorate([

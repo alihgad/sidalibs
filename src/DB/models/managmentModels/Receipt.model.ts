@@ -10,7 +10,14 @@ import { ConnectionManager } from '../../connection.manager';
   collection: 'receipts'
 })
 export class ReceiptForm {
-  @Prop()
+  @Prop({
+    type: {
+      public_id: { type: String },
+      secure_url: { type: String },
+    },
+    required: false,
+    default: null,
+  })
   logoUrl?: {
     public_id: string;
     secure_url: string;
