@@ -125,7 +125,7 @@ exports.notifications = [
         label: "وصول عنصر المخزون إلى الحد الأدنى للكمية"
     },
     {
-        key: "inventory_item_is_not_available_anymore",
+        key: " inventory_item_is_not_available_anymore",
         label: "عدم توفر عنصر المخزون بعد الآن"
     },
     {
