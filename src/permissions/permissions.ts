@@ -798,6 +798,19 @@ export let permissions = [
         description: 'السماح للمستخدم بعرض المسارات الطبخية',
         category: permissionsCategorys.kitchen_flow_permissions,
         key: 'read_kitchen_flow'
+    },
+    // Receipt Permissions
+    {
+        name: 'إدارة الفواتير',
+        description: 'السماح للمستخدم بإدارة الفواتير',
+        category: permissionsCategorys.receipt_permissions,
+        key: 'manage_receipts'
+    },
+    {
+        name: 'عرض الفواتير',
+        description: 'السماح للمستخدم بعرض الفواتير',
+        category: permissionsCategorys.receipt_permissions,
+        key: 'read_receipts'
     }
 ];
 //  ده بدل ما تعمل الاوبجكت الى تحت يدوي شغل دي وهيطلعلك الاوبجكت فى كونسول لوج
@@ -934,6 +947,8 @@ export const permissionKeys = {
     "manage_charges": "manage_charges",
     "read_charges": "read_charges",
     "manage_kitchen_flow": "manage_kitchen_flow",
-    "read_kitchen_flow": "read_kitchen_flow"
+    "read_kitchen_flow": "read_kitchen_flow",
+    "manage_receipts": "manage_receipts",
+    "read_receipts": "read_receipts"
   }
   

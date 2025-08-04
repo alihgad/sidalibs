@@ -134,5 +134,7 @@ export declare const permissionKeys: {
     read_charges: string;
     manage_kitchen_flow: string;
     read_kitchen_flow: string;
+    manage_receipts: string;
+    read_receipts: string;
 };
 //# sourceMappingURL=permissions.d.ts.map
