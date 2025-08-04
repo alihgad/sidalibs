@@ -110,31 +110,6 @@ exports.TransferOrder = TransferOrder = __decorate([
     })
 ], TransferOrder);
 exports.TransferOrderSchema = mongoose_1.SchemaFactory.createForClass(TransferOrder);
-// Indexes for better performance
-exports.TransferOrderSchema.index({ status: 1 });
-exports.TransferOrderSchema.index({ 'warehouse.warehouseId': 1 });
-exports.TransferOrderSchema.index({ 'destination.destinationId': 1 });
-exports.TransferOrderSchema.index({ workDate: 1 });
-exports.TransferOrderSchema.index({ 'createdBy.userId': 1 });
-exports.TransferOrderSchema.index({ isSubmitted: 1 });
-exports.TransferOrderSchema.index({ submittedBy: 1 });
-exports.TransferOrderSchema.index({ submittedAt: 1 });
-exports.TransferOrderSchema.index({ isSent: 1 });
-exports.TransferOrderSchema.index({ sentBy: 1 });
-exports.TransferOrderSchema.index({ sentAt: 1 });
-exports.TransferOrderSchema.index({ isDeleted: 1 });
-exports.TransferOrderSchema.index({ deletedAt: 1 });
-exports.TransferOrderSchema.index({ createdAt: -1 });
-// Compound indexes
-exports.TransferOrderSchema.index({ referenceNumber: 1 });
-exports.TransferOrderSchema.index({ 'warehouse.warehouseId': 1, status: 1 });
-exports.TransferOrderSchema.index({ 'destination.destinationId': 1, status: 1 });
-exports.TransferOrderSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
-exports.TransferOrderSchema.index({ status: 1, isSubmitted: 1 });
-exports.TransferOrderSchema.index({ status: 1, isSent: 1 });
-exports.TransferOrderSchema.index({ status: 1, isDeleted: 1 });
-exports.TransferOrderSchema.index({ workDate: 1, status: 1 });
-exports.TransferOrderSchema.index({ 'createdBy.userId': 1, status: 1 });
 exports.TRANSFER_ORDER_MODEL = 'TRANSFER_ORDER_MODEL';
 exports.TransferOrderModel = mongoose_1.MongooseModule.forFeature([
     { name: 'TransferOrder', schema: exports.TransferOrderSchema }
