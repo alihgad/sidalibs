@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getReceiptModel = exports.ReceiptModel = exports.RECEIPT_MODEL = exports.ReceiptSchema = exports.Receipt = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 let Receipt = class Receipt {
@@ -22,7 +21,7 @@ __decorate([
     __metadata("design:type", Object)
 ], Receipt.prototype, "logoUrl", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [String], enum: ['main', 'localized', "main & localized"] }),
+    (0, mongoose_1.Prop)({ type: [String], enum: ['main', 'localized', "main & localized"], default: ["main & localized"] }),
     __metadata("design:type", Array)
 ], Receipt.prototype, "printLanguages", void 0);
 __decorate([
@@ -70,17 +69,17 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Receipt.prototype, "showCreatedBy", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    (0, mongoose_1.Prop)({ default: false }),
     __metadata("design:type", Boolean)
-], Receipt.prototype, "isDeleted", void 0);
+], Receipt.prototype, "showCheckNumber", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
-], Receipt.prototype, "deletedBy", void 0);
+    (0, mongoose_1.Prop)({ default: false }),
+    __metadata("design:type", Boolean)
+], Receipt.prototype, "hideFreeModiferOptions", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Date }),
-    __metadata("design:type", Date)
-], Receipt.prototype, "deletedAt", void 0);
+    (0, mongoose_1.Prop)({ default: false }),
+    __metadata("design:type", Boolean)
+], Receipt.prototype, "printCustomerPhoneNumberInPickupOrders", void 0);
 exports.Receipt = Receipt = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
@@ -90,26 +89,6 @@ exports.Receipt = Receipt = __decorate([
     })
 ], Receipt);
 exports.ReceiptSchema = mongoose_1.SchemaFactory.createForClass(Receipt);
-// Indexes for better performance
-exports.ReceiptSchema.index({ primaryLanguage: 1 });
-exports.ReceiptSchema.index({ secondaryLanguage: 1 });
-exports.ReceiptSchema.index({ printLanguages: 1 });
-exports.ReceiptSchema.index({ showOrderNumber: 1 });
-exports.ReceiptSchema.index({ showCalories: 1 });
-exports.ReceiptSchema.index({ showSubtotal: 1 });
-exports.ReceiptSchema.index({ showRounding: 1 });
-exports.ReceiptSchema.index({ showClosedBy: 1 });
-exports.ReceiptSchema.index({ showCreatedBy: 1 });
-exports.ReceiptSchema.index({ isDeleted: 1 });
-exports.ReceiptSchema.index({ deletedBy: 1 });
-exports.ReceiptSchema.index({ deletedAt: 1 });
-exports.ReceiptSchema.index({ createdAt: -1 });
-exports.ReceiptSchema.index({ updatedAt: -1 });
-// Compound indexes
-exports.ReceiptSchema.index({ primaryLanguage: 1, isDeleted: 1 });
-exports.ReceiptSchema.index({ secondaryLanguage: 1, isDeleted: 1 });
-exports.ReceiptSchema.index({ showOrderNumber: 1, isDeleted: 1 });
-exports.ReceiptSchema.index({ showSubtotal: 1, isDeleted: 1 });
 exports.RECEIPT_MODEL = 'Receipt';
 exports.ReceiptModel = mongoose_1.MongooseModule.forFeature([
     { name: exports.RECEIPT_MODEL, schema: exports.ReceiptSchema }

@@ -17,9 +17,9 @@ export declare class Receipt {
     showRounding: boolean;
     showClosedBy: boolean;
     showCreatedBy: boolean;
-    isDeleted: boolean;
-    deletedBy?: Types.ObjectId;
-    deletedAt?: Date;
+    showCheckNumber: boolean;
+    hideFreeModiferOptions: boolean;
+    printCustomerPhoneNumberInPickupOrders: boolean;
 }
 export type ReceiptDocument = HydratedDocument<Receipt>;
 export declare const ReceiptSchema: import("mongoose").Schema<Receipt, Model<Receipt, any, any, any, import("mongoose").Document<unknown, any, Receipt, any> & Receipt & {

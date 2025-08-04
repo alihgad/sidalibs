@@ -16,7 +16,7 @@ export class Receipt {
     secure_url: string;
   }; // صورة الشعار
 
-  @Prop({ type: [String], enum: ['main', 'localized' , "main & localized"] })
+  @Prop({ type: [String], enum: ['main', 'localized' , "main & localized"] , default: ["main & localized"] })
   printLanguages!: string[]; // لغة أو أكثر للطباعة
 
   @Prop({ enum: ['ar', 'en'], default: 'ar' })
@@ -52,40 +52,20 @@ export class Receipt {
   @Prop({ default: false })
   showCreatedBy!: boolean;
 
-  @Prop({ type: Boolean, default: false })
-  isDeleted!: boolean;
+  @Prop({ default: false })
+  showCheckNumber!: boolean;
 
-  @Prop({ type: Types.ObjectId, ref: 'User' })
-  deletedBy?: Types.ObjectId;
+  @Prop({ default: false })
+  hideFreeModiferOptions!: boolean;
 
-  @Prop({ type: Date })
-  deletedAt?: Date;
+  @Prop({ default: false })
+  printCustomerPhoneNumberInPickupOrders!: boolean;
+
 }
 
 export type ReceiptDocument = HydratedDocument<Receipt>;
 export const ReceiptSchema = SchemaFactory.createForClass(Receipt);
 
-// Indexes for better performance
-ReceiptSchema.index({ primaryLanguage: 1 });
-ReceiptSchema.index({ secondaryLanguage: 1 });
-ReceiptSchema.index({ printLanguages: 1 });
-ReceiptSchema.index({ showOrderNumber: 1 });
-ReceiptSchema.index({ showCalories: 1 });
-ReceiptSchema.index({ showSubtotal: 1 });
-ReceiptSchema.index({ showRounding: 1 });
-ReceiptSchema.index({ showClosedBy: 1 });
-ReceiptSchema.index({ showCreatedBy: 1 });
-ReceiptSchema.index({ isDeleted: 1 });
-ReceiptSchema.index({ deletedBy: 1 });
-ReceiptSchema.index({ deletedAt: 1 });
-ReceiptSchema.index({ createdAt: -1 });
-ReceiptSchema.index({ updatedAt: -1 });
-
-// Compound indexes
-ReceiptSchema.index({ primaryLanguage: 1, isDeleted: 1 });
-ReceiptSchema.index({ secondaryLanguage: 1, isDeleted: 1 });
-ReceiptSchema.index({ showOrderNumber: 1, isDeleted: 1 });
-ReceiptSchema.index({ showSubtotal: 1, isDeleted: 1 });
 
 export const RECEIPT_MODEL = 'Receipt';
 export const ReceiptModel = MongooseModule.forFeature([
