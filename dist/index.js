@@ -90,6 +90,7 @@ __exportStar(require("./DB/models/managmentModels/sales.model"), exports);
 __exportStar(require("./DB/models/managmentModels/charges.model"), exports);
 __exportStar(require("./DB/models/managmentModels/ketchenFlow.model"), exports);
 __exportStar(require("./DB/models/managmentModels/notification.model"), exports);
+__exportStar(require("./DB/models/managmentModels/receipt.model"), exports);
 // notifications
 exports.notifications = __importStar(require("./notifications/notifications"));
 // permissions
