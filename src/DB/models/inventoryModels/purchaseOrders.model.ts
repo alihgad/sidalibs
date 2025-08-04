@@ -121,14 +121,7 @@ export class PurchaseOrders {
 export type PurchaseOrdersDocument = HydratedDocument<PurchaseOrders>;
 export const PurchaseOrdersSchema = SchemaFactory.createForClass(PurchaseOrders);
 
-// Indexes for better performance
-PurchaseOrdersSchema.index({ requestNumber: 1 });
-PurchaseOrdersSchema.index({ branchId: 1 });
-PurchaseOrdersSchema.index({ requestedBy: 1 });
-PurchaseOrdersSchema.index({ status: 1 });
-PurchaseOrdersSchema.index({ requestDate: -1 });
-PurchaseOrdersSchema.index({ isDeleted: 1 });
-PurchaseOrdersSchema.index({ createdAt: -1 });
+
 
 export const PURCHASE_ORDERS_MODEL = 'PURCHASE_ORDERS_MODEL';
 export const PurchaseOrdersModel = MongooseModule.forFeature([

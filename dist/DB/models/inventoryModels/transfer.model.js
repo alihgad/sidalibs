@@ -154,26 +154,6 @@ exports.Transfer = Transfer = __decorate([
     })
 ], Transfer);
 exports.TransferSchema = mongoose_1.SchemaFactory.createForClass(Transfer);
-// Indexes for better performance
-exports.TransferSchema.index({ status: 1 });
-exports.TransferSchema.index({ transferType: 1 });
-exports.TransferSchema.index({ 'source.sourceId': 1 });
-exports.TransferSchema.index({ 'destination.destinationId': 1 });
-exports.TransferSchema.index({ createdBy: 1 });
-exports.TransferSchema.index({ submittedBy: 1 });
-exports.TransferSchema.index({ workDate: 1 });
-exports.TransferSchema.index({ dateDueToReceive: 1 });
-exports.TransferSchema.index({ transferReceivingReference: 1 });
-exports.TransferSchema.index({ transferSendingReference: 1 });
-exports.TransferSchema.index({ isDeleted: 1 });
-exports.TransferSchema.index({ deletedBy: 1 });
-exports.TransferSchema.index({ createdAt: -1 });
-// Compound indexes
-exports.TransferSchema.index({ 'source.sourceId': 1, status: 1 });
-exports.TransferSchema.index({ 'destination.destinationId': 1, status: 1 });
-exports.TransferSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
-exports.TransferSchema.index({ status: 1, isDeleted: 1 });
-exports.TransferSchema.index({ workDate: 1, status: 1 });
 exports.TRANSFER_MODEL = 'TRANSFER_MODEL';
 exports.TransferModel = mongoose_1.MongooseModule.forFeature([
     { name: 'Transfer', schema: exports.TransferSchema }

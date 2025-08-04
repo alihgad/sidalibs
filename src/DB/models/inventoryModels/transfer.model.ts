@@ -133,27 +133,7 @@ export class Transfer {
 export type TransferDocument = HydratedDocument<Transfer>;
 export const TransferSchema = SchemaFactory.createForClass(Transfer);
 
-// Indexes for better performance
-TransferSchema.index({ status: 1 });
-TransferSchema.index({ transferType: 1 });
-TransferSchema.index({ 'source.sourceId': 1 });
-TransferSchema.index({ 'destination.destinationId': 1 });
-TransferSchema.index({ createdBy: 1 });
-TransferSchema.index({ submittedBy: 1 });
-TransferSchema.index({ workDate: 1 });
-TransferSchema.index({ dateDueToReceive: 1 });
-TransferSchema.index({ transferReceivingReference: 1 });
-TransferSchema.index({ transferSendingReference: 1 });
-TransferSchema.index({ isDeleted: 1 });
-TransferSchema.index({ deletedBy: 1 });
-TransferSchema.index({ createdAt: -1 });
 
-// Compound indexes
-TransferSchema.index({ 'source.sourceId': 1, status: 1 });
-TransferSchema.index({ 'destination.destinationId': 1, status: 1 });
-TransferSchema.index({ referenceNumber: 1, isDeleted: 1 }, { unique: true });
-TransferSchema.index({ status: 1, isDeleted: 1 });
-TransferSchema.index({ workDate: 1, status: 1 });
 
 export const TRANSFER_MODEL = 'TRANSFER_MODEL';
 export const TransferModel = MongooseModule.forFeature([

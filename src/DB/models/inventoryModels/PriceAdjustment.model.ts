@@ -67,14 +67,7 @@ export class PriceAdjustment {
 export type PriceAdjustmentDocument = HydratedDocument<PriceAdjustment>;
 export const PriceAdjustmentSchema = SchemaFactory.createForClass(PriceAdjustment);
 
-// Indexes for better performance
-PriceAdjustmentSchema.index({ referenceNumber: 1 });
-PriceAdjustmentSchema.index({ branch: 1 });
-PriceAdjustmentSchema.index({ reason: 1 });
-PriceAdjustmentSchema.index({ createdBy: 1 });
-PriceAdjustmentSchema.index({ workDate: -1 });
-PriceAdjustmentSchema.index({ isSent: 1 });
-PriceAdjustmentSchema.index({ createdAt: -1 });
+
 
 export const PRICE_ADJUSTMENT_MODEL = 'PRICE_ADJUSTMENT_MODEL';
 export const PriceAdjustmentModel = MongooseModule.forFeature([
