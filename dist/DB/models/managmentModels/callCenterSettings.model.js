@@ -14,23 +14,28 @@ const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
+const type_1 = require("../../../common/type");
 let CallCenterSettings = class CallCenterSettings {
 };
 exports.CallCenterSettings = CallCenterSettings;
 __decorate([
-    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'User', required: true }),
+    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'User' }),
     __metadata("design:type", Array)
 ], CallCenterSettings.prototype, "agents", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: "PaymentMethod", default: [] }),
+    __metadata("design:type", Array)
+], CallCenterSettings.prototype, "acceptedPaymentModes", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Branch', default: [] }),
     __metadata("design:type", Array)
 ], CallCenterSettings.prototype, "inactiveBranches", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Group', required: true }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Group', default: [] }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], CallCenterSettings.prototype, "menuGroup", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [String], default: [] }),
+    (0, mongoose_1.Prop)({ type: [String], default: [], enum: Object.values(type_1.OrderType) }),
     __metadata("design:type", Array)
 ], CallCenterSettings.prototype, "inactiveOrderTypes", void 0);
 __decorate([
