@@ -17,6 +17,10 @@ let ReceiptForm = class ReceiptForm {
 };
 exports.ReceiptForm = ReceiptForm;
 __decorate([
+    (0, mongoose_1.Prop)({ type: String, required: true, unique: true, index: true }),
+    __metadata("design:type", String)
+], ReceiptForm.prototype, "businessNumber", void 0);
+__decorate([
     (0, mongoose_1.Prop)({
         type: {
             public_id: { type: String },
@@ -100,16 +104,8 @@ exports.RECEIPT_FORM_MODEL = 'ReceiptForm';
 exports.ReceiptFormModel = mongoose_1.MongooseModule.forFeature([
     { name: exports.RECEIPT_FORM_MODEL, schema: exports.ReceiptFormSchema }
 ]);
-const getReceiptFormModel = (businessNumber) => {
-    if (!businessNumber) {
-        throw new Error('businessNumber is required in receipt form model');
-    }
-    let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
-    // Register required models for refs
-    if (!connection.models['User']) {
-        const { UserSchema } = require('./users.model');
-        connection.model('User', UserSchema);
-    }
+const getReceiptFormModel = () => {
+    let connection = connection_manager_1.ConnectionManager.getConnection("main");
     const model = connection.models[exports.RECEIPT_FORM_MODEL] || connection.model(exports.RECEIPT_FORM_MODEL, exports.ReceiptFormSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };

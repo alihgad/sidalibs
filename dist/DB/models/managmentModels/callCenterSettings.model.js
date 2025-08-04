@@ -19,6 +19,10 @@ let CallCenterSettings = class CallCenterSettings {
 };
 exports.CallCenterSettings = CallCenterSettings;
 __decorate([
+    (0, mongoose_1.Prop)({ type: String, required: true, unique: true, index: true }),
+    __metadata("design:type", String)
+], CallCenterSettings.prototype, "businessNumber", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'User' }),
     __metadata("design:type", Array)
 ], CallCenterSettings.prototype, "agents", void 0);
@@ -71,11 +75,8 @@ exports.CallCenterSettings = CallCenterSettings = __decorate([
     })
 ], CallCenterSettings);
 exports.CallCenterSettingsSchema = mongoose_1.SchemaFactory.createForClass(CallCenterSettings);
-const getCallCenterSettingsModel = (businessNumber) => {
-    if (!businessNumber) {
-        throw new Error("businessNumber is required in call center settings model");
-    }
-    const connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
+const getCallCenterSettingsModel = () => {
+    const connection = connection_manager_1.ConnectionManager.getConnection("main");
     const model = connection.models['CallCenterSettings'] || connection.model('CallCenterSettings', exports.CallCenterSettingsSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };

@@ -1,6 +1,7 @@
 import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class ReceiptForm {
+    businessNumber: string;
     logoUrl?: {
         public_id: string;
         secure_url: string;
@@ -33,5 +34,5 @@ export declare const ReceiptFormSchema: import("mongoose").Schema<ReceiptForm, M
 }>;
 export declare const RECEIPT_FORM_MODEL = "ReceiptForm";
 export declare const ReceiptFormModel: import("@nestjs/common").DynamicModule;
-export declare const getReceiptFormModel: (businessNumber: string) => DataBaseRepository<ReceiptFormDocument>;
+export declare const getReceiptFormModel: () => DataBaseRepository<ReceiptFormDocument>;
 //# sourceMappingURL=receipt.model.d.ts.map

@@ -1,6 +1,7 @@
 import { Document, HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class CallCenterSettings {
+    businessNumber: string;
     agents?: Types.ObjectId[];
     acceptedPaymentModes?: Types.ObjectId[];
     inactiveBranches?: Types.ObjectId[];
@@ -23,5 +24,5 @@ export declare const CallCenterSettingsSchema: import("mongoose").Schema<CallCen
 } & {
     __v: number;
 }>;
-export declare const getCallCenterSettingsModel: (businessNumber: string) => DataBaseRepository<CallCenterSettingsDocument>;
+export declare const getCallCenterSettingsModel: () => DataBaseRepository<CallCenterSettingsDocument>;
 //# sourceMappingURL=callCenterSettings.model.d.ts.map

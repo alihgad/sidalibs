@@ -10,6 +10,11 @@ import { ConnectionManager } from '../../connection.manager';
   collection: 'receipts'
 })
 export class ReceiptForm {
+
+
+  @Prop({ type: String  , required: true , unique: true , index: true })
+  businessNumber!: string;
+  
   @Prop({
     type: {
       public_id: { type: String },
@@ -79,18 +84,10 @@ export const ReceiptFormModel = MongooseModule.forFeature([
   { name: RECEIPT_FORM_MODEL, schema: ReceiptFormSchema }
 ]);
 
-export const getReceiptFormModel = (businessNumber: string): DataBaseRepository<ReceiptFormDocument> => {
-  if (!businessNumber) {
-    throw new Error('businessNumber is required in receipt form model');
-  }
-  let connection = ConnectionManager.getConnection(businessNumber);
-  
-  // Register required models for refs
-  if (!connection.models['User']) {
-    const { UserSchema } = require('./users.model');
-    connection.model('User', UserSchema);
-  }
+export const getReceiptFormModel = (): DataBaseRepository<ReceiptFormDocument> => {
 
+  let connection = ConnectionManager.getConnection("main");
+  
   const model = connection.models[RECEIPT_FORM_MODEL] || connection.model(RECEIPT_FORM_MODEL, ReceiptFormSchema) as unknown as Model<ReceiptFormDocument>;
   return new DataBaseRepository<ReceiptFormDocument>(model);
 };

@@ -11,6 +11,11 @@ import { OrderType } from '../../../common/type';
   collection: 'CallCenterSettings'
 })
 export class CallCenterSettings {
+
+
+  @Prop({ type: String  , required: true , unique: true , index: true })
+  businessNumber!: string;
+
   @Prop({ type: [Types.ObjectId], ref: 'User' })
   agents?: Types.ObjectId[]; // Select system users who can make an online order  
 
@@ -50,11 +55,9 @@ export type CallCenterSettingsDocument = HydratedDocument<CallCenterSettings>;
 
 export const CallCenterSettingsSchema = SchemaFactory.createForClass(CallCenterSettings);
 
-export const getCallCenterSettingsModel = (businessNumber: string): DataBaseRepository<CallCenterSettingsDocument> => {
-  if (!businessNumber) {
-    throw new Error("businessNumber is required in call center settings model")
-  }
-  const connection = ConnectionManager.getConnection(businessNumber);
+export const getCallCenterSettingsModel = (): DataBaseRepository<CallCenterSettingsDocument> => {
+
+  const connection = ConnectionManager.getConnection("main");
   
   const model = connection.models['CallCenterSettings'] || connection.model('CallCenterSettings', CallCenterSettingsSchema) as unknown as Model<CallCenterSettingsDocument>;
 
