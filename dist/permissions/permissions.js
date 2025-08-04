@@ -804,6 +804,19 @@ exports.permissions = [
         description: 'السماح للمستخدم بعرض الفواتير',
         category: permissionsCategorys_1.permissionsCategorys.receipt_permissions,
         key: 'read_receipts'
+    },
+    // Call Center Permissions
+    {
+        name: 'إدارة عمليات خدمة العملاء',
+        description: 'السماح للمستخدم بإدارة عمليات خدمة العملاء',
+        category: permissionsCategorys_1.permissionsCategorys.call_center_permissions,
+        key: 'manage_call_center'
+    },
+    {
+        name: 'إدارة عمليات خدمة العملاء',
+        description: 'السماح للمستخدم بإدارة عمليات خدمة العملاء',
+        category: permissionsCategorys_1.permissionsCategorys.call_center_permissions,
+        key: 'manage_call_center'
     }
 ];
 //  ده بدل ما تعمل الاوبجكت الى تحت يدوي شغل دي وهيطلعلك الاوبجكت فى كونسول لوج
@@ -942,5 +955,7 @@ exports.permissionKeys = {
     "manage_kitchen_flow": "manage_kitchen_flow",
     "read_kitchen_flow": "read_kitchen_flow",
     "manage_receipts": "manage_receipts",
-    "read_receipts": "read_receipts"
+    "read_receipts": "read_receipts",
+    "manage_call_center": "manage_call_center",
+    "read_call_center": "read_call_center"
 };

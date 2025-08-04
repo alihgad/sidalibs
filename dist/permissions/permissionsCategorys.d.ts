@@ -17,5 +17,6 @@ export declare const permissionsCategorys: {
     charges_permissions: string;
     kitchen_flow_permissions: string;
     receipt_permissions: string;
+    call_center_permissions: string;
 };
 //# sourceMappingURL=permissionsCategorys.d.ts.map

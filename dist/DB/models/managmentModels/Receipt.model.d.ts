@@ -34,4 +34,4 @@ export declare const ReceiptFormSchema: import("mongoose").Schema<ReceiptForm, M
 export declare const RECEIPT_FORM_MODEL = "ReceiptForm";
 export declare const ReceiptFormModel: import("@nestjs/common").DynamicModule;
 export declare const getReceiptFormModel: (businessNumber: string) => DataBaseRepository<ReceiptFormDocument>;
-//# sourceMappingURL=Receipt.model.d.ts.map
+//# sourceMappingURL=receipt.model.d.ts.map
