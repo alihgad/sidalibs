@@ -19,6 +19,5 @@ exports.permissionsCategorys = {
     transfer_order_permissions: "transfer_order_permissions",
     charges_permissions: "charges_permissions",
     kitchen_flow_permissions: "kitchen_flow_permissions",
-    receipt_permissions: "receipt_permissions",
-    call_center_permissions: "call_center_permissions"
+    settings_permissions: "settings_permissions"
 };

@@ -16,7 +16,6 @@ export declare const permissionsCategorys: {
     transfer_order_permissions: string;
     charges_permissions: string;
     kitchen_flow_permissions: string;
-    receipt_permissions: string;
-    call_center_permissions: string;
+    settings_permissions: string;
 };
 //# sourceMappingURL=permissionsCategorys.d.ts.map
