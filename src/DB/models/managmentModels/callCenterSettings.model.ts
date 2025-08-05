@@ -12,14 +12,13 @@ import { OrderType } from '../../../common/type';
 })
 export class CallCenterSettings {
 
-
-  @Prop({ type: String  , required: true , unique: true , index: true })
+  @Prop({ type: String, required: true, unique: true, index: true })
   businessNumber!: string;
 
   @Prop({ type: [Types.ObjectId], ref: 'User' })
   agents?: Types.ObjectId[]; // Select system users who can make an online order  
 
-  @Prop({ type: [Types.ObjectId], ref :"PaymentMethod",default: []  })
+  @Prop({ type: [Types.ObjectId], ref: "PaymentMethod", default: [] })
   acceptedPaymentModes?: Types.ObjectId[]; // Select the payment modes that will be accepted for call center orders
 
   @Prop({ type: [Types.ObjectId], ref: 'Branch', default: [] })
@@ -28,7 +27,7 @@ export class CallCenterSettings {
   @Prop({ type: Types.ObjectId, ref: 'Group' , default:[]})
   menuGroup?: Types.ObjectId; // Select the menu group to view categories, products & combos
 
-  @Prop({ type: [String], default: [] , enum: Object.values(OrderType) })
+  @Prop({ type: [String], default: [], enum: Object.values(OrderType) })
   inactiveOrderTypes?: string[]; // Select order types that will not be available for call center orders
 
   @Prop({ type: Boolean, default: false })
@@ -56,7 +55,6 @@ export type CallCenterSettingsDocument = HydratedDocument<CallCenterSettings>;
 export const CallCenterSettingsSchema = SchemaFactory.createForClass(CallCenterSettings);
 
 export const getCallCenterSettingsModel = (): DataBaseRepository<CallCenterSettingsDocument> => {
-
   const connection = ConnectionManager.getConnection("main");
   
   const model = connection.models['CallCenterSettings'] || connection.model('CallCenterSettings', CallCenterSettingsSchema) as unknown as Model<CallCenterSettingsDocument>;

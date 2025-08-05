@@ -54,7 +54,7 @@ export * from './DB/models/managmentModels/sales.model';
 export * from './DB/models/managmentModels/charges.model';
 export * from './DB/models/managmentModels/ketchenFlow.model';
 export * from './DB/models/managmentModels/notification.model';
-export * from './DB/models/managmentModels/receipt.model';
+export * from './DB/models/managmentModels/Receipt.model';
 export * from './DB/models/managmentModels/callCenterSettings.model';
 export * as notifications from './notifications/notifications';
 export * from './permissions/permissions';
