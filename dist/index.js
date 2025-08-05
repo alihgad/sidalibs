@@ -92,6 +92,7 @@ __exportStar(require("./DB/models/managmentModels/ketchenFlow.model"), exports);
 __exportStar(require("./DB/models/managmentModels/notification.model"), exports);
 __exportStar(require("./DB/models/managmentModels/receipt.model"), exports);
 __exportStar(require("./DB/models/managmentModels/callCenterSettings.model"), exports);
+__exportStar(require("./DB/models/managmentModels/cashierDeviceSettings.model"), exports);
 // notifications
 exports.notifications = __importStar(require("./notifications/notifications"));
 // permissions
