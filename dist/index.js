@@ -108,3 +108,5 @@ __exportStar(require("./secuirty/Jwt"), exports);
 __exportStar(require("./secuirty/decorator/auth.decorator"), exports);
 __exportStar(require("./secuirty/guards/authentication"), exports);
 __exportStar(require("./secuirty/guards/authorization"), exports);
+// -------------------- cloudinary --------------------
+__exportStar(require("./services"), exports);

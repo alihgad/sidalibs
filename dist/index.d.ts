@@ -69,4 +69,5 @@ export * from './secuirty/Jwt';
 export * from './secuirty/decorator/auth.decorator';
 export * from './secuirty/guards/authentication';
 export * from './secuirty/guards/authorization';
+export * from "./services";
 //# sourceMappingURL=index.d.ts.map
