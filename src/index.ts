@@ -72,6 +72,7 @@ export * from './DB/models/managmentModels/notification.model';
 export * from './DB/models/managmentModels/receipt.model';
 export * from './DB/models/managmentModels/callCenterSettings.model';
 export * from './DB/models/managmentModels/cashierDeviceSettings.model';
+export * from './DB/models/managmentModels/settings.model';
 
 
 
