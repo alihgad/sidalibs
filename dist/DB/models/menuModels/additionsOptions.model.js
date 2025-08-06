@@ -15,13 +15,13 @@ const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 const type_1 = require("../../../common/type");
-const nutritional_values_schema_1 = require("../shared/nutritional-values.schema");
 const groups_model_1 = require("./groups.model");
 const tax_groups_model_1 = require("../TenantModels/tax-groups.model");
 const materials_model_1 = require("../inventoryModels/materials.model");
 const branch_model_1 = require("../TenantModels/branch.model");
 const priceTagApplies_model_1 = require("../TenantModels/priceTagApplies.model");
 const additions_model_1 = require("./additions.model");
+const nutritional_values_schema_1 = require("../shared/nutritional-values.schema");
 let Ingredient = class Ingredient {
 };
 exports.Ingredient = Ingredient;

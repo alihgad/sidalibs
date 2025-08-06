@@ -3,13 +3,13 @@ import { HydratedDocument, Model, Types, Schema as MongooseSchema } from 'mongoo
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { CostCalculationMethod, OrderType } from '../../../common/type';
-import { NutritionalValues, NutritionalValuesSchema } from '../shared/nutritional-values.schema';
 import { MenuGroupSchema } from './groups.model';
 import { TaxGroupSchema } from '../TenantModels/tax-groups.model';
 import { MaterialsSchema } from '../inventoryModels/materials.model';
 import { BranchSchema } from '../TenantModels/branch.model';
 import { PriceTagAppliesSchema } from '../TenantModels/priceTagApplies.model';
 import { AdditionSchema } from './additions.model';
+import { NutritionalValues, NutritionalValuesSchema } from '../shared/nutritional-values.schema';
 
 @Schema()
 export class Ingredient {
