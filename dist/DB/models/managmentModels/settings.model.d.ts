@@ -6,6 +6,15 @@ export declare class Settings {
         secure_url: string;
         public_id: string;
     };
+    kitchenOrderingMethod?: string;
+    enablePrintingAndShowingDefaultAdditionOnReceiptAndKDS?: boolean;
+    logo?: {
+        secure_url: string;
+        public_id: string;
+    };
+    headerText?: string;
+    footerText?: string;
+    RestrictInventoryTransactionsToAvailableQuantities?: boolean;
 }
 export type SettingsDocument = HydratedDocument<Settings>;
 export declare const SettingsSchema: import("mongoose").Schema<Settings, Model<Settings, any, any, any, Document<unknown, any, Settings, any> & Settings & {

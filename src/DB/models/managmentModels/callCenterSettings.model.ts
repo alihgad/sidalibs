@@ -24,7 +24,7 @@ export class CallCenterSettings {
   @Prop({ type: [Types.ObjectId], ref: 'Branch', default: [] })
   inactiveBranches?: Types.ObjectId[]; // Select the branches where the call center will be deactivated
 
-  @Prop({ type: Types.ObjectId, ref: 'Group' , default:[]})
+  @Prop({ type: Types.ObjectId, ref: 'Group' })
   menuGroup?: Types.ObjectId; // Select the menu group to view categories, products & combos
 
   @Prop({ type: [String], default: [], enum: Object.values(OrderType) })

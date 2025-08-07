@@ -21,12 +21,43 @@ __decorate([
     __metadata("design:type", String)
 ], Settings.prototype, "businessNumber", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: {
+    (0, mongoose_1.Prop)({
+        type: {
             secure_url: String,
             public_id: String,
-        }, required: false }),
+        }, required: false
+    }),
     __metadata("design:type", Object)
 ], Settings.prototype, "displayAppCoverPhoto", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, enum: ['asAddedInCashier', 'basedOnMenuCategoryOrder'], default: 'asAddedInCashier' }),
+    __metadata("design:type", String)
+], Settings.prototype, "kitchenOrderingMethod", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: true }),
+    __metadata("design:type", Boolean)
+], Settings.prototype, "enablePrintingAndShowingDefaultAdditionOnReceiptAndKDS", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        type: {
+            secure_url: String,
+            public_id: String,
+        }, required: false
+    }),
+    __metadata("design:type", Object)
+], Settings.prototype, "logo", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Settings.prototype, "headerText", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, required: false }),
+    __metadata("design:type", String)
+], Settings.prototype, "footerText", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Settings.prototype, "RestrictInventoryTransactionsToAvailableQuantities", void 0);
 exports.Settings = Settings = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

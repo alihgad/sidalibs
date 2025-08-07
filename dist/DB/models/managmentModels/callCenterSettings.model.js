@@ -35,7 +35,7 @@ __decorate([
     __metadata("design:type", Array)
 ], CallCenterSettings.prototype, "inactiveBranches", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Group', default: [] }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Group' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], CallCenterSettings.prototype, "menuGroup", void 0);
 __decorate([
