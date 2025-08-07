@@ -502,6 +502,12 @@ export let permissions = [
         category: permissionsCategorys.report_permissions,
         key: 'view_user_activity_log'
     },
+    {
+        name: 'عرض سجل العمليات',
+        description: 'السماح للمستخدم بعرض سجل العمليات والتحكم في عرضها وتصفيتها',
+        category: permissionsCategorys.report_permissions,
+        key: 'view_audit_logs'
+    },
 
     // Summary Permissions
     {
@@ -898,6 +904,7 @@ export const permissionKeys = {
     "view_menu_cost_reports": "view_menu_cost_reports",
     "view_inventory_item_cost": "view_inventory_item_cost",
     "view_user_activity_log": "view_user_activity_log",
+    "view_audit_logs": "view_audit_logs",
     "view_general_summary": "view_general_summary",
     "view_branch_summary": "view_branch_summary",
     "view_inventory_summary": "view_inventory_summary",

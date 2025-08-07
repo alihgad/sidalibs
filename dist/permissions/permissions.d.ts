@@ -84,6 +84,7 @@ export declare const permissionKeys: {
     view_menu_cost_reports: string;
     view_inventory_item_cost: string;
     view_user_activity_log: string;
+    view_audit_logs: string;
     view_general_summary: string;
     view_branch_summary: string;
     view_inventory_summary: string;
