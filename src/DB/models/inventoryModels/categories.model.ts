@@ -10,7 +10,7 @@ import { ConnectionManager } from '../../connection.manager';
 })
 export class inventoryCategory {
     @Prop({ required: true })
-    name!: string;
+    name!: string
 
     @Prop({ type: String, required: false })
     secondaryName?: string;

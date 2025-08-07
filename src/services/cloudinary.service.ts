@@ -7,7 +7,7 @@ export async function uploadImageStream(file: Express.Multer.File): Promise<Uplo
       { folder: 'sida-images' },
       (error, result) => {
         if (error) return reject(error);
-        resolve(result as UploadApiResponse);
+        resolve(result as UploadApiResponse)
       },
     );
 
