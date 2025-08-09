@@ -88,7 +88,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], ReceiptForm.prototype, "hideFreeModiferOptions", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({}),
+    (0, mongoose_1.Prop)({ default: false }),
     __metadata("design:type", Boolean)
 ], ReceiptForm.prototype, "printCustomerPhoneNumberInPickupOrders", void 0);
 exports.ReceiptForm = ReceiptForm = __decorate([
