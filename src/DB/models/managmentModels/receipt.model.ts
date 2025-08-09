@@ -70,7 +70,7 @@ export class ReceiptForm {
   @Prop({ default: false })
   hideFreeModiferOptions?: boolean;
 
-  @Prop({ })
+  @Prop({ default: false })
   printCustomerPhoneNumberInPickupOrders?: boolean;
 
 }
