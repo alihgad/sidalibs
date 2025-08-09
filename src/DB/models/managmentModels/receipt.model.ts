@@ -29,7 +29,7 @@ export class ReceiptForm {
   }; // صورة الشعار
 
   @Prop({ type: [String], enum: ['main', 'localized' , "main & localized"] , default: ["main & localized"] })
-  printLanguages?: string[]; // لغة أو أكثر للطباعة
+  printLanguages?: string[]; // لغة أو أكثر 
 
   @Prop({ enum: ['ar', 'en'], default: 'ar' })
   primaryLanguage?: string;
@@ -70,7 +70,7 @@ export class ReceiptForm {
   @Prop({ default: false })
   hideFreeModiferOptions?: boolean;
 
-  @Prop({ default: false })
+  @Prop({ })
   printCustomerPhoneNumberInPickupOrders?: boolean;
 
 }
