@@ -76,7 +76,9 @@ export class User {
   language?: string;
   @Prop({ type: Boolean, default: false })
   isEmailVerified?: boolean;
-
+  // online or offline
+  @Prop({ type: Boolean, default: false })
+  isOnline?: boolean;
   @Prop({ type: Boolean, default: false })
   isPhoneVerified?: boolean;
 

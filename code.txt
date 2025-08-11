@@ -1,0 +1,193 @@
+The following is a digest of the repository "sidalibs".
+This digest is designed to be easily parsed by Large Language Models.
+
+--- SUMMARY ---
+Repository: sidalibs
+Files Analyzed: 78
+Total Text Size: 1.84 KB
+Estimated Tokens (text only): ~1,895
+
+--- DIRECTORY STRUCTURE ---
+sidalibs/
+├── src/
+│   ├── common/
+│   │   ├── decorators/
+│   │   │   └── is-valid-date.decorator.ts [binary]
+│   │   ├── scalars/
+│   │   │   └── object-id.scalar.ts [binary]
+│   │   ├── validators/
+│   │   │   ├── IsMongoIdObject.ts [binary]
+│   │   │   └── IsPhoneWithCountryCode.ts [binary]
+│   │   ├── audit.ts [binary]
+│   │   ├── pagination.type.ts [binary]
+│   │   └── type.ts [binary]
+│   ├── DB/
+│   │   ├── models/
+│   │   │   ├── inventoryModels/
+│   │   │   │   ├── categories.model.ts [binary]
+│   │   │   │   ├── countSheet.model.ts [binary]
+│   │   │   │   ├── inventoryCount.model.ts [binary]
+│   │   │   │   ├── inventorySpot.model.ts [binary]
+│   │   │   │   ├── materials.model.ts [binary]
+│   │   │   │   ├── PriceAdjustment.model.ts [binary]
+│   │   │   │   ├── purchase.model.ts [binary]
+│   │   │   │   ├── purchaseOrders.model.ts [binary]
+│   │   │   │   ├── QuantityAdjustment.model.ts [binary]
+│   │   │   │   ├── stockInBranch.ts [binary]
+│   │   │   │   ├── supplier.model.ts [binary]
+│   │   │   │   ├── transfer.model.ts [binary]
+│   │   │   │   ├── transferOrders.model.ts [binary]
+│   │   │   │   └── warehouse.model.ts [binary]
+│   │   │   ├── managmentModels/
+│   │   │   │   ├── callCenterSettings.model.ts [binary]
+│   │   │   │   ├── cashierDeviceSettings.model.ts [binary]
+│   │   │   │   ├── charges.model.ts [binary]
+│   │   │   │   ├── customers.model.ts [binary]
+│   │   │   │   ├── ketchenFlow.model.ts [binary]
+│   │   │   │   ├── notification.model.ts [binary]
+│   │   │   │   ├── permission.model.ts [binary]
+│   │   │   │   ├── receipt.model.ts [binary]
+│   │   │   │   ├── roles.model.ts [binary]
+│   │   │   │   ├── sales.model.ts [binary]
+│   │   │   │   ├── settings.model.ts [binary]
+│   │   │   │   └── users.model.ts [binary]
+│   │   │   ├── menuModels/
+│   │   │   │   ├── additions.model.ts [binary]
+│   │   │   │   ├── additionsOptions.model.ts [binary]
+│   │   │   │   ├── categories.model.ts [binary]
+│   │   │   │   ├── Combos.model.ts [binary]
+│   │   │   │   ├── giftCards.model.ts [binary]
+│   │   │   │   ├── groups.model.ts [binary]
+│   │   │   │   └── product.model.ts [binary]
+│   │   │   ├── shared/
+│   │   │   │   └── nutritional-values.schema.ts [binary]
+│   │   │   └── TenantModels/
+│   │   │       ├── branch.model.ts [binary]
+│   │   │       ├── brand.model.ts [binary]
+│   │   │       ├── coupon.model.ts [binary]
+│   │   │       ├── delivery-area.model.ts [binary]
+│   │   │       ├── device.model.ts [binary]
+│   │   │       ├── discounts.model.ts [binary]
+│   │   │       ├── log.model.ts [binary]
+│   │   │       ├── notifications.model.ts [binary]
+│   │   │       ├── payment.model.ts [binary]
+│   │   │       ├── paymentMethods.model.ts [binary]
+│   │   │       ├── priceTagApplies.model.ts [binary]
+│   │   │       ├── PromotionalOffer.model.ts [binary]
+│   │   │       ├── reason.model.ts [binary]
+│   │   │       ├── tags.model.ts [binary]
+│   │   │       ├── tax-groups.model.ts [binary]
+│   │   │       ├── taxes.model.ts [binary]
+│   │   │       ├── temporaryEvents.model.ts [binary]
+│   │   │       └── tenant.model.ts [binary]
+│   │   ├── connection.manager.ts [binary]
+│   │   └── DataBase.repository.ts [binary]
+│   ├── notifications/
+│   │   └── notifications.ts [binary]
+│   ├── permissions/
+│   │   ├── permissions.ts [binary]
+│   │   └── permissionsCategorys.ts [binary]
+│   ├── secuirty/
+│   │   ├── decorator/
+│   │   │   └── auth.decorator.ts [binary]
+│   │   ├── guards/
+│   │   │   ├── authentication.ts [binary]
+│   │   │   └── authorization.ts [binary]
+│   │   ├── auth.module.ts [binary]
+│   │   ├── crypto.exporter.ts [binary]
+│   │   ├── crypto.helper.ts [binary]
+│   │   ├── crypto.module.ts [binary]
+│   │   ├── Hash.helper.ts [binary]
+│   │   └── Jwt.ts [binary]
+│   ├── services/
+│   │   ├── cloudinary.service.ts [binary]
+│   │   └── index.ts [binary]
+│   └── index.ts [binary]
+├── package.json
+└── tsconfig.json
+
+
+--- FILE CONTENTS ---
+============================================================
+FILE: package.json
+============================================================
+{
+  "name": "sidalibs",
+  "version": "1.0.4",
+  "description": "Core shared models and utilities for SAD SIDA system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:dev": "tsc -p tsconfig.json --watch",
+    "publish": "npm run build && git add . && git commit -m \"auto update\" && git push"
+  },
+  "keywords": [
+    "sida",
+    "nestjs",
+    "libs",
+    "models",
+    "utils",
+    "ali",
+    "mohamed"
+  ],
+  "author": "Ali Hassan && Mohamed Fekry",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.1",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/graphql": "^13.1.0",
+    "@nestjs/mongoose": "^11.0.3",
+    "amqplib": "^0.10.8",
+    "bcrypt": "^6.0.0",
+    "class-validator": "^0.14.2",
+    "cloudinary": "^2.7.0",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.0",
+    "stripe": "^18.1.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/crypto-js": "^4.2.2",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.0.8",
+    "i": "^0.3.7",
+    "npm": "^11.4.2",
+    "typescript": "^5.9.2"
+  }
+}
+
+
+============================================================
+FILE: tsconfig.json
+============================================================
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "commonjs",
+    "target": "ES2020",
+    "lib": ["ES2021"],
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["node", "express", "multer"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

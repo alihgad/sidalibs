@@ -128,6 +128,10 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
+], User.prototype, "isOnline", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
 ], User.prototype, "isPhoneVerified", void 0);
 __decorate([
     (0, mongoose_1.Prop)({

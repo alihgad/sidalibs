@@ -528,8 +528,6 @@ registerEnumType(KitchenFlowStatus, {
     description: 'The type of kitchen flow',
   });
 
-  
-
 
 
 
