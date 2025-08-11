@@ -21,6 +21,7 @@ export declare class User {
     branches: Types.ObjectId[];
     language?: string;
     isEmailVerified?: boolean;
+    isOnline?: boolean;
     isPhoneVerified?: boolean;
     loginDevicesSession?: Map<string, {
         LSID: string;
