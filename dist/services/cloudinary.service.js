@@ -105,4 +105,3 @@ async function deleteFolderImages(folderPath) {
         throw error;
     }
 }
-// Alternative function for direct file upload (works with both buffer and path)

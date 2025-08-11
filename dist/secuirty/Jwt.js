@@ -8,7 +8,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)({ path: process.cwd() + "/.env" });
 console.log(process.env.JWT_SECRET);
-const generateToken = (payload, secret = process.env.JWT_SECRET, expireAt = "1d") => {
+const generateToken = (payload, secret = process.env.JWT_SECRET) => {
     return jsonwebtoken_1.default.sign(payload, secret);
 };
 exports.generateToken = generateToken;

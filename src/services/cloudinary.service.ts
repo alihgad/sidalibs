@@ -86,6 +86,5 @@ export async function deleteFolderImages(folderPath: string): Promise<any> {
 
 
 
-// Alternative function for direct file upload (works with both buffer and path)
 
 
