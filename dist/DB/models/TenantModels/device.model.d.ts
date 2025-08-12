@@ -28,7 +28,7 @@ export declare class Device {
     isDeleted: boolean;
     isActive: boolean;
     isOpened: boolean;
-    openedAt: boolean;
+    openedAt: Date | null;
     depositAmount: number;
 }
 export type DeviceDocument = HydratedDocument<Device> & {

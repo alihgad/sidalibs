@@ -84,8 +84,8 @@ export class Device {
     @Prop({ type: Boolean, default: false })
     isOpened!: boolean;
 
-    @Prop({ type: Boolean, default: false })
-    openedAt!: boolean;
+    @Prop({ type: Date, default: null })
+    openedAt!: Date | null;
 
     @Prop({ type: Number, default: 0, min: 0 })
     depositAmount!: number;
