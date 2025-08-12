@@ -27,6 +27,9 @@ export declare class Device {
     autoRenew: boolean;
     isDeleted: boolean;
     isActive: boolean;
+    isOpened: boolean;
+    openedAt: boolean;
+    depositAmount: number;
 }
 export type DeviceDocument = HydratedDocument<Device> & {
     _id: string;

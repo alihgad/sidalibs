@@ -87,6 +87,18 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Device.prototype, "isActive", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "isOpened", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], Device.prototype, "openedAt", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0, min: 0 }),
+    __metadata("design:type", Number)
+], Device.prototype, "depositAmount", void 0);
 exports.Device = Device = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
