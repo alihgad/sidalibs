@@ -1,14 +1,14 @@
-The following is a digest of the repository "sidalibs".
+The following is a digest of the repository "libs".
 This digest is designed to be easily parsed by Large Language Models.
 
 --- SUMMARY ---
-Repository: sidalibs
+Repository: libs
 Files Analyzed: 78
-Total Text Size: 1.84 KB
-Estimated Tokens (text only): ~1,895
+Total Text Size: 1.87 KB
+Estimated Tokens (text only): ~1,905
 
 --- DIRECTORY STRUCTURE ---
-sidalibs/
+libs/
 ├── src/
 │   ├── common/
 │   │   ├── decorators/
@@ -153,6 +153,7 @@ FILE: package.json
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.0",
+    "multer": "^2.0.2",
     "stripe": "^18.1.0"
   },
   "devDependencies": {

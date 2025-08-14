@@ -9,7 +9,10 @@ class DataBaseRepository {
     async aggregate(pipeline) {
         return this.model.aggregate(pipeline);
     }
-    async create(data) {
+    async create(data, session) {
+        if (session) {
+            return await this.model.create([data], { session }).then(docs => docs[0]);
+        }
         return this.model.create(data);
     }
     async findOld(query) {
