@@ -30,7 +30,7 @@ export declare class Device {
     isOpened: boolean;
     openedAt: Date | null;
     depositAmount: number;
-    salesAmount: number;
+    currentCashAmount: number;
 }
 export type DeviceDocument = HydratedDocument<Device> & {
     _id: string;
