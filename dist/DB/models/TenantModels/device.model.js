@@ -99,6 +99,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Number, default: 0, min: 0 }),
     __metadata("design:type", Number)
 ], Device.prototype, "depositAmount", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    __metadata("design:type", Number)
+], Device.prototype, "currentCashAmount", void 0);
 exports.Device = Device = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

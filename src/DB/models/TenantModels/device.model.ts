@@ -89,7 +89,9 @@ export class Device {
 
     @Prop({ type: Number, default: 0, min: 0 })
     depositAmount!: number;
-  
+
+    @Prop({ type: Number, default: 0 })
+    currentCashAmount!: number;
 
 }
 
