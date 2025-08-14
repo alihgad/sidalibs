@@ -18,7 +18,7 @@ export declare class DataBaseRepository<TDocument> {
     find({ filter, populate, page, sort, select, limit, }: FindOptions<TDocument>): Promise<TDocument[] | []>;
     findById(id: String, select?: string, populate?: PopulateOptions | PopulateOptions[]): Promise<TDocument | null>;
     findAll(): Promise<TDocument[]>;
-    findOneAndUpdate(query: FilterQuery<TDocument>, data: UpdateQuery<TDocument>, options?: QueryOptions): Promise<TDocument | null>;
+    findOneAndUpdate(query: FilterQuery<TDocument>, data: UpdateQuery<TDocument>, options?: QueryOptions, session?: ClientSession): Promise<TDocument | null>;
     findOneAndDelete(query: FilterQuery<TDocument>, options?: QueryOptions): Promise<TDocument | null>;
     updateOne(query: FilterQuery<TDocument>, update: UpdateQuery<TDocument>): Promise<UpdateWriteOpResult>;
     findByIdAndUpdate(id: string, data: Partial<TDocument>): Promise<TDocument | null>;

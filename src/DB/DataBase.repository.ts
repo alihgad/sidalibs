@@ -86,7 +86,9 @@ export class DataBaseRepository<TDocument> {
         query: FilterQuery<TDocument>,
         data: UpdateQuery<TDocument>,
         options: QueryOptions = { new: true },
+        session?: ClientSession,
     ): Promise<TDocument | null> {
+        if (session) options.session = session;
         return this.model.findOneAndUpdate(query, data, options);
     }
     async findOneAndDelete(

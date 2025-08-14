@@ -53,7 +53,9 @@ class DataBaseRepository {
     async findAll() {
         return this.model.find();
     }
-    async findOneAndUpdate(query, data, options = { new: true }) {
+    async findOneAndUpdate(query, data, options = { new: true }, session) {
+        if (session)
+            options.session = session;
         return this.model.findOneAndUpdate(query, data, options);
     }
     async findOneAndDelete(query, options) {
