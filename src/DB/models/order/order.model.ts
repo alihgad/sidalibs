@@ -139,32 +139,22 @@ export class Order {
     tags!: Types.ObjectId[]
 
     @Prop({ type: [{
-        productId: Types.ObjectId,
-        name: String,
-        quantity: Number,
-        unitPrice: Number,
-        discount: Number,
-        total: Number,
+        productId: { type: Types.ObjectId, ref: 'Product', required: true },
+        quantity: { type: Number, required: true, min: 1 },
+        unitPrice: { type: Number, required: true, min: 0 },
+        discount: { type: Number, default: 0, min: 0 },
+        total: { type: Number, required: true, min: 0 },
         note: String,
-        additions: [{
-            additionId: Types.ObjectId,
-            name: String,
-            price: Number
-        }]
-    }], ref: "products" })
+        additions: [{ type: Types.ObjectId, ref: 'Addition' }]
+    }] })
     products!: {
         productId: Types.ObjectId,
-        name: string,
         quantity: number,
         unitPrice: number,
         discount: number,
         total: number,
         note?: string,
-        additions?: {
-            additionId: Types.ObjectId,
-            name: string,
-            price: number
-        }[]
+        additions?: Types.ObjectId[]
     }[]
 
     @Prop({ type: [{
@@ -204,6 +194,20 @@ export class Order {
 
 export const OrderSchema = SchemaFactory.createForClass(Order);
 
+// Add virtual populate for products
+OrderSchema.virtual('products.productDetails', {
+    ref: 'Product',
+    localField: 'products.productId',
+    foreignField: '_id'
+});
+
+// Add virtual populate for additions
+OrderSchema.virtual('products.additionDetails', {
+    ref: 'Addition',
+    localField: 'products.additions',
+    foreignField: '_id'
+});
+
 // Pre-save hook to track status changes
 OrderSchema.pre('save', function(next) {
     if (this.isModified('orderStatus')) {
@@ -232,6 +236,29 @@ export const getOrderModel=(bussinessNumber:string)=>{
         throw new Error("bussinessNumber is required in Order model")
     }
     let connection = ConnectionManager.getConnection(bussinessNumber);
+    
+    // Register dependent models if not already registered
+    if (!connection.models['Product']) {
+        const { ProductSchema } = require('../menuModels/product.model');
+        connection.model('Product', ProductSchema);
+    }
+    if (!connection.models['Addition']) {
+        const { AdditionSchema } = require('../menuModels/additions.model');
+        connection.model('Addition', AdditionSchema);
+    }
+    if (!connection.models['Branch']) {
+        const { BranchSchema } = require('../TenantModels/branch.model');
+        connection.model('Branch', BranchSchema);
+    }
+    if (!connection.models['User']) {
+        const { UserSchema } = require('../managmentModels/users.model');
+        connection.model('User', UserSchema);
+    }
+    if (!connection.models['Customer']) {
+        const { CustomerSchema } = require('../managmentModels/customers.model');
+        connection.model('Customer', CustomerSchema);
+    }
+    
     const model = connection.models['Order'] || connection.model('Order', OrderSchema) as unknown as Model<OrderDocument>;
     return new DataBaseRepository<OrderDocument>(model);
 }
