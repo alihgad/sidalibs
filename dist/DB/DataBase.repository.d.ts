@@ -1,4 +1,4 @@
-import { FilterQuery, Model, PipelineStage, PopulateOptions, QueryOptions, UpdateQuery, UpdateResult, UpdateWriteOpResult } from "mongoose";
+import { ClientSession, FilterQuery, Model, PipelineStage, PopulateOptions, QueryOptions, UpdateQuery, UpdateResult, UpdateWriteOpResult } from "mongoose";
 interface FindOptions<TDocument> {
     filter?: FilterQuery<TDocument>;
     populate?: PopulateOptions[];
@@ -11,14 +11,14 @@ export declare class DataBaseRepository<TDocument> {
     private readonly model;
     constructor(model: Model<TDocument>);
     aggregate(pipeline: PipelineStage[]): Promise<any[]>;
-    create(data: Partial<TDocument>): Promise<TDocument>;
+    create(data: Partial<TDocument>, session?: ClientSession): Promise<TDocument>;
     findOld(query: FilterQuery<TDocument>): Promise<TDocument[] | []>;
     insertMany(data: Partial<TDocument>[]): Promise<TDocument[]>;
     findOne(query: FilterQuery<TDocument>, select?: string | Record<string, 0 | 1>, populate?: PopulateOptions[], sort?: string): Promise<TDocument | null>;
     find({ filter, populate, page, sort, select, limit, }: FindOptions<TDocument>): Promise<TDocument[] | []>;
     findById(id: String, select?: string, populate?: PopulateOptions | PopulateOptions[]): Promise<TDocument | null>;
     findAll(): Promise<TDocument[]>;
-    findOneAndUpdate(query: FilterQuery<TDocument>, data: UpdateQuery<TDocument>, options?: QueryOptions): Promise<TDocument | null>;
+    findOneAndUpdate(query: FilterQuery<TDocument>, data: UpdateQuery<TDocument>, options?: QueryOptions, session?: ClientSession): Promise<TDocument | null>;
     findOneAndDelete(query: FilterQuery<TDocument>, options?: QueryOptions): Promise<TDocument | null>;
     updateOne(query: FilterQuery<TDocument>, update: UpdateQuery<TDocument>): Promise<UpdateWriteOpResult>;
     findByIdAndUpdate(id: string, data: Partial<TDocument>): Promise<TDocument | null>;

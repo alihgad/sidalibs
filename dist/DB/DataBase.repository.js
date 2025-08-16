@@ -9,7 +9,10 @@ class DataBaseRepository {
     async aggregate(pipeline) {
         return this.model.aggregate(pipeline);
     }
-    async create(data) {
+    async create(data, session) {
+        if (session) {
+            return await this.model.create([data], { session }).then(docs => docs[0]);
+        }
         return this.model.create(data);
     }
     async findOld(query) {
@@ -50,7 +53,9 @@ class DataBaseRepository {
     async findAll() {
         return this.model.find();
     }
-    async findOneAndUpdate(query, data, options = { new: true }) {
+    async findOneAndUpdate(query, data, options = { new: true }, session) {
+        if (session)
+            options.session = session;
         return this.model.findOneAndUpdate(query, data, options);
     }
     async findOneAndDelete(query, options) {

@@ -252,4 +252,12 @@ export declare enum KitchenFlowType {
     ASSEMBLY = "ASSEMBLY",
     PACKAGING = "PACKAGING"
 }
+export declare enum DeliveryStatus {
+    PENDING = "pending",
+    PREPARING = "preparing",
+    READY = "ready",
+    OUT_FOR_DELIVERY = "out_for_delivery",
+    DELIVERED = "delivered",
+    CANCELLED = "cancelled"
+}
 //# sourceMappingURL=type.d.ts.map

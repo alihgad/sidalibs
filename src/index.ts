@@ -91,6 +91,9 @@ export * from './secuirty/decorator/auth.decorator';
 export * from './secuirty/guards/authentication';
 export * from './secuirty/guards/authorization';
 
+// order
+export * from './DB/models/orderModel/order.model';
+
 
 // -------------------- cloudinary --------------------
 export * from "./services"

@@ -87,7 +87,7 @@ export class Device {
     @Prop({ type: Date, default: null })
     openedAt!: Date | null;
 
-    @Prop({ type: Number, default: 0, min: 0 })
+    @Prop({ type: Number,  min: 1 })
     depositAmount!: number;
 
     @Prop({ type: Number, default: 0 })

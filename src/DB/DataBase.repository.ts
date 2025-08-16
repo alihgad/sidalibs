@@ -1,4 +1,4 @@
-import { FilterQuery, Model, PipelineStage, PopulateOptions, QueryOptions, Types, UpdateQuery, UpdateResult, UpdateWriteOpResult } from "mongoose";
+import { ClientSession, CreateOptions, FilterQuery, Model, PipelineStage, PopulateOptions, QueryOptions, Types, UpdateQuery, UpdateResult, UpdateWriteOpResult } from "mongoose";
 
 interface FindOptions<TDocument> {
     filter?: FilterQuery<TDocument>;
@@ -17,9 +17,10 @@ export class DataBaseRepository<TDocument> {
         return this.model.aggregate(pipeline);
     }
 
-    async create(data: Partial<TDocument>): Promise<TDocument> {
-
-
+    async create(data: Partial<TDocument>, session?: ClientSession): Promise<TDocument> {
+        if (session) {
+            return await this.model.create([data], { session }).then(docs => docs[0]);
+        }
         return this.model.create(data);
     }
 
@@ -85,7 +86,9 @@ export class DataBaseRepository<TDocument> {
         query: FilterQuery<TDocument>,
         data: UpdateQuery<TDocument>,
         options: QueryOptions = { new: true },
+        session?: ClientSession,
     ): Promise<TDocument | null> {
+        if (session) options.session = session;
         return this.model.findOneAndUpdate(query, data, options);
     }
     async findOneAndDelete(

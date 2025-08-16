@@ -528,10 +528,24 @@ registerEnumType(KitchenFlowStatus, {
     description: 'The type of kitchen flow',
   });
 
+export enum DeliveryStatus {
+    PENDING = 'pending',
+    PREPARING = 'preparing',
+    READY = 'ready',
+    OUT_FOR_DELIVERY = 'out_for_delivery',
+    DELIVERED = 'delivered',
+    CANCELLED = 'cancelled'
+}
+
+registerEnumType(DeliveryStatus, {
+    name: 'DeliveryStatus',
+    description: 'The status of order delivery',
+});
 
 
 
 
+  
   
 
 
