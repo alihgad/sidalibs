@@ -1,6 +1,45 @@
 // common
 export * from './common/pagination.type';
 export * from './common/type';
+
+// Explicit exports for all enums from type.ts
+export { 
+    deviceTypeEnum,
+    licencesEnum,
+    productsType,
+    ProductsTypeEnum,
+    PlanType,
+    PlanDuration,
+    languages,
+    OrderType,
+    OrderStatus,
+    DaysOfWeek,
+    PromotionType,
+    DiscountType,
+    DiscountAppliesTo,
+    TemporaryEventType,
+    PaymentMethodType,
+    TagType,
+    LogActionType,
+    ReasonType,
+    CostCalculationMethod,
+    PricingMethod,
+    SaleMethod,
+    ServingUnit,
+    SaleStatusEnum,
+    PaymentMethodEnum,
+    DeliveryTime,
+    PurchaseOrderStatus,
+    PurchaseStatus,
+    PurchaseType,
+    TransferStatus,
+    TransferType,
+    InventoryCountStatus,
+    ChargeType,
+    KitchenFlowStatus,
+    KitchenFlowType,
+    DeliveryStatus
+} from './common/type';
 export * from './common/audit';
 export * from './common/decorators/is-valid-date.decorator';
 export * from './common/scalars/object-id.scalar';
