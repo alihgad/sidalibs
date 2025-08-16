@@ -13,6 +13,8 @@ export * from './DB/connection.manager';
 export * from './DB/DataBase.repository';
 
 // DB models
+// ========== Order Models ==========
+export * from './DB/models/order/order.model';
 // ========== Inventory Models ==========
 export * from './DB/models/inventoryModels/categories.model';
 export * from './DB/models/inventoryModels/materials.model';
@@ -90,11 +92,6 @@ export * from './secuirty/Jwt';
 export * from './secuirty/decorator/auth.decorator';
 export * from './secuirty/guards/authentication';
 export * from './secuirty/guards/authorization';
-
-// order
-export * from './DB/models/orderModel/order.model';
-
-
 // -------------------- cloudinary --------------------
 export * from "./services"
 
