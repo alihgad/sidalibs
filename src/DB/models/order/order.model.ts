@@ -1,6 +1,6 @@
 import { getConnectionToken, Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument, Model, Types } from "mongoose";
-import { DeliveryStatus } from "../../../common/type";
+import { DeliveryStatus, OrderStatus, OrderType } from "../../../common/type";
 import { ConnectionManager } from "../../connection.manager";
 import { DataBaseRepository } from "../../DataBase.repository";
 
@@ -14,7 +14,7 @@ import { DataBaseRepository } from "../../DataBase.repository";
 })
 export class Order {
     @Prop({ trim: true })
-    refranceNumber!: number;
+    referenceNumber!: number;
 
     @Prop({ trim: true })
     orderNumber!: string;
@@ -30,11 +30,24 @@ export class Order {
         name: string;
     };
 
-    @Prop({ trim: true })
-    orderStatus!: string;
+    @Prop({ type: String, enum: OrderStatus, default: OrderStatus.PENDING, trim: true })
+    orderStatus!: OrderStatus;
 
-    @Prop({ trim: true })
-    orderType!: string;
+    @Prop({ type: [{
+        status: { type: String, enum: OrderStatus, required: true },
+        timestamp: { type: Date, default: Date.now },
+        userId: { type: Types.ObjectId, ref: 'User' },
+        notes: String
+    }] })
+    statusHistory!: {
+        status: OrderStatus,
+        timestamp: Date,
+        userId?: Types.ObjectId,
+        notes?: string
+    }[]
+
+    @Prop({ type: String, enum: OrderType, required: true, trim: true })
+    orderType!: OrderType;
 
     @Prop({ trim: true })
     openedTime!: Date;
@@ -74,15 +87,33 @@ export class Order {
 
     @Prop({ type: String, enum: DeliveryStatus, default: DeliveryStatus.PENDING, trim: true })
     deliveryStatus!: DeliveryStatus;
+
+    @Prop({ trim: true })
+    cancellationReason?: string;
+
+    @Prop()
+    cancelledAt?: Date;
+
+    @Prop({ type: Types.ObjectId, ref: 'User' })
+    cancelledBy?: Types.ObjectId;
+
+    @Prop({ trim: true })
+    refundReason?: string;
+
+    @Prop()
+    refundedAt?: Date;
+
+    @Prop({ type: Types.ObjectId, ref: 'User' })
+    refundedBy?: Types.ObjectId;
     @Prop({
         type: {
             driverName: String,
-            driberPhoneNumber: String
+            driverPhoneNumber: String
         }
     })
-    deriver!: {
+    driver!: {
         driverName: string,
-        driberPhoneNumber: string
+        driverPhoneNumber: string
     }
 
     @Prop({ type: Number })
@@ -109,18 +140,31 @@ export class Order {
 
     @Prop({ type: [{
         productId: Types.ObjectId,
+        name: String,
         quantity: Number,
-        price: Number,
+        unitPrice: Number,
         discount: Number,
-        note: String,
         total: Number,
+        note: String,
+        additions: [{
+            additionId: Types.ObjectId,
+            name: String,
+            price: Number
+        }]
     }], ref: "products" })
     products!: {
         productId: Types.ObjectId,
+        name: string,
         quantity: number,
-        price: number,
+        unitPrice: number,
         discount: number,
-        note: string,
+        total: number,
+        note?: string,
+        additions?: {
+            additionId: Types.ObjectId,
+            name: string,
+            price: number
+        }[]
     }[]
 
     @Prop({ type: [{
@@ -135,16 +179,22 @@ export class Order {
     }[]
 
     @Prop({ type: [{
-        name: String,
-        value: Number,
-        addedAt: Date,
-        refundReferenceNumber: Types.ObjectId
+        paymentMethod: { type: String, enum: ['cash', 'card', 'other'], required: true },
+        amount: { type: Number, required: true, min: 0 },
+        reference: String,
+        timestamp: { type: Date, default: Date.now },
+        status: { type: String, enum: ['pending', 'completed', 'failed', 'refunded'], default: 'completed' },
+        refundReference: Types.ObjectId,
+        processingFee: Number
     }] })
     payments!: {
-        name: string,
-        value: number,
-        addedAt: Date,
-        refundReferenceNumber?: Types.ObjectId
+        paymentMethod: string,
+        amount: number,
+        reference?: string,
+        timestamp: Date,
+        status: string,
+        refundReference?: Types.ObjectId,
+        processingFee?: number
     }[]
 
     
@@ -153,6 +203,28 @@ export class Order {
 
 
 export const OrderSchema = SchemaFactory.createForClass(Order);
+
+// Pre-save hook to track status changes
+OrderSchema.pre('save', function(next) {
+    if (this.isModified('orderStatus')) {
+        // Add to status history if status changed
+        this.statusHistory.push({
+            status: this.orderStatus,
+            timestamp: new Date(),
+            userId: this.get('modifiedBy'), // Will be set by the service
+        });
+
+        // Set cancellation/refund timestamps
+        if (this.orderStatus === 'cancelled' && !this.cancelledAt) {
+            this.cancelledAt = new Date();
+        }
+        if (this.orderStatus === 'refunded' && !this.refundedAt) {
+            this.refundedAt = new Date();
+        }
+    }
+    next();
+});
+
 export type OrderDocument = HydratedDocument<Order> 
 
 export const getOrderModel=(bussinessNumber:string)=>{

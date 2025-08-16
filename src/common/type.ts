@@ -175,6 +175,16 @@ export enum OrderType {
     DRIVE_THRU = 'DRIVE_THRU'
 }
 
+export enum OrderStatus {
+    PENDING = 'pending',
+    CONFIRMED = 'confirmed',
+    PREPARING = 'preparing',
+    READY = 'ready',
+    COMPLETED = 'completed',
+    CANCELLED = 'cancelled',
+    REFUNDED = 'refunded'
+}
+
 export enum DaysOfWeek {
     SUNDAY = 'SUNDAY',
     MONDAY = 'MONDAY',
@@ -197,6 +207,11 @@ export enum PromotionType {
 registerEnumType(OrderType, {
     name: 'OrderType',
     description: 'The type of order',
+});
+
+registerEnumType(OrderStatus, {
+    name: 'OrderStatus',
+    description: 'The status of order',
 });
 
 registerEnumType(DaysOfWeek, {
