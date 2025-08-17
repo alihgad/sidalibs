@@ -1,5 +1,5 @@
 import mongoose, { HydratedDocument, Types } from "mongoose";
-import { DeliveryStatus, OrderStatus, OrderType } from "../../../common/type";
+import { DeliveryStatus, OrderSource, OrderStatus, OrderType } from "../../../common/type";
 import { DataBaseRepository } from "../../DataBase.repository";
 export declare class Order {
     referenceNumber: number;
@@ -70,6 +70,7 @@ export declare class Order {
         refundReference?: Types.ObjectId;
         processingFee?: number;
     }[];
+    orderSource: OrderSource;
     createdAt: Date;
 }
 export declare const OrderSchema: mongoose.Schema<Order, mongoose.Model<Order, any, any, any, mongoose.Document<unknown, any, Order, any> & Order & {

@@ -269,4 +269,8 @@ export declare enum DeliveryStatus {
     DELIVERED = "delivered",
     CANCELLED = "cancelled"
 }
+export declare enum OrderSource {
+    CASHIER = "cashier",
+    DRIVE_THRU = "drive_thru"
+}
 //# sourceMappingURL=type.d.ts.map
