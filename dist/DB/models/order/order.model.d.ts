@@ -9,12 +9,6 @@ export declare class Order {
         name: string;
     };
     orderStatus: OrderStatus;
-    statusHistory: {
-        status: OrderStatus;
-        timestamp: Date;
-        userId?: Types.ObjectId;
-        notes?: string;
-    }[];
     orderType: OrderType;
     openedTime: Date;
     closedTime: Date;

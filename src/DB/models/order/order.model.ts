@@ -33,19 +33,6 @@ export class Order {
     @Prop({ type: String, enum: OrderStatus, default: OrderStatus.PENDING, trim: true })
     orderStatus!: OrderStatus;
 
-    @Prop({ type: [{
-        status: { type: String, enum: OrderStatus, required: true },
-        timestamp: { type: Date, default: Date.now },
-        userId: { type: Types.ObjectId, ref: 'User' },
-        notes: String
-    }] })
-    statusHistory!: {
-        status: OrderStatus,
-        timestamp: Date,
-        userId?: Types.ObjectId,
-        notes?: string
-    }[]
-
     @Prop({ type: String, enum: OrderType, required: true, trim: true })
     orderType!: OrderType;
 
@@ -206,27 +193,6 @@ OrderSchema.virtual('products.additionDetails', {
     ref: 'Addition',
     localField: 'products.additions',
     foreignField: '_id'
-});
-
-// Pre-save hook to track status changes
-OrderSchema.pre('save', function(next) {
-    if (this.isModified('orderStatus')) {
-        // Add to status history if status changed
-        this.statusHistory.push({
-            status: this.orderStatus,
-            timestamp: new Date(),
-            userId: this.get('modifiedBy'), // Will be set by the service
-        });
-
-        // Set cancellation/refund timestamps
-        if (this.orderStatus === 'cancelled' && !this.cancelledAt) {
-            this.cancelledAt = new Date();
-        }
-        if (this.orderStatus === 'refunded' && !this.refundedAt) {
-            this.refundedAt = new Date();
-        }
-    }
-    next();
 });
 
 export type OrderDocument = HydratedDocument<Order> 

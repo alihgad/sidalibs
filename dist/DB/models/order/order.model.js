@@ -40,15 +40,6 @@ __decorate([
     __metadata("design:type", String)
 ], Order.prototype, "orderStatus", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{
-                status: { type: String, enum: type_1.OrderStatus, required: true },
-                timestamp: { type: Date, default: Date.now },
-                userId: { type: mongoose_2.Types.ObjectId, ref: 'User' },
-                notes: String
-            }] }),
-    __metadata("design:type", Array)
-], Order.prototype, "statusHistory", void 0);
-__decorate([
     (0, mongoose_1.Prop)({ type: String, enum: type_1.OrderType, required: true, trim: true }),
     __metadata("design:type", String)
 ], Order.prototype, "orderType", void 0);
@@ -207,25 +198,6 @@ exports.OrderSchema.virtual('products.additionDetails', {
     ref: 'Addition',
     localField: 'products.additions',
     foreignField: '_id'
-});
-// Pre-save hook to track status changes
-exports.OrderSchema.pre('save', function (next) {
-    if (this.isModified('orderStatus')) {
-        // Add to status history if status changed
-        this.statusHistory.push({
-            status: this.orderStatus,
-            timestamp: new Date(),
-            userId: this.get('modifiedBy'), // Will be set by the service
-        });
-        // Set cancellation/refund timestamps
-        if (this.orderStatus === 'cancelled' && !this.cancelledAt) {
-            this.cancelledAt = new Date();
-        }
-        if (this.orderStatus === 'refunded' && !this.refundedAt) {
-            this.refundedAt = new Date();
-        }
-    }
-    next();
 });
 const getOrderModel = (bussinessNumber) => {
     if (!bussinessNumber) {
