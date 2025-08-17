@@ -63,6 +63,15 @@ export declare enum OrderType {
     DELIVERY = "DELIVERY",
     DRIVE_THRU = "DRIVE_THRU"
 }
+export declare enum OrderStatus {
+    PENDING = "pending",
+    CONFIRMED = "confirmed",
+    PREPARING = "preparing",
+    READY = "ready",
+    COMPLETED = "completed",
+    CANCELLED = "cancelled",
+    REFUNDED = "refunded"
+}
 export declare enum DaysOfWeek {
     SUNDAY = "SUNDAY",
     MONDAY = "MONDAY",

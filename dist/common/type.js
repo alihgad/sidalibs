@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var deviceTypeEnum;
@@ -173,6 +173,16 @@ var OrderType;
     OrderType["DELIVERY"] = "DELIVERY";
     OrderType["DRIVE_THRU"] = "DRIVE_THRU";
 })(OrderType || (exports.OrderType = OrderType = {}));
+var OrderStatus;
+(function (OrderStatus) {
+    OrderStatus["PENDING"] = "pending";
+    OrderStatus["CONFIRMED"] = "confirmed";
+    OrderStatus["PREPARING"] = "preparing";
+    OrderStatus["READY"] = "ready";
+    OrderStatus["COMPLETED"] = "completed";
+    OrderStatus["CANCELLED"] = "cancelled";
+    OrderStatus["REFUNDED"] = "refunded";
+})(OrderStatus || (exports.OrderStatus = OrderStatus = {}));
 var DaysOfWeek;
 (function (DaysOfWeek) {
     DaysOfWeek["SUNDAY"] = "SUNDAY";
@@ -195,6 +205,10 @@ var PromotionType;
 (0, graphql_1.registerEnumType)(OrderType, {
     name: 'OrderType',
     description: 'The type of order',
+});
+(0, graphql_1.registerEnumType)(OrderStatus, {
+    name: 'OrderStatus',
+    description: 'The status of order',
 });
 (0, graphql_1.registerEnumType)(DaysOfWeek, {
     name: 'DaysOfWeek',
