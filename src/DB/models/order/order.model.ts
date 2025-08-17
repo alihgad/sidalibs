@@ -1,6 +1,6 @@
 import { getConnectionToken, Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument, Model, Types } from "mongoose";
-import { DeliveryStatus, OrderStatus, OrderType } from "../../../common/type";
+import { DeliveryStatus, OrderSource, OrderStatus, OrderType } from "../../../common/type";
 import { ConnectionManager } from "../../connection.manager";
 import { DataBaseRepository } from "../../DataBase.repository";
 
@@ -15,6 +15,9 @@ import { DataBaseRepository } from "../../DataBase.repository";
 export class Order {
     @Prop({ trim: true })
     referenceNumber!: number;
+
+    @Prop({ type: Date })
+    workDate!: Date;
 
     @Prop({ trim: true })
     orderNumber!: string;
@@ -32,6 +35,21 @@ export class Order {
 
     @Prop({ type: String, enum: OrderStatus, default: OrderStatus.PENDING, trim: true })
     orderStatus!: OrderStatus;
+
+    @Prop({
+        type: [{
+            status: { type: String, enum: OrderStatus, required: true },
+            timestamp: { type: Date, default: Date.now },
+            userId: { type: Types.ObjectId, ref: 'User' },
+            notes: String
+        }]
+    })
+    statusHistory!: {
+        status: OrderStatus,
+        timestamp: Date,
+        userId?: Types.ObjectId,
+        notes?: string
+    }[]
 
     @Prop({ type: String, enum: OrderType, required: true, trim: true })
     orderType!: OrderType;
@@ -125,15 +143,17 @@ export class Order {
     @Prop({ type: [Types.ObjectId], ref: "tags" })
     tags!: Types.ObjectId[]
 
-    @Prop({ type: [{
-        productId: { type: Types.ObjectId, ref: 'Product', required: true },
-        quantity: { type: Number, required: true, min: 1 },
-        unitPrice: { type: Number, required: true, min: 0 },
-        discount: { type: Number, default: 0, min: 0 },
-        total: { type: Number, required: true, min: 0 },
-        note: String,
-        additions: [{ type: Types.ObjectId, ref: 'Addition' }]
-    }] })
+    @Prop({
+        type: [{
+            productId: { type: Types.ObjectId, ref: 'Product', required: true },
+            quantity: { type: Number, required: true, min: 1 },
+            unitPrice: { type: Number, required: true, min: 0 },
+            discount: { type: Number, default: 0, min: 0 },
+            total: { type: Number, required: true, min: 0 },
+            note: String,
+            additions: [{ type: Types.ObjectId, ref: 'Addition' }]
+        }]
+    })
     products!: {
         productId: Types.ObjectId,
         quantity: number,
@@ -144,26 +164,30 @@ export class Order {
         additions?: Types.ObjectId[]
     }[]
 
-    @Prop({ type: [{
-        taxId: Types.ObjectId,
-        taxName: String,
-        taxValue: Number,
-    }], ref: "taxes" })
+    @Prop({
+        type: [{
+            taxId: Types.ObjectId,
+            taxName: String,
+            taxValue: Number,
+        }], ref: "taxes"
+    })
     taxes!: {
         taxId: Types.ObjectId,
         taxName: string,
         taxValue: number,
     }[]
 
-    @Prop({ type: [{
-        paymentMethod: { type: String, enum: ['cash', 'card', 'other'], required: true },
-        amount: { type: Number, required: true, min: 0 },
-        reference: String,
-        timestamp: { type: Date, default: Date.now },
-        status: { type: String, enum: ['pending', 'completed', 'failed', 'refunded'], default: 'completed' },
-        refundReference: Types.ObjectId,
-        processingFee: Number
-    }] })
+    @Prop({
+        type: [{
+            paymentMethod: { type: String, enum: ['cash', 'card', 'other'], required: true },
+            amount: { type: Number, required: true, min: 0 },
+            reference: String,
+            timestamp: { type: Date, default: Date.now },
+            status: { type: String, enum: ['pending', 'completed', 'failed', 'refunded'], default: 'completed' },
+            refundReference: Types.ObjectId,
+            processingFee: Number
+        }]
+    })
     payments!: {
         paymentMethod: string,
         amount: number,
@@ -174,7 +198,13 @@ export class Order {
         processingFee?: number
     }[]
 
-    
+
+    @Prop({ type: String, enum: OrderSource, default: OrderSource.CASHIER })
+    orderSource!: OrderSource
+
+
+    @Prop({ type: Date, default: new Date() })
+    createdAt!: Date
 
 }
 
@@ -195,14 +225,15 @@ OrderSchema.virtual('products.additionDetails', {
     foreignField: '_id'
 });
 
-export type OrderDocument = HydratedDocument<Order> 
 
-export const getOrderModel=(bussinessNumber:string)=>{
-    if(!bussinessNumber){
+export type OrderDocument = HydratedDocument<Order>
+
+export const getOrderModel = (bussinessNumber: string) => {
+    if (!bussinessNumber) {
         throw new Error("bussinessNumber is required in Order model")
     }
     let connection = ConnectionManager.getConnection(bussinessNumber);
-    
+
     // Register dependent models if not already registered
     if (!connection.models['Product']) {
         const { ProductSchema } = require('../menuModels/product.model');
@@ -224,7 +255,7 @@ export const getOrderModel=(bussinessNumber:string)=>{
         const { CustomerSchema } = require('../managmentModels/customers.model');
         connection.model('Customer', CustomerSchema);
     }
-    
+
     const model = connection.models['Order'] || connection.model('Order', OrderSchema) as unknown as Model<OrderDocument>;
     return new DataBaseRepository<OrderDocument>(model);
 }

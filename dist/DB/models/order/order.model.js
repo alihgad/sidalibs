@@ -23,6 +23,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Order.prototype, "referenceNumber", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
+], Order.prototype, "workDate", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ trim: true }),
     __metadata("design:type", String)
 ], Order.prototype, "orderNumber", void 0);
@@ -39,6 +43,17 @@ __decorate([
     (0, mongoose_1.Prop)({ type: String, enum: type_1.OrderStatus, default: type_1.OrderStatus.PENDING, trim: true }),
     __metadata("design:type", String)
 ], Order.prototype, "orderStatus", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({
+        type: [{
+                status: { type: String, enum: type_1.OrderStatus, required: true },
+                timestamp: { type: Date, default: Date.now },
+                userId: { type: mongoose_2.Types.ObjectId, ref: 'User' },
+                notes: String
+            }]
+    }),
+    __metadata("design:type", Array)
+], Order.prototype, "statusHistory", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: String, enum: type_1.OrderType, required: true, trim: true }),
     __metadata("design:type", String)
@@ -148,7 +163,8 @@ __decorate([
     __metadata("design:type", Array)
 ], Order.prototype, "tags", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{
+    (0, mongoose_1.Prop)({
+        type: [{
                 productId: { type: mongoose_2.Types.ObjectId, ref: 'Product', required: true },
                 quantity: { type: Number, required: true, min: 1 },
                 unitPrice: { type: Number, required: true, min: 0 },
@@ -156,19 +172,23 @@ __decorate([
                 total: { type: Number, required: true, min: 0 },
                 note: String,
                 additions: [{ type: mongoose_2.Types.ObjectId, ref: 'Addition' }]
-            }] }),
+            }]
+    }),
     __metadata("design:type", Array)
 ], Order.prototype, "products", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{
+    (0, mongoose_1.Prop)({
+        type: [{
                 taxId: mongoose_2.Types.ObjectId,
                 taxName: String,
                 taxValue: Number,
-            }], ref: "taxes" }),
+            }], ref: "taxes"
+    }),
     __metadata("design:type", Array)
 ], Order.prototype, "taxes", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [{
+    (0, mongoose_1.Prop)({
+        type: [{
                 paymentMethod: { type: String, enum: ['cash', 'card', 'other'], required: true },
                 amount: { type: Number, required: true, min: 0 },
                 reference: String,
@@ -176,9 +196,18 @@ __decorate([
                 status: { type: String, enum: ['pending', 'completed', 'failed', 'refunded'], default: 'completed' },
                 refundReference: mongoose_2.Types.ObjectId,
                 processingFee: Number
-            }] }),
+            }]
+    }),
     __metadata("design:type", Array)
 ], Order.prototype, "payments", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, enum: type_1.OrderSource, default: type_1.OrderSource.CASHIER }),
+    __metadata("design:type", String)
+], Order.prototype, "orderSource", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date, default: new Date() }),
+    __metadata("design:type", Date)
+], Order.prototype, "createdAt", void 0);
 exports.Order = Order = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

@@ -558,6 +558,15 @@ registerEnumType(DeliveryStatus, {
 });
 
 
+export enum OrderSource {
+    CASHIER = 'cashier',
+    DRIVE_THRU = 'drive_thru',
+}    
+
+registerEnumType(OrderSource, {
+    name: 'OrderSource',
+    description: 'The source of the order',
+  });   
 
 
   

@@ -151,6 +151,10 @@ __decorate([
             }] }),
     __metadata("design:type", Array)
 ], Order.prototype, "payments", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date, default: Date.now }),
+    __metadata("design:type", Date)
+], Order.prototype, "createdAt", void 0);
 exports.Order = Order = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
