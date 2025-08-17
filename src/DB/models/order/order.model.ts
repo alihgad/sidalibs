@@ -187,7 +187,9 @@ export class Order {
         processingFee?: number
     }[]
 
-    
+
+    @Prop({type:Date,default:Date.now})
+    createdAt!: Date
 
 }
 
