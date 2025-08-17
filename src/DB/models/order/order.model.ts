@@ -16,6 +16,9 @@ export class Order {
     @Prop({ trim: true })
     referenceNumber!: number;
 
+    @Prop({ type: Date })
+    workDate!: Date;
+
     @Prop({ trim: true })
     orderNumber!: string;
 

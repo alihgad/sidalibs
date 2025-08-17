@@ -3,6 +3,7 @@ import { DeliveryStatus, OrderSource, OrderStatus, OrderType } from "../../../co
 import { DataBaseRepository } from "../../DataBase.repository";
 export declare class Order {
     referenceNumber: number;
+    workDate: Date;
     orderNumber: string;
     branch: {
         branchId: Types.ObjectId;

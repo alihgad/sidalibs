@@ -23,6 +23,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Order.prototype, "referenceNumber", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
+], Order.prototype, "workDate", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ trim: true }),
     __metadata("design:type", String)
 ], Order.prototype, "orderNumber", void 0);
