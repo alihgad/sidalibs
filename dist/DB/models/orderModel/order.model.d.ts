@@ -53,6 +53,7 @@ export declare class Order {
         addedAt: Date;
         refundReferenceNumber?: Types.ObjectId;
     }[];
+    createdAt: Date;
 }
 export declare const OrderSchema: mongoose.Schema<Order, mongoose.Model<Order, any, any, any, mongoose.Document<unknown, any, Order, any> & Order & {
     _id: Types.ObjectId;

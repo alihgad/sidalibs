@@ -147,7 +147,11 @@ export class Order {
         refundReferenceNumber?: Types.ObjectId
     }[]
 
+
+    @Prop({type:Date,default:Date.now})
+    createdAt!: Date
     
+
 
 }
 
