@@ -21,14 +21,33 @@ export class Production {
   @Prop({ type: String, enum: Object.values(ProductionType) })
   type!: ProductionType;
 
-  @Prop({ type: Types.ObjectId, ref: 'branch' })
-  branchId!: Types.ObjectId;
+  @Prop({ type: {
+    branchId: { type: Types.ObjectId ,ref: 'branch'},
+    branchName: { type: String }
+  } })
+  branch!: {
+    branchId: Types.ObjectId;
+    branchName: string;
+  };
 
-  @Prop({ type: Types.ObjectId, ref: 'user' })
-  createdBy!: Types.ObjectId;
+  @Prop({ type: {
+    userId: { type: Types.ObjectId ,ref: 'user'},
+    userName: { type: String }
+  } })
+  createdBy!: {
+    userId: Types.ObjectId;
+    userName: string;
+  };
 
-  @Prop({ type: Types.ObjectId, ref: 'user' })
-  sendBy!: Types.ObjectId;
+  @Prop({ type: {
+    userId: { type: Types.ObjectId ,ref: 'user'},
+    userName: { type: String }
+  } })
+  
+  sendBy!: {
+    userId: Types.ObjectId;
+    userName: string;
+  };
 
   @Prop({ type: Date })
   workDate!: Date;

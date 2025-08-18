@@ -5,9 +5,18 @@ export declare class Production {
     referenceNumber: string;
     status: ProductionStatus;
     type: ProductionType;
-    branchId: Types.ObjectId;
-    createdBy: Types.ObjectId;
-    sendBy: Types.ObjectId;
+    branch: {
+        branchId: Types.ObjectId;
+        branchName: string;
+    };
+    createdBy: {
+        userId: Types.ObjectId;
+        userName: string;
+    };
+    sendBy: {
+        userId: Types.ObjectId;
+        userName: string;
+    };
     workDate: Date;
     createdAt: Date;
     sendAt: Date;

@@ -31,16 +31,25 @@ __decorate([
     __metadata("design:type", String)
 ], Production.prototype, "type", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'branch' }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
-], Production.prototype, "branchId", void 0);
+    (0, mongoose_1.Prop)({ type: {
+            branchId: { type: mongoose_2.Types.ObjectId, ref: 'branch' },
+            branchName: { type: String }
+        } }),
+    __metadata("design:type", Object)
+], Production.prototype, "branch", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'user' }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: {
+            userId: { type: mongoose_2.Types.ObjectId, ref: 'user' },
+            userName: { type: String }
+        } }),
+    __metadata("design:type", Object)
 ], Production.prototype, "createdBy", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'user' }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
+    (0, mongoose_1.Prop)({ type: {
+            userId: { type: mongoose_2.Types.ObjectId, ref: 'user' },
+            userName: { type: String }
+        } }),
+    __metadata("design:type", Object)
 ], Production.prototype, "sendBy", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Date }),
