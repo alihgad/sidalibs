@@ -121,7 +121,7 @@ __decorate([
             street: { type: String }
         }, required: false }),
     __metadata("design:type", Object)
-], Tenant.prototype, "ShippingAddress", void 0);
+], Tenant.prototype, "shippingAddress", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

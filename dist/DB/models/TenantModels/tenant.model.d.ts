@@ -24,7 +24,7 @@ export declare class Tenant {
     plan: PlanType;
     deletedAt?: Date;
     isDeleted: boolean;
-    ShippingAddress?: {
+    shippingAddress?: {
         country: string;
         city: string;
         district: string;

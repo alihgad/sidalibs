@@ -101,7 +101,7 @@ export class Tenant {
     district: { type: String },
     street: { type: String }
   }, required: false })
-  ShippingAddress?: {
+  shippingAddress?: {
     country: string;
     city: string;
     district: string;
