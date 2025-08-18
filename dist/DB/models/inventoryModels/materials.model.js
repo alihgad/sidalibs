@@ -94,7 +94,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: Number, required: true, min: 0 }),
     __metadata("design:type", Number)
-], Materials.prototype, "cost", void 0);
+], Materials.prototype, "totalCostOfProduction", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Number, required: true, min: 0 }),
     __metadata("design:type", Number)
@@ -120,7 +120,15 @@ __decorate([
     __metadata("design:type", Array)
 ], Materials.prototype, "tags", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: [mongoose_2.Types.ObjectId], ref: 'Materials', required: false }),
+    (0, mongoose_1.Prop)({ type: [{
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
+                quantity: { type: Number, required: true, min: 0 },
+                yieldPercentage: { type: Number, required: true, min: 0, max: 100 },
+                unitCost: { type: Number, required: true, min: 0 },
+                finalQuantity: { type: Number, required: true, min: 0 },
+                wasteQuantity: { type: Number, required: true, min: 0, default: 0 },
+                finalCost: { type: Number, required: true, min: 0 }
+            }], required: false }),
     __metadata("design:type", Array)
 ], Materials.prototype, "ingredients", void 0);
 __decorate([

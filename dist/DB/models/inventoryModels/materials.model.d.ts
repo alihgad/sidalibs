@@ -10,14 +10,22 @@ export declare class Materials {
     recipeUnit: string;
     conversionFactor: number;
     costCalculationMethod: CostCalculationMethod;
-    cost: number;
+    totalCostOfProduction: number;
     reorderLevel: number;
     barcode?: string;
     minLevel: number;
     maxLevel: number;
     suppliers?: Types.ObjectId[];
     tags?: Types.ObjectId[];
-    ingredients?: Types.ObjectId[];
+    ingredients?: {
+        materialId: Types.ObjectId;
+        quantity: number;
+        yieldPercentage: number;
+        unitCost: number;
+        finalQuantity: number;
+        wasteQuantity: number;
+        finalCost: number;
+    }[];
     isDeleted: boolean;
     createdAt?: Date;
     updatedAt?: Date;

@@ -45,7 +45,7 @@ export class Materials {
   costCalculationMethod!: CostCalculationMethod;
 
   @Prop({ type: Number, required: true, min: 0 })
-  cost!: number;
+  totalCostOfProduction!: number;
 
   @Prop({ type: Number, required: true, min: 0 })
   reorderLevel!: number;
@@ -65,8 +65,24 @@ export class Materials {
   @Prop({ type: [Types.ObjectId], ref: 'Tag', required: false })
   tags?: Types.ObjectId[];
 
-  @Prop({ type: [Types.ObjectId], ref: 'Materials', required: false })
-  ingredients?: Types.ObjectId[];
+    @Prop({ type: [{
+    materialId: { type: Types.ObjectId, ref: 'Materials'},
+    quantity: { type: Number, required: true, min: 0 },
+    yieldPercentage: { type: Number, required: true, min: 0, max: 100 },
+    unitCost: { type: Number, required: true, min: 0 }, 
+    finalQuantity: { type: Number, required: true, min: 0 },
+    wasteQuantity: { type: Number, required: true, min: 0, default: 0 },
+    finalCost: { type: Number, required: true, min: 0 }
+    }], required: false })
+  ingredients?: {
+    materialId: Types.ObjectId;
+    quantity: number;
+    yieldPercentage: number;
+    unitCost: number;
+    finalQuantity: number;
+    wasteQuantity: number;
+    finalCost: number;
+  }[];
 
   @Prop({ type: Boolean, default: false })
   isDeleted!: boolean;
