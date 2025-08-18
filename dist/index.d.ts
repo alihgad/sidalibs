@@ -1,6 +1,6 @@
 export * from './common/pagination.type';
 export * from './common/type';
-export { deviceTypeEnum, licencesEnum, productsType, ProductsTypeEnum, PlanType, PlanDuration, languages, OrderType, OrderStatus, DaysOfWeek, PromotionType, DiscountType, DiscountAppliesTo, TemporaryEventType, PaymentMethodType, TagType, LogActionType, ReasonType, CostCalculationMethod, PricingMethod, SaleMethod, ServingUnit, SaleStatusEnum, PaymentMethodEnum, DeliveryTime, PurchaseOrderStatus, PurchaseStatus, PurchaseType, TransferStatus, TransferType, InventoryCountStatus, ChargeType, KitchenFlowStatus, KitchenFlowType, DeliveryStatus } from './common/type';
+export { deviceTypeEnum, licencesEnum, productsType, ProductsTypeEnum, PlanType, PlanDuration, languages, OrderType, OrderStatus, DaysOfWeek, PromotionType, DiscountType, DiscountAppliesTo, TemporaryEventType, PaymentMethodType, TagType, LogActionType, ReasonType, CostCalculationMethod, PricingMethod, SaleMethod, ServingUnit, SaleStatusEnum, PaymentMethodEnum, DeliveryTime, PurchaseOrderStatus, PurchaseStatus, PurchaseType, TransferStatus, TransferType, InventoryCountStatus, ChargeType, KitchenFlowStatus, KitchenFlowType, DeliveryStatus, ProductionType, ProductionStatus } from './common/type';
 export * from './common/audit';
 export * from './common/decorators/is-valid-date.decorator';
 export * from './common/scalars/object-id.scalar';
@@ -23,6 +23,7 @@ export * from './DB/models/inventoryModels/countSheet.model';
 export * from './DB/models/inventoryModels/transfer.model';
 export * from './DB/models/inventoryModels/transferOrders.model';
 export * from './DB/models/inventoryModels/inventoryCount.model';
+export * from './DB/models/inventoryModels/production.model';
 export * from './DB/models/menuModels/categories.model';
 export * from './DB/models/menuModels/groups.model';
 export * from './DB/models/menuModels/product.model';

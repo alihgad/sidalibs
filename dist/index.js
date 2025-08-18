@@ -36,7 +36,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.notifications = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.languages = exports.PlanDuration = exports.PlanType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.notifications = exports.ProductionStatus = exports.ProductionType = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.languages = exports.PlanDuration = exports.PlanType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
 // common
 __exportStar(require("./common/pagination.type"), exports);
 __exportStar(require("./common/type"), exports);
@@ -77,6 +77,8 @@ Object.defineProperty(exports, "ChargeType", { enumerable: true, get: function (
 Object.defineProperty(exports, "KitchenFlowStatus", { enumerable: true, get: function () { return type_1.KitchenFlowStatus; } });
 Object.defineProperty(exports, "KitchenFlowType", { enumerable: true, get: function () { return type_1.KitchenFlowType; } });
 Object.defineProperty(exports, "DeliveryStatus", { enumerable: true, get: function () { return type_1.DeliveryStatus; } });
+Object.defineProperty(exports, "ProductionType", { enumerable: true, get: function () { return type_1.ProductionType; } });
+Object.defineProperty(exports, "ProductionStatus", { enumerable: true, get: function () { return type_1.ProductionStatus; } });
 __exportStar(require("./common/audit"), exports);
 __exportStar(require("./common/decorators/is-valid-date.decorator"), exports);
 __exportStar(require("./common/scalars/object-id.scalar"), exports);
@@ -103,6 +105,7 @@ __exportStar(require("./DB/models/inventoryModels/countSheet.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/transfer.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/transferOrders.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/inventoryCount.model"), exports);
+__exportStar(require("./DB/models/inventoryModels/production.model"), exports);
 // ========== Menu Models ==========
 __exportStar(require("./DB/models/menuModels/categories.model"), exports);
 __exportStar(require("./DB/models/menuModels/groups.model"), exports);

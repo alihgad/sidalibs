@@ -38,7 +38,9 @@ export {
     ChargeType,
     KitchenFlowStatus,
     KitchenFlowType,
-    DeliveryStatus
+    DeliveryStatus,
+    ProductionType,
+    ProductionStatus
 } from './common/type';
 export * from './common/audit';
 export * from './common/decorators/is-valid-date.decorator';
@@ -69,6 +71,7 @@ export * from './DB/models/inventoryModels/countSheet.model';
 export * from './DB/models/inventoryModels/transfer.model';
 export * from './DB/models/inventoryModels/transferOrders.model';
 export * from './DB/models/inventoryModels/inventoryCount.model';
+export * from './DB/models/inventoryModels/production.model';
 
 // ========== Menu Models ==========
 export * from './DB/models/menuModels/categories.model';
