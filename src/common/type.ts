@@ -4,19 +4,19 @@ import { IsEnum, IsNotEmpty, IsInt, Min, IsString, IsOptional } from 'class-vali
 import Stripe from 'stripe';
 
 
-export enum deviceTypeEnum{
-    "mainCashier" = "mainCashier",
-    "addOnsCashier" = "addOnsCashier",
-    "KDS" = "KDS"
-}
+// export enum deviceTypeEnum{
+//     "mainCashier" = "mainCashier",
+//     "addOnsCashier" = "addOnsCashier",
+//     "KDS" = "KDS"
+// }
 
 
-registerEnumType(deviceTypeEnum, {
-    name: 'deviceTypeEnum',
-    description: 'The type of device',
-})
+// registerEnumType(deviceTypeEnum, {
+//     name: 'deviceTypeEnum',
+//     description: 'The type of device',
+// })
 
-export enum licencesEnum{
+export enum licencesEnum {
     "mainCashier" = "mainCashier",
     "KDS" = "KDS",
     "addOnsCashier" = "addOnsCashier",
@@ -36,11 +36,10 @@ export enum productsType {
     "KDS" = "prod_SIzEHkZq4Xehzz",
 }
 export enum ProductsTypeEnum {
-    CASHIER_DEVICE = "cashier device",
-    CASH_DRAWER = "Cash drawer",
-    PRINTER = "Printer",
-    IPAD = "iPad",
-    KDS = "KDS"
+    IOS_CASHIER = "ios cashier",
+    ANDROID_CASHIER = "android cashier",
+    LARGE_KITCHEN_SCREEN = "large kitchen screen",
+    TABLET_KITCHEN_SCREEN = "tablet kitchen screen"
 }
 registerEnumType(ProductsTypeEnum, {
 
@@ -99,11 +98,10 @@ registerEnumType(PlanDuration, {
     description: 'The duration of the plan',
 })
 export const devicePriceMap: Record<ProductsTypeEnum, number> = {
-    [ProductsTypeEnum.CASHIER_DEVICE]: 10000, // $100.00
-    [ProductsTypeEnum.CASH_DRAWER]: 5000,
-    [ProductsTypeEnum.PRINTER]: 8000,
-    [ProductsTypeEnum.IPAD]: 30000,
-    [ProductsTypeEnum.KDS]: 7000
+    [ProductsTypeEnum.IOS_CASHIER]: 10000,
+    [ProductsTypeEnum.ANDROID_CASHIER]: 30000,
+    [ProductsTypeEnum.LARGE_KITCHEN_SCREEN]: 7000,
+    [ProductsTypeEnum.TABLET_KITCHEN_SCREEN]: 7000
 };
 
 export const planPriceMap: Record<PlanType, Record<licencesEnum, number>> = {
@@ -431,117 +429,117 @@ registerEnumType(DeliveryTime, {
 });
 
 
-  export enum PurchaseOrderStatus {
+export enum PurchaseOrderStatus {
     PENDING = 'pending',
     APPROVED = 'approved',
     REJECTED = 'rejected',
     CLOSED = 'closed',
     DRAFT = 'draft',
     CANCELLED = 'cancelled'
-  }
+}
 
-  registerEnumType(PurchaseOrderStatus, {
+registerEnumType(PurchaseOrderStatus, {
     name: 'PurchaseOrderStatus',
     description: 'The status of the purchase order',
-  });
+});
 
 
-  export enum PurchaseStatus {
+export enum PurchaseStatus {
     CLOSED = 'closed',
     DRAFT = 'draft',
     PENDING = 'pending'
-  }
+}
 
-  registerEnumType(PurchaseStatus, {
+registerEnumType(PurchaseStatus, {
     name: 'PurchaseStatus',
     description: 'The status of the purchase',
-  });
+});
 
-  export enum PurchaseType {
+export enum PurchaseType {
     PURCHASE = 'purchase',
     RETURN = 'return'
-  }
+}
 
-  registerEnumType(PurchaseType, {
+registerEnumType(PurchaseType, {
     name: 'PurchaseType',
     description: 'The type of purchase',
-  });
+});
 
-  export enum TransferStatus {
+export enum TransferStatus {
     DRAFT = 'draft',
     PENDING = 'pending',
     CLOSED = 'closed',
     CANCELLED = 'cancelled',
-  }
+}
 
-  registerEnumType(TransferStatus, {
+registerEnumType(TransferStatus, {
     name: 'TransferStatus',
     description: 'The status of the transfer',
-  });
-  
+});
 
-  export enum TransferType {
+
+export enum TransferType {
     TRANSFER_SENDING = 'transfer_sending',
     TRANSFER_RECEIVING = 'transfer_receiving'
-  }
+}
 
-  registerEnumType(TransferType, {
+registerEnumType(TransferType, {
     name: 'TransferType',
     description: 'The type of transfer',
-  });
+});
 
-  
-  export enum InventoryCountStatus {
+
+export enum InventoryCountStatus {
     DRAFT = 'draft',
     PENDING = 'pending',
     CLOSED = 'closed',
     CANCELLED = 'cancelled'
-  }
+}
 
-  registerEnumType(InventoryCountStatus, {
+registerEnumType(InventoryCountStatus, {
     name: 'InventoryCountStatus',
     description: 'The status of the inventory count',
-  });
+});
 
 
-  export enum ChargeType {
+export enum ChargeType {
     VALUE = 'value',
     PERCENTAGE = 'percentage'
-  }
+}
 
-  registerEnumType(ChargeType, {
+registerEnumType(ChargeType, {
     name: 'ChargeType',
     description: 'The type of charge',
-  });
+});
 
 
-  export enum KitchenFlowStatus {
-  PENDING = 'PENDING',
-  IN_PROGRESS = 'IN_PROGRESS',
-  COMPLETED = 'COMPLETED',
-  CANCELLED = 'CANCELLED'
+export enum KitchenFlowStatus {
+    PENDING = 'PENDING',
+    IN_PROGRESS = 'IN_PROGRESS',
+    COMPLETED = 'COMPLETED',
+    CANCELLED = 'CANCELLED'
 
 }
 
 
 
 export enum KitchenFlowType {
-  ORDER = 'ORDER',
-  PREPARATION = 'PREPARATION',
-  COOKING = 'COOKING',
-  ASSEMBLY = 'ASSEMBLY',
-  PACKAGING = 'PACKAGING'
+    ORDER = 'ORDER',
+    PREPARATION = 'PREPARATION',
+    COOKING = 'COOKING',
+    ASSEMBLY = 'ASSEMBLY',
+    PACKAGING = 'PACKAGING'
 }
 
 registerEnumType(KitchenFlowStatus, {
     name: 'KitchenFlowStatus',
     description: 'The status of the kitchen flow',
-  });
+});
 
-  registerEnumType(KitchenFlowType, {
+registerEnumType(KitchenFlowType, {
     name: 'KitchenFlowType',
     description: 'The type of kitchen flow',
-  });
+});
 
 export enum DeliveryStatus {
     PENDING = 'pending',
@@ -561,37 +559,37 @@ registerEnumType(DeliveryStatus, {
 export enum OrderSource {
     CASHIER = 'cashier',
     DRIVE_THRU = 'drive_thru',
-}    
+}
 
 registerEnumType(OrderSource, {
     name: 'OrderSource',
     description: 'The source of the order',
-  });   
+});
 
 
-  export enum ProductionType {
+export enum ProductionType {
     PRODUCTION = 'production',
     CONSUMPTION = 'consumption',
     WASTE = 'waste'
-  }
-  
-  registerEnumType(ProductionType, {
+}
+
+registerEnumType(ProductionType, {
     name: 'ProductionType',
     description: 'The type of production',
-  });
+});
 
 
-  export enum ProductionStatus {
+export enum ProductionStatus {
     PENDING = 'pending',
     SENT = 'sent',
     CLOSED = 'closed',
     CANCELLED = 'cancelled'
-  }
-  
-  registerEnumType(ProductionStatus, {
+}
+
+registerEnumType(ProductionStatus, {
     name: 'ProductionStatus',
     description: 'The status of the production',
-  });
+});
 
 
 

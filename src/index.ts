@@ -4,10 +4,8 @@ export * from './common/type';
 
 // Explicit exports for all enums from type.ts
 export { 
-    deviceTypeEnum,
-    licencesEnum,
-    productsType,
     ProductsTypeEnum,
+    licencesEnum,
     PlanType,
     PlanDuration,
     languages,

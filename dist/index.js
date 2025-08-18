@@ -36,16 +36,14 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.notifications = exports.ProductionStatus = exports.ProductionType = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.languages = exports.PlanDuration = exports.PlanType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.notifications = exports.ProductionStatus = exports.ProductionType = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.languages = exports.PlanDuration = exports.PlanType = exports.licencesEnum = exports.ProductsTypeEnum = void 0;
 // common
 __exportStar(require("./common/pagination.type"), exports);
 __exportStar(require("./common/type"), exports);
 // Explicit exports for all enums from type.ts
 var type_1 = require("./common/type");
-Object.defineProperty(exports, "deviceTypeEnum", { enumerable: true, get: function () { return type_1.deviceTypeEnum; } });
-Object.defineProperty(exports, "licencesEnum", { enumerable: true, get: function () { return type_1.licencesEnum; } });
-Object.defineProperty(exports, "productsType", { enumerable: true, get: function () { return type_1.productsType; } });
 Object.defineProperty(exports, "ProductsTypeEnum", { enumerable: true, get: function () { return type_1.ProductsTypeEnum; } });
+Object.defineProperty(exports, "licencesEnum", { enumerable: true, get: function () { return type_1.licencesEnum; } });
 Object.defineProperty(exports, "PlanType", { enumerable: true, get: function () { return type_1.PlanType; } });
 Object.defineProperty(exports, "PlanDuration", { enumerable: true, get: function () { return type_1.PlanDuration; } });
 Object.defineProperty(exports, "languages", { enumerable: true, get: function () { return type_1.languages; } });

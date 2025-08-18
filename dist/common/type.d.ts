@@ -1,9 +1,4 @@
 import Stripe from 'stripe';
-export declare enum deviceTypeEnum {
-    "mainCashier" = "mainCashier",
-    "addOnsCashier" = "addOnsCashier",
-    "KDS" = "KDS"
-}
 export declare enum licencesEnum {
     "mainCashier" = "mainCashier",
     "KDS" = "KDS",
@@ -17,11 +12,10 @@ export declare enum productsType {
     "KDS" = "prod_SIzEHkZq4Xehzz"
 }
 export declare enum ProductsTypeEnum {
-    CASHIER_DEVICE = "cashier device",
-    CASH_DRAWER = "Cash drawer",
-    PRINTER = "Printer",
-    IPAD = "iPad",
-    KDS = "KDS"
+    IOS_CASHIER = "ios cashier",
+    ANDROID_CASHIER = "android cashier",
+    LARGE_KITCHEN_SCREEN = "large kitchen screen",
+    TABLET_KITCHEN_SCREEN = "tablet kitchen\u00A0screen"
 }
 export declare class DeviceType {
     type: ProductsTypeEnum;

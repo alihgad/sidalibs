@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductionStatus = exports.ProductionType = exports.OrderSource = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.deviceTypeEnum = void 0;
+exports.ProductionStatus = exports.ProductionType = exports.OrderSource = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
-var deviceTypeEnum;
-(function (deviceTypeEnum) {
-    deviceTypeEnum["mainCashier"] = "mainCashier";
-    deviceTypeEnum["addOnsCashier"] = "addOnsCashier";
-    deviceTypeEnum["KDS"] = "KDS";
-})(deviceTypeEnum || (exports.deviceTypeEnum = deviceTypeEnum = {}));
-(0, graphql_1.registerEnumType)(deviceTypeEnum, {
-    name: 'deviceTypeEnum',
-    description: 'The type of device',
-});
+// export enum deviceTypeEnum{
+//     "mainCashier" = "mainCashier",
+//     "addOnsCashier" = "addOnsCashier",
+//     "KDS" = "KDS"
+// }
+// registerEnumType(deviceTypeEnum, {
+//     name: 'deviceTypeEnum',
+//     description: 'The type of device',
+// })
 var licencesEnum;
 (function (licencesEnum) {
     licencesEnum["mainCashier"] = "mainCashier";
@@ -42,11 +41,10 @@ var productsType;
 })(productsType || (exports.productsType = productsType = {}));
 var ProductsTypeEnum;
 (function (ProductsTypeEnum) {
-    ProductsTypeEnum["CASHIER_DEVICE"] = "cashier device";
-    ProductsTypeEnum["CASH_DRAWER"] = "Cash drawer";
-    ProductsTypeEnum["PRINTER"] = "Printer";
-    ProductsTypeEnum["IPAD"] = "iPad";
-    ProductsTypeEnum["KDS"] = "KDS";
+    ProductsTypeEnum["IOS_CASHIER"] = "ios cashier";
+    ProductsTypeEnum["ANDROID_CASHIER"] = "android cashier";
+    ProductsTypeEnum["LARGE_KITCHEN_SCREEN"] = "large kitchen screen";
+    ProductsTypeEnum["TABLET_KITCHEN_SCREEN"] = "tablet kitchen\u00A0screen";
 })(ProductsTypeEnum || (exports.ProductsTypeEnum = ProductsTypeEnum = {}));
 (0, graphql_1.registerEnumType)(ProductsTypeEnum, {
     name: 'ProductsTypeEnum',
@@ -104,11 +102,10 @@ exports.planIntervalCountMap = {
     description: 'The duration of the plan',
 });
 exports.devicePriceMap = {
-    [ProductsTypeEnum.CASHIER_DEVICE]: 10000, // $100.00
-    [ProductsTypeEnum.CASH_DRAWER]: 5000,
-    [ProductsTypeEnum.PRINTER]: 8000,
-    [ProductsTypeEnum.IPAD]: 30000,
-    [ProductsTypeEnum.KDS]: 7000
+    [ProductsTypeEnum.IOS_CASHIER]: 10000,
+    [ProductsTypeEnum.ANDROID_CASHIER]: 30000,
+    [ProductsTypeEnum.LARGE_KITCHEN_SCREEN]: 7000,
+    [ProductsTypeEnum.TABLET_KITCHEN_SCREEN]: 7000
 };
 exports.planPriceMap = {
     [PlanType.BASIC]: {

@@ -1,6 +1,6 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Collection, HydratedDocument, Model, Types } from 'mongoose';
-import { deviceTypeEnum, PlanDuration } from '../../../common/type';
+import { licencesEnum, PlanDuration } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 
@@ -18,7 +18,7 @@ export class Device {
     name!: string;
 
     @Prop({ required: true, trim: true })
-    deviceType!: deviceTypeEnum;
+    deviceType!: licencesEnum;
 
     @Prop({ type: Types.ObjectId, ref: 'Branch' , default: undefined })
     branchId!: Types.ObjectId | undefined;
