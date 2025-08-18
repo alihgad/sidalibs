@@ -569,9 +569,29 @@ registerEnumType(OrderSource, {
   });   
 
 
+  export enum ProductionType {
+    PRODUCTION = 'production',
+    CONSUMPTION = 'consumption',
+    WASTE = 'waste'
+  }
   
-  
+  registerEnumType(ProductionType, {
+    name: 'ProductionType',
+    description: 'The type of production',
+  });
 
+
+  export enum ProductionStatus {
+    PENDING = 'pending',
+    SENT = 'sent',
+    CLOSED = 'closed',
+    CANCELLED = 'cancelled'
+  }
+  
+  registerEnumType(ProductionStatus, {
+    name: 'ProductionStatus',
+    description: 'The status of the production',
+  });
 
 
 

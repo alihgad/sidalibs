@@ -273,4 +273,15 @@ export declare enum OrderSource {
     CASHIER = "cashier",
     DRIVE_THRU = "drive_thru"
 }
+export declare enum ProductionType {
+    PRODUCTION = "production",
+    CONSUMPTION = "consumption",
+    WASTE = "waste"
+}
+export declare enum ProductionStatus {
+    PENDING = "pending",
+    SENT = "sent",
+    CLOSED = "closed",
+    CANCELLED = "cancelled"
+}
 //# sourceMappingURL=type.d.ts.map
