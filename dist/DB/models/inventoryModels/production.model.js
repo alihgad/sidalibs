@@ -23,7 +23,7 @@ __decorate([
     __metadata("design:type", String)
 ], Production.prototype, "referenceNumber", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
+    (0, mongoose_1.Prop)({ type: String, enum: Object.values(type_1.ProductionStatus), default: type_1.ProductionStatus.PENDING }),
     __metadata("design:type", String)
 ], Production.prototype, "status", void 0);
 __decorate([

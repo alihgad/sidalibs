@@ -15,7 +15,7 @@ export class Production {
   @Prop({ type: String })
   referenceNumber!: string;
 
-  @Prop({ type: String })
+  @Prop({ type: String, enum: Object.values(ProductionStatus), default: ProductionStatus.PENDING })
   status!: ProductionStatus;
 
   @Prop({ type: String, enum: Object.values(ProductionType) })
