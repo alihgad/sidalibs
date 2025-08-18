@@ -19,6 +19,7 @@ export declare class Materials {
     tags?: Types.ObjectId[];
     ingredients?: {
         materialId: Types.ObjectId;
+        materialName: string;
         quantity: number;
         yieldPercentage: number;
         unitCost: number;

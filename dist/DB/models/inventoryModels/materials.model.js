@@ -122,6 +122,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
                 materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
+                materialName: { type: String },
                 quantity: { type: Number, required: true, min: 0 },
                 yieldPercentage: { type: Number, required: true, min: 0, max: 100 },
                 unitCost: { type: Number, required: true, min: 0 },
