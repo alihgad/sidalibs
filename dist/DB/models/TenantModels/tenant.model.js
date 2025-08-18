@@ -113,6 +113,15 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Tenant.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: {
+            country: { type: String },
+            city: { type: String },
+            district: { type: String },
+            street: { type: String }
+        }, required: false }),
+    __metadata("design:type", Object)
+], Tenant.prototype, "ShippingAddress", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

@@ -95,6 +95,20 @@ export class Tenant {
   @Prop({ type: Boolean, default: false })
   isDeleted!: boolean;
 
+  @Prop({ type: {
+    country: { type: String },
+    city: { type: String },
+    district: { type: String },
+    street: { type: String }
+  }, required: false })
+  ShippingAddress?: {
+    country: string;
+    city: string;
+    district: string;
+    street: string;
+  };
+
+
 }
 
 export type TenantDocument = HydratedDocument<Tenant> & { _id: string };

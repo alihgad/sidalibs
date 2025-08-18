@@ -24,6 +24,12 @@ export declare class Tenant {
     plan: PlanType;
     deletedAt?: Date;
     isDeleted: boolean;
+    ShippingAddress?: {
+        country: string;
+        city: string;
+        district: string;
+        street: string;
+    };
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;
