@@ -33,11 +33,11 @@ export class Production {
   @Prop({ type: Date })
   workDate!: Date;
 
-  @Prop({ type: String })
-  createdAt!: string;
+  @Prop({ type: Date })
+  createdAt!: Date;
 
-  @Prop({ type: String })
-  sendAt!: string;
+  @Prop({ type: Date })
+  sendAt!: Date;
 
   @Prop({ type: Number })
   totalCost!: number;

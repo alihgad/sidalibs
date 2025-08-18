@@ -47,12 +47,12 @@ __decorate([
     __metadata("design:type", Date)
 ], Production.prototype, "workDate", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
 ], Production.prototype, "createdAt", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
+    (0, mongoose_1.Prop)({ type: Date }),
+    __metadata("design:type", Date)
 ], Production.prototype, "sendAt", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Number }),

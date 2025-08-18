@@ -9,8 +9,8 @@ export declare class Production {
     createdBy: Types.ObjectId;
     sendBy: Types.ObjectId;
     workDate: Date;
-    createdAt: string;
-    sendAt: string;
+    createdAt: Date;
+    sendAt: Date;
     totalCost: number;
     totalQuantity: number;
     materials: {
