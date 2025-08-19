@@ -74,6 +74,7 @@ export class Production {
   }]})
   materials!: {
     materialId: Types.ObjectId;
+    materialName: string;
     code: number;
     quantity: number;
     cost: number;
