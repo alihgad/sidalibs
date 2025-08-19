@@ -66,6 +66,7 @@ export class Production {
 
   @Prop({ type: [{
     materialId: { type: Types.ObjectId, ref: 'Materials' },
+    materialName: String ,
     code: Number,
     quantity: Number,
     cost: Number,

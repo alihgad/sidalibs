@@ -74,6 +74,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
                 materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
+                materialName: String,
                 code: Number,
                 quantity: Number,
                 cost: Number,
