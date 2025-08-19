@@ -30,6 +30,7 @@ export declare class Production {
         cost: number;
         finalCost: number;
     }[];
+    notes: string;
 }
 export type ProductionDocument = HydratedDocument<Production>;
 export declare const ProductionSchema: import("mongoose").Schema<Production, Model<Production, any, any, any, import("mongoose").Document<unknown, any, Production, any> & Production & {

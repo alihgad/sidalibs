@@ -82,6 +82,10 @@ export class Production {
   }[];
 
 
+  @Prop({ type: String })
+  notes!: string;
+
+
   
 }
 

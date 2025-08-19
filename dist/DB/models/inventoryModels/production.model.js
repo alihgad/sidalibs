@@ -82,6 +82,10 @@ __decorate([
             }] }),
     __metadata("design:type", Array)
 ], Production.prototype, "materials", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String }),
+    __metadata("design:type", String)
+], Production.prototype, "notes", void 0);
 exports.Production = Production = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
