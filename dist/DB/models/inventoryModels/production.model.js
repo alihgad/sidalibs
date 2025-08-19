@@ -70,7 +70,7 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: Number }),
     __metadata("design:type", Number)
-], Production.prototype, "totalQuantity", void 0);
+], Production.prototype, "itemsCount", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
                 materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },

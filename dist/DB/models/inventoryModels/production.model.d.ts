@@ -21,7 +21,7 @@ export declare class Production {
     createdAt: Date;
     sendAt: Date;
     totalCost: number;
-    totalQuantity: number;
+    itemsCount: number;
     materials: {
         materialId: Types.ObjectId;
         materialName: string;
