@@ -62,7 +62,7 @@ export class Production {
   totalCost!: number;
 
   @Prop({ type: Number })
-  totalQuantity!: number;
+  itemsCount!: number;
 
   @Prop({ type: [{
     materialId: { type: Types.ObjectId, ref: 'Materials' },
