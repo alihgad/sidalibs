@@ -20,6 +20,7 @@ export declare class Materials {
     ingredients?: {
         materialId: Types.ObjectId;
         materialName: string;
+        materialCode: string;
         quantity: number;
         yieldPercentage: number;
         unitCost: number;

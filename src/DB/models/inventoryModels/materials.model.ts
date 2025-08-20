@@ -68,6 +68,7 @@ export class Materials {
     @Prop({ type: [{
     materialId: { type: Types.ObjectId, ref: 'Materials'},
     materialName: { type: String },
+    materialCode: { type: String },
     quantity: { type: Number, required: true, min: 0 },
     yieldPercentage: { type: Number, required: true, min: 0, max: 100 },
     unitCost: { type: Number, required: true, min: 0 }, 
@@ -78,6 +79,7 @@ export class Materials {
   ingredients?: {
     materialId: Types.ObjectId;
     materialName: string;
+    materialCode: string;
     quantity: number;
     yieldPercentage: number;
     unitCost: number;
