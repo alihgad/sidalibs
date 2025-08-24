@@ -1,4 +1,9 @@
 import Stripe from 'stripe';
+export declare enum ZatcaOnboardingStatus {
+    PENDING_OTP = "PENDING_OTP",
+    READY_FOR_CSR = "READY_FOR_CSR",
+    COMPLETED = "COMPLETED"
+}
 export declare enum licencesEnum {
     "mainCashier" = "mainCashier",
     "KDS" = "KDS",

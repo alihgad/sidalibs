@@ -1,8 +1,9 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Model } from 'mongoose';
-import { DeviceType, LicenseType, PlanType, licencesEnum, PlanDuration, ProductsTypeEnum } from '../../../common/type';
+import { DeviceType, LicenseType, PlanType, licencesEnum, PlanDuration, ProductsTypeEnum, ZatcaOnboardingStatus } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
+
 
 
 
@@ -47,6 +48,7 @@ export class Tenant {
 
   @Prop({ type: Boolean, default: false })
   specficSupplier!: boolean;
+
   @Prop({ type: String, default: "Asia/Riyadh" })
   timeZone!: string;
 
@@ -107,6 +109,15 @@ export class Tenant {
     district: string;
     street: string;
   };
+
+  @Prop({ required: true, match: /^\d{15}$/, unique: true })
+  vatNumber!: string; 
+
+  @Prop({ required: true, match: /^\d{10}$/, unique: true })
+  crNumber!: string; 
+
+  @Prop({ required: true, enum: ZatcaOnboardingStatus, default: ZatcaOnboardingStatus.PENDING_OTP })
+  zatcaStatus!: ZatcaOnboardingStatus;
 
 
 }

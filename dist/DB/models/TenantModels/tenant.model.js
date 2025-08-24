@@ -122,6 +122,18 @@ __decorate([
         }, required: false }),
     __metadata("design:type", Object)
 ], Tenant.prototype, "shippingAddress", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true, match: /^\d{15}$/, unique: true }),
+    __metadata("design:type", String)
+], Tenant.prototype, "vatNumber", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true, match: /^\d{10}$/, unique: true }),
+    __metadata("design:type", String)
+], Tenant.prototype, "crNumber", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true, enum: type_1.ZatcaOnboardingStatus, default: type_1.ZatcaOnboardingStatus.PENDING_OTP }),
+    __metadata("design:type", String)
+], Tenant.prototype, "zatcaStatus", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

@@ -1,5 +1,5 @@
 import { HydratedDocument, Model } from 'mongoose';
-import { DeviceType, LicenseType, PlanType } from '../../../common/type';
+import { DeviceType, LicenseType, PlanType, ZatcaOnboardingStatus } from '../../../common/type';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Tenant {
     ownerFirstName: string;
@@ -30,6 +30,9 @@ export declare class Tenant {
         district: string;
         street: string;
     };
+    vatNumber: string;
+    crNumber: string;
+    zatcaStatus: ZatcaOnboardingStatus;
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;

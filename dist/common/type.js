@@ -9,18 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductionStatus = exports.ProductionType = exports.OrderSource = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = void 0;
+exports.ProductionStatus = exports.ProductionType = exports.OrderSource = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.ZatcaOnboardingStatus = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
-// export enum deviceTypeEnum{
-//     "mainCashier" = "mainCashier",
-//     "addOnsCashier" = "addOnsCashier",
-//     "KDS" = "KDS"
-// }
-// registerEnumType(deviceTypeEnum, {
-//     name: 'deviceTypeEnum',
-//     description: 'The type of device',
-// })
+var ZatcaOnboardingStatus;
+(function (ZatcaOnboardingStatus) {
+    ZatcaOnboardingStatus["PENDING_OTP"] = "PENDING_OTP";
+    ZatcaOnboardingStatus["READY_FOR_CSR"] = "READY_FOR_CSR";
+    ZatcaOnboardingStatus["COMPLETED"] = "COMPLETED";
+})(ZatcaOnboardingStatus || (exports.ZatcaOnboardingStatus = ZatcaOnboardingStatus = {}));
+(0, graphql_1.registerEnumType)(ZatcaOnboardingStatus, { name: 'ZatcaOnboardingStatus' });
 var licencesEnum;
 (function (licencesEnum) {
     licencesEnum["mainCashier"] = "mainCashier";

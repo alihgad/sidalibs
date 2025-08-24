@@ -4,17 +4,13 @@ import { IsEnum, IsNotEmpty, IsInt, Min, IsString, IsOptional } from 'class-vali
 import Stripe from 'stripe';
 
 
-// export enum deviceTypeEnum{
-//     "mainCashier" = "mainCashier",
-//     "addOnsCashier" = "addOnsCashier",
-//     "KDS" = "KDS"
-// }
 
-
-// registerEnumType(deviceTypeEnum, {
-//     name: 'deviceTypeEnum',
-//     description: 'The type of device',
-// })
+export enum ZatcaOnboardingStatus {
+    PENDING_OTP = 'PENDING_OTP',
+    READY_FOR_CSR = 'READY_FOR_CSR', 
+    COMPLETED = 'COMPLETED',
+  }
+  registerEnumType(ZatcaOnboardingStatus, { name: 'ZatcaOnboardingStatus' });
 
 export enum licencesEnum {
     "mainCashier" = "mainCashier",
