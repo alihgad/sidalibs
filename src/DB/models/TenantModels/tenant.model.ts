@@ -119,6 +119,16 @@ export class Tenant {
   @Prop({ required: true, enum: ZatcaOnboardingStatus, default: ZatcaOnboardingStatus.PENDING_OTP })
   zatcaStatus!: ZatcaOnboardingStatus;
 
+  @Prop({ type: Date, default: null })
+  otpExpiry!: Date;
+
+  @Prop({ type: String, default: null })
+  otp!: string;
+
+
+
+
+
 
 }
 

@@ -134,6 +134,14 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true, enum: type_1.ZatcaOnboardingStatus, default: type_1.ZatcaOnboardingStatus.PENDING_OTP }),
     __metadata("design:type", String)
 ], Tenant.prototype, "zatcaStatus", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Date, default: null }),
+    __metadata("design:type", Date)
+], Tenant.prototype, "otpExpiry", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, default: null }),
+    __metadata("design:type", String)
+], Tenant.prototype, "otp", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

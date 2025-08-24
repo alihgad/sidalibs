@@ -33,6 +33,8 @@ export declare class Tenant {
     vatNumber: string;
     crNumber: string;
     zatcaStatus: ZatcaOnboardingStatus;
+    otpExpiry: Date;
+    otp: string;
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;
