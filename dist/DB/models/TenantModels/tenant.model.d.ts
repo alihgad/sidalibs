@@ -35,6 +35,9 @@ export declare class Tenant {
     zatcaStatus: ZatcaOnboardingStatus;
     otpExpiry: Date;
     otp: string;
+    csr?: string;
+    privateKey?: string;
+    publicKey?: string;
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;

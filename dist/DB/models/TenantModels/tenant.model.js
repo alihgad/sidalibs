@@ -142,6 +142,18 @@ __decorate([
     (0, mongoose_1.Prop)({ type: String, default: null }),
     __metadata("design:type", String)
 ], Tenant.prototype, "otp", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Tenant.prototype, "csr", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Tenant.prototype, "privateKey", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Tenant.prototype, "publicKey", void 0);
 exports.Tenant = Tenant = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

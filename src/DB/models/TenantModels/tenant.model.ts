@@ -126,6 +126,15 @@ export class Tenant {
   otp!: string;
 
 
+  @Prop()
+  csr?: string; 
+
+  @Prop()
+  privateKey?: string; 
+
+  @Prop()
+  publicKey?: string; 
+
 
 
 
