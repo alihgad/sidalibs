@@ -38,6 +38,10 @@ export declare class Tenant {
     csr?: string;
     privateKey?: string;
     publicKey?: string;
+    zatcaRequestId?: string;
+    binarySecurityToken?: string;
+    secret?: string;
+    complianceCertificate?: string;
 }
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;

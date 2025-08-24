@@ -135,7 +135,17 @@ export class Tenant {
   @Prop()
   publicKey?: string; 
 
+  @Prop()
+  zatcaRequestId?: string;
 
+  @Prop()
+  binarySecurityToken?: string;
+
+  @Prop()
+  secret?: string;
+
+  @Prop()
+  complianceCertificate?: string; 
 
 
 
