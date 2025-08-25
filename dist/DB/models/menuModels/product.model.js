@@ -209,6 +209,10 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
+], Product.prototype, "isManufactured", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
 ], Product.prototype, "isDeleted", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),

@@ -155,6 +155,9 @@ export class Product {
     isActive!: boolean; // المنتج نشط
 
     @Prop({ type: Boolean, default: false })
+    isManufactured!: boolean; // المنتج مصنع
+
+    @Prop({ type: Boolean, default: false })
     isDeleted!: boolean; // المنتج محذوف
 
     @Prop({ type: Boolean, default: false })
