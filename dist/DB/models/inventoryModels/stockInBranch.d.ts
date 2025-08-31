@@ -4,6 +4,7 @@ export declare class StockInBranch {
     branchId?: Types.ObjectId;
     warehouseId?: Types.ObjectId;
     materialId: Types.ObjectId;
+    sectionId?: Types.ObjectId;
     quantity: number;
     price?: number;
 }

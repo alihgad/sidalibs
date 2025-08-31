@@ -42,7 +42,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getStockInBranchModel = exports.StockInBranchModel = exports.STOCK_IN_BRANCH_MODEL = exports.StockInBranchSchema = exports.StockInBranch = void 0;
+exports.getSectionModel = exports.SectionModel = exports.SECTION_MODEL = exports.SectionSchema = exports.Section = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
@@ -51,68 +51,40 @@ const dotenv = __importStar(require("dotenv"));
 const path = __importStar(require("path"));
 // Load environment variables from the correct path
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') });
-let StockInBranch = class StockInBranch {
+let Section = class Section {
 };
-exports.StockInBranch = StockInBranch;
+exports.Section = Section;
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch ' }),
+    (0, mongoose_1.Prop)({ type: String, unique: true }),
+    __metadata("design:type", String)
+], Section.prototype, "name", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Branch' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], StockInBranch.prototype, "branchId", void 0);
+], Section.prototype, "branchId", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Warehouse' }),
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User' }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
-], StockInBranch.prototype, "warehouseId", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Materials', required: true }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
-], StockInBranch.prototype, "materialId", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Section' }),
-    __metadata("design:type", mongoose_2.Types.ObjectId)
-], StockInBranch.prototype, "sectionId", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Number, required: true, min: 0, default: 0 }),
-    __metadata("design:type", Number)
-], StockInBranch.prototype, "quantity", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ type: Number, min: 0, default: 0 }),
-    __metadata("design:type", Number)
-], StockInBranch.prototype, "price", void 0);
-exports.StockInBranch = StockInBranch = __decorate([
+], Section.prototype, "createdBy", void 0);
+exports.Section = Section = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
-        collection: 'stockInBranch'
+        collection: 'section'
     })
-], StockInBranch);
-exports.StockInBranchSchema = mongoose_1.SchemaFactory.createForClass(StockInBranch);
-// Compound index for unique branch-material combination
-exports.StockInBranchSchema.index({ branchId: 1, materialId: 1 }, { unique: true });
-// Indexes for better performance
-exports.StockInBranchSchema.index({ branchId: 1 });
-exports.StockInBranchSchema.index({ materialId: 1 });
-exports.StockInBranchSchema.index({ quantity: 1 });
-exports.StockInBranchSchema.index({ createdAt: -1 });
-exports.STOCK_IN_BRANCH_MODEL = 'STOCK_IN_BRANCH_MODEL';
-exports.StockInBranchModel = mongoose_1.MongooseModule.forFeature([
-    { name: 'StockInBranch', schema: exports.StockInBranchSchema }
+], Section);
+exports.SectionSchema = mongoose_1.SchemaFactory.createForClass(Section);
+exports.SECTION_MODEL = 'SECTION_MODEL';
+exports.SectionModel = mongoose_1.MongooseModule.forFeature([
+    { name: 'Section', schema: exports.SectionSchema }
 ]);
-const getStockInBranchModel = (businessNumber) => {
+const getSectionModel = (businessNumber) => {
     if (!businessNumber) {
-        throw new Error("businessNumber is required in stock in branch model");
+        throw new Error("businessNumber is required in section model");
     }
     let connection = connection_manager_1.ConnectionManager.getConnection(businessNumber);
-    // Register required models for refs
-    if (!connection.models['Branch']) {
-        const { BranchSchema } = require('../TenantModels/branch.model');
-        connection.model('Branch', BranchSchema);
-    }
-    if (!connection.models['Materials']) {
-        const { MaterialsSchema } = require('./materials.model');
-        connection.model('Materials', MaterialsSchema);
-    }
-    const model = connection.models['StockInBranch'] || connection.model('StockInBranch', exports.StockInBranchSchema);
+    const model = connection.models['Section'] || connection.model('Section', exports.SectionSchema);
     return new DataBase_repository_1.DataBaseRepository(model);
 };
-exports.getStockInBranchModel = getStockInBranchModel;
+exports.getSectionModel = getSectionModel;

@@ -24,6 +24,9 @@ export class StockInBranch {
   @Prop({ type: Types.ObjectId, ref: 'Materials', required: true })
   materialId!: Types.ObjectId;
 
+  @Prop({ type: Types.ObjectId, ref: 'Section' })
+  sectionId?: Types.ObjectId;
+
   @Prop({ type: Number, required: true, min: 0, default: 0 })
   quantity!: number;
 
