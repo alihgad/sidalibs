@@ -151,6 +151,7 @@ export class Order {
             discount: { type: Number, default: 0, min: 0 },
             total: { type: Number, required: true, min: 0 },
             note: String,
+            section:{ type: Types.ObjectId, ref: 'section', required: true },
             additions: [{ type: Types.ObjectId, ref: 'Addition' }]
         }]
     })
@@ -161,6 +162,7 @@ export class Order {
         discount: number,
         total: number,
         note?: string,
+        section: Types.ObjectId,
         additions?: Types.ObjectId[]
     }[]
 

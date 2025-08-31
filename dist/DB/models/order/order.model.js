@@ -171,6 +171,7 @@ __decorate([
                 discount: { type: Number, default: 0, min: 0 },
                 total: { type: Number, required: true, min: 0 },
                 note: String,
+                section: { type: mongoose_2.Types.ObjectId, ref: 'section', required: true },
                 additions: [{ type: mongoose_2.Types.ObjectId, ref: 'Addition' }]
             }]
     }),

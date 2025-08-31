@@ -55,6 +55,7 @@ export declare class Order {
         discount: number;
         total: number;
         note?: string;
+        section: Types.ObjectId;
         additions?: Types.ObjectId[];
     }[];
     taxes: {

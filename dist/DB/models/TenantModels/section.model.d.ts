@@ -2,7 +2,9 @@ import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 export declare class Section {
     name: string;
+    seconderyName?: string;
     branchId: Types.ObjectId;
+    isDeleted: boolean;
     createdBy: Types.ObjectId;
     createdAt?: Date;
     updatedAt?: Date;
