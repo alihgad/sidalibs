@@ -29,10 +29,18 @@ export declare class Production {
         quantity: number;
         cost: number;
         finalCost: number;
+        ingredients: {
+            materialId: Types.ObjectId;
+            materialName: string;
+            materialCode: string;
+            quantity: number;
+            unitCost: number;
+            totalCost: number;
+        };
     }[];
     consumingDetails?: {
         materialId: Types.ObjectId;
-        Ingredients: {
+        ingredients: {
             materialId: Types.ObjectId;
             materialName: string;
             materialCode: string;

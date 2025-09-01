@@ -79,18 +79,29 @@ __decorate([
                 quantity: Number,
                 cost: Number,
                 finalCost: Number,
-            }] }),
+                ingredients: {
+                    materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
+                    materialName: String,
+                    materialCode: String,
+                    quantity: Number,
+                    unitCost: Number,
+                    totalCost: Number,
+                }
+            }], default: [] }),
     __metadata("design:type", Array)
 ], Production.prototype, "materials", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{
                 materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
-                materialName: String,
-                materialCode: String,
-                quantity: Number,
-                unitCost: Number,
-                totalCost: Number,
-            }] }),
+                ingredients: {
+                    materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
+                    materialName: String,
+                    materialCode: String,
+                    quantity: Number,
+                    unitCost: Number,
+                    totalCost: Number,
+                }
+            }], default: [] }),
     __metadata("design:type", Object)
 ], Production.prototype, "consumingDetails", void 0);
 __decorate([

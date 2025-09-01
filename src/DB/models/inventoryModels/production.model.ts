@@ -72,7 +72,15 @@ export class Production {
     quantity: Number,
     cost: Number,
     finalCost: Number,
-  }]})
+    ingredients: {
+      materialId: { type: Types.ObjectId, ref: 'Materials' },
+      materialName: String ,
+      materialCode: String,
+      quantity: Number,
+      unitCost: Number,
+      totalCost: Number,
+    }
+  }] , default:[]})
   materials?: {
     materialId: Types.ObjectId;
     materialName: string;
@@ -80,19 +88,30 @@ export class Production {
     quantity: number;
     cost: number;
     finalCost: number;
+    ingredients:{
+      materialId: Types.ObjectId;
+      materialName: string;
+      materialCode: string;
+      quantity: number;
+      unitCost: number;
+      totalCost: number;
+    }
   }[];
 
   @Prop({ type: [{
     materialId: { type: Types.ObjectId, ref: 'Materials' },
-    materialName: String ,
-    materialCode: String,
-    quantity: Number,
-    unitCost: Number,
-    totalCost: Number,
-  }]})
+    ingredients: {
+      materialId: { type: Types.ObjectId, ref: 'Materials' },
+      materialName: String ,
+      materialCode: String,
+      quantity: Number,
+      unitCost: Number,
+      totalCost: Number,
+    }
+  }] , default:[]})
   consumingDetails?: {
     materialId: Types.ObjectId;
-    Ingredients:{
+    ingredients:{
       materialId: Types.ObjectId;
       materialName: string;
       materialCode: string;
