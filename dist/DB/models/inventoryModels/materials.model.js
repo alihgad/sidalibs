@@ -137,6 +137,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Boolean, default: false }),
     __metadata("design:type", Boolean)
 ], Materials.prototype, "isDeleted", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: true }),
+    __metadata("design:type", Boolean)
+], Materials.prototype, "isManufactured", void 0);
 exports.Materials = Materials = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,

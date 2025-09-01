@@ -22,7 +22,7 @@ export declare class Production {
     sendAt: Date;
     totalCost: number;
     itemsCount: number;
-    materials: {
+    materials?: {
         materialId: Types.ObjectId;
         materialName: string;
         code: number;
@@ -30,6 +30,17 @@ export declare class Production {
         cost: number;
         finalCost: number;
     }[];
+    consumingDetails?: {
+        materialId: Types.ObjectId;
+        Ingredients: {
+            materialId: Types.ObjectId;
+            materialName: string;
+            materialCode: string;
+            quantity: number;
+            unitCost: number;
+            totalCost: number;
+        }[];
+    };
     notes: string;
 }
 export type ProductionDocument = HydratedDocument<Production>;

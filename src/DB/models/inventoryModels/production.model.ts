@@ -3,6 +3,7 @@ import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { ProductionStatus, ProductionType } from '../../../common/type';
+import { Ingredient } from '../menuModels/additionsOptions.model';
 
 @Schema({
   timestamps: true,
@@ -72,7 +73,7 @@ export class Production {
     cost: Number,
     finalCost: Number,
   }]})
-  materials!: {
+  materials?: {
     materialId: Types.ObjectId;
     materialName: string;
     code: number;
@@ -80,6 +81,26 @@ export class Production {
     cost: number;
     finalCost: number;
   }[];
+
+  @Prop({ type: [{
+    materialId: { type: Types.ObjectId, ref: 'Materials' },
+    materialName: String ,
+    materialCode: String,
+    quantity: Number,
+    unitCost: Number,
+    totalCost: Number,
+  }]})
+  consumingDetails?: {
+    materialId: Types.ObjectId;
+    Ingredients:{
+      materialId: Types.ObjectId;
+      materialName: string;
+      materialCode: string;
+      quantity: number;
+      unitCost: number;
+      totalCost: number;
+    }[]
+  };
 
 
   @Prop({ type: String })

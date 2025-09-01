@@ -91,6 +91,10 @@ export class Materials {
   @Prop({ type: Boolean, default: false })
   isDeleted!: boolean;
 
+
+  @Prop({ type: Boolean, default: true })
+  isManufactured!: boolean;
+
   // Timestamps (automatically added by Mongoose)
   createdAt?: Date;
   updatedAt?: Date;

@@ -29,6 +29,7 @@ export declare class Materials {
         finalCost: number;
     }[];
     isDeleted: boolean;
+    isManufactured: boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }

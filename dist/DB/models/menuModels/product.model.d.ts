@@ -64,7 +64,6 @@ export declare class Product {
     walkTime: number;
     nutritionalValues?: NutritionalValues;
     isActive: boolean;
-    isManufactured: boolean;
     isDeleted: boolean;
     containsHighSalt: boolean;
 }

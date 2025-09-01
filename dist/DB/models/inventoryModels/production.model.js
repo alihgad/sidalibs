@@ -83,6 +83,17 @@ __decorate([
     __metadata("design:type", Array)
 ], Production.prototype, "materials", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: [{
+                materialId: { type: mongoose_2.Types.ObjectId, ref: 'Materials' },
+                materialName: String,
+                materialCode: String,
+                quantity: Number,
+                unitCost: Number,
+                totalCost: Number,
+            }] }),
+    __metadata("design:type", Object)
+], Production.prototype, "consumingDetails", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: String }),
     __metadata("design:type", String)
 ], Production.prototype, "notes", void 0);
