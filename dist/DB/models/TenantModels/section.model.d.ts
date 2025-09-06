@@ -10,11 +10,11 @@ export declare class Section {
     updatedAt?: Date;
 }
 export type SectionDocument = HydratedDocument<Section>;
-export declare const SectionSchema: import("mongoose").Schema<Section, Model<Section, any, any, any, import("mongoose").Document<unknown, any, Section, any> & Section & {
+export declare const SectionSchema: import("mongoose").Schema<Section, Model<Section, any, any, any, import("mongoose").Document<unknown, any, Section, any, {}> & Section & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Section, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Section>, {}> & import("mongoose").FlatRecord<Section> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Section, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Section>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Section> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

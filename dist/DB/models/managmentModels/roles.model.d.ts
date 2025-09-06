@@ -7,11 +7,11 @@ export declare class roles {
     permissions: string[];
 }
 export type rolesDocument = HydratedDocument<roles>;
-export declare const rolesSchema: import("mongoose").Schema<roles, Model<roles, any, any, any, import("mongoose").Document<unknown, any, roles, any> & roles & {
+export declare const rolesSchema: import("mongoose").Schema<roles, Model<roles, any, any, any, import("mongoose").Document<unknown, any, roles, any, {}> & roles & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, roles, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<roles>, {}> & import("mongoose").FlatRecord<roles> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, roles, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<roles>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<roles> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

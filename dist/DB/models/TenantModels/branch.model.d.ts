@@ -34,11 +34,11 @@ export declare class Branch {
 export type BranchDocument = HydratedDocument<Branch> & {
     _id: string;
 };
-export declare const BranchSchema: import("mongoose").Schema<Branch, Model<Branch, any, any, any, Document<unknown, any, Branch, any> & Branch & {
+export declare const BranchSchema: import("mongoose").Schema<Branch, Model<Branch, any, any, any, Document<unknown, any, Branch, any, {}> & Branch & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Branch, Document<unknown, {}, import("mongoose").FlatRecord<Branch>, {}> & import("mongoose").FlatRecord<Branch> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Branch, Document<unknown, {}, import("mongoose").FlatRecord<Branch>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Branch> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

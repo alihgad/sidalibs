@@ -13,11 +13,11 @@ export declare class PaymentMethod {
 export type PaymentMethodDocument = HydratedDocument<PaymentMethod> & {
     _id: string;
 };
-export declare const PaymentMethodSchema: import("mongoose").Schema<PaymentMethod, Model<PaymentMethod, any, any, any, import("mongoose").Document<unknown, any, PaymentMethod, any> & PaymentMethod & {
+export declare const PaymentMethodSchema: import("mongoose").Schema<PaymentMethod, Model<PaymentMethod, any, any, any, import("mongoose").Document<unknown, any, PaymentMethod, any, {}> & PaymentMethod & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PaymentMethod, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PaymentMethod>, {}> & import("mongoose").FlatRecord<PaymentMethod> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PaymentMethod, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PaymentMethod>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<PaymentMethod> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

@@ -16,11 +16,11 @@ export declare class Warehouse {
     deletedAt?: Date;
 }
 export type WarehouseDocument = HydratedDocument<Warehouse>;
-export declare const WarehouseSchema: import("mongoose").Schema<Warehouse, Model<Warehouse, any, any, any, import("mongoose").Document<unknown, any, Warehouse, any> & Warehouse & {
+export declare const WarehouseSchema: import("mongoose").Schema<Warehouse, Model<Warehouse, any, any, any, import("mongoose").Document<unknown, any, Warehouse, any, {}> & Warehouse & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Warehouse, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Warehouse>, {}> & import("mongoose").FlatRecord<Warehouse> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Warehouse, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Warehouse>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Warehouse> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

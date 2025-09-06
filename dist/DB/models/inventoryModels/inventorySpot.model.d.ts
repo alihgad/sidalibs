@@ -25,11 +25,11 @@ export declare class InventorySpot {
     deletedAt: Date;
 }
 export type InventorySpotDocument = HydratedDocument<InventorySpot>;
-export declare const InventorySpotSchema: import("mongoose").Schema<InventorySpot, Model<InventorySpot, any, any, any, import("mongoose").Document<unknown, any, InventorySpot, any> & InventorySpot & {
+export declare const InventorySpotSchema: import("mongoose").Schema<InventorySpot, Model<InventorySpot, any, any, any, import("mongoose").Document<unknown, any, InventorySpot, any, {}> & InventorySpot & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, InventorySpot, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<InventorySpot>, {}> & import("mongoose").FlatRecord<InventorySpot> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, InventorySpot, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<InventorySpot>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<InventorySpot> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

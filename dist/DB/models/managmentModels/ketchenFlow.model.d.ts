@@ -20,11 +20,11 @@ export declare class KitchenFlow {
     updatedBy?: Types.ObjectId;
 }
 export type KitchenFlowDocument = HydratedDocument<KitchenFlow>;
-export declare const KitchenFlowSchema: import("mongoose").Schema<KitchenFlow, Model<KitchenFlow, any, any, any, import("mongoose").Document<unknown, any, KitchenFlow, any> & KitchenFlow & {
+export declare const KitchenFlowSchema: import("mongoose").Schema<KitchenFlow, Model<KitchenFlow, any, any, any, import("mongoose").Document<unknown, any, KitchenFlow, any, {}> & KitchenFlow & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, KitchenFlow, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<KitchenFlow>, {}> & import("mongoose").FlatRecord<KitchenFlow> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, KitchenFlow, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<KitchenFlow>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<KitchenFlow> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

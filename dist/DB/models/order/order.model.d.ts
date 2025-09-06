@@ -75,17 +75,17 @@ export declare class Order {
     orderSource: OrderSource;
     createdAt: Date;
 }
-export declare const OrderSchema: mongoose.Schema<Order, mongoose.Model<Order, any, any, any, mongoose.Document<unknown, any, Order, any> & Order & {
+export declare const OrderSchema: mongoose.Schema<Order, mongoose.Model<Order, any, any, any, mongoose.Document<unknown, any, Order, any, {}> & Order & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, Order, mongoose.Document<unknown, {}, mongoose.FlatRecord<Order>, {}> & mongoose.FlatRecord<Order> & {
+}, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, Order, mongoose.Document<unknown, {}, mongoose.FlatRecord<Order>, {}, mongoose.ResolveSchemaOptions<mongoose.DefaultSchemaOptions>> & mongoose.FlatRecord<Order> & {
     _id: Types.ObjectId;
 } & {
     __v: number;
 }>;
 export type OrderDocument = HydratedDocument<Order>;
-export declare const getOrderModel: (bussinessNumber: string) => DataBaseRepository<mongoose.Document<unknown, {}, Order, {}> & Order & {
+export declare const getOrderModel: (bussinessNumber: string) => DataBaseRepository<mongoose.Document<unknown, {}, Order, {}, {}> & Order & {
     _id: Types.ObjectId;
 } & {
     __v: number;

@@ -18,11 +18,11 @@ export declare class CountSheet {
     deletedAt?: Date;
 }
 export type CountSheetDocument = HydratedDocument<CountSheet>;
-export declare const CountSheetSchema: import("mongoose").Schema<CountSheet, Model<CountSheet, any, any, any, import("mongoose").Document<unknown, any, CountSheet, any> & CountSheet & {
+export declare const CountSheetSchema: import("mongoose").Schema<CountSheet, Model<CountSheet, any, any, any, import("mongoose").Document<unknown, any, CountSheet, any, {}> & CountSheet & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CountSheet, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CountSheet>, {}> & import("mongoose").FlatRecord<CountSheet> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CountSheet, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CountSheet>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<CountSheet> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

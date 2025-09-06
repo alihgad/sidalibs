@@ -16,11 +16,11 @@ export declare class customers {
     notes?: string;
 }
 export type customersDocument = HydratedDocument<customers>;
-export declare const customersSchema: import("mongoose").Schema<customers, Model<customers, any, any, any, import("mongoose").Document<unknown, any, customers, any> & customers & {
+export declare const customersSchema: import("mongoose").Schema<customers, Model<customers, any, any, any, import("mongoose").Document<unknown, any, customers, any, {}> & customers & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, customers, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<customers>, {}> & import("mongoose").FlatRecord<customers> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, customers, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<customers>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<customers> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

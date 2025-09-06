@@ -59,11 +59,11 @@ export declare class Combos {
 export type CombosDocument = HydratedDocument<Combos> & {
     _id: string;
 };
-export declare const CombosSchema: import("mongoose").Schema<Combos, Model<Combos, any, any, any, import("mongoose").Document<unknown, any, Combos, any> & Combos & {
+export declare const CombosSchema: import("mongoose").Schema<Combos, Model<Combos, any, any, any, import("mongoose").Document<unknown, any, Combos, any, {}> & Combos & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Combos, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Combos>, {}> & import("mongoose").FlatRecord<Combos> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Combos, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Combos>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Combos> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

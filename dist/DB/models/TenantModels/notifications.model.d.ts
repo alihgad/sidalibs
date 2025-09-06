@@ -7,11 +7,11 @@ export declare class notifications {
 export type notificationsDocument = HydratedDocument<notifications> & {
     _id: string;
 };
-export declare const notificationsSchema: import("mongoose").Schema<notifications, Model<notifications, any, any, any, import("mongoose").Document<unknown, any, notifications, any> & notifications & {
+export declare const notificationsSchema: import("mongoose").Schema<notifications, Model<notifications, any, any, any, import("mongoose").Document<unknown, any, notifications, any, {}> & notifications & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, notifications, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<notifications>, {}> & import("mongoose").FlatRecord<notifications> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, notifications, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<notifications>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<notifications> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

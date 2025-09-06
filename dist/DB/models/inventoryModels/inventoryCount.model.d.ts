@@ -33,11 +33,11 @@ export declare class InventoryCount {
     notes?: string;
 }
 export type InventoryCountDocument = HydratedDocument<InventoryCount>;
-export declare const InventoryCountSchema: import("mongoose").Schema<InventoryCount, Model<InventoryCount, any, any, any, import("mongoose").Document<unknown, any, InventoryCount, any> & InventoryCount & {
+export declare const InventoryCountSchema: import("mongoose").Schema<InventoryCount, Model<InventoryCount, any, any, any, import("mongoose").Document<unknown, any, InventoryCount, any, {}> & InventoryCount & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, InventoryCount, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<InventoryCount>, {}> & import("mongoose").FlatRecord<InventoryCount> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, InventoryCount, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<InventoryCount>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<InventoryCount> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

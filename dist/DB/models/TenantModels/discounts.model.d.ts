@@ -13,11 +13,11 @@ export declare class Discount {
 export type DiscountDocument = HydratedDocument<Discount> & {
     _id: string;
 };
-export declare const DiscountSchema: import("mongoose").Schema<Discount, Model<Discount, any, any, any, import("mongoose").Document<unknown, any, Discount, any> & Discount & {
+export declare const DiscountSchema: import("mongoose").Schema<Discount, Model<Discount, any, any, any, import("mongoose").Document<unknown, any, Discount, any, {}> & Discount & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Discount, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Discount>, {}> & import("mongoose").FlatRecord<Discount> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Discount, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Discount>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Discount> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

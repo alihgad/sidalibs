@@ -22,11 +22,11 @@ export declare class TemporaryEvent {
 export type TemporaryEventDocument = HydratedDocument<TemporaryEvent> & {
     _id: string;
 };
-export declare const TemporaryEventSchema: import("mongoose").Schema<TemporaryEvent, Model<TemporaryEvent, any, any, any, import("mongoose").Document<unknown, any, TemporaryEvent, any> & TemporaryEvent & {
+export declare const TemporaryEventSchema: import("mongoose").Schema<TemporaryEvent, Model<TemporaryEvent, any, any, any, import("mongoose").Document<unknown, any, TemporaryEvent, any, {}> & TemporaryEvent & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, TemporaryEvent, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<TemporaryEvent>, {}> & import("mongoose").FlatRecord<TemporaryEvent> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, TemporaryEvent, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<TemporaryEvent>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<TemporaryEvent> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

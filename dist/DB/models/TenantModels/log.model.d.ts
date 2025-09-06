@@ -23,11 +23,11 @@ export declare class Log {
 export type LogDocument = HydratedDocument<Log> & {
     _id: string;
 };
-export declare const LogSchema: import("mongoose").Schema<Log, Model<Log, any, any, any, import("mongoose").Document<unknown, any, Log, any> & Log & {
+export declare const LogSchema: import("mongoose").Schema<Log, Model<Log, any, any, any, import("mongoose").Document<unknown, any, Log, any, {}> & Log & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Log, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Log>, {}> & import("mongoose").FlatRecord<Log> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Log, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Log>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Log> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

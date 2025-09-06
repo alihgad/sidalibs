@@ -10,11 +10,11 @@ export declare class Addition {
 export type AdditionDocument = HydratedDocument<Addition> & {
     _id: string;
 };
-export declare const AdditionSchema: import("mongoose").Schema<Addition, Model<Addition, any, any, any, import("mongoose").Document<unknown, any, Addition, any> & Addition & {
+export declare const AdditionSchema: import("mongoose").Schema<Addition, Model<Addition, any, any, any, import("mongoose").Document<unknown, any, Addition, any, {}> & Addition & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Addition, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Addition>, {}> & import("mongoose").FlatRecord<Addition> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Addition, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Addition>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Addition> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

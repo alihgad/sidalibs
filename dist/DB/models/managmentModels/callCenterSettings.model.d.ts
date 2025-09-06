@@ -15,11 +15,11 @@ export declare class CallCenterSettings {
     allowPriceTags?: boolean;
 }
 export type CallCenterSettingsDocument = HydratedDocument<CallCenterSettings>;
-export declare const CallCenterSettingsSchema: import("mongoose").Schema<CallCenterSettings, Model<CallCenterSettings, any, any, any, Document<unknown, any, CallCenterSettings, any> & CallCenterSettings & {
+export declare const CallCenterSettingsSchema: import("mongoose").Schema<CallCenterSettings, Model<CallCenterSettings, any, any, any, Document<unknown, any, CallCenterSettings, any, {}> & CallCenterSettings & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CallCenterSettings, Document<unknown, {}, import("mongoose").FlatRecord<CallCenterSettings>, {}> & import("mongoose").FlatRecord<CallCenterSettings> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CallCenterSettings, Document<unknown, {}, import("mongoose").FlatRecord<CallCenterSettings>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<CallCenterSettings> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

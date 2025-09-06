@@ -18,11 +18,11 @@ export declare class GiftCard {
 export type GiftCardDocument = HydratedDocument<GiftCard> & {
     _id: string;
 };
-export declare const GiftCardSchema: import("mongoose").Schema<GiftCard, Model<GiftCard, any, any, any, import("mongoose").Document<unknown, any, GiftCard, any> & GiftCard & {
+export declare const GiftCardSchema: import("mongoose").Schema<GiftCard, Model<GiftCard, any, any, any, import("mongoose").Document<unknown, any, GiftCard, any, {}> & GiftCard & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, GiftCard, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<GiftCard>, {}> & import("mongoose").FlatRecord<GiftCard> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, GiftCard, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<GiftCard>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<GiftCard> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

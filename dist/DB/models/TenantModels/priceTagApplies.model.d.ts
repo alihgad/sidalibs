@@ -11,11 +11,11 @@ export declare class PriceTagApplies {
 export type PriceTagAppliesDocument = HydratedDocument<PriceTagApplies> & {
     _id: string;
 };
-export declare const PriceTagAppliesSchema: import("mongoose").Schema<PriceTagApplies, Model<PriceTagApplies, any, any, any, import("mongoose").Document<unknown, any, PriceTagApplies, any> & PriceTagApplies & {
+export declare const PriceTagAppliesSchema: import("mongoose").Schema<PriceTagApplies, Model<PriceTagApplies, any, any, any, import("mongoose").Document<unknown, any, PriceTagApplies, any, {}> & PriceTagApplies & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PriceTagApplies, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PriceTagApplies>, {}> & import("mongoose").FlatRecord<PriceTagApplies> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PriceTagApplies, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PriceTagApplies>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<PriceTagApplies> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

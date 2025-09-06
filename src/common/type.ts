@@ -588,4 +588,25 @@ registerEnumType(ProductionStatus, {
 });
 
 
+export enum TransactionTypes {
+    production = 'production',
+    purchase = 'purchase',
+    sales = 'sales',
+    transfer = 'transfer'
+}
+
+registerEnumType(TransactionTypes, {
+    name: 'TransationTypes',
+    description: 'The type of transaction',
+});
+
+
+export interface Transaction {
+    quantity: number;
+    amount: number;
+    date : Date;
+    type: TransactionTypes;
+}
+
+
 

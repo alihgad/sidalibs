@@ -9,11 +9,11 @@ export declare class MenuGroup {
 export type MenuGroupDocument = HydratedDocument<MenuGroup> & {
     _id: string;
 };
-export declare const MenuGroupSchema: import("mongoose").Schema<MenuGroup, Model<MenuGroup, any, any, any, import("mongoose").Document<unknown, any, MenuGroup, any> & MenuGroup & {
+export declare const MenuGroupSchema: import("mongoose").Schema<MenuGroup, Model<MenuGroup, any, any, any, import("mongoose").Document<unknown, any, MenuGroup, any, {}> & MenuGroup & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, MenuGroup, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<MenuGroup>, {}> & import("mongoose").FlatRecord<MenuGroup> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, MenuGroup, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<MenuGroup>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<MenuGroup> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

@@ -33,11 +33,11 @@ export declare class Sales {
     refundReason?: string | null;
 }
 export type SalesDocument = HydratedDocument<Sales>;
-export declare const SalesSchema: import("mongoose").Schema<Sales, Model<Sales, any, any, any, import("mongoose").Document<unknown, any, Sales, any> & Sales & {
+export declare const SalesSchema: import("mongoose").Schema<Sales, Model<Sales, any, any, any, import("mongoose").Document<unknown, any, Sales, any, {}> & Sales & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Sales, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Sales>, {}> & import("mongoose").FlatRecord<Sales> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Sales, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Sales>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Sales> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

@@ -70,6 +70,7 @@ export * from './DB/models/inventoryModels/transfer.model';
 export * from './DB/models/inventoryModels/transferOrders.model';
 export * from './DB/models/inventoryModels/inventoryCount.model';
 export * from './DB/models/inventoryModels/production.model';
+export * from './DB/models/inventoryModels/itemCard.model';
 
 // ========== Menu Models ==========
 export * from './DB/models/menuModels/categories.model';

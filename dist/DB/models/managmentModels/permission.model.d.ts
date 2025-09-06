@@ -9,11 +9,11 @@ export declare class permission {
 export type permissionDocument = HydratedDocument<permission> & {
     _id: string;
 };
-export declare const permissionSchema: import("mongoose").Schema<permission, Model<permission, any, any, any, import("mongoose").Document<unknown, any, permission, any> & permission & {
+export declare const permissionSchema: import("mongoose").Schema<permission, Model<permission, any, any, any, import("mongoose").Document<unknown, any, permission, any, {}> & permission & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, permission, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<permission>, {}> & import("mongoose").FlatRecord<permission> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, permission, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<permission>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<permission> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

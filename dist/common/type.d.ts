@@ -283,4 +283,16 @@ export declare enum ProductionStatus {
     CLOSED = "closed",
     CANCELLED = "cancelled"
 }
+export declare enum TransactionTypes {
+    production = "production",
+    purchase = "purchase",
+    sales = "sales",
+    transfer = "transfer"
+}
+export interface Transaction {
+    quantity: number;
+    amount: number;
+    date: Date;
+    type: TransactionTypes;
+}
 //# sourceMappingURL=type.d.ts.map

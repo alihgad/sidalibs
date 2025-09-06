@@ -15,11 +15,11 @@ export interface Supplier extends Document {
     creditAccount: boolean;
     notes?: string;
 }
-export declare const supplierSchema: Schema<Supplier, Model<Supplier, any, any, any, Document<unknown, any, Supplier, any> & Supplier & Required<{
+export declare const supplierSchema: Schema<Supplier, Model<Supplier, any, any, any, Document<unknown, any, Supplier, any, {}> & Supplier & Required<{
     _id: unknown;
 }> & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Supplier, Document<unknown, {}, import("mongoose").FlatRecord<Supplier>, {}> & import("mongoose").FlatRecord<Supplier> & Required<{
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Supplier, Document<unknown, {}, import("mongoose").FlatRecord<Supplier>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Supplier> & Required<{
     _id: unknown;
 }> & {
     __v: number;

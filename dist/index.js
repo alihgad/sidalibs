@@ -104,6 +104,7 @@ __exportStar(require("./DB/models/inventoryModels/transfer.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/transferOrders.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/inventoryCount.model"), exports);
 __exportStar(require("./DB/models/inventoryModels/production.model"), exports);
+__exportStar(require("./DB/models/inventoryModels/itemCard.model"), exports);
 // ========== Menu Models ==========
 __exportStar(require("./DB/models/menuModels/categories.model"), exports);
 __exportStar(require("./DB/models/menuModels/groups.model"), exports);

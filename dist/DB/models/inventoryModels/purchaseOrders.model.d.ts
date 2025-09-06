@@ -37,11 +37,11 @@ export declare class PurchaseOrders {
     cancelledAt?: Date;
 }
 export type PurchaseOrdersDocument = HydratedDocument<PurchaseOrders>;
-export declare const PurchaseOrdersSchema: import("mongoose").Schema<PurchaseOrders, Model<PurchaseOrders, any, any, any, import("mongoose").Document<unknown, any, PurchaseOrders, any> & PurchaseOrders & {
+export declare const PurchaseOrdersSchema: import("mongoose").Schema<PurchaseOrders, Model<PurchaseOrders, any, any, any, import("mongoose").Document<unknown, any, PurchaseOrders, any, {}> & PurchaseOrders & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PurchaseOrders, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PurchaseOrders>, {}> & import("mongoose").FlatRecord<PurchaseOrders> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PurchaseOrders, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PurchaseOrders>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<PurchaseOrders> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

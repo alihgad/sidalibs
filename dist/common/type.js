@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductionStatus = exports.ProductionType = exports.OrderSource = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.ZatcaOnboardingStatus = void 0;
+exports.TransactionTypes = exports.ProductionStatus = exports.ProductionType = exports.OrderSource = exports.DeliveryStatus = exports.KitchenFlowType = exports.KitchenFlowStatus = exports.ChargeType = exports.InventoryCountStatus = exports.TransferType = exports.TransferStatus = exports.PurchaseType = exports.PurchaseStatus = exports.PurchaseOrderStatus = exports.DeliveryTime = exports.PaymentMethodEnum = exports.SaleStatusEnum = exports.ServingUnit = exports.SaleMethod = exports.PricingMethod = exports.CostCalculationMethod = exports.ReasonType = exports.LogActionType = exports.TagType = exports.PaymentMethodType = exports.TemporaryEventType = exports.DiscountAppliesTo = exports.DiscountType = exports.PromotionType = exports.DaysOfWeek = exports.OrderStatus = exports.OrderType = exports.LicenseType = exports.languages = exports.planPriceMap = exports.devicePriceMap = exports.planIntervalCountMap = exports.planIntervalsMap = exports.PlanDuration = exports.PlanType = exports.DeviceType = exports.ProductsTypeEnum = exports.productsType = exports.licencesEnum = exports.ZatcaOnboardingStatus = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const class_validator_1 = require("class-validator");
 var ZatcaOnboardingStatus;
@@ -542,4 +542,15 @@ var ProductionStatus;
 (0, graphql_1.registerEnumType)(ProductionStatus, {
     name: 'ProductionStatus',
     description: 'The status of the production',
+});
+var TransactionTypes;
+(function (TransactionTypes) {
+    TransactionTypes["production"] = "production";
+    TransactionTypes["purchase"] = "purchase";
+    TransactionTypes["sales"] = "sales";
+    TransactionTypes["transfer"] = "transfer";
+})(TransactionTypes || (exports.TransactionTypes = TransactionTypes = {}));
+(0, graphql_1.registerEnumType)(TransactionTypes, {
+    name: 'TransationTypes',
+    description: 'The type of transaction',
 });

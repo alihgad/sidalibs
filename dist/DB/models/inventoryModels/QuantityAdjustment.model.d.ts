@@ -20,11 +20,11 @@ export declare class QuantityAdjustment {
     }[];
 }
 export type QuantityAdjustmentDocument = HydratedDocument<QuantityAdjustment>;
-export declare const QuantityAdjustmentSchema: import("mongoose").Schema<QuantityAdjustment, Model<QuantityAdjustment, any, any, any, import("mongoose").Document<unknown, any, QuantityAdjustment, any> & QuantityAdjustment & {
+export declare const QuantityAdjustmentSchema: import("mongoose").Schema<QuantityAdjustment, Model<QuantityAdjustment, any, any, any, import("mongoose").Document<unknown, any, QuantityAdjustment, any, {}> & QuantityAdjustment & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, QuantityAdjustment, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<QuantityAdjustment>, {}> & import("mongoose").FlatRecord<QuantityAdjustment> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, QuantityAdjustment, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<QuantityAdjustment>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<QuantityAdjustment> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

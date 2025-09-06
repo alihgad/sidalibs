@@ -21,11 +21,11 @@ export type PromotionalOfferDocument = HydratedDocument<PromotionalOffer> & {
     createdAt: Date;
     updatedAt: Date;
 };
-export declare const PromotionalOfferSchema: import("mongoose").Schema<PromotionalOffer, Model<PromotionalOffer, any, any, any, import("mongoose").Document<unknown, any, PromotionalOffer, any> & PromotionalOffer & {
+export declare const PromotionalOfferSchema: import("mongoose").Schema<PromotionalOffer, Model<PromotionalOffer, any, any, any, import("mongoose").Document<unknown, any, PromotionalOffer, any, {}> & PromotionalOffer & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PromotionalOffer, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PromotionalOffer>, {}> & import("mongoose").FlatRecord<PromotionalOffer> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PromotionalOffer, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PromotionalOffer>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<PromotionalOffer> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

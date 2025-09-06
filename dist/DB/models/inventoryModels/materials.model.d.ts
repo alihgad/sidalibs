@@ -34,11 +34,11 @@ export declare class Materials {
     updatedAt?: Date;
 }
 export type MaterialsDocument = HydratedDocument<Materials>;
-export declare const MaterialsSchema: import("mongoose").Schema<Materials, Model<Materials, any, any, any, import("mongoose").Document<unknown, any, Materials, any> & Materials & {
+export declare const MaterialsSchema: import("mongoose").Schema<Materials, Model<Materials, any, any, any, import("mongoose").Document<unknown, any, Materials, any, {}> & Materials & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Materials, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Materials>, {}> & import("mongoose").FlatRecord<Materials> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Materials, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Materials>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Materials> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

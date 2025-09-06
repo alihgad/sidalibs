@@ -23,11 +23,11 @@ export declare class ReceiptForm {
     printCustomerPhoneNumberInPickupOrders?: boolean;
 }
 export type ReceiptFormDocument = HydratedDocument<ReceiptForm>;
-export declare const ReceiptFormSchema: import("mongoose").Schema<ReceiptForm, Model<ReceiptForm, any, any, any, import("mongoose").Document<unknown, any, ReceiptForm, any> & ReceiptForm & {
+export declare const ReceiptFormSchema: import("mongoose").Schema<ReceiptForm, Model<ReceiptForm, any, any, any, import("mongoose").Document<unknown, any, ReceiptForm, any, {}> & ReceiptForm & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, ReceiptForm, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<ReceiptForm>, {}> & import("mongoose").FlatRecord<ReceiptForm> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, ReceiptForm, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<ReceiptForm>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<ReceiptForm> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

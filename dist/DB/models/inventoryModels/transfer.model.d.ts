@@ -49,11 +49,11 @@ export declare class Transfer {
     rejectedAt?: Date;
 }
 export type TransferDocument = HydratedDocument<Transfer>;
-export declare const TransferSchema: import("mongoose").Schema<Transfer, Model<Transfer, any, any, any, import("mongoose").Document<unknown, any, Transfer, any> & Transfer & {
+export declare const TransferSchema: import("mongoose").Schema<Transfer, Model<Transfer, any, any, any, import("mongoose").Document<unknown, any, Transfer, any, {}> & Transfer & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Transfer, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Transfer>, {}> & import("mongoose").FlatRecord<Transfer> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Transfer, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Transfer>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Transfer> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

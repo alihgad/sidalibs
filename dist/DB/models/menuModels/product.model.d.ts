@@ -5,11 +5,11 @@ export declare class CustomProductBranchPrice {
     branch: Types.ObjectId;
     price: number;
 }
-export declare const CustomProductBranchPriceSchema: import("mongoose").Schema<CustomProductBranchPrice, Model<CustomProductBranchPrice, any, any, any, import("mongoose").Document<unknown, any, CustomProductBranchPrice, any> & CustomProductBranchPrice & {
+export declare const CustomProductBranchPriceSchema: import("mongoose").Schema<CustomProductBranchPrice, Model<CustomProductBranchPrice, any, any, any, import("mongoose").Document<unknown, any, CustomProductBranchPrice, any, {}> & CustomProductBranchPrice & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CustomProductBranchPrice, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CustomProductBranchPrice>, {}> & import("mongoose").FlatRecord<CustomProductBranchPrice> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CustomProductBranchPrice, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CustomProductBranchPrice>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<CustomProductBranchPrice> & {
     _id: Types.ObjectId;
 } & {
     __v: number;
@@ -30,11 +30,11 @@ export declare class NutritionalValues {
     totalSugars: number;
     addedSugars: number;
 }
-export declare const NutritionalValuesSchema: import("mongoose").Schema<NutritionalValues, Model<NutritionalValues, any, any, any, import("mongoose").Document<unknown, any, NutritionalValues, any> & NutritionalValues & {
+export declare const NutritionalValuesSchema: import("mongoose").Schema<NutritionalValues, Model<NutritionalValues, any, any, any, import("mongoose").Document<unknown, any, NutritionalValues, any, {}> & NutritionalValues & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, NutritionalValues, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<NutritionalValues>, {}> & import("mongoose").FlatRecord<NutritionalValues> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, NutritionalValues, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<NutritionalValues>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<NutritionalValues> & {
     _id: Types.ObjectId;
 } & {
     __v: number;
@@ -70,11 +70,11 @@ export declare class Product {
 export type ProductDocument = HydratedDocument<Product> & {
     _id: string;
 };
-export declare const ProductSchema: import("mongoose").Schema<Product, Model<Product, any, any, any, import("mongoose").Document<unknown, any, Product, any> & Product & {
+export declare const ProductSchema: import("mongoose").Schema<Product, Model<Product, any, any, any, import("mongoose").Document<unknown, any, Product, any, {}> & Product & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Product, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Product>, {}> & import("mongoose").FlatRecord<Product> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Product, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Product>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Product> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

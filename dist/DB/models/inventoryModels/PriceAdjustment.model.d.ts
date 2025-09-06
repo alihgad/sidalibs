@@ -22,11 +22,11 @@ export declare class PriceAdjustment {
     updatedAt?: Date;
 }
 export type PriceAdjustmentDocument = HydratedDocument<PriceAdjustment>;
-export declare const PriceAdjustmentSchema: import("mongoose").Schema<PriceAdjustment, Model<PriceAdjustment, any, any, any, import("mongoose").Document<unknown, any, PriceAdjustment, any> & PriceAdjustment & {
+export declare const PriceAdjustmentSchema: import("mongoose").Schema<PriceAdjustment, Model<PriceAdjustment, any, any, any, import("mongoose").Document<unknown, any, PriceAdjustment, any, {}> & PriceAdjustment & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PriceAdjustment, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PriceAdjustment>, {}> & import("mongoose").FlatRecord<PriceAdjustment> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, PriceAdjustment, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<PriceAdjustment>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<PriceAdjustment> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

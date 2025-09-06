@@ -11,11 +11,11 @@ export declare class Tax {
 export type TaxDocument = HydratedDocument<Tax> & {
     _id: string;
 };
-export declare const TaxSchema: import("mongoose").Schema<Tax, Model<Tax, any, any, any, import("mongoose").Document<unknown, any, Tax, any> & Tax & {
+export declare const TaxSchema: import("mongoose").Schema<Tax, Model<Tax, any, any, any, import("mongoose").Document<unknown, any, Tax, any, {}> & Tax & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Tax, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Tax>, {}> & import("mongoose").FlatRecord<Tax> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Tax, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Tax>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Tax> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

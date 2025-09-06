@@ -10,11 +10,11 @@ export declare class DeliveryArea {
 export type DeliveryAreaDocument = HydratedDocument<DeliveryArea> & {
     _id: string;
 };
-export declare const DeliveryAreaSchema: import("mongoose").Schema<DeliveryArea, Model<DeliveryArea, any, any, any, import("mongoose").Document<unknown, any, DeliveryArea, any> & DeliveryArea & {
+export declare const DeliveryAreaSchema: import("mongoose").Schema<DeliveryArea, Model<DeliveryArea, any, any, any, import("mongoose").Document<unknown, any, DeliveryArea, any, {}> & DeliveryArea & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, DeliveryArea, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<DeliveryArea>, {}> & import("mongoose").FlatRecord<DeliveryArea> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, DeliveryArea, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<DeliveryArea>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<DeliveryArea> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

@@ -39,11 +39,11 @@ export declare class Purchase {
     paidTaxAmount?: number;
 }
 export type PurchaseDocument = HydratedDocument<Purchase>;
-export declare const PurchaseSchema: import("mongoose").Schema<Purchase, Model<Purchase, any, any, any, import("mongoose").Document<unknown, any, Purchase, any> & Purchase & {
+export declare const PurchaseSchema: import("mongoose").Schema<Purchase, Model<Purchase, any, any, any, import("mongoose").Document<unknown, any, Purchase, any, {}> & Purchase & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Purchase, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Purchase>, {}> & import("mongoose").FlatRecord<Purchase> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Purchase, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Purchase>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Purchase> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

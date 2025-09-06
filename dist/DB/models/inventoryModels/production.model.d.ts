@@ -52,11 +52,11 @@ export declare class Production {
     notes: string;
 }
 export type ProductionDocument = HydratedDocument<Production>;
-export declare const ProductionSchema: import("mongoose").Schema<Production, Model<Production, any, any, any, import("mongoose").Document<unknown, any, Production, any> & Production & {
+export declare const ProductionSchema: import("mongoose").Schema<Production, Model<Production, any, any, any, import("mongoose").Document<unknown, any, Production, any, {}> & Production & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Production, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Production>, {}> & import("mongoose").FlatRecord<Production> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Production, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Production>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Production> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

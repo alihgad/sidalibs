@@ -10,11 +10,11 @@ export declare class MenuCategory {
 export type MenuCategoryDocument = HydratedDocument<MenuCategory> & {
     _id: string;
 };
-export declare const MenuCategorySchema: import("mongoose").Schema<MenuCategory, Model<MenuCategory, any, any, any, import("mongoose").Document<unknown, any, MenuCategory, any> & MenuCategory & {
+export declare const MenuCategorySchema: import("mongoose").Schema<MenuCategory, Model<MenuCategory, any, any, any, import("mongoose").Document<unknown, any, MenuCategory, any, {}> & MenuCategory & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, MenuCategory, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<MenuCategory>, {}> & import("mongoose").FlatRecord<MenuCategory> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, MenuCategory, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<MenuCategory>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<MenuCategory> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

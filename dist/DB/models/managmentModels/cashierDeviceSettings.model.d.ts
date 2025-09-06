@@ -28,11 +28,11 @@ export declare class CashierSettings {
     allowOpeningOneLiability: boolean;
     requireCustomerInfoBeforeClosingOrder: boolean;
 }
-export declare const CashierSettingsSchema: import("mongoose").Schema<CashierSettings, Model<CashierSettings, any, any, any, import("mongoose").Document<unknown, any, CashierSettings, any> & CashierSettings & {
+export declare const CashierSettingsSchema: import("mongoose").Schema<CashierSettings, Model<CashierSettings, any, any, any, import("mongoose").Document<unknown, any, CashierSettings, any, {}> & CashierSettings & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CashierSettings, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CashierSettings>, {}> & import("mongoose").FlatRecord<CashierSettings> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, CashierSettings, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<CashierSettings>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<CashierSettings> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

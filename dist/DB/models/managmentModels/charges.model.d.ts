@@ -19,11 +19,11 @@ export declare class Charges {
     deletedAt?: Date;
 }
 export type ChargesDocument = HydratedDocument<Charges>;
-export declare const chargeschema: import("mongoose").Schema<Charges, Model<Charges, any, any, any, import("mongoose").Document<unknown, any, Charges, any> & Charges & {
+export declare const chargeschema: import("mongoose").Schema<Charges, Model<Charges, any, any, any, import("mongoose").Document<unknown, any, Charges, any, {}> & Charges & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Charges, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Charges>, {}> & import("mongoose").FlatRecord<Charges> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Charges, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Charges>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Charges> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

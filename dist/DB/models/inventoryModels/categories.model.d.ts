@@ -9,11 +9,11 @@ export declare class inventoryCategory {
 export type inventoryCategoryDocument = HydratedDocument<inventoryCategory> & {
     _id: string;
 };
-export declare const inventoryCategorySchema: import("mongoose").Schema<inventoryCategory, Model<inventoryCategory, any, any, any, import("mongoose").Document<unknown, any, inventoryCategory, any> & inventoryCategory & {
+export declare const inventoryCategorySchema: import("mongoose").Schema<inventoryCategory, Model<inventoryCategory, any, any, any, import("mongoose").Document<unknown, any, inventoryCategory, any, {}> & inventoryCategory & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, inventoryCategory, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<inventoryCategory>, {}> & import("mongoose").FlatRecord<inventoryCategory> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, inventoryCategory, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<inventoryCategory>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<inventoryCategory> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

@@ -33,11 +33,11 @@ export declare class TransferOrder {
     deletedAt?: Date;
 }
 export type TransferOrderDocument = HydratedDocument<TransferOrder>;
-export declare const TransferOrderSchema: import("mongoose").Schema<TransferOrder, Model<TransferOrder, any, any, any, import("mongoose").Document<unknown, any, TransferOrder, any> & TransferOrder & {
+export declare const TransferOrderSchema: import("mongoose").Schema<TransferOrder, Model<TransferOrder, any, any, any, import("mongoose").Document<unknown, any, TransferOrder, any, {}> & TransferOrder & {
     _id: Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, TransferOrder, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<TransferOrder>, {}> & import("mongoose").FlatRecord<TransferOrder> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, TransferOrder, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<TransferOrder>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<TransferOrder> & {
     _id: Types.ObjectId;
 } & {
     __v: number;

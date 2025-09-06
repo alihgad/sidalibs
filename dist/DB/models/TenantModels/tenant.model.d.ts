@@ -46,11 +46,11 @@ export declare class Tenant {
 export type TenantDocument = HydratedDocument<Tenant> & {
     _id: string;
 };
-export declare const TenantSchema: import("mongoose").Schema<Tenant, Model<Tenant, any, any, any, import("mongoose").Document<unknown, any, Tenant, any> & Tenant & {
+export declare const TenantSchema: import("mongoose").Schema<Tenant, Model<Tenant, any, any, any, import("mongoose").Document<unknown, any, Tenant, any, {}> & Tenant & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Tenant, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Tenant>, {}> & import("mongoose").FlatRecord<Tenant> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Tenant, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Tenant>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Tenant> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;

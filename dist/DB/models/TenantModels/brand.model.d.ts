@@ -7,11 +7,11 @@ export declare class Brand {
 export type BrandDocument = HydratedDocument<Brand> & {
     _id: string;
 };
-export declare const BrandSchema: import("mongoose").Schema<Brand, Model<Brand, any, any, any, import("mongoose").Document<unknown, any, Brand, any> & Brand & {
+export declare const BrandSchema: import("mongoose").Schema<Brand, Model<Brand, any, any, any, import("mongoose").Document<unknown, any, Brand, any, {}> & Brand & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
-}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Brand, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Brand>, {}> & import("mongoose").FlatRecord<Brand> & {
+}, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, Brand, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<Brand>, {}, import("mongoose").ResolveSchemaOptions<import("mongoose").DefaultSchemaOptions>> & import("mongoose").FlatRecord<Brand> & {
     _id: import("mongoose").Types.ObjectId;
 } & {
     __v: number;
