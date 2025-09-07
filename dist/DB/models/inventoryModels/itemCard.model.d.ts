@@ -2,12 +2,14 @@ import { HydratedDocument, Model } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { Transaction } from '../../../common/type';
 export declare class materialCard {
-    constructor(materialId: string, price: number, closeDate: Date, inputs: Transaction[], outputs: Transaction[], startPrice: number);
+    constructor(materialId: string, price: number, closeDate: Date, inputs: Transaction[], outputs: Transaction[], startPrice: number, oldInputs: Transaction[], oldOutputs: Transaction[]);
     materialId: string;
     price: number;
     closeDate: Date;
     inputs: Transaction[];
     outputs: Transaction[];
+    oldInputs: Transaction[];
+    oldOutputs: Transaction[];
     startPrice: number;
 }
 export type materialCardDocument = HydratedDocument<materialCard>;

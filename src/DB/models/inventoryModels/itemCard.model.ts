@@ -17,13 +17,17 @@ export class materialCard {
     inputs:Transaction[],
     outputs:Transaction[],
     startPrice:number,
+    oldInputs:Transaction[],
+    oldOutputs:Transaction[]
     ) {
         this.materialId = materialId
         this.price = price
         this.closeDate = closeDate   
         this.inputs = inputs  
         this.outputs = outputs 
-        this.startPrice = startPrice 
+        this.startPrice = startPrice
+        this.oldInputs = oldInputs
+        this.oldOutputs = oldOutputs
     }
     @Prop({ type: String })
     materialId: string;
@@ -39,6 +43,12 @@ export class materialCard {
 
     @Prop({ type: [] })
     outputs : Transaction[]
+
+    @Prop({ type: [] })
+    oldInputs : Transaction[]
+
+    @Prop({ type: [] })
+    oldOutputs : Transaction[]
 
     @Prop({ type: Number , default:0}) 
     startPrice : number

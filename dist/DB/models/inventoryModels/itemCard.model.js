@@ -14,13 +14,15 @@ const mongoose_1 = require("@nestjs/mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 let materialCard = class materialCard {
-    constructor(materialId, price, closeDate, inputs, outputs, startPrice) {
+    constructor(materialId, price, closeDate, inputs, outputs, startPrice, oldInputs, oldOutputs) {
         this.materialId = materialId;
         this.price = price;
         this.closeDate = closeDate;
         this.inputs = inputs;
         this.outputs = outputs;
         this.startPrice = startPrice;
+        this.oldInputs = oldInputs;
+        this.oldOutputs = oldOutputs;
     }
 };
 exports.materialCard = materialCard;
@@ -45,6 +47,14 @@ __decorate([
     __metadata("design:type", Array)
 ], materialCard.prototype, "outputs", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: [] }),
+    __metadata("design:type", Array)
+], materialCard.prototype, "oldInputs", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: [] }),
+    __metadata("design:type", Array)
+], materialCard.prototype, "oldOutputs", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ type: Number, default: 0 }),
     __metadata("design:type", Number)
 ], materialCard.prototype, "startPrice", void 0);
@@ -54,7 +64,7 @@ exports.materialCard = materialCard = __decorate([
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
     }),
-    __metadata("design:paramtypes", [String, Number, Date, Array, Array, Number])
+    __metadata("design:paramtypes", [String, Number, Date, Array, Array, Number, Array, Array])
 ], materialCard);
 exports.materialCardSchema = mongoose_1.SchemaFactory.createForClass(materialCard);
 exports.material_CARD_MODEL = 'material_CARD_MODEL';
