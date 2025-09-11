@@ -1,3 +1,4 @@
+import { Types } from 'mongoose';
 import Stripe from 'stripe';
 export declare enum ZatcaOnboardingStatus {
     PENDING_OTP = "PENDING_OTP",
@@ -294,5 +295,6 @@ export interface Transaction {
     amount: number;
     date: Date;
     type: TransactionTypes;
+    transactionId: Types.ObjectId;
 }
 //# sourceMappingURL=type.d.ts.map

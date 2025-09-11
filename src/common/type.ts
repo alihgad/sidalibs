@@ -1,5 +1,6 @@
 import { Field, InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { IsEnum, IsNotEmpty, IsInt, Min, IsString, IsOptional } from 'class-validator';
+import { Types } from 'mongoose';
 
 import Stripe from 'stripe';
 
@@ -606,6 +607,7 @@ export interface Transaction {
     amount: number;
     date : Date;
     type: TransactionTypes;
+    transactionId: Types.ObjectId
 }
 
 
