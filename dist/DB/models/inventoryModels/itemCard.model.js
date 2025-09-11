@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getmaterialCardModel = exports.materialCardModel = exports.material_CARD_MODEL = exports.materialCardSchema = exports.materialCard = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
+const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 let materialCard = class materialCard {
@@ -27,15 +28,15 @@ let materialCard = class materialCard {
 };
 exports.materialCard = materialCard;
 __decorate([
-    (0, mongoose_1.Prop)({ type: String }),
-    __metadata("design:type", String)
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: "Materials" }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
 ], materialCard.prototype, "materialId", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Number }),
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
     __metadata("design:type", Number)
 ], materialCard.prototype, "price", void 0);
 __decorate([
-    (0, mongoose_1.Prop)({ type: Date }),
+    (0, mongoose_1.Prop)({ type: Date, default: null }),
     __metadata("design:type", Date)
 ], materialCard.prototype, "closeDate", void 0);
 __decorate([
@@ -64,7 +65,7 @@ exports.materialCard = materialCard = __decorate([
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
     }),
-    __metadata("design:paramtypes", [String, Number, Date, Array, Array, Number, Array, Array])
+    __metadata("design:paramtypes", [mongoose_2.Types.ObjectId, Number, Date, Array, Array, Number, Array, Array])
 ], materialCard);
 exports.materialCardSchema = mongoose_1.SchemaFactory.createForClass(materialCard);
 exports.material_CARD_MODEL = 'material_CARD_MODEL';

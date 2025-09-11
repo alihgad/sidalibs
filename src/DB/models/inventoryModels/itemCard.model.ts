@@ -1,5 +1,5 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Model } from 'mongoose';
+import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { ConnectionManager } from '../../connection.manager';
 import { Transaction } from '../../../common/type';
@@ -11,7 +11,7 @@ import { Transaction } from '../../../common/type';
 })
 export class materialCard {
     constructor(
-    materialId: string,
+    materialId: Types.ObjectId,
     price: number,
     closeDate:Date,
     inputs:Transaction[],
@@ -29,13 +29,13 @@ export class materialCard {
         this.oldInputs = oldInputs
         this.oldOutputs = oldOutputs
     }
-    @Prop({ type: String })
-    materialId: string;
+    @Prop({ type: Types.ObjectId  , ref : "Materials"})
+    materialId: Types.ObjectId;
 
-    @Prop({ type: Number })
+    @Prop({ type: Number , default: 0 })
     price: number
 
-    @Prop({ type: Date })
+    @Prop({ type: Date  , default : null})
     closeDate:Date
 
     @Prop({ type: [] })
