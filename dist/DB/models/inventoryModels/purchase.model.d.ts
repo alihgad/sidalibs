@@ -3,6 +3,7 @@ import { DataBaseRepository } from '../../DataBase.repository';
 import { PurchaseStatus, PurchaseType } from '../../../common/type';
 export declare class Purchase {
     referenceNumber: string;
+    purchaseId?: Types.ObjectId;
     supplier: {
         supplierId: Types.ObjectId;
         supplierName: string;

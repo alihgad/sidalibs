@@ -60,6 +60,10 @@ __decorate([
     __metadata("design:type", String)
 ], Purchase.prototype, "referenceNumber", void 0);
 __decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'purchase', default: null }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], Purchase.prototype, "purchaseId", void 0);
+__decorate([
     (0, mongoose_1.Prop)({
         type: {
             supplierId: { type: mongoose_2.Types.ObjectId, ref: 'Supplier', required: true },

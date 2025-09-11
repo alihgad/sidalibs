@@ -20,6 +20,9 @@ export class Purchase {
     @Prop({ type: String, required: true })
     referenceNumber!: string;
 
+    @Prop({ type: Types.ObjectId, ref: 'purchase', default : null })
+    purchaseId?: Types.ObjectId;
+
     @Prop({
         type: {
             supplierId: { type: Types.ObjectId, ref: 'Supplier', required: true },
