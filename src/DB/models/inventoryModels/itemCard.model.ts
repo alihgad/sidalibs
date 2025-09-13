@@ -18,9 +18,11 @@ export class materialCard {
     outputs:Transaction[],
     startPrice:number,
     oldInputs:Transaction[],
-    oldOutputs:Transaction[]
+    oldOutputs:Transaction[],
+    branchId:Types.ObjectId
     ) {
         this.materialId = materialId
+        this.branchId = branchId
         this.price = price
         this.closeDate = closeDate   
         this.inputs = inputs  
@@ -31,6 +33,9 @@ export class materialCard {
     }
     @Prop({ type: Types.ObjectId  , ref : "Materials"})
     materialId: Types.ObjectId;
+
+    @Prop({ type: Types.ObjectId  , ref : "Branch"})
+    branchId: Types.ObjectId
 
     @Prop({ type: Number , default: 0 })
     price: number

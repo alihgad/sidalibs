@@ -15,8 +15,9 @@ const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 let materialCard = class materialCard {
-    constructor(materialId, price, closeDate, inputs, outputs, startPrice, oldInputs, oldOutputs) {
+    constructor(materialId, price, closeDate, inputs, outputs, startPrice, oldInputs, oldOutputs, branchId) {
         this.materialId = materialId;
+        this.branchId = branchId;
         this.price = price;
         this.closeDate = closeDate;
         this.inputs = inputs;
@@ -31,6 +32,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: "Materials" }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], materialCard.prototype, "materialId", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: "Branch" }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], materialCard.prototype, "branchId", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: Number, default: 0 }),
     __metadata("design:type", Number)
@@ -65,7 +70,7 @@ exports.materialCard = materialCard = __decorate([
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
     }),
-    __metadata("design:paramtypes", [mongoose_2.Types.ObjectId, Number, Date, Array, Array, Number, Array, Array])
+    __metadata("design:paramtypes", [mongoose_2.Types.ObjectId, Number, Date, Array, Array, Number, Array, Array, mongoose_2.Types.ObjectId])
 ], materialCard);
 exports.materialCardSchema = mongoose_1.SchemaFactory.createForClass(materialCard);
 exports.material_CARD_MODEL = 'material_CARD_MODEL';
