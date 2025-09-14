@@ -15,7 +15,7 @@ const mongoose_2 = require("mongoose");
 const DataBase_repository_1 = require("../../DataBase.repository");
 const connection_manager_1 = require("../../connection.manager");
 let materialCard = class materialCard {
-    constructor(materialId, price, closeDate, inputs, outputs, startPrice, oldInputs, oldOutputs, branchId) {
+    constructor(materialId, price, closeDate, inputs, outputs, startPrice, oldInputs, oldOutputs, branchId, totalQuantity, totalAmount) {
         this.materialId = materialId;
         this.branchId = branchId;
         this.price = price;
@@ -25,6 +25,8 @@ let materialCard = class materialCard {
         this.startPrice = startPrice;
         this.oldInputs = oldInputs;
         this.oldOutputs = oldOutputs;
+        this.totalQuantity = totalQuantity;
+        this.totalAmount = totalAmount;
     }
 };
 exports.materialCard = materialCard;
@@ -64,15 +66,37 @@ __decorate([
     (0, mongoose_1.Prop)({ type: Number, default: 0 }),
     __metadata("design:type", Number)
 ], materialCard.prototype, "startPrice", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    __metadata("design:type", Number)
+], materialCard.prototype, "totalQuantity", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
+    __metadata("design:type", Number)
+], materialCard.prototype, "totalAmount", void 0);
 exports.materialCard = materialCard = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: true,
         toJSON: { virtuals: true },
         toObject: { virtuals: true },
     }),
-    __metadata("design:paramtypes", [mongoose_2.Types.ObjectId, Number, Date, Array, Array, Number, Array, Array, mongoose_2.Types.ObjectId])
+    __metadata("design:paramtypes", [mongoose_2.Types.ObjectId, Number, Date, Array, Array, Number, Array, Array, mongoose_2.Types.ObjectId, Number, Number])
 ], materialCard);
 exports.materialCardSchema = mongoose_1.SchemaFactory.createForClass(materialCard);
+let calculating = (doc) => {
+    doc.inputs.forEach(input => {
+        doc.totalQuantity += input.quantity;
+        doc.totalAmount += input.amount;
+    });
+    doc.price = doc.totalAmount / doc.totalQuantity;
+};
+// Hook واحد لجميع عمليات البحث
+exports.materialCardSchema.pre(/^find/, function () {
+    calculating(this);
+});
+exports.materialCardSchema.pre("updateOne", function () {
+    throw new Error("not allowed use findOneAndUpdate");
+});
 exports.material_CARD_MODEL = 'material_CARD_MODEL';
 exports.materialCardModel = mongoose_1.MongooseModule.forFeature([
     { name: 'materialCard', schema: exports.materialCardSchema }

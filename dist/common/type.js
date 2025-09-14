@@ -549,6 +549,7 @@ var TransactionTypes;
     TransactionTypes["purchase"] = "purchase";
     TransactionTypes["sales"] = "sales";
     TransactionTypes["transfer"] = "transfer";
+    TransactionTypes["adjustment"] = "adjustment";
 })(TransactionTypes || (exports.TransactionTypes = TransactionTypes = {}));
 (0, graphql_1.registerEnumType)(TransactionTypes, {
     name: 'TransationTypes',

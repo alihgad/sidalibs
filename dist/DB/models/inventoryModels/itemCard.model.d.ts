@@ -2,7 +2,7 @@ import { HydratedDocument, Model, Types } from 'mongoose';
 import { DataBaseRepository } from '../../DataBase.repository';
 import { Transaction } from '../../../common/type';
 export declare class materialCard {
-    constructor(materialId: Types.ObjectId, price: number, closeDate: Date, inputs: Transaction[], outputs: Transaction[], startPrice: number, oldInputs: Transaction[], oldOutputs: Transaction[], branchId: Types.ObjectId);
+    constructor(materialId: Types.ObjectId, price: number, closeDate: Date, inputs: Transaction[], outputs: Transaction[], startPrice: number, oldInputs: Transaction[], oldOutputs: Transaction[], branchId: Types.ObjectId, totalQuantity: number, totalAmount: number);
     materialId: Types.ObjectId;
     branchId: Types.ObjectId;
     price: number;
@@ -12,6 +12,8 @@ export declare class materialCard {
     oldInputs: Transaction[];
     oldOutputs: Transaction[];
     startPrice: number;
+    totalQuantity: number;
+    totalAmount: number;
 }
 export type materialCardDocument = HydratedDocument<materialCard>;
 export declare const materialCardSchema: import("mongoose").Schema<materialCard, Model<materialCard, any, any, any, import("mongoose").Document<unknown, any, materialCard, any, {}> & materialCard & {

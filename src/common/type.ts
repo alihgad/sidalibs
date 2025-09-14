@@ -593,7 +593,8 @@ export enum TransactionTypes {
     production = 'production',
     purchase = 'purchase',
     sales = 'sales',
-    transfer = 'transfer'
+    transfer = 'transfer',
+    adjustment = "adjustment"
 }
 
 registerEnumType(TransactionTypes, {

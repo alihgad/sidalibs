@@ -288,7 +288,8 @@ export declare enum TransactionTypes {
     production = "production",
     purchase = "purchase",
     sales = "sales",
-    transfer = "transfer"
+    transfer = "transfer",
+    adjustment = "adjustment"
 }
 export interface Transaction {
     quantity: number;
